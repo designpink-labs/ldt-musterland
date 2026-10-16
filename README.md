@@ -107,6 +107,8 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
 - Startseite: Die Seite „Start“ (/node/1, Alias /start) ist nur unter „/“ erreichbar; /start und
   /node/1 leiten dauerhaft (301) auf „/“ weiter (`ldt_musterhinweis`, `StartseiteWeiterleitung`,
   ohne Redirect-Modul). Links auf die Startseite im Text deshalb als `<a href="/">`.
+- Datumsangaben im Text als `<time datetime="2026-11-12">12. November 2026</time>` (das Textformat
+  erlaubt dafür genau `<time datetime>`).
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)
@@ -119,6 +121,7 @@ Original-Ablage: `~/Documents/Claude/Drupal-Dokumente/` (ohne Unterordner `quell
 | `Merkblatt-vorher.pdf` (absichtlich nicht barrierefrei), `Merkblatt-nachher.pdf`, `Struktur-vorher.png`, `Struktur-nachher.png` | Barrierefreie Dokumente |
 | `Checkliste-Redaktion.pdf`, `LDT-Vorlage.dotx`, `LDT-Vorlage.ott` | Arbeitshilfe Redaktion |
 | `sharepic-wcag22.png` (Instagram-Infografik) | Social Media |
+| `Schulung-Grundlagen-Folien.pdf`, `Uebungsblatt-Tastaturpruefung.pdf` | Schulungen |
 
 In `pages.php` eingebunden mit `{{file:NAME|Linktext}}` (Format und Größe werden
 automatisch angehängt, z. B. „(PDF, 61 KB)“) und `{{img:NAME|Alternativtext}}`
@@ -128,7 +131,8 @@ Beide werden pfadunabhängig über die Datei-UUID gespeichert. Wird eine Datei e
 die Seite mit `--overwrite --only=…` neu schreiben, damit die Größe stimmt.
 
 PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.pdf`
-→ Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS
+→ Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS,
+Schulungsfolien PASS, Übungsblatt PASS
 (beide barrierefreien PDFs mit 1× H1 und darunter H2).
 
 ## Aktuelles (Inhaltstyp „Meldung“)

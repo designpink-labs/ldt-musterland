@@ -775,29 +775,36 @@ return [
     'menu' => 'main', 'weight' => 4,
     'body' => '
 <p>Das LDT bietet den Beschäftigten der Landesverwaltung kostenfreie Schulungen an. Sie finden online oder in unseren Schulungsräumen in Musterstadt statt.</p>
-<h2>Unser Angebot</h2>
-<ul>
-  <li><strong>Grundlagen der digitalen Barrierefreiheit</strong> – für alle Beschäftigten, 3 Stunden, online</li>
-  <li><strong>Barrierefreie Dokumente mit Word und PDF</strong> – für Sachbearbeitung und Redaktionen, 1 Tag, in Präsenz</li>
-  <li><strong>Texte fürs Web und Einfache Sprache</strong> – für Online-Redaktionen, 1 Tag, in Präsenz</li>
-  <li><strong>Barrierefreiheit prüfen nach WCAG und EN 301 549</strong> – für Webverantwortliche und IT, 2 Tage, in Präsenz</li>
-  <li><strong>Barrierefreie Social-Media-Beiträge</strong> – für Social-Media-Teams, 3 Stunden, online</li>
-</ul>
+<h2>So melden Sie sich an</h2>
+<p>Sie melden sich über die Fortbildungsbeauftragten Ihrer Dienststelle an. Nennen Sie dabei die Schulung und den Termin. Für Teams ab acht Personen bieten wir Schulungen auch direkt in Ihrer Dienststelle an.</p>
+<p>Brauchen Sie Gebärdensprachdolmetschen, Live-Untertitel oder andere Unterstützung? Geben Sie das bei der Anmeldung an, wir organisieren es.</p>
+<p>Auf dieser Musterseite ist keine Anmeldung möglich.</p>
+<h2>Nächste Termine</h2>
+<table>
+  <caption>Nächste Schulungstermine</caption>
+  <thead>
+    <tr><th scope="col">Schulung</th><th scope="col">Für wen</th><th scope="col">Dauer</th><th scope="col">Form</th><th scope="col">Termin</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Grundlagen der digitalen Barrierefreiheit</th><td>alle Beschäftigten</td><td>3 Stunden</td><td>online</td><td><time datetime="2026-11-12">12. November 2026</time></td></tr>
+    <tr><th scope="row">Barrierefreie Dokumente mit Word und PDF</th><td>Sachbearbeitung und Redaktionen</td><td>1 Tag</td><td>in Präsenz</td><td><time datetime="2026-11-19">19. November 2026</time></td></tr>
+    <tr><th scope="row">Texte fürs Web und Einfache Sprache</th><td>Online-Redaktionen</td><td>1 Tag</td><td>in Präsenz</td><td><time datetime="2026-11-26">26. November 2026</time></td></tr>
+    <tr><th scope="row">Barrierefreiheit prüfen nach WCAG und EN 301 549</th><td>Webverantwortliche und IT</td><td>2 Tage</td><td>in Präsenz</td><td><time datetime="2026-12-02">2.</time> und <time datetime="2026-12-03">3. Dezember 2026</time></td></tr>
+    <tr><th scope="row">Barrierefreie Social-Media-Beiträge</th><td>Social-Media-Teams</td><td>3 Stunden</td><td>online</td><td><time datetime="2026-12-09">9. Dezember 2026</time></td></tr>
+  </tbody>
+</table>
 <h2>So arbeiten wir</h2>
 <ul>
   <li>Sie üben an eigenen Dokumenten und Texten. Bringen Sie gern Beispiele aus Ihrer Arbeit mit.</li>
   <li>Alle Unterlagen sind barrierefrei und stehen nach der Schulung zum Download bereit.</li>
   <li>Für Online-Schulungen bieten wir auf Wunsch Live-Untertitel an.</li>
-  <li>Gebärdensprachdolmetschen und weitere Unterstützung organisieren wir, wenn Sie es bei der Anmeldung angeben.</li>
 </ul>
-<h2>Anmeldung</h2>
-<p>Sie melden sich über die Fortbildungsbeauftragten Ihrer Dienststelle an. Für Teams ab acht Personen bieten wir auch Schulungen direkt in Ihrer Dienststelle an.</p>
-<p>Auf dieser Musterseite ist keine Anmeldung möglich.</p>
 <h2>Beispielmaterial</h2>
-<div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Das Beispiel wird hier ergänzt.</p>
-<p>Hier steht ein Auszug aus den Unterlagen zur Schulung „Grundlagen der digitalen Barrierefreiheit“: einige Folien als barrierefreies PDF und ein Übungsblatt, mit dem Teilnehmende eine Website mit der Tastatur prüfen.</p>
-</div>',
+<p>Aus der Schulung „Grundlagen der digitalen Barrierefreiheit“:</p>
+<ul>
+  <li>{{file:Schulung-Grundlagen-Folien.pdf|Folien „Grundlagen der digitalen Barrierefreiheit“, barrierefrei}}</li>
+  <li>{{file:Uebungsblatt-Tastaturpruefung.pdf|Übungsblatt „Website mit der Tastatur prüfen“, barrierefrei}}</li>
+</ul>',
   ],
   'ueber-uns' => [
     'title' => 'Über uns / Kontakt',
@@ -856,7 +863,7 @@ return [
   <li><strong>Screenreader:</strong> Grundprüfung mit VoiceOver in Safari unter macOS: Orientierungspunkte (Landmarks), Überschriften, Hauptmenü mit Untermenüs und Formular „Barriere melden“.</li>
   <li><strong>Umbruch bei Vergrößerung:</strong> Alle Seiten bei 320 Pixel Breite, das entspricht 400 Prozent Zoom. Ergebnis: kein waagerechtes Scrollen.</li>
   <li><strong>Kontraste:</strong> Alle verwendeten Farbkombinationen. Ergebnis: mindestens 4,5:1 für Text und 3:1 für Bedienelemente.</li>
-  <li><strong>PDF-Dokumente:</strong> Prüfung nach PDF/UA-1 mit veraPDF 1.30. Geprüft sind die barrierefreien PDF-Downloads: das {{link:dokumente|Merkblatt „Barrierefreie Dokumente erstellen“}} und die {{link:arbeitshilfe|Checkliste vor der Veröffentlichung}}. Ergebnis: alle bestanden. Das absichtlich fehlerhafte Beispiel-PDF („vorher“) ist als solches gekennzeichnet und von der Bewertung ausgenommen.</li>
+  <li><strong>PDF-Dokumente:</strong> Prüfung nach PDF/UA-1 mit veraPDF 1.30. Geprüft sind die barrierefreien PDF-Downloads: das {{link:dokumente|Merkblatt „Barrierefreie Dokumente erstellen“}}, die {{link:arbeitshilfe|Checkliste vor der Veröffentlichung}} sowie Folien und Übungsblatt aus den {{link:schulungen|Schulungen}}. Ergebnis: alle bestanden. Das absichtlich fehlerhafte Beispiel-PDF („vorher“) ist als solches gekennzeichnet und von der Bewertung ausgenommen.</li>
 </ul>
 <h2>Barrieren melden: Kontakt</h2>
 <p>Sind Ihnen Mängel beim barrierefreien Zugang zu Inhalten dieser Website aufgefallen? Dann melden Sie sich bitte über das Formular {{form:barriere_melden|Barriere melden}} oder per E-Mail an poststelle@ldt-musterland.example (Beispieladresse).</p>

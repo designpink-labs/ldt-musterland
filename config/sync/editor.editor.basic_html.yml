@@ -61,6 +61,7 @@ settings:
         - '<div class="hinweis hinweis--info sprachvergleich">'
         - '<span lang>'
         - '<th scope>'
+        - '<time datetime>'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default
