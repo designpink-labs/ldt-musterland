@@ -437,6 +437,7 @@ return [
   <li>{{link:seo-geo|SEO und GEO}}: in Suchmaschinen und KI-Assistenten auffindbar sein</li>
   <li>{{link:matomo|Webanalyse mit Matomo}}: datenschutzfreundlich messen, was gebraucht wird</li>
   <li>{{link:fehlermeldungen|Fehlermeldungen bearbeiten}}: Meldungen zu Barrieren und Störungen prüfen und weitergeben</li>
+  <li>{{link:entstehung|So ist diese Website entstanden}}: wie diese Musterseite geplant, gebaut und geprüft wurde</li>
 </ul>
 <h2>Erst die Struktur, dann die Optimierung</h2>
 <p>Viele Probleme, die nach schlechter Auffindbarkeit aussehen, sind in Wahrheit Strukturprobleme: Seiten heißen wie Abteilungen statt wie Anliegen, oder dasselbe Thema steht an drei Stellen. Wir beginnen deshalb immer mit der Struktur. Webanalyse zeigt danach, ob die Änderungen wirken.</p>
@@ -587,6 +588,47 @@ return [
 </table>
 <p>Das Beispiel ist erfunden. Auf dieser Website funktioniert das Menü.</p>
 <p>Gute Meldungen erkennen Sie daran, dass jemand anderes das Problem allein mit den Angaben nachstellen kann.</p>',
+  ],
+
+  'entstehung' => [
+    'title' => 'So ist diese Website entstanden',
+    'summary' => 'Von den Anforderungen bis zur Veröffentlichung: wie diese Musterseite geplant, gebaut und geprüft wurde, und was wir dabei gelernt haben.',
+    'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 5,
+    'body' => '
+<p>Diese Website ist ein Beispiel dafür, wie ein neues Internetangebot einer Behörde entstehen kann. Barrierefreiheit war dabei von Anfang an eine Anforderung und keine Nacharbeit.</p>
+<h2>Das Vorgehen</h2>
+<ol>
+  <li><strong>Anforderungen klären:</strong> Für wen ist das Angebot, welche Inhalte braucht es, welche Seiten sind Pflicht? Für Behörden gehören dazu die Erklärung zur Barrierefreiheit, ein Weg, Barrieren zu melden, und Informationen in Leichter Sprache und Gebärdensprache. Technischer Rahmen: einfaches Webhosting, die Website läuft in einem Unterordner.</li>
+  <li><strong>Struktur planen:</strong> Die Inhalte sind nach Themen geordnet, mit höchstens zwei Ebenen. Pflichtseiten stehen gesammelt im Seitenfuß. Mehr dazu auf der Seite {{link:ia|Informationsarchitektur}}.</li>
+  <li><strong>Technik aufsetzen:</strong> Grundlage ist das Content-Management-System Drupal. Entwickelt wurde in einer lokalen Umgebung, alle Änderungen sind versioniert. Einstellungen liegen als Dateien vor, damit sich die Website jederzeit nachbauen lässt.</li>
+  <li><strong>Gestaltung entwickeln:</strong> Ein eigenes Design mit geprüften Farbkontrasten und einer besonders gut lesbaren Schrift, die auf dem eigenen Server liegt und nicht von Dritten geladen wird. Alle Bausteine sind in den <a href="/styleguide">Gestaltungsrichtlinien</a> dokumentiert.</li>
+  <li><strong>Inhalte schreiben:</strong> Online-gerecht und fachlich geprüft, mit Beispielen zum Herunterladen, Texten in Leichter Sprache und einem Bereich für aktuelle Meldungen.</li>
+  <li><strong>Prüfen, nach jeder Änderung:</strong> Automatische Tests auf allen Seiten in Desktop- und Handy-Ansicht, Bedienung nur mit der Tastatur, Darstellung bei 400 Prozent Vergrößerung, Screenreader-Test mit VoiceOver, PDF-Prüfung nach PDF/UA. Die Ergebnisse stehen in der {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</li>
+  <li><strong>Veröffentlichen:</strong> Als Musterseite ist die Website für Suchmaschinen gesperrt, und das Formular speichert keine Daten.</li>
+</ol>
+<h2>Werkzeuge</h2>
+<table>
+  <caption>Eingesetzte Werkzeuge nach Zweck</caption>
+  <thead>
+    <tr><th scope="col">Zweck</th><th scope="col">Werkzeug</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Redaktionssystem</th><td>Drupal 11</td></tr>
+    <tr><th scope="row">Barrierefreiheit beim Schreiben</th><td>Editoria11y</td></tr>
+    <tr><th scope="row">Automatische Prüfung</th><td>axe-core</td></tr>
+    <tr><th scope="row">PDF-Prüfung</th><td>veraPDF</td></tr>
+    <tr><th scope="row">Screenreader</th><td>VoiceOver</td></tr>
+    <tr><th scope="row">Dokumente und Vorlagen</th><td>LibreOffice Writer</td></tr>
+  </tbody>
+</table>
+<h2>Was wir dabei gelernt haben</h2>
+<ul>
+  <li><strong>Automatische Tests finden nicht alles.</strong> Ein Formularfeld verlangte eine vollständige Internetadresse, obwohl der Hilfetext ein kürzeres Beispiel nannte. Kein Test hat das gemeldet, aufgefallen ist es erst beim Ausprobieren.</li>
+  <li><strong>Tabellen brauchen auf dem Handy eine eigene Lösung.</strong> Technisch war eine waagerecht scrollende Tabelle zulässig. Aber die wichtigste Spalte war abgeschnitten, und nichts wies darauf hin. Jetzt erscheinen Tabellenzeilen auf schmalen Bildschirmen als Karten.</li>
+  <li><strong>Überschriften im PDF folgen der Formatvorlage.</strong> Unsere erste Vorlage erzeugte fünf Hauptüberschriften statt einer. Seitdem ist „Überschrift 1“ dem Dokumenttitel vorbehalten.</li>
+  <li><strong>Updates können Einstellungen überschreiben.</strong> Eine Serverregel für Untertiteldateien ging bei einem Update verloren. Solche Regeln stehen jetzt in einer eigenen Datei, die automatisch wieder eingefügt wird.</li>
+  <li><strong>Feste Adressen vermeiden.</strong> Weil die Website in einem Unterordner läuft, sind alle internen Links so gespeichert, dass sie an jedem Ort funktionieren.</li>
+</ul>',
   ],
 
   // Hauptmenü: Einzelseiten.

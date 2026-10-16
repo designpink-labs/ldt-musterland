@@ -97,6 +97,11 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   `css/components/ldt-tabellen.css`). Unter 40 rem wird jede Zeile zur Karte (Spaltenköpfe als
   sichtbare Beschriftung aus `data-label`, nur bei mehr als einer Datenzelle je Zeile;
   Tabellenrollen ausdrücklich per `role` gesetzt).
+- Links auf Seiten ohne Inhaltstyp (z. B. `/styleguide`) dürfen als `<a href="/styleguide">` im Text
+  stehen: Das Theme stellt beim Ausgeben den Basis-Pfad voran (`src/InterneLinks.php`), auf
+  Strato also `/drupal/styleguide`. Links auf Inhalte immer per Linkit.
+- Styleguide `/styleguide` heißt „Gestaltungsrichtlinien“ (noindex, nicht in der Sitemap) und
+  verlinkt zurück auf „So ist diese Website entstanden“ (Schlüssel `entstehung`).
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)

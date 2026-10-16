@@ -20,7 +20,7 @@ class StyleguideHooks {
   public function theme(): array {
     return [
       'ldt_styleguide' => [
-        'variables' => ['colors' => [], 'pairs' => []],
+        'variables' => ['colors' => [], 'pairs' => [], 'zurueck' => NULL],
       ],
     ];
   }

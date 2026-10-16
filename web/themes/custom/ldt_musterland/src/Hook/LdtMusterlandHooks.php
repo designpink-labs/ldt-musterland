@@ -4,6 +4,7 @@ namespace Drupal\ldt_musterland\Hook;
 
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Url;
+use Drupal\ldt_musterland\InterneLinks;
 use Drupal\ldt_musterland\TabellenRahmen;
 
 /**
@@ -90,6 +91,7 @@ class LdtMusterlandHooks {
     }
     foreach ($variables['items'] as &$item) {
       $item['content']['#post_render'][] = [TabellenRahmen::class, 'postRender'];
+      $item['content']['#post_render'][] = [InterneLinks::class, 'postRender'];
     }
   }
 

@@ -79,10 +79,22 @@ class StyleguideController extends ControllerBase {
       ];
     }
 
+    // Rücklink auf die Seite "So ist diese Website entstanden" (pages.php,
+    // Schlüssel "entstehung"), die auf die Gestaltungsrichtlinien verweist.
+    $zurueck = NULL;
+    $cache_tags = [];
+    $nid = $this->state()->get('ldt.page_nids', [])['entstehung'] ?? NULL;
+    if ($nid && ($node = $this->entityTypeManager()->getStorage('node')->load($nid)) && $node->access('view')) {
+      $zurueck = ['url' => $node->toUrl()->toString(), 'title' => $node->label()];
+      $cache_tags = $node->getCacheTags();
+    }
+
     return [
       '#theme' => 'ldt_styleguide',
       '#colors' => $colors,
       '#pairs' => $pairs,
+      '#zurueck' => $zurueck,
+      '#cache' => ['tags' => $cache_tags],
       '#attached' => [
         'html_head' => [[
           ['#tag' => 'meta', '#attributes' => ['name' => 'robots', 'content' => 'noindex, nofollow']],

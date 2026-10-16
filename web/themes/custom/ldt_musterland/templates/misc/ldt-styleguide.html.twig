@@ -6,10 +6,14 @@
  * Variablen:
  * - colors: Farb-Tokens aus css/base/tokens.css (Name => Hex).
  * - pairs: geprüfte Kombinationen mit live berechnetem Kontrast.
+ * - zurueck: url und title der Seite "So ist diese Website entstanden".
  */
 #}
 <div class="styleguide">
-  <p class="styleguide__prose">Diese Seite zeigt alle Gestaltungsbausteine des Themes „LDT Musterland“. Sie ist nicht verlinkt und für Suchmaschinen gesperrt. Die Kontrastwerte werden beim Aufruf aus den Farbwerten des Themes berechnet.</p>
+  {% if zurueck %}
+    <p class="styleguide__zurueck"><a href="{{ zurueck.url }}">Zurück zu: {{ zurueck.title }}</a></p>
+  {% endif %}
+  <p class="styleguide__prose">Diese Seite zeigt alle Gestaltungsbausteine des Themes „LDT Musterland“. Sie steht nicht im Menü und ist für Suchmaschinen gesperrt. Die Kontrastwerte werden beim Aufruf aus den Farbwerten des Themes berechnet.</p>
 
   <nav aria-labelledby="sg-inhalt">
     <h2 id="sg-inhalt">Inhalt dieser Seite</h2>
