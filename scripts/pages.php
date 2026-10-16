@@ -92,10 +92,20 @@ return [
   <li>Exportieren Sie das PDF mit Strukturinformationen: Unter Windows aktivieren Sie in den PDF-Optionen „Dokumentstrukturtags für Barrierefreiheit“. Auf dem Mac wählen Sie beim Speichern als PDF „Am besten für elektronische Verteilung und Barrierefreiheit“.</li>
 </ul>
 <h2>Beispiel: vorher und nachher</h2>
-<div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Das Beispiel wird hier ergänzt.</p>
-<p>Es zeigt ein Merkblatt in zwei Fassungen: einmal als einfachen Export ohne Tags, mit dem PAC-Prüfbericht und seinen Fehlern, und einmal überarbeitet nach PDF/UA, mit bestandenem Prüfbericht. Bildschirmfotos zeigen die Lesereihenfolge vorher und nachher.</p>
-</div>
+<p>Das Merkblatt „Barrierefreie Dokumente erstellen“ gibt es hier in zwei Fassungen. Der Inhalt ist gleich, nur der technische Aufbau unterscheidet sich. Die Grafiken zeigen, welche Struktur ein Screenreader jeweils vorfindet.</p>
+<h3>Vorher: einfacher Export ohne Tags</h3>
+<p><strong>Achtung:</strong> Diese Fassung ist absichtlich nicht barrierefrei. Sie dient nur als Beispiel für typische Fehler.</p>
+{{img:Struktur-vorher.png|Vorher: Das PDF hat keine Tags, keine Lesezeichen, keinen Titel und die falsche Sprache Englisch. Screenreader erkennen darin keine Überschriften, Listen oder Tabellen.}}
+<ul>
+  <li>{{file:Merkblatt-vorher.pdf|Merkblatt Barrierefreie Dokumente, nicht barrierefreies Beispiel}}</li>
+</ul>
+<h3>Nachher: überarbeitet nach PDF/UA</h3>
+{{img:Struktur-nachher.png|Nachher: Das PDF ist vollständig getaggt – mit Überschriften, einer Liste, einer Abbildung mit Alternativtext, einer Tabelle mit Kopfzeile und einem Link. Die Sprache ist Deutsch, Titel und Lesezeichen sind vorhanden.}}
+<ul>
+  <li>{{file:Merkblatt-nachher.pdf|Merkblatt Barrierefreie Dokumente, barrierefrei}}</li>
+</ul>
+<h3>Ergebnis der Prüfung</h3>
+<p>Beide Fassungen wurden mit dem freien Prüfprogramm veraPDF (Version 1.30) gegen PDF/UA-1 geprüft. Die Vorher-Fassung fällt durch: 61 Inhaltselemente sind weder getaggt noch als Artefakt gekennzeichnet, außerdem fehlen Strukturbaum, Metadaten und die Anzeige des Dokumenttitels. Die Nachher-Fassung besteht alle 106 Prüfregeln ohne einen einzigen Fehler.</p>
 <h2>Braucht es überhaupt ein PDF?</h2>
 <p>Inhalte, die Menschen am Bildschirm lesen, gehören besser direkt auf eine Webseite. PDF eignet sich für Dokumente zum Ausdrucken oder Archivieren. Wenn Sie ein PDF verlinken, nennen Sie Format und Größe im Linktext, zum Beispiel „Merkblatt Barrierefreiheit (PDF, 240 KB)“.</p>
 <p>Eine barrierefreie Word-Vorlage finden Sie in der {{link:arbeitshilfe|Arbeitshilfe für Redaktionen}}.</p>',
@@ -301,11 +311,13 @@ return [
   <li>Sehen Sie sich die Hinweise der automatischen Prüfung im Redaktionssystem an. Auf dieser Website prüft das Werkzeug Editoria11y die Seite schon beim Schreiben.</li>
   <li>Gehen Sie die Seite einmal nur mit der Tabulatortaste durch.</li>
 </ul>
-<h2>Download</h2>
-<div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Das Beispiel wird hier ergänzt.</p>
-<p>Hier stehen zwei Downloads: diese Checkliste als barrierefreies PDF auf einer DIN-A4-Seite und eine barrierefreie Word-Vorlage mit fertigen Formatvorlagen für Überschriften, Listen und Tabellen. Die Linktexte nennen jeweils Format und Dateigröße.</p>
-</div>',
+<h2>Downloads</h2>
+<p>Die Checkliste gibt es auch als barrierefreies PDF auf einer DIN-A4-Seite, zum Ausdrucken oder Weitergeben. Die Dokumentvorlagen enthalten fertige Formatvorlagen für Überschriften, Listen, Tabellen und Hinweise. Die Dokumentsprache ist auf Deutsch eingestellt.</p>
+<ul>
+  <li>{{file:Checkliste-Redaktion.pdf|Checkliste vor der Veröffentlichung, barrierefrei}}</li>
+  <li>{{file:LDT-Vorlage.dotx|Dokumentvorlage LDT Musterland für Microsoft Word}}</li>
+  <li>{{file:LDT-Vorlage.ott|Dokumentvorlage LDT Musterland für LibreOffice Writer}}</li>
+</ul>',
   ],
   'social-media' => [
     'title' => 'Social Media',

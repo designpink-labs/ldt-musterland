@@ -80,6 +80,24 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   Screenreader oder Hashtag nicht. Das Textformat erlaubt dafür nur `<span lang>`.
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
+### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)
+
+Die Beispieldateien sind **nicht im Git-Repository** (Ordner `files/` wird ignoriert).
+Original-Ablage: `~/Documents/Claude/Drupal-Dokumente/` (ohne Unterordner `quellen/`).
+
+| Datei | Seite |
+|---|---|
+| `Merkblatt-vorher.pdf` (absichtlich nicht barrierefrei), `Merkblatt-nachher.pdf`, `Struktur-vorher.png`, `Struktur-nachher.png` | Barrierefreie Dokumente |
+| `Checkliste-Redaktion.pdf`, `LDT-Vorlage.dotx`, `LDT-Vorlage.ott` | Arbeitshilfe Redaktion |
+
+In `pages.php` eingebunden mit `{{file:NAME|Linktext}}` (Format und Größe werden
+automatisch angehängt, z. B. „(PDF, 61 KB)“) und `{{img:NAME|Alternativtext}}`.
+Beide werden pfadunabhängig über die Datei-UUID gespeichert. Wird eine Datei ersetzt,
+die Seite mit `--overwrite --only=…` neu schreiben, damit die Größe stimmt.
+
+PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.pdf`
+→ Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS.
+
 ## Metadaten und strukturierte Daten
 
 - **Meta-Beschreibung:** im Seiten-Formular rechts unter *Metadaten → Beschreibung*
@@ -206,6 +224,9 @@ Checkliste für den ersten Upload auf den Strato-Webspace:
    Lokal exportieren (`ddev export-db --file=backups/live.sql.gz`) und über
    phpMyAdmin bei Strato (oder per SSH mit `mysql`) importieren.
    Dateien aus `web/sites/default/files/` (Bilder, Uploads) separat per SFTP hochladen.
+   **Wichtig:** dazu gehört der Ordner `web/sites/default/files/dokumente/` mit den
+   Beispiel-PDFs, Grafiken und Vorlagen – er ist nicht im Git-Repository. Die Einträge
+   dazu stehen in der Datenbank; ohne die Dateien führen die Downloads ins Leere.
 
 5. **settings.php / settings.local.php.**
    `settings.php` ist im Repository und enthält keine Zugangsdaten. Sie bindet automatisch
