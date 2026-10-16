@@ -1,0 +1,56 @@
+# Von Composer verwaltete Abhängigkeiten (werden mit "composer install" wiederhergestellt)
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/recipes/
+/drush/Commands/contrib/
+
+# Von Composer erzeugte Scaffold-Dateien im web-Ordner
+# (.htaccess wird bewusst NICHT ignoriert, weil sie für Strato angepasst wird: RewriteBase)
+/web/autoload.php
+/web/autoload_runtime.php
+/web/index.php
+/web/update.php
+/web/robots.txt
+/web/web.config
+/web/example.gitignore
+/web/INSTALL.txt
+/web/README.md
+/web/.csslintrc
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.ht.router.php
+/web/sites/README.txt
+/web/sites/development.services.yml
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+/web/sites/default/default.services.yml
+/web/sites/default/default.settings.php
+/web/modules/README.txt
+/web/profiles/README.txt
+/web/themes/README.txt
+
+# Uploads und generierte Dateien
+/web/sites/*/files/
+/private/
+
+# Zugangsdaten und umgebungsspezifische Einstellungen
+/web/sites/*/settings.local.php
+/web/sites/*/settings.ddev.php
+/web/sites/*/services.local.yml
+.env
+.env.*
+
+# Datenbank-Dumps
+*.sql
+*.sql.gz
+/backups/
+
+# System- und Editor-Dateien
+.DS_Store
+.idea/
+.vscode/
+*.swp
