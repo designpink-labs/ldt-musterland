@@ -94,7 +94,8 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
 - Tabellen: Editor-Knopf „Tabelle“; Kopfzeile, Tabellenüberschrift (`<caption>`) und im
   Quelltext `<th scope="col">` bzw. `<th scope="row">`. Das Theme legt beim Ausgeben einen
   scrollbaren, per Tastatur erreichbaren Rahmen um jede Tabelle (`src/TabellenRahmen.php`,
-  `css/components/ldt-tabellen.css`): Unter 32 rem Breite scrollt nur die Tabelle, nie die Seite.
+  `css/components/ldt-tabellen.css`). Unter 40 rem wird jede Zeile zur Karte (Spaltenköpfe als
+  sichtbare Beschriftung aus `data-label`, Tabellenrollen ausdrücklich per `role` gesetzt).
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)

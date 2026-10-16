@@ -8,10 +8,15 @@ use Drupal\Core\Security\TrustedCallbackInterface;
 /**
  * Legt um jede Tabelle im Fließtext einen scrollbaren Rahmen.
  *
- * Auf schmalen Bildschirmen scrollt dann nur die Tabelle, nicht die ganze
- * Seite (WCAG 1.4.10). Der Rahmen ist per Tastatur erreichbar
- * (tabindex="0", scrollt mit den Pfeiltasten) und als Bereich mit der
- * Tabellenüberschrift (<caption>) beschriftet:
+ * Unter 40 rem stellt ldt-tabellen.css jede Zeile als Karte dar. Dafür
+ * bekommt jede Datenzelle ihren Spaltenkopf als data-label (sichtbare
+ * Beschriftung per CSS), und alle Tabellenelemente bekommen ihre Rolle
+ * ausdrücklich (role="table", "row", "columnheader", "rowheader", "cell"):
+ * Mit display:block verlieren Browser sonst die Tabellen-Semantik.
+ *
+ * Der Rahmen bleibt als Sicherheitsnetz für sehr breite Tabellen: Er scrollt
+ * für sich (nie die Seite, WCAG 1.4.10), ist per Tastatur erreichbar
+ * (tabindex="0") und mit der Tabellenüberschrift (<caption>) beschriftet:
  *
  *   <div class="tabelle" role="region" tabindex="0" aria-labelledby="…">
  *     <table><caption id="…">…</caption>…</table>
@@ -55,10 +60,49 @@ class TabellenRahmen implements TrustedCallbackInterface {
       else {
         $rahmen->setAttribute('aria-label', 'Tabelle');
       }
+      self::rollenUndBeschriftungen($table);
       $parent->replaceChild($rahmen, $table);
       $rahmen->appendChild($table);
     }
     return Html::serialize($dom);
+  }
+
+  /**
+   * Setzt ARIA-Rollen und data-label (Spaltenköpfe) für die Kartenansicht.
+   */
+  protected static function rollenUndBeschriftungen(\DOMElement $table): void {
+    $table->setAttribute('role', 'table');
+    $koepfe = [];
+    foreach ($table->getElementsByTagName('thead') as $thead) {
+      foreach ($thead->getElementsByTagName('th') as $i => $th) {
+        $koepfe[$i] = trim($th->textContent);
+      }
+    }
+    foreach (['thead', 'tbody', 'tfoot'] as $gruppe) {
+      foreach ($table->getElementsByTagName($gruppe) as $element) {
+        $element->setAttribute('role', 'rowgroup');
+      }
+    }
+    foreach ($table->getElementsByTagName('tr') as $tr) {
+      $tr->setAttribute('role', 'row');
+      $im_kopf = $tr->parentNode->nodeName === 'thead';
+      $spalte = 0;
+      foreach ($tr->childNodes as $zelle) {
+        if (!$zelle instanceof \DOMElement) {
+          continue;
+        }
+        if ($zelle->nodeName === 'th') {
+          $zelle->setAttribute('role', $im_kopf || $zelle->getAttribute('scope') === 'col' ? 'columnheader' : 'rowheader');
+        }
+        else {
+          $zelle->setAttribute('role', 'cell');
+          if (isset($koepfe[$spalte])) {
+            $zelle->setAttribute('data-label', $koepfe[$spalte]);
+          }
+        }
+        $spalte += max(1, (int) $zelle->getAttribute('colspan'));
+      }
+    }
   }
 
 }
