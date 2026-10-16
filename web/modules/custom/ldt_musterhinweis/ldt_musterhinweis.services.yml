@@ -1,0 +1,6 @@
+services:
+  ldt_musterhinweis.startseite_weiterleitung:
+    class: Drupal\ldt_musterhinweis\EventSubscriber\StartseiteWeiterleitung
+    arguments: ['@config.factory']
+    tags:
+      - { name: event_subscriber }

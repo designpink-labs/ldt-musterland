@@ -62,7 +62,9 @@ f = await fokus(page);
 ok(await btn.getAttribute('aria-expanded') === 'false' && f.name === 'Untermenü Barrierefreiheit', 'Escape schließt Untermenü, Fokus zurück auf den Button');
 await page.keyboard.press(' ');
 ok(await btn.getAttribute('aria-expanded') === 'true', 'Leertaste öffnet Untermenü');
-await tab(page, 5);
+// So oft Tab, wie das Untermenü Links hat, plus einmal: dann ist der Fokus draußen.
+const unterlinks = await page.locator('#' + await btn.getAttribute('aria-controls') + ' a').count();
+await tab(page, unterlinks + 1);
 f = await fokus(page);
 ok(await btn.getAttribute('aria-expanded') === 'false', `Fokus verlässt Untermenü („${f.name}“) → Untermenü schließt`);
 await ctx.close();

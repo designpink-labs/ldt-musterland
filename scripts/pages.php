@@ -54,11 +54,12 @@ return [
   <li>{{link:leichte-sprache-fach|Leichte Sprache}}: Texte für Menschen mit Lernschwierigkeiten</li>
   <li>{{link:video|Video und Untertitel}}: Videos für Menschen, die nicht hören oder nicht sehen</li>
   <li>{{link:gebaerdensprache-fach|Gebärdensprache}}: Informationen in Deutscher Gebärdensprache</li>
+  <li>{{link:pruefung|Barrierefreiheit prüfen lassen}}: Websites, Apps und Dokumente vom LDT prüfen lassen</li>
 </ul>
 <h2>So unterstützen wir Dienststellen</h2>
 <ul>
   <li><strong>Beratung:</strong> Wir helfen Ihnen, Barrierefreiheit von Anfang an einzuplanen, zum Beispiel in Ausschreibungen für neue Websites.</li>
-  <li><strong>Prüfung:</strong> Wir prüfen Websites und Dokumente nach den Anforderungen der WCAG und der EN 301 549. Dazu gehören automatische Tests, die Bedienung nur mit der Tastatur und Tests mit Screenreadern. Ein Screenreader ist eine Software, die Bildschirminhalte vorliest.</li>
+  <li><strong>Prüfung:</strong> Wir prüfen Websites und Dokumente nach den Anforderungen der WCAG und der EN 301 549. Dazu gehören automatische Tests, die Bedienung nur mit der Tastatur und Tests mit Screenreadern. Ein Screenreader ist eine Software, die Bildschirminhalte vorliest. Wie Sie eine Prüfung anfragen, steht auf der Seite {{link:pruefung|Barrierefreiheit prüfen lassen}}.</li>
   <li><strong>Schulung:</strong> In unseren {{link:schulungen|Schulungen zur Barrierefreiheit}} lernen Redaktionen, barrierefreie Inhalte zu erstellen.</li>
   <li><strong>Arbeitshilfen:</strong> Checklisten und Vorlagen finden Sie in der {{link:arbeitshilfe|Arbeitshilfe für Redaktionen}}.</li>
 </ul>
@@ -235,6 +236,47 @@ return [
 <p>Gezeigt wird ein kurzes DGS-Video, in dem eine gehörlose Person die Aufgaben des LDT erklärt. Darunter steht der Inhalt als Text.</p>
 </div>
 <p>Unsere Informationen in Gebärdensprache finden Sie auf der Seite {{link:gebaerdensprache|Informationen in Gebärdensprache}}.</p>',
+  ],
+
+  'pruefung' => [
+    'title' => 'Barrierefreiheit prüfen lassen',
+    'summary' => 'Dienststellen der Landesverwaltung können ihre Websites, Apps und Dokumente vom LDT auf Barrierefreiheit prüfen lassen. So läuft eine Prüfung ab.',
+    'meta' => 'Websites, Apps und Dokumente vom LDT auf Barrierefreiheit prüfen lassen: Prüfarten, Ablauf und Anfrage für Dienststellen.',
+    'menu' => 'main', 'parent' => 'barrierefreiheit', 'weight' => 5,
+    'body' => '
+<p>Sie möchten wissen, ob Ihre Website, Ihre App oder Ihre Dokumente barrierefrei sind? Das LDT prüft digitale Angebote der Dienststellen des Musterlands. Die Prüfung ist für Dienststellen der Landesverwaltung kostenfrei.</p>
+<h2>Welche Prüfung passt?</h2>
+<table>
+  <caption>Prüfarten im Überblick</caption>
+  <thead>
+    <tr><th scope="col">Prüfung</th><th scope="col">Wann sinnvoll</th><th scope="col">Umfang</th><th scope="col">Dauer</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Schnelltest</th><td>Sie wollen einen ersten Überblick.</td><td>5 typische Seiten, automatische und manuelle Prüfung der wichtigsten Anforderungen</td><td>etwa 1 Woche</td></tr>
+    <tr><th scope="row">Vollständige Prüfung</th><td>Sie brauchen eine Grundlage für die Erklärung zur Barrierefreiheit.</td><td>Repräsentative Auswahl von Seiten, alle Anforderungen nach WCAG 2.1 Stufe AA und EN 301 549</td><td>4 bis 6 Wochen</td></tr>
+    <tr><th scope="row">Dokumentenprüfung</th><td>Sie veröffentlichen PDF-Formulare oder Merkblätter.</td><td>Bis zu 10 Dokumente, Prüfung nach PDF/UA, mit Screenreader</td><td>etwa 2 Wochen</td></tr>
+    <tr><th scope="row">Abnahmeprüfung</th><td>Ein Dienstleister entwickelt eine neue Website oder App für Sie.</td><td>Prüfung vor der Freigabe, auf Grundlage der Anforderungen aus Ihrer Ausschreibung</td><td>nach Absprache</td></tr>
+  </tbody>
+</table>
+<h2>So läuft eine Prüfung ab</h2>
+<ol>
+  <li><strong>Anfrage:</strong> Sie schreiben uns, was geprüft werden soll.</li>
+  <li><strong>Vorgespräch:</strong> Wir klären gemeinsam Umfang, Seitenauswahl und Termine.</li>
+  <li><strong>Prüfung:</strong> Wir prüfen mit Prüfwerkzeugen, mit der Tastatur und mit Screenreadern.</li>
+  <li><strong>Bericht:</strong> Sie erhalten einen Bericht mit allen gefundenen Barrieren, ihrer Priorität und Vorschlägen, wie Sie sie beheben.</li>
+  <li><strong>Nachprüfung:</strong> Nach der Überarbeitung prüfen wir die behobenen Punkte erneut.</li>
+</ol>
+<h2>Das brauchen wir von Ihnen</h2>
+<ul>
+  <li>die Adresse der Website oder die App, bei Neuentwicklungen einen Zugang zur Testumgebung</li>
+  <li>eine Ansprechperson aus Redaktion oder IT</li>
+  <li>wenn vorhanden: die bisherige Erklärung zur Barrierefreiheit</li>
+</ul>
+<h2>Prüfung und Überwachung</h2>
+<p>Die Prüfung auf Anfrage ist ein Beratungsangebot. Davon getrennt prüft das LDT als Überwachungsstelle des Landes regelmäßig eine Stichprobe von Websites und Apps öffentlicher Stellen. Wer eine Prüfung anfragt, wird dadurch nicht häufiger überwacht.</p>
+<h2>Anfrage stellen</h2>
+<p>Schreiben Sie an Referat 2 – Prüfung und Überwachung:<br><a href="mailto:poststelle@ldt-musterland.example?subject=Pr%C3%BCfanfrage">poststelle@ldt-musterland.example</a> (Beispieladresse)</p>
+<p>Nennen Sie im Betreff „Prüfanfrage“ und die gewünschte Prüfung.</p>',
   ],
 
   // Hauptmenü: Online-Redaktion.
@@ -565,7 +607,7 @@ return [
   </thead>
   <tbody>
     <tr><th scope="row">{{link:dokumente|Barrierefreie Dokumente}}</th><td>1.240</td><td>26&nbsp;%</td></tr>
-    <tr><th scope="row">{{link:start|Startseite}}</th><td>980</td><td>20&nbsp;%</td></tr>
+    <tr><th scope="row"><a href="/">Startseite</a></th><td>980</td><td>20&nbsp;%</td></tr>
     <tr><th scope="row">{{link:leichte-sprache|Leichte Sprache}}</th><td>610</td><td>13&nbsp;%</td></tr>
     <tr><th scope="row">Meldung „{{link:meldung/en-301-549|Europäische Norm setzt jetzt auf WCAG 2.2}}“</th><td>540</td><td>11&nbsp;%</td></tr>
     <tr><th scope="row">{{link:arbeitshilfe|Arbeitshilfe Redaktion}}</th><td>390</td><td>8&nbsp;%</td></tr>
@@ -616,7 +658,7 @@ return [
 </table>
 <h3>Was wir daraus ableiten</h3>
 <ol>
-  <li><strong>Fehlende Inhalte ergänzen:</strong> 22 Menschen suchten nach „barrierefreiheit prüfen lassen“ und fanden nichts. Wir ergänzen eine Seite, wie Dienststellen eine Prüfung beim LDT anfragen.</li>
+  <li><strong>Fehlende Inhalte ergänzen:</strong> 22 Menschen suchten nach „barrierefreiheit prüfen lassen“ und fanden nichts. Wir ergänzen eine Seite, wie Dienststellen eine Prüfung beim LDT anfragen: {{link:pruefung|Barrierefreiheit prüfen lassen}}.</li>
   <li><strong>Anmeldung zu Schulungen klarer machen:</strong> 47 Suchen nach „schulung anmeldung“ zeigen, dass die Information auf der Seite {{link:schulungen|Schulungen}} nicht schnell genug gefunden wird. Der Abschnitt „Anmeldung“ rückt nach oben.</li>
   <li><strong>Unterseiten wie Startseiten behandeln:</strong> Ein Viertel der Besuche beginnt auf „Barrierefreie Dokumente“. Diese Seite braucht deshalb einen klaren Einstieg und Links zu verwandten Themen.</li>
   <li><strong>Mobile Nutzung im Blick behalten:</strong> Der Anteil der Smartphones steigt. Neue Inhalte testen wir zuerst in der Handy-Ansicht.</li>

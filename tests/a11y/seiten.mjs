@@ -3,7 +3,7 @@ export const BASE = process.env.BASE_URL || 'https://designpink.ddev.site:33001'
 export const SEITEN = [
   '/', '/barrierefreiheit', '/barrierefreiheit/barrierefreie-dokumente',
   '/barrierefreiheit/leichte-sprache', '/barrierefreiheit/video-untertitel',
-  '/barrierefreiheit/gebaerdensprache', '/online-redaktion',
+  '/barrierefreiheit/gebaerdensprache', '/barrierefreiheit/barrierefreiheit-pruefen-lassen', '/online-redaktion',
   '/online-redaktion/texte-fuers-web', '/online-redaktion/arbeitshilfe-redaktion',
   '/online-redaktion/social-media', '/web-optimierung',
   '/web-optimierung/informationsarchitektur', '/web-optimierung/seo-geo',

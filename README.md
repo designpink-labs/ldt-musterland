@@ -104,6 +104,9 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   Strato also `/drupal/styleguide`. Links auf Inhalte immer per Linkit.
 - Styleguide `/styleguide` heißt „Gestaltungsrichtlinien“ (noindex, nicht in der Sitemap) und
   verlinkt zurück auf „So ist diese Website entstanden“ (Schlüssel `entstehung`).
+- Startseite: Die Seite „Start“ (/node/1, Alias /start) ist nur unter „/“ erreichbar; /start und
+  /node/1 leiten dauerhaft (301) auf „/“ weiter (`ldt_musterhinweis`, `StartseiteWeiterleitung`,
+  ohne Redirect-Modul). Links auf die Startseite im Text deshalb als `<a href="/">`.
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)
