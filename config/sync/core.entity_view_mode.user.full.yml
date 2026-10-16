@@ -1,0 +1,13 @@
+uuid: ac1bd735-688a-444a-a3cc-60946cfbecb4
+langcode: de
+status: false
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: ZbXunWS_xAvMZXFfinyvClDAb_RCVLt7gAzE3v16E-Q
+id: user.full
+label: 'User account'
+description: ''
+targetEntityType: user
+cache: true

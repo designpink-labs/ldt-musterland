@@ -1,0 +1,9 @@
+uuid: f32f66e3-3e35-490a-931b-acad52882712
+langcode: de
+status: true
+dependencies: {  }
+id: de
+label: Deutsch
+direction: ltr
+weight: 0
+locked: false

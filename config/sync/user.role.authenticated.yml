@@ -1,0 +1,24 @@
+uuid: 8d27b27f-b3d8-418f-8ab9-89565f0c39c5
+langcode: de
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.webform_default
+  module:
+    - file
+    - filter
+    - matomo
+    - system
+_core:
+  default_config_hash: wkW7P5A53YhGmsgamrmTbfwpZrqdnPYiJdoAZQtdmJg
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'delete own files'
+  - 'opt-in or out of matomo tracking'
+  - 'use text format basic_html'
+  - 'use text format webform_default'

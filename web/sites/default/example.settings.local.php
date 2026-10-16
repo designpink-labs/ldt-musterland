@@ -37,3 +37,9 @@ $settings['trusted_host_patterns'] = [
 
 // Auf dem Live-Server keine Fehlermeldungen anzeigen.
 $config['system.logging']['error_level'] = 'hide';
+
+// Matomo-Webanalyse nur live aktivieren (lokal bleibt sie leer und inaktiv).
+// Werte aus der eigenen Matomo-Installation eintragen.
+// $config['matomo.settings']['site_id'] = 'SITE_ID';
+// $config['matomo.settings']['url_http'] = 'http://MATOMO-ADRESSE/';
+// $config['matomo.settings']['url_https'] = 'https://MATOMO-ADRESSE/';

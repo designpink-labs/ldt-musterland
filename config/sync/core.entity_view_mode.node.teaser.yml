@@ -1,0 +1,13 @@
+uuid: a0a1736b-a3fe-46a6-b781-44cd05935309
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: KgGJDZFpMaz_8bTv6fN1bXS3Qi5LWmRJI9R53kEGsNQ
+id: node.teaser
+label: Teaser
+description: ''
+targetEntityType: node
+cache: true
