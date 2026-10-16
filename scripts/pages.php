@@ -532,22 +532,22 @@ return [
   <li><strong>Downloads:</strong> Welche Dokumente werden wirklich gebraucht?</li>
 </ul>
 <p>Reine Seitenaufrufe sagen wenig. Fragen Sie immer: Konnte die Person ihr Anliegen erledigen?</p>
-<h2>Beispiel: Monatsbericht September 2026</h2>
+<h2>Beispiel: Monatsbericht</h2>
 <div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Dies ist ein Musterbericht mit erfundenen Zahlen. Er zeigt, wie ein Monatsbericht für eine Behördenwebsite aussehen kann. Auf dieser Website ist Matomo nicht aktiv.</p>
+<p><strong>Hinweis:</strong> Dies ist ein Musterbericht mit erfundenen Zahlen. Er zeigt, wie ein Monatsbericht für eine Behördenwebsite aussehen kann. Auf dieser Website ist Matomo nicht aktiv, und es gibt keine eigene Suchfunktion – der Abschnitt zur Suche zeigt, was eine Suchauswertung leisten kann.</p>
 </div>
-<p><strong>Erhebung:</strong> Matomo, selbst betrieben, ohne Cookies, IP-Adressen um 2&nbsp;Bytes gekürzt, Zugriffe von Bots herausgefiltert. Zeitraum: 1. bis 30. September 2026.</p>
+<p><strong>Erhebung:</strong> Matomo, selbst betrieben, ohne Cookies, IP-Adressen um 2&nbsp;Bytes gekürzt, Zugriffe von Bots herausgefiltert. Zeitraum: ein Beispielmonat.</p>
 <h3>Das Wichtigste in Kürze</h3>
 <ul>
-  <li>Die meisten Menschen kommen über Suchmaschinen direkt auf die Seite „Barrierefreie Dokumente“, nicht über die Startseite.</li>
+  <li>Die häufigste Einstiegsseite ist „Barrierefreie Dokumente“, noch vor der Startseite.</li>
   <li>Die Word-Vorlage ist der meistgenutzte Download.</li>
   <li>36 Suchanfragen auf der Website blieben ohne Ergebnis. Sie zeigen, welche Inhalte fehlen.</li>
 </ul>
 <h3>Kennzahlen</h3>
 <table>
-  <caption>Kennzahlen September 2026 im Vergleich zum Vormonat</caption>
+  <caption>Kennzahlen im Beispielmonat im Vergleich zum Vormonat</caption>
   <thead>
-    <tr><th scope="col">Kennzahl</th><th scope="col">September 2026</th><th scope="col">August 2026</th></tr>
+    <tr><th scope="col">Kennzahl</th><th scope="col">Beispielmonat</th><th scope="col">Vormonat</th></tr>
   </thead>
   <tbody>
     <tr><th scope="row">Besuche</th><td>4.820</td><td>4.150</td></tr>
@@ -559,7 +559,7 @@ return [
 </table>
 <h3>Die häufigsten Einstiegsseiten</h3>
 <table>
-  <caption>Einstiegsseiten im September 2026</caption>
+  <caption>Einstiegsseiten im Beispielmonat</caption>
   <thead>
     <tr><th scope="col">Seite</th><th scope="col">Besuche</th><th scope="col">Anteil</th></tr>
   </thead>
@@ -574,7 +574,7 @@ return [
 </table>
 <h3>Woher die Besuche kommen</h3>
 <table>
-  <caption>Herkunft der Besuche im September 2026</caption>
+  <caption>Herkunft der Besuche im Beispielmonat</caption>
   <thead>
     <tr><th scope="col">Herkunft</th><th scope="col">Anteil</th></tr>
   </thead>
@@ -588,7 +588,7 @@ return [
 </table>
 <h3>Suche auf der Website</h3>
 <table>
-  <caption>Häufige Suchbegriffe im September 2026</caption>
+  <caption>Häufige Suchbegriffe im Beispielmonat</caption>
   <thead>
     <tr><th scope="col">Suchbegriff</th><th scope="col">Suchen</th><th scope="col">Ergebnisse</th></tr>
   </thead>
@@ -602,12 +602,13 @@ return [
 </table>
 <h3>Downloads</h3>
 <table>
-  <caption>Downloads im September 2026</caption>
+  <caption>Downloads im Beispielmonat</caption>
   <thead>
     <tr><th scope="col">Datei</th><th scope="col">Downloads</th></tr>
   </thead>
   <tbody>
-    <tr><th scope="row">Word-Vorlage LDT Musterland (Seite {{link:arbeitshilfe|Arbeitshilfe Redaktion}})</th><td>248</td></tr>
+    <tr><th scope="row">Word-Vorlage LDT Musterland (Seite {{link:arbeitshilfe|Arbeitshilfe Redaktion}})</th><td>230</td></tr>
+    <tr><th scope="row">LibreOffice-Vorlage LDT Musterland (Seite {{link:arbeitshilfe|Arbeitshilfe Redaktion}})</th><td>18</td></tr>
     <tr><th scope="row">Checkliste vor der Veröffentlichung (Seite {{link:arbeitshilfe|Arbeitshilfe Redaktion}})</th><td>197</td></tr>
     <tr><th scope="row">Merkblatt Barrierefreie Dokumente, barrierefrei (Seite {{link:dokumente|Barrierefreie Dokumente}})</th><td>121</td></tr>
     <tr><th scope="row">Merkblatt, nicht barrierefreies Beispiel (Seite {{link:dokumente|Barrierefreie Dokumente}})</th><td>46</td></tr>
