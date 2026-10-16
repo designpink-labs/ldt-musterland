@@ -4,6 +4,7 @@ enabled_entity_types:
   - user
 punctuation:
   hyphen: 1
+  period: 1
 verbose: false
 separator: '-'
 max_length: 150

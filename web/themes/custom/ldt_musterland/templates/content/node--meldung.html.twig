@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Meldung, volle Ansicht. Der Titel (h1) kommt aus dem Seitentitel-Block.
+ *
+ * Variablen aus LdtMusterlandHooks::preprocessNode():
+ * - datum: iso (2026-10-09) und text (9. Oktober 2026).
+ * - quellen: Liste mit url, title, lang (nur bei fremdsprachigen Quellen).
+ */
+#}
+<article{{ attributes.addClass('meldung') }}>
+  {% if datum %}
+    <p class="meldung__datum"><time datetime="{{ datum.iso }}">{{ datum.text }}</time></p>
+  {% endif %}
+  {{ content.body }}
+  {% if quellen %}
+    <footer class="meldung__quellen">
+      <p><strong>{{ quellen|length > 1 ? 'Quellen:' : 'Quelle:' }}</strong></p>
+      <ul>
+        {% for quelle in quellen %}
+          <li>
+            <a href="{{ quelle.url }}"{% if quelle.lang %} lang="{{ quelle.lang }}" hreflang="{{ quelle.lang }}"{% endif %}>{{ quelle.title }}</a>
+            {%- if quelle.lang == 'en' %} (englisch){% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </footer>
+  {% endif %}
+</article>

@@ -1,0 +1,57 @@
+/**
+ * @file
+ * Meldungen: Liste (/aktuelles, Startseite) und volle Ansicht.
+ */
+
+/* Liste ohne Aufzählungszeichen; Trennlinie zwischen den Meldungen. */
+.meldungen {
+  max-width: var(--measure);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.meldungen > li {
+  margin: 0;
+  padding-block: var(--space-4);
+  border-block-end: 1px solid var(--c-line);
+}
+.meldungen > li:first-child {
+  padding-block-start: 0;
+}
+
+.meldung-teaser__titel {
+  margin-block: 0 var(--space-1);
+}
+.meldung-teaser__datum,
+.meldung__datum {
+  margin-block: 0 var(--space-2);
+  color: var(--c-text-muted);
+  font-size: var(--fs-small);
+}
+.meldung-teaser__text > :last-child,
+.meldung-teaser__text p:last-child {
+  margin-block-end: 0;
+}
+
+/* Link "Alle Meldungen" unter dem Startseiten-Block. */
+.block-views-blockaktuelles-block-1 .more-link {
+  margin-block-start: var(--space-4);
+  text-align: start;
+}
+
+/* Quellen am Ende einer Meldung. */
+.meldung__quellen {
+  max-width: var(--measure);
+  margin-block-start: var(--space-6);
+  padding-block-start: var(--space-4);
+  border-block-start: 1px solid var(--c-line);
+}
+.meldung__quellen > * {
+  font-size: var(--fs-small);
+}
+.meldung__quellen p {
+  margin-block-end: var(--space-2);
+}
+.meldung__quellen ul {
+  margin-block-start: 0;
+}

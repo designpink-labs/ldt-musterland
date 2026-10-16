@@ -1,0 +1,23 @@
+uuid: 4e15e7b8-b12f-43cd-b7b9-49c0b1e37251
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quellen
+    - node.type.meldung
+  module:
+    - link
+id: node.meldung.field_quellen
+field_name: field_quellen
+entity_type: node
+bundle: meldung
+label: Quellen
+description: 'Externe Quellen. Linktext: „Herausgeber: Titel“.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 16
+field_type: link

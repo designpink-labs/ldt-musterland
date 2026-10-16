@@ -1,0 +1,105 @@
+uuid: 02b064c9-34fc-4acd-9b67-717270a7037f
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.node.meldung.body
+    - field.field.node.meldung.field_datum
+    - field.field.node.meldung.field_metatag
+    - field.field.node.meldung.field_quellen
+    - node.type.meldung
+  module:
+    - datetime
+    - link
+    - metatag
+    - path
+    - text
+id: node.meldung.default
+targetEntityType: node
+bundle: meldung
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 12
+      summary_rows: 3
+      placeholder: ''
+      show_summary: true
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_datum:
+    type: datetime_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_metatag:
+    type: metatag_firehose
+    weight: 20
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
+  field_quellen:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 40
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

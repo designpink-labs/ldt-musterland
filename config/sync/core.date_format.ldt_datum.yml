@@ -1,0 +1,8 @@
+uuid: 20151d10-bfcc-40a2-ac1a-dcd0a1465670
+langcode: de
+status: true
+dependencies: {  }
+id: ldt_datum
+label: 'LDT Datum (9. Oktober 2026)'
+locked: false
+pattern: 'j. F Y'

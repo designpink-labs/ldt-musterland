@@ -1,0 +1,23 @@
+uuid: 988ee3c4-f268-4a2c-a304-4b8e2677292d
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.meldung
+  module:
+    - node
+id: meldung
+label: Meldung
+type: 'canonical_entities:node'
+pattern: '/aktuelles/[node:title]'
+selection_criteria:
+  3f0449aa-d71b-4747-afd3-e6103bdc459d:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      meldung: meldung
+selection_logic: and
+weight: 0
+relationships: {  }

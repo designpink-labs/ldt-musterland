@@ -1,0 +1,11 @@
+uuid: fad48280-66e3-4a9c-bd38-c00838ae8b94
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+id: node.kompakt
+label: Kompakt
+description: null
+targetEntityType: node
+cache: true

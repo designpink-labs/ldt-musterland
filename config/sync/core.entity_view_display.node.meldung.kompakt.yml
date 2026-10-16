@@ -1,0 +1,33 @@
+uuid: 08fe1cfd-baf5-48bb-869e-ea08af93723c
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.kompakt
+    - field.field.node.meldung.body
+    - field.field.node.meldung.field_datum
+    - field.field.node.meldung.field_metatag
+    - field.field.node.meldung.field_quellen
+    - node.type.meldung
+  module:
+    - text
+    - user
+id: node.meldung.kompakt
+targetEntityType: node
+bundle: meldung
+mode: kompakt
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_datum: true
+  field_metatag: true
+  field_quellen: true
+  langcode: true
+  links: true

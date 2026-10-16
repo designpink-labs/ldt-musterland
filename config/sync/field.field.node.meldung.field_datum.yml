@@ -1,0 +1,21 @@
+uuid: 5a9b2bd2-3fe5-4314-aae4-751946d00dd0
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_datum
+    - node.type.meldung
+  module:
+    - datetime
+id: node.meldung.field_datum
+field_name: field_datum
+entity_type: node
+bundle: meldung
+label: Datum
+description: 'Veröffentlichungsdatum der Meldung; bestimmt die Reihenfolge in „Aktuelles“.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,24 @@
+uuid: 83e104e9-0671-40ef-a40d-9eeae25fd50b
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.meldung
+  module:
+    - text
+id: node.meldung.body
+field_name: body
+entity_type: node
+bundle: meldung
+label: Text
+description: 'Der Teaser (Zusammenfassung) erscheint in der Übersicht und als Meta-Beschreibung.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: true
+  allowed_formats: {  }
+field_type: text_with_summary

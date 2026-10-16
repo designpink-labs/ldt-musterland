@@ -128,6 +128,7 @@ global:
       css/components/ldt-hinweis.css: {}
       css/components/ldt-sprachvergleich.css: {}
       css/components/ldt-cards.css: {}
+      css/components/ldt-meldungen.css: {}
       css/components/ldt-forms.css: {}
       css/components/ldt-footer.css: {}
       css/components/ldt-styleguide.css: {}

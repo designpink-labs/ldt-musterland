@@ -1,0 +1,21 @@
+uuid: 7dd909bd-e0e7-4006-a73f-51d6de7c2466
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.meldung
+  module:
+    - metatag
+id: node.meldung.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: meldung
+label: Metatags
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

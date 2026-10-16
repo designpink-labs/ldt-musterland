@@ -513,7 +513,7 @@ return [
   'ueber-uns' => [
     'title' => 'Über uns / Kontakt',
     'summary' => 'Aufgaben, Organisation und Kontakt des Landesamts für Digitale Teilhabe Musterland.',
-    'menu' => 'main', 'weight' => 5,
+    'menu' => 'main', 'weight' => 6, // 5 = "Aktuelles" (create-meldungen.php)
     'body' => '
 <h2>Wer wir sind</h2>
 <p>Das Landesamt für Digitale Teilhabe Musterland (LDT) ist die zentrale Fachstelle des Landes für digitale Barrierefreiheit und verständliche Verwaltungskommunikation. Es gehört zum Geschäftsbereich des Ministeriums für Digitales des Musterlands.</p>

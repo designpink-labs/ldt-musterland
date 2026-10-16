@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Meldung in Listen: Übersicht /aktuelles (h2) und Startseite (h3, über
+ * node--meldung--kompakt.html.twig).
+ *
+ * Die Überschrift steht vor dem Datum: Wer mit dem Screenreader von
+ * Überschrift zu Überschrift springt, hört danach Datum und Teaser.
+ */
+#}
+{% set ebene = ebene|default('h2') %}
+<article{{ attributes.addClass('meldung-teaser') }}>
+  <{{ ebene }} class="meldung-teaser__titel">
+    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+  </{{ ebene }}>
+  {% if datum %}
+    <p class="meldung-teaser__datum"><time datetime="{{ datum.iso }}">{{ datum.text }}</time></p>
+  {% endif %}
+  <div class="meldung-teaser__text">{{ content.body }}</div>
+</article>

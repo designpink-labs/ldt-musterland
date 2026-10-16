@@ -61,6 +61,35 @@ class LdtMusterlandHooks {
   }
 
   /**
+   * Implements hook_preprocess_node().
+   *
+   * Meldungen: Datum (für <time>) und Quellen für die Templates
+   * node--meldung*.html.twig.
+   */
+  #[Hook('preprocess_node')]
+  public function preprocessNode(array &$variables): void {
+    $node = $variables['node'];
+    if ($node->bundle() !== 'meldung') {
+      return;
+    }
+    $datum = $node->get('field_datum')->first();
+    if ($datum && $datum->date) {
+      $variables['datum'] = [
+        'iso' => $datum->value,
+        'text' => \Drupal::service('date.formatter')->format($datum->date->getTimestamp(), 'ldt_datum'),
+      ];
+    }
+    $variables['quellen'] = [];
+    foreach ($node->get('field_quellen') as $item) {
+      $variables['quellen'][] = [
+        'url' => $item->getUrl()->toString(),
+        'title' => $item->title,
+        'lang' => $item->options['attributes']['lang'] ?? NULL,
+      ];
+    }
+  }
+
+  /**
    * Gibt die aktuelle Adresse so zurück, wie Menülinks sie erzeugen.
    */
   protected function currentPath(): string {

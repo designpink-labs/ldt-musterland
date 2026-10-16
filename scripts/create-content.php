@@ -30,6 +30,8 @@
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\Entity\Node;
 
+require_once __DIR__ . '/marken.php';
+
 $overwrite = in_array('--overwrite', $extra ?? [], TRUE);
 $only = [];
 foreach ($extra ?? [] as $arg) {
@@ -106,41 +108,7 @@ if (!$link_storage->loadByProperties(['link.uri' => 'internal:/', 'menu_name' =>
 // 3. {{link:SCHLÜSSEL|Text}} in Linkit-Links umwandeln und Aliase erzeugen.
 foreach (array_keys($changed) as $key) {
   $node = $nodes[$key];
-  $body = preg_replace_callback('/\{\{link:([a-z0-9-]+)\|([^}]+)\}\}/', function ($m) use ($nodes) {
-    $target = $nodes[$m[1]];
-    return sprintf(
-      '<a href="/node/%d" data-entity-type="node" data-entity-uuid="%s" data-entity-substitution="canonical">%s</a>',
-      $target->id(), $target->uuid(), $m[2]
-    );
-  }, $node->get('body')->value);
-  // {{form:WEBFORM_ID|Text}}: Link auf ein Webformular, ebenfalls im Linkit-Format.
-  $body = preg_replace_callback('/\{\{form:([a-z0-9_]+)\|([^}]+)\}\}/', function ($m) {
-    $webform = \Drupal\webform\Entity\Webform::load($m[1]);
-    return sprintf(
-      '<a href="/form/%s" data-entity-type="webform" data-entity-uuid="%s" data-entity-substitution="canonical">%s</a>',
-      str_replace('_', '-', $webform->id()), $webform->uuid(), $m[2]
-    );
-  }, $body);
-  // {{file:DATEINAME|Text}}: Download-Link; Format und Größe werden angehängt.
-  $body = preg_replace_callback('/\{\{file:([A-Za-z0-9._-]+)\|([^}]+)\}\}/', function ($m) {
-    $file = ldt_dokument($m[1]);
-    $kb = max(1, (int) round($file->getSize() / 1024));
-    return sprintf(
-      '<a href="%s" data-entity-type="file" data-entity-uuid="%s" data-entity-substitution="file">%s (%s, %d KB)</a>',
-      $file->createFileUrl(), $file->uuid(), $m[2],
-      strtoupper(pathinfo($m[1], PATHINFO_EXTENSION)), $kb
-    );
-  }, $body);
-  // {{img:DATEINAME|Alternativtext}}: Bild; die Adresse setzt der Filter
-  // editor_file_reference beim Ausgeben anhand der UUID.
-  $body = preg_replace_callback('/\{\{img:([A-Za-z0-9._-]+)\|([^}]+)\}\}/', function ($m) {
-    $file = ldt_dokument($m[1]);
-    [$width, $height] = getimagesize($file->getFileUri());
-    return sprintf(
-      '<img src="%s" data-entity-type="file" data-entity-uuid="%s" alt="%s" width="%d" height="%d">',
-      $file->createFileUrl(), $file->uuid(), htmlspecialchars($m[2]), $width, $height
-    );
-  }, $body);
+  $body = ldt_marken($node->get('body')->value, $nodes);
   $node->set('body', ['value' => $body, 'summary' => $node->get('body')->summary, 'format' => 'basic_html']);
   $node->path->pathauto = 1;
   $node->save();
@@ -151,25 +119,6 @@ foreach (array_keys($changed) as $key) {
   ->set('page.front', '/node/' . $nodes['start']->id())
   ->save();
 
-/**
- * Datei-Eintrag für public://dokumente/NAME laden oder anlegen.
- *
- * Die Datei selbst muss schon im Ordner sites/default/files/dokumente liegen
- * (sie ist nicht im Git-Repository, siehe README).
- */
-function ldt_dokument(string $name): \Drupal\file\FileInterface {
-  $uri = 'public://dokumente/' . $name;
-  if (!file_exists($uri)) {
-    throw new \RuntimeException("Datei fehlt: sites/default/files/dokumente/$name");
-  }
-  $storage = \Drupal::entityTypeManager()->getStorage('file');
-  $files = $storage->loadByProperties(['uri' => $uri]);
-  $file = $files ? reset($files) : $storage->create(['uri' => $uri, 'uid' => 1]);
-  $file->setPermanent();
-  $file->setFilename($name);
-  $file->save();
-  return $file;
-}
 
 foreach ($nodes as $key => $node) {
   echo (isset($changed[$key]) ? '* ' : '  ') . $node->id() . "\t" . $node->toUrl()->toString() . "\t" . $node->label() . "\n";

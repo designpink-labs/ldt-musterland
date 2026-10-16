@@ -112,6 +112,27 @@ PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.
 → Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS
 (beide barrierefreien PDFs mit 1× H1 und darunter H2).
 
+## Aktuelles (Inhaltstyp „Meldung“)
+
+- Felder: Titel, **Datum** (`field_datum`, Veröffentlichung, bestimmt die Reihenfolge),
+  **Text** mit **Teaser** (= Zusammenfassung und Meta-Beschreibung), **Quellen**
+  (`field_quellen`, externe Links, mehrfach), Metatags.
+- Übersicht `/aktuelles` (View `aktuelles`, neueste zuerst, Überschriften h2) und
+  Startseiten-Block „Aktuelles“ (3 neueste, h3, Link „Alle Meldungen“).
+- Adressen: `/aktuelles/[titel]` (Pathauto-Muster „Meldung“; Punkte werden zu „-“,
+  z. B. `wcag-2-2`).
+- Datum als `<time datetime="2026-10-09">9. Oktober 2026</time>` (Datumsformat `ldt_datum`).
+- Templates: `node--meldung.html.twig` (Datum, Text, „Quelle:“-Liste),
+  `node--meldung--teaser.html.twig`, `node--meldung--kompakt.html.twig`;
+  Datum und Quellen bereitet `LdtMusterlandHooks::preprocessNode()` auf.
+- Strukturierte Daten: `NewsArticle` (Modul `schema_article`) mit headline,
+  datePublished, publisher/author = GovernmentOrganization LDT.
+- Texte in `scripts/meldungen.php`, anlegen mit
+  `ddev drush php:script scripts/create-meldungen.php` (`-- --overwrite` überschreibt).
+  Fremdsprachige Quellen (`'en'`) bekommen `lang`/`hreflang` und den Zusatz „(englisch)“ –
+  im Backend-Formular lässt sich die Sprache einer Quelle nicht setzen.
+- Marken (`{{link:…}}` usw.) für beide Skripte stehen in `scripts/marken.php`.
+
 ## Metadaten und strukturierte Daten
 
 - **Meta-Beschreibung:** im Seiten-Formular rechts unter *Metadaten → Beschreibung*

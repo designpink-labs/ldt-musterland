@@ -1,0 +1,11 @@
+uuid: e203db07-34c1-4e36-a394-5e220c6be516
+langcode: de
+status: true
+dependencies: {  }
+name: Meldung
+type: meldung
+description: 'Nachricht für den Bereich „Aktuelles“: Datum, Teaser, Text und Quellen.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false
