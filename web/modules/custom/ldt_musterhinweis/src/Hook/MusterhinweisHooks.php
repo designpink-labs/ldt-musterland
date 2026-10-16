@@ -20,6 +20,32 @@ class MusterhinweisHooks {
   ) {}
 
   /**
+   * Meta-Beschreibungen für Seiten ohne eigenen Inhalt, nach Route.
+   *
+   * Formular und Übersichtsliste haben kein Metatag-Feld. Der Zusatz
+   * entspricht dem der Seiten (scripts/create-content.php).
+   */
+  protected const BESCHREIBUNGEN = [
+    'entity.webform.canonical:barriere_melden' => 'Melden Sie Barrieren oder technische Störungen auf dieser Website. So prüfen und bearbeiten wir Ihre Meldung.',
+    'view.aktuelles.page_1' => 'Aktuelle Meldungen des LDT Musterland zu digitaler Barrierefreiheit, Online-Redaktion und Webstandards.',
+  ];
+
+  /**
+   * Implements hook_metatags_alter().
+   */
+  #[Hook('metatags_alter')]
+  public function metatagsAlter(array &$metatags, array &$context): void {
+    $route = \Drupal::routeMatch();
+    $schluessel = $route->getRouteName();
+    if ($schluessel === 'entity.webform.canonical') {
+      $schluessel .= ':' . $route->getRawParameter('webform');
+    }
+    if (isset(self::BESCHREIBUNGEN[$schluessel])) {
+      $metatags['description'] = self::BESCHREIBUNGEN[$schluessel] . ' – Musterseite einer fiktiven Behörde';
+    }
+  }
+
+  /**
    * Implements hook_theme().
    */
   #[Hook('theme')]
