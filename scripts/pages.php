@@ -100,7 +100,7 @@ return [
   <li>{{file:Merkblatt-vorher.pdf|Merkblatt Barrierefreie Dokumente, nicht barrierefreies Beispiel}}</li>
 </ul>
 <h3>Nachher: überarbeitet nach PDF/UA</h3>
-{{img:Struktur-nachher.png|Nachher: Das PDF ist vollständig getaggt – mit Überschriften, einer Liste, einer Abbildung mit Alternativtext, einer Tabelle mit Kopfzeile und einem Link. Die Sprache ist Deutsch, Titel und Lesezeichen sind vorhanden.}}
+{{img:Struktur-nachher.png|Nachher: Das PDF ist vollständig getaggt – mit einer Hauptüberschrift H1 und vier Zwischenüberschriften H2, einer Liste, einer Abbildung mit Alternativtext, einer Tabelle mit Kopfzeile und einem Link. Die Sprache ist Deutsch, Titel und Lesezeichen sind vorhanden.}}
 <ul>
   <li>{{file:Merkblatt-nachher.pdf|Merkblatt Barrierefreie Dokumente, barrierefrei}}</li>
 </ul>

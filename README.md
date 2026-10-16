@@ -50,6 +50,14 @@ kann im späteren Theme überschrieben werden (gleichnamige Datei im Theme-Ordne
 Damit Browser die Untertitel annehmen, muss `.vtt` als `text/vtt` ausgeliefert werden:
 lokal über `.ddev/nginx/vtt.conf`, auf Strato über `AddType text/vtt .vtt` in `web/.htaccess`.
 
+**Zusätzliche Dateitypen in `web/.htaccess`** (`.vtt`, `.dotx`, `.ott`) stehen in
+`assets/htaccess-ergaenzungen.txt`. Composer hängt sie über `composer.json`
+(`extra.drupal-scaffold.file-mapping`) bei jedem Core-Update automatisch wieder an –
+`web/.htaccess` also nicht direkt bearbeiten, sonst geht die Änderung beim nächsten
+Update verloren. Neu erzeugen: `ddev composer drupal:scaffold`.
+Lokal (nginx) erledigen das `.ddev/nginx/vtt.conf` und `.ddev/nginx/vorlagen.conf`
+(nach Änderungen `ddev restart`).
+
 ## Eigene Module (`web/modules/custom`)
 
 | Modul | Aufgabe |
@@ -96,7 +104,8 @@ Beide werden pfadunabhängig über die Datei-UUID gespeichert. Wird eine Datei e
 die Seite mit `--overwrite --only=…` neu schreiben, damit die Größe stimmt.
 
 PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.pdf`
-→ Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS.
+→ Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS
+(beide barrierefreien PDFs mit 1× H1 und darunter H2).
 
 ## Metadaten und strukturierte Daten
 

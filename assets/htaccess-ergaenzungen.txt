@@ -1,0 +1,10 @@
+
+# designpink: zusätzliche Dateitypen (angehängt per composer.json,
+# extra.drupal-scaffold.file-mapping – übersteht Core-Updates).
+<IfModule mod_mime.c>
+  # WebVTT-Untertitel für <track>.
+  AddType text/vtt .vtt
+  # Dokumentvorlagen (Arbeitshilfe Redaktion).
+  AddType application/vnd.openxmlformats-officedocument.wordprocessingml.template .dotx
+  AddType application/vnd.oasis.opendocument.text-template .ott
+</IfModule>
