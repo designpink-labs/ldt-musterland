@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Servicelinks im Kopfbereich (Leichte Sprache, Gebärdensprache).
+ *
+ * Das Icon wird über die Link-Option "ldt_icon" des Menüpunkts gewählt.
+ * Icons sind dekorativ (aria-hidden); der sichtbare Text ist der Linkname.
+ */
+#}
+{% if items %}
+  <ul class="service-links">
+    {% for item in items %}
+      {% set icon = item.url.getOption('ldt_icon') %}
+      <li>
+        <a href="{{ item.url }}" class="service-link"{% if item.url.toString() == current_path %} aria-current="page"{% endif %}>
+          {% if icon %}
+            {{ include('@ldt_musterland/icons/icon-' ~ icon ~ '.html.twig') }}
+          {% endif %}
+          <span>{{ item.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,156 @@
+/**
+ * @file
+ * Hauptnavigation mit Untermenüs (Disclosure-Muster).
+ *
+ * Ohne JavaScript: alle Ebenen als verschachtelte Liste sichtbar.
+ * Mit JavaScript (.js): Untermenüs über Buttons mit aria-expanded.
+ */
+.site-nav {
+  background: var(--c-bg);
+  border-top: 1px solid var(--c-line);
+  border-bottom: 3px solid var(--c-accent);
+}
+
+.main-nav__list,
+.main-nav__submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.main-nav__item,
+.main-nav__subitem {
+  margin: 0;
+}
+
+.main-nav__row {
+  display: flex;
+  align-items: stretch;
+}
+
+.main-nav__link,
+.main-nav__sublink {
+  display: flex;
+  align-items: center;
+  min-height: var(--target);
+  padding: var(--space-2) var(--space-3);
+  color: var(--c-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+.main-nav__link:visited,
+.main-nav__sublink:visited {
+  color: var(--c-text);
+}
+.main-nav__link:hover,
+.main-nav__sublink:hover {
+  color: var(--c-accent-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+}
+.main-nav__sublink {
+  font-weight: 400;
+}
+
+/* Aktuelle Seite und aktiver Bereich: Farbe UND dicke Unterstreichung. */
+.main-nav__link[aria-current="page"],
+.main-nav__sublink[aria-current="page"],
+.main-nav__item--active-trail > .main-nav__row > .main-nav__link {
+  color: var(--c-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+}
+
+/* Untermenü-Buttons */
+.main-nav__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--target);
+  min-height: var(--target);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--c-text);
+  cursor: pointer;
+}
+.main-nav__toggle:hover {
+  color: var(--c-accent);
+}
+.main-nav__toggle .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.main-nav__toggle[aria-expanded="true"] .icon {
+  transform: rotate(180deg);
+}
+
+.js .main-nav__toggle {
+  display: inline-flex;
+}
+.js .main-nav__submenu {
+  display: none;
+}
+.js .main-nav__toggle[aria-expanded="true"] + .main-nav__submenu,
+.js .main-nav__row:has(.main-nav__toggle[aria-expanded="true"]) + .main-nav__submenu {
+  display: block;
+}
+
+/* Mobil: Menü klappt über den Menü-Button auf. */
+@media (max-width: 63.99em) {
+  .js .site-nav:not(.is-open) {
+    display: none;
+  }
+  .main-nav__item {
+    border-bottom: 1px solid var(--c-line);
+  }
+  .main-nav__row {
+    justify-content: space-between;
+  }
+  .main-nav__link {
+    flex: 1;
+  }
+  .main-nav__submenu {
+    padding-inline-start: var(--space-4);
+    padding-bottom: var(--space-2);
+  }
+}
+
+/* Desktop: waagerechte Leiste, Untermenüs als Aufklapp-Fläche. */
+@media (min-width: 64em) {
+  .main-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-2);
+  }
+  .main-nav__item {
+    position: relative;
+  }
+  .main-nav__link {
+    padding-inline: var(--space-3) var(--space-1);
+  }
+  .main-nav__item:not(.main-nav__item--has-children) .main-nav__link {
+    padding-inline-end: var(--space-3);
+  }
+  .main-nav__submenu {
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    left: 0;
+    min-width: 17rem;
+    padding: var(--space-2) 0;
+    background: var(--c-bg);
+    border: 1px solid var(--c-line-strong);
+    border-top: 3px solid var(--c-accent);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 0.15);
+  }
+  /* Ohne JavaScript nicht als schwebende Fläche, sondern ausgeblendet
+     bis zur Übersichtsseite – die Oberpunkte bleiben Links. */
+  html:not(.js) .main-nav__submenu {
+    display: none;
+  }
+  .main-nav__sublink {
+    padding-inline: var(--space-4);
+  }
+}

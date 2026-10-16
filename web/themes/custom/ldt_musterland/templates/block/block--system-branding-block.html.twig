@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Wortmarke "LDT Musterland" statt Logo. Kein Landeswappen.
+ *
+ * Der Linkname enthält Kurz- und Langform; "zur Startseite" ergänzt das
+ * Linkziel für Screenreader.
+ */
+#}
+{% block content %}
+  <a href="{{ path('<front>') }}" rel="home" class="wordmark">
+    <span class="wordmark__short">LDT Musterland</span>
+    <span class="wordmark__long">{{ site_name }}</span>
+    <span class="visually-hidden">(zur Startseite)</span>
+  </a>
+{% endblock %}

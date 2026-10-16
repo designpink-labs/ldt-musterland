@@ -1,0 +1,20 @@
+uuid: 260cb5c7-f860-47ed-aecf-197e72266308
+langcode: de
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ldt_musterland
+id: ldt_musterland_brotkrumen
+theme: ldt_musterland
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Brotkrumen
+  label_display: '0'
+  provider: system
+visibility: {  }

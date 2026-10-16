@@ -1,0 +1,179 @@
+{#
+/**
+ * @file
+ * Styleguide LDT Musterland (/styleguide, nicht verlinkt, noindex).
+ *
+ * Variablen:
+ * - colors: Farb-Tokens aus css/base/tokens.css (Name => Hex).
+ * - pairs: geprüfte Kombinationen mit live berechnetem Kontrast.
+ */
+#}
+<div class="styleguide">
+  <p class="styleguide__prose">Diese Seite zeigt alle Gestaltungsbausteine des Themes „LDT Musterland“. Sie ist nicht verlinkt und für Suchmaschinen gesperrt. Die Kontrastwerte werden beim Aufruf aus den Farbwerten des Themes berechnet.</p>
+
+  <nav aria-labelledby="sg-inhalt">
+    <h2 id="sg-inhalt">Inhalt dieser Seite</h2>
+    <ul>
+      <li><a href="#sg-farben">Farben und Kontraste</a></li>
+      <li><a href="#sg-typografie">Typografie</a></li>
+      <li><a href="#sg-links">Links und Buttons</a></li>
+      <li><a href="#sg-formulare">Formularfelder</a></li>
+      <li><a href="#sg-karten">Karten</a></li>
+      <li><a href="#sg-hinweise">Hinweisboxen</a></li>
+    </ul>
+  </nav>
+
+  <section aria-labelledby="sg-farben">
+    <h2 id="sg-farben">Farben und Kontraste</h2>
+    <p class="styleguide__prose">Anforderung nach WCAG 2.1 AA: mindestens 4,5:1 für Text, 3:1 für Bedienelemente, Rahmen von Formularfeldern und Fokus-Rahmen.</p>
+
+    <h3>Farbwerte</h3>
+    <ul class="sg-swatches">
+      {% for name, hex in colors %}
+        <li class="sg-swatch">
+          <span class="sg-swatch__color" style="background: {{ hex }}"></span>
+          <code>{{ name }}</code>
+          <span>{{ hex }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h3>Geprüfte Kombinationen</h3>
+    <div class="sg-table-wrapper" role="region" aria-labelledby="sg-kontrast-caption" tabindex="0">
+      <table class="sg-table">
+        <caption id="sg-kontrast-caption">Farbkombinationen mit Kontrastverhältnis</caption>
+        <thead>
+          <tr>
+            <th scope="col">Beispiel</th>
+            <th scope="col">Verwendung</th>
+            <th scope="col">Vordergrund / Hintergrund</th>
+            <th scope="col">Kontrast</th>
+            <th scope="col">Mindestwert</th>
+            <th scope="col">Ergebnis</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pair in pairs %}
+            <tr>
+              <td><span class="sg-sample" style="color: {{ pair.fg }}; background: {{ pair.bg }}; border-color: {{ pair.fg }}">Text Aa</span></td>
+              <td>{{ pair.usage }}</td>
+              <td><code>{{ pair.fg_name ?: pair.fg }}</code> {{ pair.fg }}<br><code>{{ pair.bg_name ?: pair.bg }}</code> {{ pair.bg }}</td>
+              <td><strong>{{ pair.ratio }}:1</strong></td>
+              <td>{{ pair.required }}:1</td>
+              <td>{{ pair.pass ? 'bestanden' : 'NICHT bestanden' }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="sg-typografie">
+    <h2 id="sg-typografie">Typografie</h2>
+    <p class="styleguide__prose">Schrift: Atkinson Hyperlegible (Braille Institute, SIL Open Font License), selbst gehostet. Grundgröße 1,125 rem (18 px), Zeilenhöhe 1,6, Zeilenlänge höchstens 70 Zeichen. Alle Größen in rem.</p>
+    <p class="sg-h1" aria-hidden="true">Überschrift 1 – Seitentitel</p>
+    <h3>Überschrift 3 – Abschnitt</h3>
+    <h4>Überschrift 4 – Unterabschnitt</h4>
+    <div class="styleguide__prose">
+      <p>Fließtext: Das Landesamt für Digitale Teilhabe Musterland unterstützt die Landesverwaltung bei barrierefreien Websites, verständlichen Texten und zugänglichen Dokumenten. Lange Wörter wie Barrierefreiheitsstärkungsgesetz werden automatisch getrennt.</p>
+      <ul>
+        <li>Aufzählung, erster Punkt</li>
+        <li>Aufzählung, zweiter Punkt</li>
+      </ul>
+      <ol>
+        <li>Nummerierte Liste, Schritt eins</li>
+        <li>Nummerierte Liste, Schritt zwei</li>
+      </ol>
+      <blockquote><p>Zitat: Barrierefreiheit ist eine Qualität, kein Zusatz.</p></blockquote>
+      <p><strong>Fett</strong>, <em>kursiv</em> und <code>Code</code>.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="sg-links">
+    <h2 id="sg-links">Links und Buttons</h2>
+    <p class="styleguide__prose">Links sind immer unterstrichen. Beim Überfahren mit der Maus wird die Unterstreichung dicker und die Farbe dunkler – die Änderung ist also nicht nur über Farbe erkennbar. <a href="#sg-links">Beispiel-Link im Text</a>.</p>
+    <p class="sg-row">
+      <button type="button" class="button">Primärer Button</button>
+      <button type="button" class="button button--secondary">Sekundärer Button</button>
+      <a href="#sg-links" class="button">Link als Button</a>
+    </p>
+    <p class="styleguide__prose">Fokus: Mit der Tabulatortaste erhalten alle Bedienelemente einen 3 px breiten pinken Rahmen mit 2 px Abstand, im dunklen Footer in Hellpink.</p>
+  </section>
+
+  <section aria-labelledby="sg-formulare">
+    <h2 id="sg-formulare">Formularfelder</h2>
+    <div class="styleguide__prose">
+      <div class="form-item">
+        <label for="sg-name" class="form-item__label form-required">Name</label>
+        <div id="sg-name--description" class="form-item__description">Vor- und Nachname</div>
+        <input type="text" id="sg-name" autocomplete="name" aria-describedby="sg-name--description" required>
+      </div>
+      <div class="form-item form-item--error">
+        <label for="sg-mail" class="form-item__label">E-Mail-Adresse (optional)</label>
+        <div id="sg-mail--description" class="form-item__description">Nur angeben, wenn Sie eine Antwort wünschen.</div>
+        <input type="email" id="sg-mail" autocomplete="email" value="keine-adresse" aria-invalid="true" aria-describedby="sg-mail--error sg-mail--description">
+        <div class="form-item--error-message"><span id="sg-mail--error">Beispiel-Fehler: Die E-Mail-Adresse ist nicht gültig.</span></div>
+      </div>
+      <div class="form-item">
+        <label for="sg-text" class="form-item__label">Beschreibung</label>
+        <textarea id="sg-text" rows="4"></textarea>
+      </div>
+      <div class="form-item">
+        <label for="sg-select" class="form-item__label">Auswahl</label>
+        <select id="sg-select">
+          <option>Bitte wählen</option>
+          <option>Option A</option>
+        </select>
+      </div>
+      <fieldset class="sg-fieldset">
+        <legend>Kontaktweg</legend>
+        <div class="sg-check"><input type="radio" id="sg-r1" name="sg-r"> <label for="sg-r1">E-Mail</label></div>
+        <div class="sg-check"><input type="radio" id="sg-r2" name="sg-r"> <label for="sg-r2">Telefon</label></div>
+      </fieldset>
+      <div class="sg-check"><input type="checkbox" id="sg-c1"> <label for="sg-c1">Ich habe den Datenschutzhinweis gelesen.</label></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sg-karten">
+    <h2 id="sg-karten">Karten</h2>
+    <ul class="cards">
+      <li>
+        <article class="card">
+          <h3 class="card__title"><a href="#sg-karten" class="card__link">Beispielkarte</a></h3>
+          <div class="card__text"><p>Die ganze Karte ist klickbar, Screenreader finden aber nur einen Link: den Titel.</p></div>
+        </article>
+      </li>
+      <li>
+        <article class="card">
+          <h3 class="card__title"><a href="#sg-karten" class="card__link">Zweite Karte</a></h3>
+          <div class="card__text"><p>Hover: rosa Fläche und dickere Unterstreichung. Fokus: Rahmen um die ganze Karte.</p></div>
+        </article>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="sg-hinweise">
+    <h2 id="sg-hinweise">Hinweisboxen</h2>
+    <div class="styleguide__prose">
+      <div class="hinweis hinweis--info">
+        {{ include('@ldt_musterland/icons/icon-info.html.twig') }}
+        <div class="hinweis__body"><strong class="hinweis__title">Hinweis:</strong> Informationen, die beim Lesen helfen.</div>
+      </div>
+      <div class="hinweis hinweis--status">
+        {{ include('@ldt_musterland/icons/icon-erfolg.html.twig') }}
+        <div class="hinweis__body"><strong class="hinweis__title">Erledigt:</strong> Ihre Änderungen wurden gespeichert.</div>
+      </div>
+      <div class="hinweis hinweis--warning">
+        {{ include('@ldt_musterland/icons/icon-warnung.html.twig') }}
+        <div class="hinweis__body"><strong class="hinweis__title">Achtung:</strong> Diese Aktion kann nicht rückgängig gemacht werden.</div>
+      </div>
+      <div class="hinweis hinweis--error">
+        {{ include('@ldt_musterland/icons/icon-fehler.html.twig') }}
+        <div class="hinweis__body"><strong class="hinweis__title">Fehler:</strong> Bitte prüfen Sie Ihre Eingaben.</div>
+      </div>
+      <div class="hinweis ldt-demo-hinweis">
+        <div class="hinweis__body"><p><strong>Demo-Modus:</strong> So erscheint der Hinweis über dem Formular „Barriere melden“, wenn es live nichts speichert und nichts versendet.</p></div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Basisseite als Teaser-Karte (Startseite).
+ *
+ * Nur der Titel ist ein Link; per CSS deckt seine Klickfläche die ganze
+ * Karte ab. Überschriftenebene h3 unter dem Blocktitel "Unsere Themen" (h2).
+ */
+#}
+<article{{ attributes.addClass('card') }}>
+  <h3 class="card__title">
+    <a href="{{ url }}" class="card__link" rel="bookmark">{{ label }}</a>
+  </h3>
+  <div class="card__text">
+    {{ content.body }}
+  </div>
+</article>

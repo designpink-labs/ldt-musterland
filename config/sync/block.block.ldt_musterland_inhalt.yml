@@ -1,0 +1,20 @@
+uuid: 54cce37a-a9da-4c51-a8fb-a19c0cfd3233
+langcode: de
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ldt_musterland
+id: ldt_musterland_inhalt
+theme: ldt_musterland
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: Hauptinhalt
+  label_display: '0'
+  provider: system
+visibility: {  }

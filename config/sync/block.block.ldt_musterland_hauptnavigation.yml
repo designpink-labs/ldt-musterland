@@ -1,0 +1,25 @@
+uuid: 365675cf-46e7-4d25-b660-0ee196a52635
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - ldt_musterland
+id: ldt_musterland_hauptnavigation
+theme: ldt_musterland
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: Hauptnavigation
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

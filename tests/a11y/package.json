@@ -1,0 +1,18 @@
+{
+  "name": "ldt-a11y-tests",
+  "private": true,
+  "description": "Barrierefreiheits-Prüfung (axe-core über Playwright) und Tastatur-Durchgang für die lokale DDEV-Seite.",
+  "type": "module",
+  "scripts": {
+    "axe": "node axe.mjs",
+    "tastatur": "node tastatur.mjs",
+    "reflow": "node reflow.mjs",
+    "englisch": "node englisch.mjs",
+    "screenshots": "node screenshots.mjs",
+    "alle": "node axe.mjs && node tastatur.mjs && node reflow.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "playwright": "^1.50.0"
+  }
+}

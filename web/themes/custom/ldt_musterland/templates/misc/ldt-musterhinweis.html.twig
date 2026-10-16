@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Hinweisbalken "Musterseite" (überschreibt das Template aus dem Modul
+ * ldt_musterhinweis).
+ *
+ * - <section> mit aria-label: eigener Bereich (Landmark), damit der Hinweis
+ *   auch bei der Navigation über Landmarks gefunden wird.
+ * - role="note" am Hinweistext; Icon nur dekorativ.
+ */
+#}
+<section class="ldt-musterhinweis" aria-label="Hinweis zu dieser Website">
+  <div class="ldt-musterhinweis__inner container" role="note">
+    {{ include('@ldt_musterland/icons/icon-info.html.twig') }}
+    <p><strong>Musterseite – keine echte Behörde.</strong> Diese Website ist eine Arbeitsprobe.</p>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+uuid: 9b178bbc-60aa-45a3-b9b7-41a997dda98e
+langcode: de
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ldt_musterland
+id: ldt_musterland_branding
+theme: ldt_musterland
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: Wortmarke
+  label_display: '0'
+  provider: system
+  use_site_logo: false
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

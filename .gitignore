@@ -54,3 +54,7 @@
 .idea/
 .vscode/
 *.swp
+
+# Test-Werkzeuge
+node_modules/
+tests/a11y/ergebnisse/

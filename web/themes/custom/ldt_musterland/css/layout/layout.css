@@ -1,0 +1,30 @@
+/**
+ * @file
+ * Seitenraster. Keine festen Breiten: fließt bei 400 % Zoom ohne
+ * waagerechtes Scrollen (WCAG 1.4.10).
+ */
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.site-main {
+  padding-block: var(--space-4) var(--space-7);
+}
+.site-main:focus {
+  outline: none;
+}
+
+/* Gut lesbare Zeilenlänge für Fließtext, Titel und Formulare. */
+.page-title,
+.field--name-body,
+.webform-submission-form,
+.webform-confirmation,
+.node--view-mode-full > .node__content > *:not(.field--name-field-video),
+.messages-list,
+.styleguide__prose {
+  max-width: var(--measure);
+}

@@ -1,0 +1,88 @@
+/**
+ * @file
+ * Inhaltsbereich: Seitentitel, Fließtext, Video, Admin-Reiter, Buttons.
+ */
+.page-title {
+  margin-bottom: var(--space-5);
+}
+
+.field--name-body > :first-child {
+  margin-top: 0;
+}
+
+/* Video mit Untertiteln (Modul designpink_video) */
+.designpink-video {
+  max-width: 48rem;
+  margin: var(--space-5) 0;
+}
+.designpink-video video {
+  display: block;
+  width: 100%;
+  background: #000;
+}
+
+/* Buttons */
+.button,
+.form-submit,
+.webform-button--submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--target);
+  padding: var(--space-2) var(--space-5);
+  border: 2px solid var(--c-accent);
+  border-radius: var(--radius);
+  background: var(--c-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:visited {
+  color: #fff;
+}
+.button:hover,
+.form-submit:hover,
+.webform-button--submit:hover {
+  border-color: var(--c-accent-dark);
+  background: var(--c-accent-dark);
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+.button--secondary {
+  background: var(--c-bg);
+  color: var(--c-accent);
+}
+.button--secondary:visited {
+  color: var(--c-accent);
+}
+.button--secondary:hover {
+  background: var(--c-accent-soft);
+  color: var(--c-accent-dark);
+}
+
+/* Reiter für Redakteur*innen (Ansehen / Bearbeiten …) */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--c-line-strong);
+}
+.tabs__tab {
+  margin: 0;
+}
+.tabs__link {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  color: var(--c-text);
+}
+.tabs__link.is-active {
+  font-weight: 700;
+  text-decoration-thickness: 3px;
+}

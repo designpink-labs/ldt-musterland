@@ -1,0 +1,164 @@
+/**
+ * @file
+ * Musterseiten-Hinweis, Kopfbereich mit Wortmarke und Servicelinks.
+ */
+
+/* Hinweisbalken "Musterseite": Text + Icon + Rahmen, nicht nur Farbe. */
+.ldt-musterhinweis {
+  background: var(--c-hint-bg);
+  color: var(--c-text);
+  border-bottom: 3px solid var(--c-text);
+  padding: var(--space-2) 0;
+  text-align: start;
+  font-size: var(--fs-small);
+}
+.ldt-musterhinweis__inner {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+.ldt-musterhinweis__inner .icon {
+  margin-top: 0.1rem;
+}
+
+/* Kopfbereich */
+.site-header {
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-line);
+}
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
+  padding-block: var(--space-4);
+}
+
+/* Wortmarke */
+.wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  color: var(--c-text);
+  text-decoration: none;
+  line-height: 1.15;
+}
+.wordmark:visited {
+  color: var(--c-text);
+}
+.wordmark__short {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.wordmark__short::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 0.25rem;
+  margin-top: var(--space-1);
+  background: var(--c-accent);
+}
+.wordmark__long {
+  margin-top: var(--space-1);
+  font-size: var(--fs-small);
+  color: var(--c-text-muted);
+}
+.wordmark:hover .wordmark__short {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.15em;
+}
+
+/* Servicelinks: Leichte Sprache, Gebärdensprache */
+.service-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.service-links li {
+  margin: 0;
+}
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--target);
+  padding-inline: var(--space-1);
+  color: var(--c-text);
+  font-weight: 700;
+}
+.service-link:visited {
+  color: var(--c-text);
+}
+.service-link .icon {
+  color: var(--c-accent);
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.service-link[aria-current="page"] {
+  text-decoration-thickness: 3px;
+}
+
+/* Menü-Button (nur mobil, nur mit JavaScript) */
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--target);
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--c-text);
+  border-radius: var(--radius);
+  background: var(--c-bg);
+  color: var(--c-text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.menu-toggle[aria-expanded="true"] {
+  background: var(--c-text);
+  color: var(--c-bg);
+}
+.menu-toggle[hidden] {
+  display: none;
+}
+
+@media (max-width: 63.99em) {
+  /* Wortmarke und Menü-Button in einer Zeile, Servicelinks darunter. */
+  .site-header__inner {
+    align-items: flex-start;
+  }
+  .site-header__brand {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .site-header__service {
+    order: 3;
+    flex: 1 1 100%;
+  }
+  .service-links {
+    gap: var(--space-1) var(--space-4);
+  }
+  .service-link {
+    font-size: var(--fs-small);
+  }
+  .service-link .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .wordmark__short {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .menu-toggle {
+    display: none;
+  }
+  .wordmark__short {
+    font-size: 2rem;
+  }
+}

@@ -29,6 +29,7 @@ module:
   layout_discovery: 0
   ldt_formulare: 0
   ldt_musterhinweis: 0
+  ldt_styleguide: 0
   link: 0
   linkit: 0
   locale: 0
@@ -62,4 +63,5 @@ module:
 theme:
   olivero: 0
   claro: 0
+  ldt_musterland: 0
 profile: standard

@@ -1,0 +1,25 @@
+uuid: f8e9391c-1f0b-4b56-8e94-ec95ef594b77
+langcode: de
+status: true
+dependencies:
+  config:
+    - system.menu.servicelinks
+  module:
+    - system
+  theme:
+    - ldt_musterland
+id: ldt_musterland_servicelinks
+theme: ldt_musterland
+region: service
+weight: 0
+provider: null
+plugin: 'system_menu_block:servicelinks'
+settings:
+  id: 'system_menu_block:servicelinks'
+  label: 'Angebote in Leichter Sprache und Gebärdensprache'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

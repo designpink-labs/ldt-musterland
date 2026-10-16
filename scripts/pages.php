@@ -10,6 +10,8 @@
  * - {{link:SCHLÜSSEL|Linktext}} wird beim Anlegen in einen Linkit-Link
  *   umgewandelt (data-entity-uuid), der unabhängig vom Pfad funktioniert.
  * - 'description' wird als Meta-Beschreibung (Feld Metadaten) gesetzt.
+ * - 'promote' => TRUE: Seite erscheint als Karte auf der Startseite;
+ *   'description' dient dann auch als Zusammenfassung (Kartentext).
  * - Keine festen internen Pfade wie "/impressum" in Texte schreiben.
  */
 
@@ -19,13 +21,6 @@ return [
     'description' => 'Musterseite des fiktiven Landesamts für Digitale Teilhabe Musterland: Barrierefreiheit, Online-Redaktion, Web-Optimierung und Schulungen.',
     'body' => '
 <p>[Hier: Begrüßung in 2–3 Sätzen – wofür das Landesamt für Digitale Teilhabe Musterland (LDT Musterland) zuständig ist.]</p>
-<h2>Unsere Themen</h2>
-<ul>
-  <li>{{link:barrierefreiheit|Barrierefreiheit}} – [Hier: ein Satz zum Angebot des Amts]</li>
-  <li>{{link:online-redaktion|Online-Redaktion}} – [Hier: ein Satz zum Angebot des Amts]</li>
-  <li>{{link:web-optimierung|Web &amp; Optimierung}} – [Hier: ein Satz zum Angebot des Amts]</li>
-  <li>{{link:schulungen|Schulungen}} – [Hier: ein Satz zum Angebot des Amts]</li>
-</ul>
 <h2>Barrierefreiheit dieser Website</h2>
 <p>[Hier: kurzer Hinweis, dass das LDT Musterland diese Website nach WCAG 2.1 AA gestaltet.] Einzelheiten stehen in der {{link:erklaerung|Erklärung zur Barrierefreiheit}}. Barrieren können Sie über das Formular „Barriere melden“ im Seitenfuß melden.</p>',
   ],
@@ -33,6 +28,7 @@ return [
   // Hauptmenü: Barrierefreiheit.
   'barrierefreiheit' => [
     'title' => 'Barrierefreiheit',
+    'promote' => TRUE,
     'description' => 'Digitale Barrierefreiheit in der Landesverwaltung Musterland: rechtlicher Rahmen, Dokumente, Leichte Sprache, Video und Gebärdensprache (Musterseite).',
     'menu' => 'main', 'weight' => 1,
     'body' => '
@@ -117,6 +113,7 @@ return [
   // Hauptmenü: Online-Redaktion.
   'online-redaktion' => [
     'title' => 'Online-Redaktion',
+    'promote' => TRUE,
     'description' => 'Online-Redaktion in der Landesverwaltung: Texte fürs Web, Arbeitshilfen und Social Media (Musterseite).',
     'menu' => 'main', 'weight' => 2,
     'body' => '
@@ -174,6 +171,7 @@ return [
   // Hauptmenü: Web & Optimierung.
   'web-optimierung' => [
     'title' => 'Web & Optimierung',
+    'promote' => TRUE,
     'description' => 'Struktur, Auffindbarkeit und Messbarkeit von Behörden-Websites: Informationsarchitektur, SEO & GEO, Webanalyse (Musterseite).',
     'menu' => 'main', 'weight' => 3,
     'body' => '
@@ -226,6 +224,7 @@ return [
   // Hauptmenü: Einzelseiten.
   'schulungen' => [
     'title' => 'Schulungen',
+    'promote' => TRUE,
     'description' => 'Schulungen zu Barrierefreiheit und Online-Redaktion für Beschäftigte der Landesverwaltung Musterland (Musterseite).',
     'menu' => 'main', 'weight' => 4,
     'body' => '

@@ -1,0 +1,7 @@
+ldt_styleguide.page:
+  path: '/styleguide'
+  defaults:
+    _controller: '\Drupal\ldt_styleguide\Controller\StyleguideController::page'
+    _title: 'Styleguide'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,20 @@
+uuid: 189ec80b-ea12-488f-8305-a4c3f5c0072e
+langcode: de
+status: true
+dependencies:
+  theme:
+    - ldt_musterland
+id: ldt_musterland_reiter
+theme: ldt_musterland
+region: content_above
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Reiter
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

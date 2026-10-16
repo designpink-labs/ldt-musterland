@@ -1,0 +1,18 @@
+uuid: 511deca8-3a92-49fa-8b5a-653420c85921
+langcode: de
+status: true
+dependencies:
+  theme:
+    - ldt_musterland
+id: ldt_musterland_aktionen
+theme: ldt_musterland
+region: content_above
+weight: 1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: Aktionen
+  label_display: '0'
+  provider: core
+visibility: {  }

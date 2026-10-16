@@ -1,0 +1,39 @@
+name: 'LDT Musterland'
+type: theme
+'base theme': false
+version: 1.0.0
+libraries:
+  - ldt_musterland/base
+  - ldt_musterland/global
+  - ldt_musterland/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - ldt_musterland/user
+  core/drupal.dropbutton:
+    - ldt_musterland/dropbutton
+  core/drupal.dialog:
+    - ldt_musterland/dialog
+  file/drupal.file:
+    - ldt_musterland/file
+  core/drupal.item-list:
+    - ldt_musterland/item-list
+  core/drupal.progress:
+    - ldt_musterland/progress
+  core/drupal.tablesort:
+    - ldt_musterland/drupal.tablesort
+description: 'Theme der Musterseite Landesamt für Digitale Teilhabe Musterland.'
+core_version_requirement: ^11
+generator: 'starterkit_theme:11.4.10'
+regions:
+  header: 'Kopfbereich (Wortmarke)'
+  service: 'Servicelinks im Kopfbereich'
+  primary_menu: 'Hauptnavigation'
+  breadcrumb: 'Brotkrumen'
+  highlighted: 'Meldungen'
+  content_above: 'Über dem Inhalt'
+  content: 'Inhalt'
+  content_below: 'Unter dem Inhalt'
+  footer: 'Fußbereich'
+  page_top: 'Seitenanfang (versteckt)'
+  page_bottom: 'Seitenende (versteckt)'

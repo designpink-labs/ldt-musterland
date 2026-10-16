@@ -35,7 +35,12 @@ foreach ($pages as $key => $page) {
   }
   $node ??= Node::create(['type' => 'page', 'langcode' => 'de', 'uid' => 1, 'status' => 1]);
   $node->setTitle($page['title']);
-  $node->set('body', ['value' => trim($page['body']), 'format' => 'basic_html']);
+  $node->set('body', [
+    'value' => trim($page['body']),
+    'summary' => !empty($page['promote']) ? ($page['description'] ?? '') : '',
+    'format' => 'basic_html',
+  ]);
+  $node->set('promote', !empty($page['promote']));
   if (!empty($page['description']) && $node->hasField('field_metatag')) {
     $node->set('field_metatag', json_encode(['description' => $page['description']]));
   }
@@ -88,7 +93,7 @@ foreach (array_keys($changed) as $key) {
       $target->id(), $target->uuid(), $m[2]
     );
   }, $node->get('body')->value);
-  $node->set('body', ['value' => $body, 'format' => 'basic_html']);
+  $node->set('body', ['value' => $body, 'summary' => $node->get('body')->summary, 'format' => 'basic_html']);
   $node->path->pathauto = 1;
   $node->save();
 }

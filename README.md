@@ -81,6 +81,38 @@ ddev drush php:script scripts/create-content.php -- --overwrite  # ACHTUNG: übe
 - Prüfen: Seitenquelltext nach `application/ld+json` durchsuchen, oder live mit dem
   Schema Markup Validator (validator.schema.org).
 
+## Theme „LDT Musterland“ (`web/themes/custom/ldt_musterland`)
+
+Eigenes Theme (Starterkit), reines CSS mit Custom Properties, kein Build-Schritt.
+Olivero ist installiert, aber nicht aktiv.
+
+- **Farben/Tokens:** `css/base/tokens.css` – Kontrastwerte stehen dahinter.
+  Die Seite **/styleguide** (nicht verlinkt, noindex) berechnet alle Kontraste live
+  aus dieser Datei und zeigt alle Bausteine.
+- **Schrift:** Atkinson Hyperlegible, selbst gehostet (`fonts/`, Lizenz `fonts/OFL.txt`).
+- **Navigation:** Disclosure-Muster (`js/navigation.js`): Oberpunkte sind Links,
+  Untermenüs öffnen über eigene Buttons mit `aria-expanded`; Escape schließt.
+  Mobil (< 64 em) Menü-Button. Ohne JavaScript bleibt alles als Liste nutzbar.
+- **Servicelinks** (Leichte Sprache, Gebärdensprache): Menü „Servicelinks“; das Icon
+  kommt aus der Link-Option `ldt_icon` (eigene Icons in `templates/icons/`).
+- **Startseiten-Karten:** View „Startseite: Themen“ zeigt Basisseiten mit
+  *Auf der Startseite* (promote); Kartentext = Zusammenfassung des Textfelds.
+- **Druck:** `css/print.css`.
+
+## Barrierefreiheits-Prüfung (`tests/a11y`)
+
+Voraussetzung: Node.js, Google Chrome, laufende DDEV-Umgebung.
+
+```bash
+cd tests/a11y
+npm install          # einmalig
+npm run axe          # axe-core: alle Seiten, Desktop + 375 px, Menü offen, Formularfehler
+npm run tastatur     # Skip-Link, Tab-Reihenfolge, Fokus sichtbar, Menüs, Formular
+npm run reflow       # 320 px Breite (= 400 % Zoom) ohne waagerechtes Scrollen
+npm run englisch     # Suche nach englischen Resten
+npm run screenshots  # Screenshots nach tests/a11y/ergebnisse/
+```
+
 ## Lokale Umgebung
 
 Voraussetzung: Docker Desktop läuft.

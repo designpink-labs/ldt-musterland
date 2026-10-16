@@ -1,0 +1,18 @@
+uuid: 00a8ba30-945e-447b-b7be-bd777eeb8d9a
+langcode: de
+status: true
+dependencies:
+  theme:
+    - ldt_musterland
+id: ldt_musterland_seitentitel
+theme: ldt_musterland
+region: content_above
+weight: 2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: Seitentitel
+  label_display: '0'
+  provider: core
+visibility: {  }

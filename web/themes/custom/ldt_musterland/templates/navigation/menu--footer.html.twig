@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Servicenavigation im Footer.
+ */
+#}
+{% if items %}
+  <ul class="footer-menu">
+    {% for item in items %}
+      <li>
+        <a href="{{ item.url }}"{% if item.url.toString() == current_path %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

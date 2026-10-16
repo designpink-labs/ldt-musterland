@@ -1,0 +1,20 @@
+uuid: dcee4ad3-8002-4b83-a492-70fef7471e33
+langcode: de
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ldt_musterland
+id: ldt_musterland_meldungen
+theme: ldt_musterland
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Statusmeldungen
+  label_display: '0'
+  provider: system
+visibility: {  }

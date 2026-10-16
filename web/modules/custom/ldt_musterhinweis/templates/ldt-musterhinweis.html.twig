@@ -3,10 +3,10 @@
  * @file
  * Hinweis-Balken "Musterseite".
  *
- * role="note" mit eigenem Namen, damit Screenreader den Hinweis als
- * solchen ankündigen. Kann im Theme überschrieben werden.
+ * <section> mit aria-label ist ein eigener Bereich (Landmark); role="note"
+ * am Hinweistext. Kann im Theme überschrieben werden.
  */
 #}
-<div class="ldt-musterhinweis" role="note" aria-label="Hinweis zu dieser Website">
-  <p><strong>Musterseite – keine echte Behörde.</strong> Diese Website ist eine Arbeitsprobe.</p>
-</div>
+<section class="ldt-musterhinweis" aria-label="Hinweis zu dieser Website">
+  <p role="note"><strong>Musterseite – keine echte Behörde.</strong> Diese Website ist eine Arbeitsprobe.</p>
+</section>

@@ -1,0 +1,63 @@
+/**
+ * @file
+ * Hinweisboxen (Statusmeldungen, Demo-Hinweis, Styleguide).
+ * Immer Icon + Wort ("Hinweis", "Fehler" …) + Rahmen – nie nur Farbe.
+ */
+.messages-list {
+  margin-bottom: var(--space-5);
+}
+
+.hinweis {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid currentColor;
+  border-inline-start-width: 6px;
+  border-radius: var(--radius);
+  color: var(--c-info);
+  background: var(--c-info-bg);
+}
+.hinweis > .icon {
+  margin-top: 0.15rem;
+}
+.hinweis__body {
+  color: var(--c-text);
+  min-width: 0;
+}
+.hinweis__body > :last-child {
+  margin-bottom: 0;
+}
+.hinweis__title {
+  display: block;
+  margin: 0 0 var(--space-1);
+  font-weight: 700;
+}
+.hinweis__list {
+  margin: 0;
+}
+
+.hinweis--status {
+  color: var(--c-success);
+  background: var(--c-success-bg);
+}
+.hinweis--warning {
+  color: var(--c-warning);
+  background: var(--c-warning-bg);
+}
+.hinweis--error {
+  color: var(--c-error);
+  background: var(--c-error-bg);
+}
+.hinweis a {
+  color: var(--c-text);
+}
+
+/* Demo-Hinweis über dem Formular (Modul ldt_musterhinweis) */
+.ldt-demo-hinweis {
+  border: 2px solid var(--c-text);
+  border-inline-start-width: 6px;
+  background: var(--c-hint-bg);
+  color: var(--c-text);
+}

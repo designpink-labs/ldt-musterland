@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Statusmeldungen als Hinweisboxen.
+ *
+ * Abweichend vom Starterkit kein role="contentinfo" (das ist dem Footer
+ * vorbehalten): Fehler mit role="alert", alles andere mit role="status".
+ * Immer Icon + sichtbares Wort + Rahmen, nicht nur Farbe.
+ */
+#}
+{%
+  set labels = {
+    'status': 'Erledigt',
+    'warning': 'Achtung',
+    'error': 'Fehler',
+    'info': 'Hinweis',
+  }
+%}
+{%
+  set icons = {
+    'status': 'erfolg',
+    'warning': 'warnung',
+    'error': 'fehler',
+    'info': 'info',
+  }
+%}
+<div data-drupal-messages class="messages-list">
+{% block messages %}
+{% for type, messages in message_list %}
+  <div class="hinweis hinweis--{{ type|clean_class }} messages messages--{{ type|clean_class }}" role="{{ type == 'error' ? 'alert' : 'status' }}">
+    {{ include('@ldt_musterland/icons/icon-' ~ (icons[type] ?? 'info') ~ '.html.twig') }}
+    <div class="hinweis__body">
+      <strong class="hinweis__title">{{ labels[type] ?? status_headings[type] }}:</strong>
+      {% if messages|length > 1 %}
+        <ul class="hinweis__list">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ messages|first }}
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+{% endblock messages %}
+</div>

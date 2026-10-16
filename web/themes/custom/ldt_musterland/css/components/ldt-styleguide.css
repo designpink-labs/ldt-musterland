@@ -1,0 +1,99 @@
+/**
+ * @file
+ * Nur für die Seite /styleguide.
+ */
+.styleguide section {
+  margin-top: var(--space-7);
+}
+.sg-h1 {
+  margin: var(--space-4) 0 var(--space-3);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+}
+
+.sg-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sg-swatch {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  column-gap: var(--space-3);
+  align-items: center;
+  margin: 0;
+  font-size: var(--fs-small);
+}
+.sg-swatch__color {
+  grid-row: span 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--radius);
+}
+
+.sg-table-wrapper {
+  overflow-x: auto;
+}
+.sg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+.sg-table caption {
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+  text-align: start;
+}
+.sg-table th,
+.sg-table td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--c-line-strong);
+  text-align: start;
+  vertical-align: top;
+}
+.sg-sample {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border: 2px solid;
+  border-radius: var(--radius);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sg-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.sg-fieldset {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--c-line-strong);
+  border-radius: var(--radius);
+}
+.sg-fieldset legend {
+  padding-inline: var(--space-2);
+  font-weight: 700;
+}
+.sg-check {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  min-height: var(--target);
+}
+.sg-check label {
+  display: inline;
+  margin: 0;
+  font-weight: 400;
+}
+.sg-check input {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--c-accent);
+}

@@ -1,0 +1,29 @@
+uuid: b7a8e11b-3bee-4cc2-a09f-d10997355c58
+langcode: de
+status: true
+dependencies:
+  config:
+    - views.view.startseite_themen
+  module:
+    - system
+    - views
+  theme:
+    - ldt_musterland
+id: ldt_musterland_startseite_themen
+theme: ldt_musterland
+region: content
+weight: 10
+provider: null
+plugin: 'views_block:startseite_themen-block_1'
+settings:
+  id: 'views_block:startseite_themen-block_1'
+  label: 'Unsere Themen'
+  label_display: visible
+  provider: views
+  views_label: 'Unsere Themen'
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

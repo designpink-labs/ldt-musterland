@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * Seitengerüst LDT Musterland.
+ *
+ * Reihenfolge: (Skip-Link und Musterseiten-Hinweis in html.html.twig /
+ * page_top) – Kopfbereich mit Wortmarke, Servicelinks, Menü-Button und
+ * Hauptnavigation – Brotkrumen – Hauptinhalt – Footer.
+ */
+#}
+<div class="layout-container">
+
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <div class="site-header__brand">
+        {{ page.header }}
+      </div>
+      {% if page.service %}
+        <div class="site-header__service">
+          {{ page.service }}
+        </div>
+      {% endif %}
+      {% if page.primary_menu %}
+        {# Wird per JavaScript eingeblendet; ohne JS ist die Navigation offen. #}
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="hauptnavigation" hidden>
+          {{ include('@ldt_musterland/icons/icon-menue.html.twig') }}
+          <span>Menü</span>
+        </button>
+      {% endif %}
+    </div>
+    {% if page.primary_menu %}
+      <div class="site-nav" id="hauptnavigation">
+        <div class="container">
+          {{ page.primary_menu }}
+        </div>
+      </div>
+    {% endif %}
+  </header>
+
+  {% if page.breadcrumb %}
+    <div class="container">
+      {{ page.breadcrumb }}
+    </div>
+  {% endif %}
+
+  <main id="main-content" class="site-main" tabindex="-1">{# Ziel des Skip-Links #}
+    <div class="container">
+      {{ page.highlighted }}
+      {{ page.content_above }}
+      {{ page.content }}
+      {{ page.content_below }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      {{ page.footer }}
+      <p class="site-footer__note">Diese Website ist eine Arbeitsprobe. Das Landesamt für Digitale Teilhabe Musterland ist eine fiktive Behörde.</p>
+    </div>
+  </footer>
+
+</div>

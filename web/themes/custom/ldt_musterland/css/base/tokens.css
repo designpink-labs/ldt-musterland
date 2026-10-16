@@ -1,0 +1,75 @@
+/**
+ * @file
+ * Design-Tokens LDT Musterland.
+ *
+ * Kontrastwerte (WCAG 2.1) stehen jeweils dahinter; geprüft mit
+ * /styleguide (berechnet die Werte live aus dieser Datei).
+ */
+:root {
+  /* Text und Flächen */
+  --c-text: #1d1b20;            /* auf Weiß 17,07 · auf Fläche 15,61 */
+  --c-text-muted: #57525e;      /* auf Weiß 7,57 · auf Fläche 6,92 */
+  --c-bg: #ffffff;
+  --c-surface: #f6f4f7;
+  --c-line: #d9d4dd;            /* nur Zierlinien (1,46) – nie für Bedienelemente */
+  --c-line-strong: #6e6875;     /* Rahmen von Formularfeldern: auf Weiß 5,38 */
+
+  /* Akzent Pink */
+  --c-accent: #b3145c;          /* auf Weiß 6,62 · auf Fläche 6,05 · Weiß darauf 6,62 */
+  --c-accent-dark: #8c0f48;     /* auf Weiß 9,22 · auf Rosa 7,85 */
+  --c-accent-soft: #fde7f1;     /* Text darauf 14,54 */
+  --c-accent-on-dark: #ff8fc4;  /* auf Dunkel 7,16 */
+
+  /* Footer */
+  --c-dark: #2a2430;            /* Weiß darauf 15,07 */
+
+  /* Hinweisboxen: Text immer --c-text, dazu Icon und Wort */
+  --c-hint-bg: #fff3b0;         /* Musterseiten-Hinweis: Text 15,20 */
+  --c-info: #1f5c99;            /* auf Weiß 6,89 · auf Info-Fläche 5,99 */
+  --c-info-bg: #e8f0fa;         /* Text 14,86 */
+  --c-success: #1e6b34;         /* auf Erfolgs-Fläche 5,78 */
+  --c-success-bg: #e7f4ea;      /* Text 15,06 */
+  --c-warning: #7a4f00;         /* auf Warn-Fläche 6,44 */
+  --c-warning-bg: #fdf3d6;      /* Text 15,42 */
+  --c-error: #b93a0e;           /* Ziegelrot: auf Weiß 5,72 · auf Fehler-Fläche 5,12 */
+  --c-error-bg: #fdf0e8;        /* Text 15,29 */
+
+  /* Fokus */
+  --focus-color: var(--c-accent);
+  --focus-ring: 3px solid var(--focus-color);
+  --focus-offset: 2px;
+
+  /* Schrift */
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fs-base: 1.125rem;          /* 18 px */
+  --fs-small: 1rem;
+  --fs-h1: 1.875rem;
+  --fs-h2: 1.5rem;
+  --fs-h3: 1.25rem;
+  --fs-h4: 1.125rem;
+  --lh-body: 1.6;
+  --lh-heading: 1.25;
+  --measure: 70ch;
+
+  /* Abstände und Maße */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --container: 75rem;
+  --gutter: 1rem;
+  --radius: 0.25rem;
+  --target: 2.75rem;            /* Mindestgröße Tippfläche (44 px) */
+}
+
+@media (min-width: 48em) {
+  :root {
+    --fs-h1: 2.25rem;
+    --fs-h2: 1.75rem;
+    --fs-h3: 1.375rem;
+    --gutter: 1.5rem;
+  }
+}

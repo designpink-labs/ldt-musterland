@@ -1,0 +1,8 @@
+uuid: 8b4cfd4e-0986-4fa0-99d3-a14c91d7350a
+langcode: de
+status: true
+dependencies: {  }
+id: servicelinks
+label: Servicelinks
+description: 'Links im Kopfbereich: Leichte Sprache und Gebärdensprache.'
+locked: false

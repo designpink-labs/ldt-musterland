@@ -21,15 +21,13 @@ content:
     type: text_summary_or_trimmed
     label: hidden
     settings:
-      trim_length: 600
+      trim_length: 250
     third_party_settings: {  }
-    weight: 100
-    region: content
-  links:
-    weight: 101
+    weight: 0
     region: content
 hidden:
   field_metatag: true
   field_untertitel: true
   field_video: true
   langcode: true
+  links: true

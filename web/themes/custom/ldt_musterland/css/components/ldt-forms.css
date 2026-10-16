@@ -1,0 +1,111 @@
+/**
+ * @file
+ * Formulare (z. B. "Barriere melden").
+ */
+.form-item,
+.js-form-item {
+  margin: 0 0 var(--space-5);
+}
+
+.form-item__label,
+.form-item label,
+label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-weight: 700;
+}
+/* Pflichtfeld-Sternchen; die Bedeutung steht im Einleitungstext.
+   Leerer Alternativtext ("/ ''"): wird nicht vorgelesen – das Feld ist
+   bereits per required als Pflichtfeld ausgezeichnet. Ersetzt das
+   Sternchen-Bild aus dem Starterkit. */
+.form-required::after {
+  display: inline;
+  width: auto;
+  height: auto;
+  margin: 0 0 0 0.2em;
+  background: none;
+  vertical-align: baseline;
+  content: "*" / "";
+  color: var(--c-accent);
+}
+
+.form-item__description,
+.description {
+  margin: 0 0 var(--space-2);
+  color: var(--c-text-muted);
+  font-size: var(--fs-small);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: var(--target);
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--c-line-strong);
+  border-radius: var(--radius);
+  background: var(--c-bg);
+  color: var(--c-text);
+  font: inherit;
+}
+textarea {
+  min-height: 9rem;
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--c-accent);
+}
+
+/* Fehlerzustand: Farbe + dicker Rand + Icon + Text */
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error,
+.form-item--error input,
+.form-item--error textarea,
+.form-item--error select,
+input.error,
+textarea.error,
+select.error,
+[aria-invalid="true"] {
+  border-color: var(--c-error);
+  border-width: 3px;
+}
+.form-item--error-message {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  margin-top: var(--space-2);
+  color: var(--c-error);
+  font-weight: 700;
+}
+.form-item--error-message::before {
+  /* Warn-Icon als Maske, damit es die Textfarbe übernimmt. */
+  content: "";
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  vertical-align: baseline;
+  background: currentColor;
+  -webkit-mask: url("../../images/ldt/icon-fehler.svg") center / contain no-repeat;
+  mask: url("../../images/ldt/icon-fehler.svg") center / contain no-repeat;
+}
+.form-item--error-message strong {
+  font-weight: inherit;
+}
+
+.form-actions {
+  margin-top: var(--space-5);
+}
+
+/* Honeypot-Feld: bleibt unsichtbar (inline display:none). */
