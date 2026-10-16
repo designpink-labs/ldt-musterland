@@ -43,3 +43,24 @@ $config['system.logging']['error_level'] = 'hide';
 // $config['matomo.settings']['site_id'] = 'SITE_ID';
 // $config['matomo.settings']['url_http'] = 'http://MATOMO-ADRESSE/';
 // $config['matomo.settings']['url_https'] = 'https://MATOMO-ADRESSE/';
+
+// ============================================================================
+// MUSTERSEITEN-SCHUTZ (live) – vor dem Hochladen prüfen!
+// Lokal gibt es keine settings.local.php, daher ist hier lokal nichts aktiv.
+// ============================================================================
+
+// 1. Suchmaschinen: alle Seiten mit <meta name="robots" content="noindex, nofollow">.
+//    Prüfen: Seitenquelltext oder
+//    drush cget metatag.metatag_defaults.global tags --include-overridden
+$config['metatag.metatag_defaults.global']['tags']['robots'] = 'noindex, nofollow';
+
+// 2. Formular "Barriere melden" im Demo-Modus:
+//    nichts speichern, nichts versenden, nur Bestätigung anzeigen.
+//    Über dem Formular erscheint dann automatisch ein Demo-Hinweis
+//    (Modul ldt_musterhinweis).
+$config['webform.webform.barriere_melden']['settings']['results_disabled'] = TRUE;
+$config['webform.webform.barriere_melden']['settings']['results_disabled_ignore'] = TRUE;
+$config['webform.webform.barriere_melden']['handlers']['benachrichtigung']['status'] = FALSE;
+$config['webform.webform.barriere_melden']['settings']['confirmation_message'] = '<p><strong>Demo-Modus:</strong> Vielen Dank! Dies ist eine Musterseite. Ihre Meldung wurde nicht gespeichert und nicht versendet.</p>';
+
+// 3. Passwortschutz: siehe README, Abschnitt "Passwortschutz (optional)".

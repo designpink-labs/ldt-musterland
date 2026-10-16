@@ -27,6 +27,7 @@ module:
   language: 0
   layout_builder: 0
   layout_discovery: 0
+  ldt_formulare: 0
   ldt_musterhinweis: 0
   link: 0
   linkit: 0

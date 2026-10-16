@@ -15,3 +15,15 @@
 .ldt-musterhinweis p {
   margin: 0;
 }
+
+/* Demo-Hinweis über dem Formular "Barriere melden". Gleiche Farben (15,5:1). */
+.ldt-demo-hinweis {
+  background: #fff3b0;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.ldt-demo-hinweis p {
+  margin: 0;
+}

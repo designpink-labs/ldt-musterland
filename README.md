@@ -3,6 +3,12 @@
 Drupal-11-Website (Composer-Projekt `drupal/recommended-project`), lokal entwickelt mit DDEV.
 Spätere Live-Adresse: **https://designpink.de/drupal** (Strato Shared Hosting).
 
+**Konzept:** Musterseite einer fiktiven Behörde, des *Landesamts für Digitale Teilhabe
+Musterland* (LDT Musterland), als Arbeitsprobe für Online-Redaktion und digitale
+Barrierefreiheit (Ziel: WCAG 2.1 AA). Ein Hinweis-Balken auf jeder Seite macht klar, dass es
+keine echte Behörde ist. Impressum und Datenschutz enthalten die echten Angaben des
+tatsächlichen Betreibers.
+
 | | |
 |---|---|
 | Drupal | 11.x, Sprache Deutsch |
@@ -43,6 +49,26 @@ kann im späteren Theme überschrieben werden (gleichnamige Datei im Theme-Ordne
 
 Damit Browser die Untertitel annehmen, muss `.vtt` als `text/vtt` ausgeliefert werden:
 lokal über `.ddev/nginx/vtt.conf`, auf Strato über `AddType text/vtt .vtt` in `web/.htaccess`.
+
+## Eigene Module (`web/modules/custom`)
+
+| Modul | Aufgabe |
+|---|---|
+| `designpink_video` | Video mit WebVTT-Untertiteln als `<track>` |
+| `ldt_musterhinweis` | Hinweis-Balken „Musterseite“ (`role="note"`) ganz oben auf jeder Seite; Demo-Hinweis über Formularen, die nichts speichern/versenden |
+| `ldt_formulare` | Verknüpft Fehlermeldungen am Feld per `aria-describedby` mit dem Feld |
+
+## Seiten und Texte
+
+Die Platzhalter-Texte stehen in `scripts/pages.php`. Links zwischen Seiten werden mit
+Linkit gespeichert (`data-entity-uuid`) und erst beim Ausgeben in die aktuelle URL
+umgewandelt – sie funktionieren deshalb auch im Unterordner `/drupal`.
+Im Editor: Link-Schaltfläche, dann Seitentitel eintippen und Vorschlag auswählen.
+
+```bash
+ddev drush php:script scripts/create-content.php                 # fehlende Seiten anlegen
+ddev drush php:script scripts/create-content.php -- --overwrite  # ACHTUNG: überschreibt Texte
+```
 
 ## Lokale Umgebung
 
@@ -144,3 +170,40 @@ Checkliste für den ersten Upload auf den Strato-Webspace:
 7. **Nach dem Upload.**
    `drush cr` (per SSH) bzw. `/drupal/update.php` aufrufen, dann den Statusbericht unter
    *Berichte → Statusbericht* prüfen (Dateirechte für `sites/default/files`, Cron usw.).
+
+8. **Musterseiten-Schutz prüfen (vor dem Hochladen!).**
+   In `example.settings.local.php` steht der Block „MUSTERSEITEN-SCHUTZ (live)“. Er wird mit
+   in die `settings.local.php` auf dem Server übernommen und schaltet live ein:
+   - `noindex, nofollow` auf allen Seiten (Metatag),
+   - Demo-Modus für „Barriere melden“: nichts speichern, nichts versenden, nur Bestätigung;
+     über dem Formular erscheint automatisch ein Demo-Hinweis.
+
+   Nach dem Upload prüfen:
+   - Seitenquelltext enthält `<meta name="robots" content="noindex, nofollow" />`
+   - `/drupal/barriere-melden` zeigt den gelben Demo-Hinweis über dem Formular
+   - per SSH: `drush cget metatag.metatag_defaults.global tags --include-overridden`
+
+## Passwortschutz (optional)
+
+Solange die Seite nicht öffentlich sein soll, kann sie per HTTP-Basic-Auth geschützt
+werden. Vorlage (auskommentiert) – an den **Anfang** von `web/.htaccess` auf dem Server:
+
+```apache
+# --- Passwortschutz Musterseite ---------------------------------------------
+# AuthType Basic
+# AuthName "Musterseite - Zugang nur mit Passwort"
+# AuthUserFile /ABSOLUTER/PFAD/AUF/DEM/SERVER/drupal-projekt/.htpasswd
+# Require valid-user
+# ----------------------------------------------------------------------------
+```
+
+- `AuthUserFile` braucht den **absoluten Serverpfad**. Er lässt sich bei Strato im
+  Kundenbereich bzw. per SSH mit `pwd` im Projektordner ermitteln. Diesen Pfad nur auf dem
+  Server eintragen, nicht ins Repository.
+- `.htpasswd` **außerhalb von `web/`** ablegen (z. B. im Projektordner), nie ins Repository.
+- Datei erzeugen (fragt das Passwort ab, es landet nicht im Shell-Verlauf):
+  `htpasswd -c -B /PFAD/.htpasswd BENUTZERNAME`
+  (ohne SSH: lokal mit `htpasswd -n -B BENUTZERNAME` erzeugen und die Ausgabezeile per SFTP
+  in die Datei `.htpasswd` schreiben).
+- Nur über HTTPS nutzen – Basic-Auth überträgt das Passwort sonst lesbar.
+- Achtung: `composer update` kann `web/.htaccess` überschreiben (siehe Punkt 2).
