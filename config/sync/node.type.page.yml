@@ -1,0 +1,19 @@
+uuid: de42713b-dadd-4922-a315-b1ea71b3cceb
+langcode: de
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+      - footer
+    parent: 'main:'
+name: Basisseite
+type: page
+description: 'Für statische Inhalte wie Fachseiten, Impressum oder Datenschutz.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false
