@@ -150,6 +150,12 @@ PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.
 - Unsichtbares berechnetes Feld **Kategorie** (Kurzname, z. B. „Bedienung“): Betreff der
   Benachrichtigung „Barriere melden – Bedienung“ und Spalte in der Übersicht der Einsendungen.
 - „So geht es weiter“ steht als Element nach dem Absende-Knopf (Link zur Erklärung per Linkit).
+- „Betroffene Seite“ ist ein Textfeld (`inputmode="url"`, keine Formatprüfung): Adresse, Pfad
+  oder Seitenname. Der Link „Barriere melden“ im Seitenfuß übergibt die aktuelle Seite als
+  `?seite=…` (Theme, `preprocessMenu()`); `ldt_formulare` füllt das Feld damit vor
+  (ohne HTML und Steuerzeichen, höchstens 255 Zeichen).
+- Nach dem Absenden mit Fehlern bekommt die Fehlerliste den Fokus (`tabindex="-1"` in
+  `status-messages.html.twig`, `js/fehlerliste.js`).
 - Modul `ldt_formulare`: Fehlermeldungen von Feldgruppen per `aria-describedby` am `<fieldset>`;
   `js/fehlerliste.js` setzt beim Klick in der Fehlerliste den Fokus in die Radio-Gruppe.
 - Datenschutz: Die Hilfsmittel-Angabe kann Rückschlüsse auf eine Behinderung zulassen

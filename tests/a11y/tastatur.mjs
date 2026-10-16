@@ -104,6 +104,14 @@ await tab(page, 1, true); // zurück zum Absende-Knopf
 await page.waitForTimeout(5500);
 await page.keyboard.press('Enter');
 await page.waitForLoadState('networkidle');
+await page.waitForTimeout(300);
+const aufListe = await page.evaluate(() => {
+  const el = document.activeElement;
+  return { liste: el.matches('.messages--error[tabindex="-1"]'), text: (el.innerText || '').trim().replace(/\s+/g, ' ').slice(0, 60) };
+});
+ok(aufListe.liste, `Nach dem Absenden steht der Fokus auf der Fehlerliste („${aufListe.text}…“)`);
+f = await tab(page);
+ok(f.name.startsWith('Was ist das Problem'), `Nächster Tab führt zum ersten Fehler-Link („${f.name}“)`);
 const zuGruppe = page.locator('[role="alert"] a[href="#edit-problem"]');
 await zuGruppe.first().waitFor({ timeout: 10000 }).catch(() => {});
 ok(await zuGruppe.count() === 1, 'Fehlerliste (role=alert) verlinkt auf die Radio-Gruppe');
@@ -118,6 +126,7 @@ await page.keyboard.press('ArrowDown');
 f = await fokus(page);
 ok(f.id === 'edit-problem-bedienung' && await page.locator('#edit-problem-bedienung').isChecked(), 'Pfeiltaste wählt die nächste Option aus');
 const zusammenfassung = page.locator('[role="alert"] a[href="#edit-seite"]');
+// (Fokus-Prüfung der Fehlerliste steht oben, direkt nach dem Absenden.)
 ok(await zusammenfassung.count() === 1, 'Fehlerliste verlinkt auf das Feld „Seite“');
 await zusammenfassung.focus();
 await page.keyboard.press('Enter');
@@ -125,6 +134,28 @@ f = await fokus(page);
 ok(f.id === 'edit-seite', 'Link in der Fehlerliste setzt den Fokus ins Feld');
 const desc = await page.locator('#edit-seite').getAttribute('aria-describedby');
 ok(desc.includes('edit-seite--error'), `Feld ist mit der Fehlermeldung verknüpft (aria-describedby="${desc}")`);
+await ctx.close();
+
+// 5. Formular aus dem Seitenfuß: Feld "Betroffene Seite" ist vorausgefüllt
+console.log('\n[Desktop] „Barriere melden“ aus dem Seitenfuß');
+ctx = await browser.newContext({ ...CONTEXT, viewport: VIEWPORTS.desktop });
+page = await ctx.newPage();
+await page.goto(BASE + '/impressum', { waitUntil: 'networkidle' });
+const fussLink = page.locator('footer a', { hasText: 'Barriere melden' });
+const href = await fussLink.getAttribute('href');
+ok(href.includes('?seite='), `Link im Seitenfuß übergibt die Seite (${decodeURIComponent(href)})`);
+await fussLink.focus();
+await page.keyboard.press('Enter');
+await page.waitForLoadState('networkidle');
+const vorausgefuellt = await page.locator('#edit-seite').inputValue();
+ok(vorausgefuellt === BASE + '/impressum', `Feld „Betroffene Seite“ ist vorausgefüllt („${vorausgefuellt}“)`);
+const hrefAufFormular = await page.locator('footer a', { hasText: 'Barriere melden' }).getAttribute('href');
+ok(!hrefAufFormular.includes('?'), `Auf der Formularseite selbst kein Parameter (${hrefAufFormular})`);
+await page.goto(BASE + '/barriere-melden?seite=' + encodeURIComponent('<b>/impressum</b>\n\t'), { waitUntil: 'networkidle' });
+const bereinigt = await page.locator('#edit-seite').inputValue();
+ok(bereinigt === '/impressum', `Parameter wird bereinigt (HTML und Steuerzeichen entfernt: „${bereinigt}“)`);
+await page.goto(BASE + '/barriere-melden', { waitUntil: 'networkidle' });
+ok(await page.locator('#edit-seite').inputValue() === '', 'Ohne Parameter bleibt das Feld leer');
 await ctx.close();
 
 await browser.close();

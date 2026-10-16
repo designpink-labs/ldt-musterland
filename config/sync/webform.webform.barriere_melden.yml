@@ -37,13 +37,15 @@ elements: |-
     '#attributes':
       required: required
   seite:
-    '#type': url
-    '#title': 'Betroffene Seite (Adresse)'
-    '#description': 'Die Adresse aus der Adresszeile Ihres Browsers, etwa …/impressum'
+    '#type': textfield
+    '#title': 'Betroffene Seite'
+    '#description': 'Die Adresse oder der Name der Seite, zum Beispiel …/impressum oder Impressum.'
     '#description_display': before
     '#required': true
-    '#required_error': 'Bitte geben Sie die Adresse der Seite an, auf der die Barriere auftritt.'
+    '#required_error': 'Bitte geben Sie die Adresse oder den Namen der Seite an, auf der die Barriere auftritt.'
     '#autocomplete': 'off'
+    '#attributes':
+      inputmode: url
   beschreibung:
     '#description': 'Was wollten Sie tun? Was ist passiert?'
     '#type': textarea

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\ldt_formulare\Hook;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 
 /**
@@ -68,6 +69,31 @@ class FormulareHooks {
   #[Hook('form_alter')]
   public function formAlter(array &$form): void {
     $form['#attached']['library'][] = 'ldt_formulare/fehlerliste';
+  }
+
+  /**
+   * Implements hook_webform_submission_form_alter().
+   *
+   * "Barriere melden": Feld "Betroffene Seite" aus ?seite=… vorausfüllen.
+   * Der Link im Seitenfuß übergibt die aktuelle Seite (siehe Theme,
+   * LdtMusterlandHooks::preprocessMenu()). Der Wert wird bereinigt: ohne
+   * HTML und Steuerzeichen, höchstens 255 Zeichen.
+   */
+  #[Hook('webform_submission_form_alter')]
+  public function webformSubmissionFormAlter(array &$form, FormStateInterface $form_state, string $form_id): void {
+    if (!isset($form['elements']['seite']) || $form_state->getFormObject()->getEntity()->getWebform()->id() !== 'barriere_melden') {
+      return;
+    }
+    $form['#cache']['contexts'][] = 'url.query_args:seite';
+    $wert = \Drupal::request()->query->get('seite');
+    if (!is_string($wert)) {
+      return;
+    }
+    $wert = trim(preg_replace('/[\p{Cc}\s]+/u', ' ', strip_tags($wert)) ?? '');
+    $wert = mb_substr($wert, 0, 255);
+    if ($wert !== '') {
+      $form['elements']['seite']['#default_value'] = $wert;
+    }
   }
 
   /**

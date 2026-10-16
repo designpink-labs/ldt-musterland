@@ -27,7 +27,7 @@
 <div data-drupal-messages class="messages-list">
 {% block messages %}
 {% for type, messages in message_list %}
-  <div class="hinweis hinweis--{{ type|clean_class }} messages messages--{{ type|clean_class }}" role="{{ type == 'error' ? 'alert' : 'status' }}">
+  <div class="hinweis hinweis--{{ type|clean_class }} messages messages--{{ type|clean_class }}" role="{{ type == 'error' ? 'alert' : 'status' }}"{% if type == 'error' %} tabindex="-1"{% endif %}>
     {{ include('@ldt_musterland/icons/icon-' ~ (icons[type] ?? 'info') ~ '.html.twig') }}
     <div class="hinweis__body">
       <strong class="hinweis__title">{{ labels[type] ?? status_headings[type] }}:</strong>

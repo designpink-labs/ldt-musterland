@@ -35,6 +35,23 @@ class LdtMusterlandHooks {
   public function preprocessMenu(array &$variables): void {
     $variables['current_path'] = $this->currentPath();
     $variables['#cache']['contexts'][] = 'url.path';
+
+    // Seitenfuß: "Barriere melden" übergibt die aktuelle Seite (?seite=…),
+    // das Formular füllt damit das Feld "Betroffene Seite" vor
+    // (ldt_formulare). Auf der Formularseite selbst kein Parameter.
+    if (($variables['menu_name'] ?? '') === 'footer') {
+      $route = \Drupal::routeMatch();
+      $auf_formular = $route->getRouteName() === 'entity.webform.canonical'
+        && $route->getRawParameter('webform') === 'barriere_melden';
+      foreach ($variables['items'] as &$item) {
+        $url = $item['url'] ?? NULL;
+        if (!$auf_formular && $url instanceof Url && $url->isRouted()
+          && $url->getRouteName() === 'entity.webform.canonical'
+          && ($url->getRouteParameters()['webform'] ?? '') === 'barriere_melden') {
+          $item['url'] = (clone $url)->setOption('query', ['seite' => $this->currentPath(TRUE)]);
+        }
+      }
+    }
   }
 
   /**
@@ -108,11 +125,11 @@ class LdtMusterlandHooks {
   /**
    * Gibt die aktuelle Adresse so zurück, wie Menülinks sie erzeugen.
    */
-  protected function currentPath(): string {
+  protected function currentPath(bool $absolute = FALSE): string {
     if (\Drupal::service('path.matcher')->isFrontPage()) {
-      return Url::fromRoute('<front>')->toString();
+      return Url::fromRoute('<front>', [], ['absolute' => $absolute])->toString();
     }
-    return Url::fromRoute('<current>')->toString();
+    return Url::fromRoute('<current>', [], ['absolute' => $absolute])->toString();
   }
 
 }
