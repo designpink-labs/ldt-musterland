@@ -144,9 +144,32 @@ return [
 </ul>
 <p>Das Landesrecht vieler Länder sieht das ebenso vor. Unsere eigenen Informationen finden Sie auf der Seite {{link:leichte-sprache|Informationen in Leichter Sprache}}.</p>
 <h2>Beispiel</h2>
+<p>Der Ausgangstext ist ein Abschnitt aus einem fiktiven Merkblatt „Barrieren melden“. Er richtet sich an Bürgerinnen und Bürger – für sie wird Leichte Sprache gemacht.</p>
+<div class="sprachvergleich">
+<div>
+<h3>Standardsprache</h3>
+<p>Sofern Ihnen bei der Nutzung von Internetauftritten oder mobilen Anwendungen öffentlicher Stellen des Musterlandes Mängel hinsichtlich der barrierefreien Zugänglichkeit auffallen, haben Sie die Möglichkeit, diese der jeweiligen öffentlichen Stelle über den in der Erklärung zur Barrierefreiheit bereitgestellten Feedback-Mechanismus mitzuteilen. Die öffentliche Stelle ist verpflichtet, Ihnen innerhalb einer angemessenen Frist eine Rückmeldung zu erteilen. Erfolgt keine oder keine zufriedenstellende Rückmeldung, steht Ihnen die Durchführung eines Schlichtungsverfahrens bei der Schlichtungsstelle bei der oder dem Landesbeauftragten für die Belange von Menschen mit Behinderungen offen. Das Verfahren ist für Sie kostenfrei; die Beauftragung eines Rechtsbeistands ist nicht erforderlich.</p>
+</div>
+<div>
+<h3>Leichte Sprache</h3>
+<p><strong>Sie haben ein Problem mit einer Internet·seite?<br>Das können Sie tun.</strong></p>
+<p>Sie benutzen eine Internet·seite von einem Amt im Musterland.<br>Die Internet·seite soll barriere·frei sein.<br>Barriere·frei heißt:<br>Alle Menschen können die Internet·seite benutzen.<br>Ohne Hilfe.</p>
+<p>Sie haben ein Problem mit der Internet·seite?<br>Zum Beispiel:<br>Sie können einen Text schlecht lesen.<br>Oder ein Knopf funktioniert mit der Tastatur nicht.</p>
+<p>Dann sagen Sie es dem Amt.<br>Jede Internet·seite von einem Amt hat eine Erklärung zur Barriere·freiheit.<br>Dort steht: So erreichen Sie das Amt.<br>Zum Beispiel mit einem Formular.<br>Das Amt muss Ihnen dann antworten.</p>
+<p>Das Amt antwortet nicht?<br>Oder die Antwort hilft Ihnen nicht?<br>Dann können Sie sich bei der Schlichtungs·stelle melden.<br>Die Schlichtungs·stelle hilft Ihnen und dem Amt.<br>Sie suchen zusammen eine Lösung.</p>
+<p><strong>Wichtig:</strong><br>Die Schlichtungs·stelle ist kosten·los.<br>Sie brauchen dafür keinen Anwalt und keine Anwältin.</p>
+</div>
+</div>
+<h3>Welche Regeln angewendet wurden</h3>
+<ul>
+  <li>Ein Gedanke pro Satz, jeder Satz in einer neuen Zeile: Aus 4 langen Sätzen wurden 23 kurze.</li>
+  <li>Fachwörter ersetzt oder erklärt: Aus „Feedback-Mechanismus“ wird „Formular“, „barriere·frei“ und „Schlichtungs·stelle“ werden im Text erklärt.</li>
+  <li>Lange Wörter gegliedert mit dem Mediopunkt: Internet·seite, Schlichtungs·stelle.</li>
+  <li>Direkte Ansprache und Fragen statt Bedingungssätzen („Sofern …“, „Erfolgt keine …“).</li>
+  <li>Bewusst weggelassen: die „angemessene Frist“ und die genaue Zuständigkeit der oder des Landesbeauftragten. Leichte Sprache heißt auch, auf das zu reduzieren, was Leserinnen und Leser zum Handeln brauchen. Diese Auswahl muss die Fachabteilung mittragen.</li>
+</ul>
 <div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Das Beispiel wird hier ergänzt.</p>
-<p>Es zeigt einen Abschnitt aus einem Merkblatt in Standardsprache und daneben denselben Inhalt in Leichter Sprache. Darunter wird kurz erläutert, welche Regeln angewendet wurden.</p>
+<p><strong>Hinweis:</strong> Dieser Text wurde nicht von einer Prüfgruppe geprüft.</p>
 </div>',
   ],
   'video' => [

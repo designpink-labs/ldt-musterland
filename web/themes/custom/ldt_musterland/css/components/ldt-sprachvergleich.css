@@ -1,0 +1,61 @@
+/**
+ * @file
+ * Sprachvergleich: Standardsprache und Leichte Sprache.
+ *
+ * Markup (Textformat erlaubt nur die Klasse "sprachvergleich"):
+ *   <div class="sprachvergleich">
+ *     <div><h3>Standardsprache</h3> …</div>
+ *     <div><h3>Leichte Sprache</h3> <p>Satz<br>Satz</p> …</div>
+ *   </div>
+ * Die zweite Spalte ist der Leichte-Sprache-Block.
+ *
+ * Mobil untereinander, ab genug Platz nebeneinander (Container-Abfrage auf
+ * den Inhaltsbereich). Der Block darf breiter sein als die Fließtext-
+ * Zeilenlänge (70ch): Auf Seiten mit Sprachvergleich gilt die Begrenzung
+ * deshalb für die einzelnen Absätze statt für das ganze Textfeld. So bleibt
+ * der Block innerhalb des Textfelds – kein Überstehen, kein waagerechtes
+ * Scrollen (WCAG 1.4.10). Ohne :has()-Unterstützung: Spalten innerhalb 70ch.
+ */
+.node--view-mode-full > .node__content {
+  container-type: inline-size;
+}
+.node--view-mode-full > .node__content > .field--name-body:has(> .sprachvergleich) {
+  max-width: none;
+}
+.field--name-body:has(> .sprachvergleich) > :not(.sprachvergleich) {
+  max-width: var(--measure);
+}
+
+.sprachvergleich {
+  display: grid;
+  gap: var(--space-5);
+  margin-block: var(--space-5);
+}
+
+.sprachvergleich > div {
+  padding-block-start: var(--space-3);
+  border-block-start: 3px solid var(--c-line);
+}
+.sprachvergleich > div > h3 {
+  margin-block-start: 0;
+}
+
+/* Leichte Sprache: größer, luftig, linksbündig, ohne Silbentrennung. */
+.sprachvergleich > div:last-child {
+  border-block-start-color: var(--c-accent);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  text-align: start;
+  hyphens: none;
+  overflow-wrap: normal;
+}
+.sprachvergleich > div:last-child p {
+  margin-block: 0 1.8em; /* eine Leerzeile zwischen Sinnabschnitten */
+}
+
+@container (min-width: 56rem) {
+  .sprachvergleich {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}

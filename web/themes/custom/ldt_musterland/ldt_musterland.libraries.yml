@@ -126,6 +126,7 @@ global:
       css/components/ldt-breadcrumb.css: {}
       css/components/ldt-content.css: {}
       css/components/ldt-hinweis.css: {}
+      css/components/ldt-sprachvergleich.css: {}
       css/components/ldt-cards.css: {}
       css/components/ldt-forms.css: {}
       css/components/ldt-footer.css: {}

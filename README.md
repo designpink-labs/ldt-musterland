@@ -86,6 +86,11 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
 - Vollständige englische Namen und Ausdrücke mit `<span lang="en">…</span>` auszeichnen
   (z. B. Web Content Accessibility Guidelines), eingedeutschte Fachbegriffe wie
   Screenreader oder Hashtag nicht. Das Textformat erlaubt dafür nur `<span lang>`.
+- Vergleich Standardsprache / Leichte Sprache: `<div class="sprachvergleich"><div><h3>Standardsprache</h3>…</div>
+  <div><h3>Leichte Sprache</h3><p>Satz<br>Satz</p>…</div></div>` – zweite Spalte = Leichte Sprache
+  (1,25 rem, ohne Silbentrennung); jeder Satz eine Zeile (`<br>`), jeder Sinnabschnitt ein Absatz.
+  Ab genug Platz nebeneinander, sonst untereinander (`css/components/ldt-sprachvergleich.css`).
+  Das Textformat erlaubt dafür nur die Klasse `sprachvergleich`.
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)

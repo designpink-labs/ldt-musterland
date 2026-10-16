@@ -57,7 +57,7 @@ settings:
         - '<h4 id>'
         - '<h5 id>'
         - '<h6 id>'
-        - '<div class="hinweis hinweis--info">'
+        - '<div class="hinweis hinweis--info sprachvergleich">'
         - '<span lang>'
     linkit_extension:
       linkit_enabled: true
