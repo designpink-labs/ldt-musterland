@@ -1,0 +1,17 @@
+/**
+ * Hinweis-Balken "Musterseite".
+ * Kontrast Text #1a1a1a auf Hintergrund #fff3b0: 15,5:1 (WCAG AAA).
+ * Wirkt nicht nur über Farbe: Text, Fettung und Rahmen.
+ */
+.ldt-musterhinweis {
+  background: #fff3b0;
+  color: #1a1a1a;
+  border-bottom: 3px solid #1a1a1a;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.ldt-musterhinweis p {
+  margin: 0;
+}

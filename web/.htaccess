@@ -25,9 +25,6 @@ AddEncoding gzip svgz
 # Add correct encoding for webp.
 AddType image/webp .webp
 
-# designpink: WebVTT-Untertitel mit korrektem MIME-Typ ausliefern.
-AddType text/vtt .vtt
-
 # Most of the following PHP settings cannot be changed at runtime. See
 # sites/default/default.settings.php and
 # Drupal\Core\DrupalKernel::bootEnvironment() for settings that can be
