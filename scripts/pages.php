@@ -333,57 +333,114 @@ return [
 </div>',
   ],
 
-  // Hauptmenü: Web & Optimierung (Texte folgen nach Freigabe).
+  // Hauptmenü: Web & Optimierung.
   'web-optimierung' => [
     'title' => 'Web & Optimierung',
     'promote' => TRUE,
-    'description' => 'Struktur, Auffindbarkeit und Messbarkeit von Behörden-Websites: Informationsarchitektur, SEO & GEO, Webanalyse (Musterseite).',
+    'summary' => 'Struktur, Auffindbarkeit und Messbarkeit von Behörden-Websites: Informationsarchitektur, SEO und GEO, Webanalyse.',
     'menu' => 'main', 'weight' => 3,
     'body' => '
-<p>[Hier: Einleitung – wie Struktur, Auffindbarkeit und Messbarkeit von Behörden-Websites zusammenhängen.]</p>
-<h2>Themen in diesem Bereich</h2>
+<p>Eine gute Behörden-Website erfüllt drei Aufgaben: Menschen finden sich auf ihr zurecht. Suchmaschinen und KI-Assistenten finden ihre Inhalte. Und die Redaktion weiß, welche Inhalte gebraucht werden. Das LDT berät die Dienststellen der Landesverwaltung in allen drei Bereichen.</p>
+<h2>Unsere Themen</h2>
 <ul>
-  <li>{{link:ia|Informationsarchitektur}} – [Hier: ein Satz]</li>
-  <li>{{link:seo-geo|SEO &amp; GEO}} – [Hier: ein Satz]</li>
-  <li>{{link:matomo|Webanalyse mit Matomo}} – [Hier: ein Satz]</li>
+  <li>{{link:ia|Informationsarchitektur}}: Inhalte so ordnen, dass Menschen sie finden</li>
+  <li>{{link:seo-geo|SEO und GEO}}: in Suchmaschinen und KI-Assistenten auffindbar sein</li>
+  <li>{{link:matomo|Webanalyse mit Matomo}}: datenschutzfreundlich messen, was gebraucht wird</li>
+</ul>
+<h2>Erst die Struktur, dann die Optimierung</h2>
+<p>Viele Probleme, die nach schlechter Auffindbarkeit aussehen, sind in Wahrheit Strukturprobleme: Seiten heißen wie Abteilungen statt wie Anliegen, oder dasselbe Thema steht an drei Stellen. Wir beginnen deshalb immer mit der Struktur. Webanalyse zeigt danach, ob die Änderungen wirken.</p>
+<h2>Unser Angebot</h2>
+<ul>
+  <li><strong>Neue Website:</strong> Wir beraten Sie vor einem Neuaufbau zu Struktur, Technik und Ausschreibung.</li>
+  <li><strong>Bestehende Website:</strong> Wir analysieren Navigation, Suchbegriffe und Nutzungsdaten und schlagen konkrete Verbesserungen vor.</li>
+  <li><strong>Schulung:</strong> In unseren {{link:schulungen|Schulungen für Online-Redaktionen}} lernen Sie, Inhalte gut auffindbar zu machen.</li>
 </ul>',
   ],
   'ia' => [
     'title' => 'Informationsarchitektur',
-    'description' => 'Informationsarchitektur für Behörden-Websites: Methoden wie Card Sorting und Tree Testing am Beispiel dieser Website (Musterseite).',
+    'summary' => 'Informationsarchitektur für Behörden-Websites: nach Anliegen ordnen, mit Card Sorting und Tree Testing prüfen.',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 1,
     'body' => '
-<p>[Hier: was Informationsarchitektur ist und warum sie für Behörden-Websites wichtig ist.]</p>
-<h2>Beispiel: diese Website</h2>
-<p>[Hier: Struktur dieser Website und die Überlegungen dahinter.]</p>
+<p>Informationsarchitektur beschreibt, wie die Inhalte einer Website geordnet, benannt und miteinander verknüpft sind. Eine gute Informationsarchitektur merkt man kaum: Menschen finden, was sie suchen – ohne den Aufbau der Behörde kennen zu müssen.</p>
+<h2>Nach Anliegen ordnen, nicht nach Zuständigkeit</h2>
+<p>Bürgerinnen und Bürger suchen „Wohngeld beantragen“, nicht „Referat 23“. Ordnen Sie Inhalte deshalb nach den Anliegen der Menschen und nicht nach dem Organigramm. Benennen Sie Menüpunkte in Alltagssprache, kurz und eindeutig.</p>
 <h2>Methoden</h2>
-<p>[Hier: Methoden wie Card Sorting, Tree Testing oder Auswertung von Suchbegriffen – nur beschreiben, was tatsächlich angewendet wurde.]</p>
-<h2>Ergebnis</h2>
-<p>[Hier: Navigationsstruktur als Liste oder als Grafik mit Textalternative.]</p>',
+<ul>
+  <li><strong>Daten auswerten:</strong> Suchbegriffe der Website-Suche, häufige Fragen am Telefon und die Webanalyse zeigen, was Menschen suchen und nicht finden.</li>
+  <li><strong>Card Sorting:</strong> Teilnehmende sortieren Karten mit Themen in Gruppen und benennen diese Gruppen. So sehen Sie, wie Ihre Zielgruppe Inhalte ordnet.</li>
+  <li><strong>Tree Testing:</strong> Teilnehmende lösen Aufgaben wie „Wo finden Sie die Erklärung zur Barrierefreiheit?“ in einer reinen Textfassung der Navigation, ganz ohne Gestaltung. So prüfen Sie eine Struktur, bevor sie umgesetzt wird.</li>
+</ul>
+<h2>Beispiel: diese Website</h2>
+<p>Diese Website ordnet ihre Inhalte so:</p>
+<ul>
+  <li>Startseite</li>
+  <li>Barrierefreiheit: Barrierefreie Dokumente, Leichte Sprache, Video und Untertitel, Gebärdensprache</li>
+  <li>Online-Redaktion: Texte fürs Web, Arbeitshilfe Redaktion, Social Media</li>
+  <li>Web und Optimierung: Informationsarchitektur, SEO und GEO, Webanalyse mit Matomo</li>
+  <li>Schulungen</li>
+  <li>Über uns und Kontakt</li>
+</ul>
+<p>Die Navigation hat höchstens zwei Ebenen. Jede Übersichtsseite verlinkt ihre Unterseiten. Die Seiten, die jede Behörde anbieten muss, stehen gesammelt im Seitenfuß: Erklärung zur Barrierefreiheit, Barriere melden, Leichte Sprache, Gebärdensprache, Impressum und Datenschutz. Die Links zu Leichter Sprache und Gebärdensprache stehen zusätzlich gut sichtbar im Kopfbereich.</p>
+<p>Eine Pfadnavigation („Sie sind hier“) zeigt auf jeder Seite, wo man sich befindet. Auch die Internetadressen folgen der Struktur.</p>
+<p>Bei einer echten Behörden-Website würden wir diese Struktur vor der Umsetzung mit einem Tree Test prüfen.</p>',
   ],
   'seo-geo' => [
     'title' => 'SEO & GEO',
-    'description' => 'SEO und Generative Engine Optimization für Behörden: Metadaten, strukturierte Daten und verständliche Inhalte (Musterseite).',
+    'summary' => 'Auffindbar in Suchmaschinen und KI-Assistenten: SEO und GEO für Behörden-Websites, mit Umsetzung auf dieser Website.',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 2,
     'body' => '
-<p>[Hier: was Suchmaschinenoptimierung (SEO) und Generative Engine Optimization (GEO) für Behörden bedeuten.]</p>
+<p>Viele Menschen suchen Verwaltungsleistungen zuerst über eine Suchmaschine – und immer mehr fragen dafür einen KI-Assistenten. In beiden Fällen sollen Behörden-Websites als verlässliche Quelle erscheinen.</p>
+<h2>Was SEO bedeutet</h2>
+<p>Suchmaschinenoptimierung (englisch: Search Engine Optimization, SEO) heißt: Inhalte und Technik so gestalten, dass Suchmaschinen eine Seite finden, verstehen und passend anzeigen. Für Behörden geht es dabei nicht um Werbung, sondern darum, dass Menschen die richtige, offizielle Information finden.</p>
+<h2>Was GEO bedeutet</h2>
+<p>Generative Engine Optimization (GEO) heißt: Inhalte so aufbereiten, dass KI-gestützte Such- und Antwortsysteme sie richtig erfassen, korrekt zusammenfassen und als Quelle nennen. Der Begriff ist noch jung, die Methoden entwickeln sich weiter. Vieles davon deckt sich mit guter Redaktionsarbeit und mit Barrierefreiheit.</p>
+<h2>Was beiden hilft</h2>
+<ul>
+  <li>Überschriften, die sagen, worum es geht – gern als Frage, wie Menschen sie stellen</li>
+  <li>ein erster Absatz, der die wichtigste Antwort enthält</li>
+  <li>eindeutige Begriffe, die beim ersten Vorkommen erklärt werden</li>
+  <li>Angaben mit Stand und Quelle, zum Beispiel „Stand: Oktober 2026“</li>
+  <li>sauberer, barrierefreier Seitenaufbau: Was Screenreader verstehen, verstehen auch Maschinen</li>
+  <li>regelmäßig geprüfte, aktuelle Inhalte</li>
+</ul>
+<h2>KI-Crawler zulassen oder sperren?</h2>
+<p>In der Datei robots.txt legt eine Website fest, welche automatischen Programme, sogenannte Crawler, ihre Seiten auslesen sollen. Viele Anbieter von KI-Assistenten nutzen eigene Crawler. Behörden sollten bewusst entscheiden, ob sie diese zulassen.</p>
+<p>Beides hat Folgen: Wer KI-Crawler pauschal sperrt, kann von KI-Assistenten nicht als offizielle Quelle genutzt werden. Die Antworten stützen sich dann womöglich auf weniger verlässliche Seiten. Wer sie zulässt, gibt die Inhalte zur Auswertung durch Dritte frei und hat keinen Einfluss darauf, wie sie zusammengefasst werden. Die robots.txt ist zudem nur eine Bitte an die Crawler, keine technische Sperre. Stimmen Sie die Entscheidung in Ihrer Dienststelle ab und überprüfen Sie sie regelmäßig.</p>
 <h2>Umsetzung auf dieser Website</h2>
-<p>[Hier: sprechende URLs, Metadaten, strukturierte Daten nach schema.org, XML-Sitemap. Hinweis: Als Musterseite ist diese Website für Suchmaschinen gesperrt (noindex).]</p>
-<h2>Inhalte für Menschen, Suchmaschinen und KI-Systeme</h2>
-<p>[Hier: wie Inhalte so aufgebaut werden, dass sie verständlich und gut auffindbar sind.]</p>',
+<ul>
+  <li>Die Internetadressen sind lesbar und folgen der Struktur, zum Beispiel …/barrierefreiheit/leichte-sprache.</li>
+  <li>Jede Seite hat einen eigenen Seitentitel und eine eigene Beschreibung für die Trefferliste.</li>
+  <li>Strukturierte Daten nach schema.org beschreiben das Amt (GovernmentOrganization), jede Seite (WebPage) und ihre Position in der Struktur (BreadcrumbList). Diese Angaben stehen maschinenlesbar im Quelltext, im Format JSON-LD.</li>
+  <li>Eine XML-Sitemap listet alle Seiten für Suchmaschinen auf.</li>
+</ul>
+<p>Als Musterseite ist die veröffentlichte Website für Suchmaschinen gesperrt („noindex“). Die Technik ist trotzdem vollständig eingerichtet.</p>
+<h2>Was wir nicht empfehlen</h2>
+<p>Häufen Sie keine Suchbegriffe an, und schreiben Sie keine Texte nur für Maschinen. Gute Inhalte für Menschen sind die Grundlage für jede Auffindbarkeit.</p>',
   ],
   'matomo' => [
     'title' => 'Webanalyse mit Matomo',
-    'description' => 'Datenschutzkonforme Webanalyse mit Matomo: Einrichtung ohne Cookies und Kennzahlen für Redaktionen (Musterseite).',
+    'summary' => 'Webanalyse mit Matomo: datenschutzfreundlich einrichten und Kennzahlen nutzen, die Redaktionen weiterhelfen.',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 3,
     'body' => '
-<p>[Hier: warum Matomo in der öffentlichen Verwaltung häufig eingesetzt wird.]</p>
-<h2>Datenschutzkonforme Einrichtung</h2>
-<p>[Hier: Einstellungen wie IP-Anonymisierung, Verzicht auf Cookies, Widerspruchsmöglichkeit.]</p>
-<h2>Kennzahlen für Redaktionen</h2>
-<p>[Hier: welche Auswertungen Redaktionen wirklich weiterhelfen.]</p>
+<p>Webanalyse zeigt, wie Menschen eine Website nutzen: welche Seiten sie aufrufen, wonach sie suchen und wo sie abbrechen. Viele öffentliche Stellen nutzen dafür Matomo – eine quelloffene Software, die eine Behörde auf eigenen Servern betreiben kann. Die Daten bleiben dann bei der Behörde und gehen nicht an Dritte.</p>
+<h2>Datenschutzfreundlich einrichten</h2>
+<ul>
+  <li><strong>IP-Adressen kürzen:</strong> Matomo kann die letzten Stellen jeder IP-Adresse entfernen, bevor es Daten speichert.</li>
+  <li><strong>Ohne Cookies messen:</strong> Matomo lässt sich so einstellen, dass es keine Cookies setzt.</li>
+  <li><strong>Widerspruch ermöglichen:</strong> Bieten Sie in der Datenschutzerklärung eine einfache Möglichkeit an, der Messung zu widersprechen.</li>
+  <li><strong>Wenig speichern:</strong> Löschen Sie die Rohdaten nach kurzer Frist und bewahren Sie nur zusammengefasste Berichte auf.</li>
+</ul>
+<p>Ob Sie für die Messung eine Einwilligung brauchen, hängt von den Einstellungen und der Rechtslage ab, insbesondere von der Datenschutz-Grundverordnung und dem Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG). Stimmen Sie die Einrichtung immer mit Ihrer oder Ihrem Datenschutzbeauftragten ab.</p>
+<h2>Kennzahlen, die Redaktionen weiterhelfen</h2>
+<ul>
+  <li><strong>Suchbegriffe der Website-Suche</strong> zeigen, was Menschen erwarten und vielleicht nicht finden.</li>
+  <li><strong>Einstiegsseiten:</strong> Viele Menschen kommen nicht über die Startseite, sondern direkt über eine Suchmaschine auf eine Unterseite.</li>
+  <li><strong>Abbrüche:</strong> Wo verlassen Menschen ein Formular oder einen Ablauf?</li>
+  <li><strong>Downloads:</strong> Welche Dokumente werden wirklich gebraucht?</li>
+</ul>
+<p>Reine Seitenaufrufe sagen wenig. Fragen Sie immer: Konnte die Person ihr Anliegen erledigen?</p>
 <h2>Auf dieser Website</h2>
-<p>[Hier: ob Matomo auf dieser Website aktiv ist.] Einzelheiten stehen in der {{link:datenschutz|Datenschutzerklärung}}.</p>',
+<p>Matomo ist auf dieser Website vorbereitet, aber nicht aktiv. Es werden keine Nutzungsdaten erhoben. Sollte sich das ändern, steht es in der {{link:datenschutz|Datenschutzerklärung}}.</p>',
   ],
 
   // Hauptmenü: Einzelseiten.

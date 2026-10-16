@@ -68,7 +68,14 @@ Im Editor: Link-Schaltfläche, dann Seitentitel eintippen und Vorschlag auswähl
 ```bash
 ddev drush php:script scripts/create-content.php                 # fehlende Seiten anlegen
 ddev drush php:script scripts/create-content.php -- --overwrite  # ACHTUNG: überschreibt Texte
+ddev drush php:script scripts/create-content.php -- --overwrite --only=video,schulungen  # nur diese Seiten
 ```
+
+- `summary` in `pages.php` = Zusammenfassung (Kartentext); die Meta-Beschreibung ist
+  `summary` + „– Musterseite einer fiktiven Behörde“.
+- Hinweisbox im Text: `<div class="hinweis hinweis--info"><p><strong>Hinweis:</strong> …</p></div>`
+  (im Editor über „Quelltext“; andere Klassen lässt das Textformat nicht zu).
+- Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ## Metadaten und strukturierte Daten
 
