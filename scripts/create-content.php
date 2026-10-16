@@ -11,6 +11,12 @@
  * (Achtung: im Backend geänderte Texte gehen verloren):
  *   ddev drush php:script scripts/create-content.php -- --overwrite
  *
+ * Nur bestimmte Seiten überschreiben (Schlüssel aus pages.php):
+ *   ddev drush php:script scripts/create-content.php -- --overwrite --only=video,schulungen
+ *
+ * Zusammenfassung (Kartentext) = 'summary'; Meta-Beschreibung = 'summary'
+ * plus " – Musterseite einer fiktiven Behörde" (oder 'description', falls gesetzt).
+ *
  * Welche Seite zu welchem Schlüssel gehört, merkt sich das Skript im
  * State-Eintrag "ldt.page_nids".
  */
@@ -19,6 +25,13 @@ use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\Entity\Node;
 
 $overwrite = in_array('--overwrite', $extra ?? [], TRUE);
+$only = [];
+foreach ($extra ?? [] as $arg) {
+  if (str_starts_with($arg, '--only=')) {
+    $only = array_filter(explode(',', substr($arg, 7)));
+  }
+}
+const LDT_META_SUFFIX = ' – Musterseite einer fiktiven Behörde';
 $pages = require __DIR__ . '/pages.php';
 $state = \Drupal::state();
 $map = $state->get('ldt.page_nids', []);
@@ -29,7 +42,7 @@ $nodes = [];
 $changed = [];
 foreach ($pages as $key => $page) {
   $node = isset($map[$key]) ? Node::load($map[$key]) : NULL;
-  if ($node && !$overwrite) {
+  if ($node && (!$overwrite || ($only && !in_array($key, $only, TRUE)))) {
     $nodes[$key] = $node;
     continue;
   }
@@ -37,12 +50,13 @@ foreach ($pages as $key => $page) {
   $node->setTitle($page['title']);
   $node->set('body', [
     'value' => trim($page['body']),
-    'summary' => !empty($page['promote']) ? ($page['description'] ?? '') : '',
+    'summary' => $page['summary'] ?? '',
     'format' => 'basic_html',
   ]);
   $node->set('promote', !empty($page['promote']));
-  if (!empty($page['description']) && $node->hasField('field_metatag')) {
-    $node->set('field_metatag', json_encode(['description' => $page['description']]));
+  $description = $page['description'] ?? (isset($page['summary']) ? $page['summary'] . LDT_META_SUFFIX : '');
+  if ($description && $node->hasField('field_metatag')) {
+    $node->set('field_metatag', json_encode(['description' => $description]));
   }
   $node->save();
   $nodes[$key] = $node;

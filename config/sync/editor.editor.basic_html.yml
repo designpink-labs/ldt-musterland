@@ -57,6 +57,7 @@ settings:
         - '<h4 id>'
         - '<h5 id>'
         - '<h6 id>'
+        - '<div class="hinweis hinweis--info">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default

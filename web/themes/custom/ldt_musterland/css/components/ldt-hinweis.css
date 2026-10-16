@@ -61,3 +61,27 @@
   background: var(--c-hint-bg);
   color: var(--c-text);
 }
+
+/* Hinweisbox im Fließtext (Editor: <div class="hinweis hinweis--info">).
+   Ohne SVG im Markup: Icon per CSS-Maske, Text untereinander. */
+.field--name-body .hinweis {
+  display: block;
+  position: relative;
+  padding-inline-start: 3.25rem;
+  color: var(--c-text);
+  border-color: var(--c-info);
+}
+.field--name-body .hinweis::before {
+  content: "";
+  position: absolute;
+  top: 0.95rem;
+  left: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--c-info);
+  -webkit-mask: url("../../images/ldt/icon-info.svg") center / contain no-repeat;
+  mask: url("../../images/ldt/icon-info.svg") center / contain no-repeat;
+}
+.field--name-body .hinweis > :last-child {
+  margin-bottom: 0;
+}
