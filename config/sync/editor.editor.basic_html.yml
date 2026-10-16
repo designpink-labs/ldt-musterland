@@ -22,6 +22,7 @@ settings:
       - numberedList
       - '|'
       - blockQuote
+      - insertTable
       - drupalInsertImage
       - '|'
       - heading
@@ -59,6 +60,7 @@ settings:
         - '<h6 id>'
         - '<div class="hinweis hinweis--info sprachvergleich">'
         - '<span lang>'
+        - '<th scope>'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default

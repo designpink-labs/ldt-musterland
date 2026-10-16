@@ -357,15 +357,70 @@ return [
   <li><strong>Videos mit Untertiteln:</strong> Viele Menschen sehen Videos ohne Ton. Untertitel helfen ihnen und allen, die nicht hören.</li>
   <li><strong>Text in Grafiken:</strong> Wiederholen Sie wichtige Aussagen einer Grafik im Beitragstext.</li>
 </ul>
-<h2>Datenschutz beachten</h2>
-<p>Binden Sie Beiträge von Plattformen nicht direkt in die Website ein. Eingebettete Inhalte übertragen oft schon beim Laden der Seite Daten an die Plattform. Verlinken Sie stattdessen auf den Beitrag oder zeigen Sie ein Bildschirmfoto mit Alternativtext.</p>
-<h2>Gut geplant</h2>
-<p>Ein Redaktionsplan legt fest, wer wann welche Themen veröffentlicht. Lassen Sie jeden Beitrag von einer zweiten Person gegenlesen. Legen Sie außerdem fest, wie schnell Sie auf Fragen antworten, und veröffentlichen Sie Regeln für den Umgang miteinander, eine sogenannte Netiquette.</p>
-<h2>Beispiele</h2>
+<h2>Unser Rahmen für Social Media</h2>
+<p><strong>Ziele:</strong> Wir informieren über digitale Barrierefreiheit in der Landesverwaltung, machen Arbeitshilfen bekannt und laden zu Schulungen ein. Unsere Beiträge verweisen immer auf die ausführliche Information auf unserer Website.</p>
+<p><strong>Zielgruppen:</strong> Beschäftigte der Landesverwaltung, insbesondere Redaktionen und IT, sowie interessierte Bürgerinnen und Bürger.</p>
+<table>
+  <caption>Kanäle und Formate</caption>
+  <thead>
+    <tr><th scope="col">Kanal</th><th scope="col">Wofür</th><th scope="col">Format</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Instagram</th><td>Wissen anschaulich vermitteln</td><td>Infografik oder kurzes Video mit Untertiteln</td></tr>
+    <tr><th scope="row">Facebook</th><td>Ausführlichere Hinweise, Veranstaltungen</td><td>Text mit Link und Bild</td></tr>
+    <tr><th scope="row">X</th><td>Kurze Hinweise auf Neues</td><td>Kurztext mit Link, höchstens 280 Zeichen</td></tr>
+  </tbody>
+</table>
+<p><strong>Redaktionsplan:</strong> Wir planen Beiträge einen Monat im Voraus. Jeder Beitrag wird von einer zweiten Person gegengelesen. Kurzfristige Meldungen sind jederzeit möglich.</p>
+<p><strong>Erfolg messen:</strong> Uns interessieren nicht Likes, sondern ob Menschen die Information finden. Wir schauen deshalb vor allem auf Klicks zur Website und Rückfragen.</p>
+<p><strong>Datenschutz:</strong> Datenschutzaufsichtsbehörden sehen den Betrieb von Behördenseiten in sozialen Netzwerken teils kritisch. Stimmen Sie den Betrieb jedes Kanals mit Ihrer oder Ihrem Datenschutzbeauftragten ab. Wichtige Informationen stehen bei uns immer auch auf der Website, damit niemand ein Netzwerk nutzen muss.</p>
+<h2>Beispiel: eine Meldung, drei Kanäle</h2>
+<p>Dieselbe Information braucht in jedem Kanal eine andere Form. Als Beispiel dient unsere Meldung „{{link:meldung/en-301-549|Europäische Norm setzt jetzt auf WCAG 2.2}}“. Die Beiträge sind Muster und wurden nicht veröffentlicht.</p>
+<h3>Instagram</h3>
+{{img:sharepic-wcag22.png|Infografik: WCAG 2.2 – 6 neue Anforderungen. 1. Fokus nicht vollständig verdeckt. 2. Ziehbewegungen brauchen eine Alternative. 3. Klickflächen mindestens 24 × 24 Pixel. 4. Hilfe immer an derselben Stelle. 5. Eingaben nicht doppelt verlangen. 6. Anmeldung ohne Rätsel und Merkaufgaben.|432}}
+<blockquote>
+<p>Barrierefreiheit hat einen neuen Maßstab: WCAG 2.2.</p>
+<p>Die europäische Norm EN 301 549 setzt jetzt auf die neue Version. Das sind die 6 neuen Anforderungen:</p>
+<p>Der Fokus darf nicht vollständig verdeckt sein.<br>Ziehbewegungen brauchen eine Alternative.<br>Klickflächen sind mindestens 24&nbsp;×&nbsp;24&nbsp;Pixel groß.<br>Hilfe steht immer an derselben Stelle.<br>Bereits gemachte Eingaben werden nicht noch einmal verlangt.<br>Eine Anmeldung kommt ohne Rätsel und Merkaufgaben aus, oder es gibt eine Alternative.</p>
+<p>Rechtlich gilt vorerst noch WCAG 2.1. Planen Sie neue Projekte trotzdem schon nach 2.2.<br>Mehr dazu: Link in der Bio</p>
+<p>#DigitaleBarrierefreiheit #WCAG #Barrierefreiheit</p>
+</blockquote>
+<p><strong>Was ihn barrierefrei macht:</strong> Die Infografik hat einen Alternativtext mit allen sechs Punkten, und der Beitragstext wiederholt ihre Aussage vollständig. Die Hashtags stehen am Ende und in Binnenmajuskeln, es gibt keine Emojis als Aufzählungszeichen.</p>
+<h3>Facebook</h3>
+<blockquote>
+<p><strong>Neue Fassung der europäischen Norm für Barrierefreiheit</strong></p>
+<p>Im September 2026 ist die Norm EN 301 549 in einer neuen Fassung erschienen. Sie legt fest, wann Websites, Software und digitale Dokumente barrierefrei sind. Maßstab ist jetzt WCAG 2.2 statt 2.1. Neu sind zum Beispiel Mindestgrößen für Klickflächen und Regeln für barrierefreie Anmeldungen.</p>
+<p>Rechtlich gilt die neue Fassung erst, wenn die EU-Kommission sie im Amtsblatt veröffentlicht. Wir empfehlen trotzdem, neue Websites und Ausschreibungen schon jetzt nach WCAG 2.2 zu planen.</p>
+<p>Alle sechs neuen Anforderungen und unsere Empfehlung: {{link:meldung/en-301-549|Europäische Norm setzt jetzt auf WCAG 2.2}}</p>
+</blockquote>
+<p><strong>Was ihn barrierefrei macht:</strong> Er ist in kurze Absätze gegliedert, Fachbegriffe werden erklärt, und der Linktext sagt, wohin er führt.</p>
+<h3>X</h3>
+<p>Länge: 253 von 280 Zeichen (ein Link zählt bei X immer 23 Zeichen).</p>
+<blockquote>
+<p>Neue Fassung der Norm EN 301 549: Maßstab für barrierefreie Websites ist jetzt WCAG 2.2. Rechtlich gilt vorerst noch WCAG 2.1 – planen Sie neue Projekte trotzdem schon nach 2.2.</p>
+<p>Die 6 neuen Anforderungen: {{link:meldung/en-301-549|Europäische Norm setzt jetzt auf WCAG 2.2}} #Barrierefreiheit #WCAG</p>
+</blockquote>
+<p><strong>Was ihn barrierefrei macht:</strong> Die wichtigste Aussage steht im ersten Satz, und es gibt kein Bild, das eine Beschreibung bräuchte.</p>
+<h2>Community Management</h2>
+<p>Kommentare und Nachrichten beantworten wir werktags innerhalb von 24 Stunden. Für den Umgang miteinander gilt unsere Netiquette: Wir löschen Beiträge, die beleidigen, diskriminieren, zu Gewalt aufrufen oder Werbung enthalten.</p>
+<table>
+  <caption>Antwortbausteine</caption>
+  <thead>
+    <tr><th scope="col">Situation</th><th scope="col">So reagieren wir</th><th scope="col">Beispiel</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Sachliche Frage</th><td>Kurz beantworten, auf die Website verlinken</td><td>„Danke für Ihre Frage! Die Pflicht gilt für öffentliche Stellen. Mehr dazu finden Sie hier: {{link:barrierefreiheit|Barrierefreiheit}}“</td></tr>
+    <tr><th scope="row">Kritik oder Beschwerde</th><td>Ernst nehmen, nicht rechtfertigen, Lösung anbieten</td><td>„Danke für den Hinweis, das hätte nicht passieren dürfen. Wir geben das an die zuständige Stelle weiter. Möchten Sie die Barriere auch über unser Formular melden? {{form:barriere_melden|Barriere melden}}“</td></tr>
+    <tr><th scope="row">Persönliches Anliegen mit eigenen Daten</th><td>Nicht öffentlich besprechen, sicheren Kontaktweg nennen</td><td>„Bitte schreiben Sie uns dazu keine persönlichen Daten in die Kommentare. Am besten erreichen Sie uns über unsere {{link:ueber-uns|Kontaktseite}}.“</td></tr>
+    <tr><th scope="row">Falsche Information</th><td>Sachlich richtigstellen, mit Quelle</td><td>„Kurze Ergänzung: Rechtlich gilt derzeit noch WCAG 2.1. Die Quelle finden Sie hier: {{link:meldung/en-301-549|Europäische Norm setzt jetzt auf WCAG 2.2}}“</td></tr>
+    <tr><th scope="row">Beleidigung, Hassrede</th><td>Nicht diskutieren. Nach Netiquette verbergen oder löschen, dokumentieren, bei strafbaren Inhalten an die zuständige Stelle melden</td><td>(keine öffentliche Antwort, ggf. Hinweis auf die Netiquette)</td></tr>
+  </tbody>
+</table>
 <div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Das Beispiel wird hier ergänzt.</p>
-<p>Gezeigt werden drei Beispielbeiträge als Bildschirmfotos: die Ankündigung einer Schulung mit Foto und Alternativtext, ein kurzes Video mit Untertiteln und eine Infografik, deren Aussage auch im Beitragstext steht. Zu jedem Beispiel wird erklärt, was es barrierefrei macht.</p>
-</div>',
+<p><strong>Wichtig:</strong> Fragen zu konkreten Verfahren beantworten wir nicht in den Kommentaren, sondern verweisen auf die zuständige Stelle. So bleiben Auskünfte verlässlich und vertraulich.</p>
+</div>
+<h2>Datenschutz beachten</h2>
+<p>Binden Sie Beiträge von Plattformen nicht direkt in die Website ein. Eingebettete Inhalte übertragen oft schon beim Laden der Seite Daten an die Plattform. Verlinken Sie stattdessen auf den Beitrag oder zeigen Sie ein Bildschirmfoto mit Alternativtext.</p>',
   ],
 
   // Hauptmenü: Web & Optimierung.

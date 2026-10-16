@@ -4,6 +4,7 @@ namespace Drupal\ldt_musterland\Hook;
 
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Url;
+use Drupal\ldt_musterland\TabellenRahmen;
 
 /**
  * Hook implementations for ldt_musterland.
@@ -58,6 +59,21 @@ class LdtMusterlandHooks {
       }
     }
     $variables['#cache']['contexts'][] = 'url.path';
+  }
+
+  /**
+   * Implements hook_preprocess_field().
+   *
+   * Tabellen in formatierten Textfeldern bekommen einen scrollbaren Rahmen.
+   */
+  #[Hook('preprocess_field')]
+  public function preprocessField(array &$variables): void {
+    if (!in_array($variables['field_type'] ?? '', ['text_with_summary', 'text_long', 'text'], TRUE)) {
+      return;
+    }
+    foreach ($variables['items'] as &$item) {
+      $item['content']['#post_render'][] = [TabellenRahmen::class, 'postRender'];
+    }
   }
 
   /**

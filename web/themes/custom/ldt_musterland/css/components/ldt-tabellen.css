@@ -1,0 +1,43 @@
+/**
+ * @file
+ * Tabellen im Fließtext.
+ *
+ * Den Rahmen .tabelle setzt \Drupal\ldt_musterland\TabellenRahmen beim
+ * Ausgeben. Ist die Tabelle breiter als der Platz, scrollt nur der Rahmen.
+ */
+.tabelle {
+  max-width: 100%;
+  margin-block: var(--space-5);
+  overflow-x: auto;
+}
+.tabelle:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+.tabelle table {
+  width: 100%;
+  min-width: 32rem; /* darunter scrollt der Rahmen, statt Spalten zu quetschen */
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+.tabelle caption {
+  padding-block-end: var(--space-2);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  text-align: start;
+}
+.tabelle th,
+.tabelle td {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--c-line-strong);
+  text-align: start;
+  vertical-align: top;
+}
+.tabelle thead th {
+  background: var(--c-surface);
+}
+.tabelle tbody th {
+  font-weight: 700;
+}

@@ -91,6 +91,10 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   (1,25 rem, ohne Silbentrennung); jeder Satz eine Zeile (`<br>`), jeder Sinnabschnitt ein Absatz.
   Ab genug Platz nebeneinander, sonst untereinander (`css/components/ldt-sprachvergleich.css`).
   Das Textformat erlaubt dafür nur die Klasse `sprachvergleich`.
+- Tabellen: Editor-Knopf „Tabelle“; Kopfzeile, Tabellenüberschrift (`<caption>`) und im
+  Quelltext `<th scope="col">` bzw. `<th scope="row">`. Das Theme legt beim Ausgeben einen
+  scrollbaren, per Tastatur erreichbaren Rahmen um jede Tabelle (`src/TabellenRahmen.php`,
+  `css/components/ldt-tabellen.css`): Unter 32 rem Breite scrollt nur die Tabelle, nie die Seite.
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)
@@ -102,9 +106,12 @@ Original-Ablage: `~/Documents/Claude/Drupal-Dokumente/` (ohne Unterordner `quell
 |---|---|
 | `Merkblatt-vorher.pdf` (absichtlich nicht barrierefrei), `Merkblatt-nachher.pdf`, `Struktur-vorher.png`, `Struktur-nachher.png` | Barrierefreie Dokumente |
 | `Checkliste-Redaktion.pdf`, `LDT-Vorlage.dotx`, `LDT-Vorlage.ott` | Arbeitshilfe Redaktion |
+| `sharepic-wcag22.png` (Instagram-Infografik) | Social Media |
 
 In `pages.php` eingebunden mit `{{file:NAME|Linktext}}` (Format und Größe werden
-automatisch angehängt, z. B. „(PDF, 61 KB)“) und `{{img:NAME|Alternativtext}}`.
+automatisch angehängt, z. B. „(PDF, 61 KB)“) und `{{img:NAME|Alternativtext}}`
+(optional mit Anzeigebreite: `{{img:NAME|Alternativtext|432}}`). Links auf Meldungen:
+`{{link:meldung/SCHLÜSSEL|Text}}` (Meldungen vorher mit `create-meldungen.php` anlegen).
 Beide werden pfadunabhängig über die Datei-UUID gespeichert. Wird eine Datei ersetzt,
 die Seite mit `--overwrite --only=…` neu schreiben, damit die Größe stimmt.
 

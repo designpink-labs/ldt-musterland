@@ -6,9 +6,10 @@
  *
  * Marken im Text:
  * - {{link:SCHLÜSSEL|Text}}  Seite aus pages.php (Linkit, pfadunabhängig)
+ * - {{link:meldung/SCHLÜSSEL|Text}}  Meldung aus meldungen.php
  * - {{form:WEBFORM_ID|Text}}  Webformular (Linkit)
  * - {{file:DATEINAME|Text}}   Download mit "(FORMAT, N KB)"
- * - {{img:DATEINAME|Alt}}     Bild
+ * - {{img:DATEINAME|Alt}}     Bild; {{img:DATEINAME|Alt|400}} mit Anzeigebreite in px
  * Dateien liegen in sites/default/files/dokumente/ (nicht im Git-Repository).
  */
 
@@ -21,8 +22,8 @@
  *   Seiten, nach Schlüssel aus pages.php.
  */
 function ldt_marken(string $body, array $nodes): string {
-  $body = preg_replace_callback('/\{\{link:([a-z0-9-]+)\|([^}]+)\}\}/', function ($m) use ($nodes) {
-    $target = $nodes[$m[1]];
+  $body = preg_replace_callback('/\{\{link:([a-z0-9\/-]+)\|([^}]+)\}\}/', function ($m) use ($nodes) {
+    $target = $nodes[$m[1]] ?? throw new \RuntimeException("Linkziel fehlt: {$m[1]} (Meldungen zuerst mit create-meldungen.php anlegen)");
     return sprintf(
       '<a href="/node/%d" data-entity-type="node" data-entity-uuid="%s" data-entity-substitution="canonical">%s</a>',
       $target->id(), $target->uuid(), $m[2]
@@ -48,9 +49,14 @@ function ldt_marken(string $body, array $nodes): string {
   }, $body);
   // {{img:DATEINAME|Alternativtext}}: Bild; die Adresse setzt der Filter
   // editor_file_reference beim Ausgeben anhand der UUID.
-  $body = preg_replace_callback('/\{\{img:([A-Za-z0-9._-]+)\|([^}]+)\}\}/', function ($m) {
+  $body = preg_replace_callback('/\{\{img:([A-Za-z0-9._-]+)\|([^}|]+)(?:\|(\d+))?\}\}/', function ($m) {
     $file = ldt_dokument($m[1]);
     [$width, $height] = getimagesize($file->getFileUri());
+    // Optionale Anzeigebreite: Höhe im Seitenverhältnis mitrechnen.
+    if (!empty($m[3])) {
+      $height = (int) round($height * $m[3] / $width);
+      $width = (int) $m[3];
+    }
     return sprintf(
       '<img src="%s" data-entity-type="file" data-entity-uuid="%s" alt="%s" width="%d" height="%d">',
       $file->createFileUrl(), $file->uuid(), htmlspecialchars($m[2]), $width, $height

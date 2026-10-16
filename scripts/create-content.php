@@ -106,9 +106,14 @@ if (!$link_storage->loadByProperties(['link.uri' => 'internal:/', 'menu_name' =>
 }
 
 // 3. {{link:SCHLÜSSEL|Text}} in Linkit-Links umwandeln und Aliase erzeugen.
+// Linkziele: Seiten (SCHLÜSSEL) und Meldungen (meldung/SCHLÜSSEL).
+$ziele = $nodes;
+foreach ($state->get('ldt.meldung_nids', []) as $mkey => $nid) {
+  $ziele['meldung/' . $mkey] = Node::load($nid);
+}
 foreach (array_keys($changed) as $key) {
   $node = $nodes[$key];
-  $body = ldt_marken($node->get('body')->value, $nodes);
+  $body = ldt_marken($node->get('body')->value, $ziele);
   $node->set('body', ['value' => $body, 'summary' => $node->get('body')->summary, 'format' => 'basic_html']);
   $node->path->pathauto = 1;
   $node->save();
