@@ -1,0 +1,7 @@
+name: 'designpink Video'
+type: module
+description: 'Gibt Videodateien als HTML5-Video mit WebVTT-Untertiteln (<track>) aus.'
+package: designpink
+core_version_requirement: ^11
+dependencies:
+  - drupal:file

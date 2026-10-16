@@ -1,0 +1,27 @@
+uuid: 9cbc6d59-7a98-419d-8449-063fabaa8860
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_untertitel
+    - node.type.page
+  module:
+    - file
+id: node.page.field_untertitel
+field_name: field_untertitel
+entity_type: node
+bundle: page
+label: 'Untertitel (WebVTT)'
+description: 'Untertiteldatei (.vtt) in der Sprache dieser Seite. Wird im Video als Untertitelspur eingebunden.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: untertitel
+  file_extensions: vtt
+  max_filesize: ''
+  description_field: false
+field_type: file

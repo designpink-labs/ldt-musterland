@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_untertitel
+    - field.field.node.page.field_video
     - node.type.page
   module:
+    - file
     - path
     - text
 id: node.page.default
@@ -28,6 +31,20 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_untertitel:
+    type: file_generic
+    weight: 21
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_video:
+    type: file_generic
+    weight: 20
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   langcode:
     type: language_select

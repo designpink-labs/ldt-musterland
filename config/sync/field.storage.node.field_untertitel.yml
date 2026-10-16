@@ -1,0 +1,23 @@
+uuid: 2d6314c3-2548-4df7-be4f-d0c6e0a096d1
+langcode: de
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_untertitel
+field_name: field_untertitel
+entity_type: node
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
