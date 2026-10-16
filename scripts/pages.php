@@ -600,10 +600,10 @@ return [
 <ol>
   <li><strong>Anforderungen klären:</strong> Für wen ist das Angebot, welche Inhalte braucht es, welche Seiten sind Pflicht? Für Behörden gehören dazu die Erklärung zur Barrierefreiheit, ein Weg, Barrieren zu melden, und Informationen in Leichter Sprache und Gebärdensprache. Technischer Rahmen: einfaches Webhosting, die Website läuft in einem Unterordner.</li>
   <li><strong>Struktur planen:</strong> Die Inhalte sind nach Themen geordnet, mit höchstens zwei Ebenen. Pflichtseiten stehen gesammelt im Seitenfuß. Mehr dazu auf der Seite {{link:ia|Informationsarchitektur}}.</li>
-  <li><strong>Technik aufsetzen:</strong> Grundlage ist das Content-Management-System Drupal. Entwickelt wurde in einer lokalen Umgebung, alle Änderungen sind versioniert. Einstellungen liegen als Dateien vor, damit sich die Website jederzeit nachbauen lässt.</li>
+  <li><strong>Technik aufsetzen:</strong> Grundlage ist das Content-Management-System Drupal. Entwickelt wurde in einer lokalen Umgebung. Programmcode, Einstellungen und Texte sind versioniert, Dateien und Datenbank werden zusätzlich gesichert. Einstellungen liegen als Dateien vor, damit sich die Website jederzeit nachbauen lässt.</li>
   <li><strong>Gestaltung entwickeln:</strong> Ein eigenes Design mit geprüften Farbkontrasten und einer besonders gut lesbaren Schrift, die auf dem eigenen Server liegt und nicht von Dritten geladen wird. Alle Bausteine sind in den <a href="/styleguide">Gestaltungsrichtlinien</a> dokumentiert.</li>
   <li><strong>Inhalte schreiben:</strong> Online-gerecht und fachlich geprüft, mit Beispielen zum Herunterladen, Texten in Leichter Sprache und einem Bereich für aktuelle Meldungen.</li>
-  <li><strong>Prüfen, nach jeder Änderung:</strong> Automatische Tests auf allen Seiten in Desktop- und Handy-Ansicht, Bedienung nur mit der Tastatur, Darstellung bei 400 Prozent Vergrößerung, Screenreader-Test mit VoiceOver, PDF-Prüfung nach PDF/UA. Die Ergebnisse stehen in der {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</li>
+  <li><strong>Prüfen:</strong> Automatische Tests auf allen Seiten in Desktop- und Handy-Ansicht, die Bedienung nur mit der Tastatur und die Darstellung bei 400 Prozent Vergrößerung laufen nach jeder Änderung. Dazu kommen eine Grundprüfung mit dem Screenreader VoiceOver und die Prüfung jedes neuen PDF-Dokuments nach PDF/UA. Die Ergebnisse stehen in der {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</li>
   <li><strong>Veröffentlichen:</strong> Als Musterseite ist die Website für Suchmaschinen gesperrt, und das Formular speichert keine Daten.</li>
 </ol>
 <h2>Werkzeuge</h2>
@@ -618,7 +618,7 @@ return [
     <tr><th scope="row">Automatische Prüfung</th><td>axe-core</td></tr>
     <tr><th scope="row">PDF-Prüfung</th><td>veraPDF</td></tr>
     <tr><th scope="row">Screenreader</th><td>VoiceOver</td></tr>
-    <tr><th scope="row">Dokumente und Vorlagen</th><td>LibreOffice Writer</td></tr>
+    <tr><th scope="row">Dokumente und Vorlagen</th><td>LibreOffice Writer (PDF und LibreOffice-Vorlage), Skript mit der Bibliothek docx (Word-Vorlage)</td></tr>
   </tbody>
 </table>
 <h2>Worauf wir besonders geachtet haben</h2>
@@ -715,11 +715,12 @@ return [
 <p>Diese Erklärung wurde am 16. Oktober 2026 erstellt und zuletzt am 16. Oktober 2026 überprüft.</p>
 <p>Grundlage ist eine Selbstbewertung mit diesen Prüfungen:</p>
 <ul>
-  <li><strong>Automatische Prüfung</strong> mit axe-core 4.14 nach WCAG 2.0 und 2.1, Stufen A und AA: 24 Seiten, jeweils in der Desktop-Ansicht und 375 Pixel breit, dazu geöffnetes Menü und Formular mit Fehlermeldungen. Ergebnis: keine Verstöße.</li>
+  <li><strong>Automatische Prüfung</strong> mit axe-core 4.14 nach WCAG 2.0 und 2.1, Stufen A und AA: alle Seiten der Website (Stand: 16. Oktober 2026), jeweils in der Desktop-Ansicht und 375 Pixel breit, dazu geöffnetes Menü und Formular mit Fehlermeldungen. Ergebnis: keine Verstöße.</li>
   <li><strong>Tastaturbedienung:</strong> Link „Direkt zum Inhalt“, Reihenfolge und Sichtbarkeit des Fokus, Hauptmenü mit Untermenüs, mobiles Menü und Formular „Barriere melden“. Ergebnis: bestanden.</li>
   <li><strong>Screenreader:</strong> Grundprüfung mit VoiceOver in Safari unter macOS: Orientierungspunkte (Landmarks), Überschriften, Hauptmenü mit Untermenüs und Formular „Barriere melden“.</li>
   <li><strong>Umbruch bei Vergrößerung:</strong> Alle Seiten bei 320 Pixel Breite, das entspricht 400 Prozent Zoom. Ergebnis: kein waagerechtes Scrollen.</li>
   <li><strong>Kontraste:</strong> Alle verwendeten Farbkombinationen. Ergebnis: mindestens 4,5:1 für Text und 3:1 für Bedienelemente.</li>
+  <li><strong>PDF-Dokumente:</strong> Prüfung nach PDF/UA-1 mit veraPDF 1.30. Geprüft sind die barrierefreien PDF-Downloads: das {{link:dokumente|Merkblatt „Barrierefreie Dokumente erstellen“}} und die {{link:arbeitshilfe|Checkliste vor der Veröffentlichung}}. Ergebnis: alle bestanden. Das absichtlich fehlerhafte Beispiel-PDF („vorher“) ist als solches gekennzeichnet und von der Bewertung ausgenommen.</li>
 </ul>
 <h2>Barrieren melden: Kontakt</h2>
 <p>Sind Ihnen Mängel beim barrierefreien Zugang zu Inhalten dieser Website aufgefallen? Dann melden Sie sich bitte über das Formular {{form:barriere_melden|Barriere melden}} oder per E-Mail an poststelle@ldt-musterland.example (Beispieladresse).</p>

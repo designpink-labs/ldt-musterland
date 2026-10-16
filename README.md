@@ -210,6 +210,12 @@ npm run englisch     # Suche nach englischen Resten
 npm run screenshots  # Screenshots nach tests/a11y/ergebnisse/
 ```
 
+**Erklärung zur Barrierefreiheit aktuell halten:** Kommt eine neue Prüfart hinzu (z. B. ein
+weiterer Screenreader, Sprachsteuerung, Windows-Kontrastmodus) oder ändert sich ein Ergebnis,
+den Abschnitt „Erstellung dieser Erklärung“ in `scripts/pages.php` (Schlüssel `erklaerung`)
+anpassen, das Datum „zuletzt überprüft“ setzen und die Seite neu schreiben
+(`create-content.php -- --overwrite --only=erklaerung`). Seitenzahlen nicht fest nennen.
+
 ## Lokale Umgebung
 
 Voraussetzung: Docker Desktop läuft.
