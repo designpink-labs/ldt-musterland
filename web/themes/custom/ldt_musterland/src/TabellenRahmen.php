@@ -14,6 +14,10 @@ use Drupal\Core\Security\TrustedCallbackInterface;
  * ausdrücklich (role="table", "row", "columnheader", "rowheader", "cell"):
  * Mit display:block verlieren Browser sonst die Tabellen-Semantik.
  *
+ * Spalten, die nur Zahlen enthalten, bekommen die Klasse "tabelle__zahl"
+ * (rechtsbündig). Enthält eine Spalte nur Prozentwerte, bekommt jede Zelle
+ * zusätzlich einen Balken (aria-hidden, Breite = Wert); die Zahl bleibt Text.
+ *
  * Der Rahmen bleibt als Sicherheitsnetz für sehr breite Tabellen: Er scrollt
  * für sich (nie die Seite, WCAG 1.4.10), ist per Tastatur erreichbar
  * (tabindex="0") und mit der Tabellenüberschrift (<caption>) beschriftet:
@@ -61,10 +65,64 @@ class TabellenRahmen implements TrustedCallbackInterface {
         $rahmen->setAttribute('aria-label', 'Tabelle');
       }
       self::rollenUndBeschriftungen($table);
+      self::zahlenspalten($table);
       $parent->replaceChild($rahmen, $table);
       $rahmen->appendChild($table);
     }
     return Html::serialize($dom);
+  }
+
+  /**
+   * Zahlenspalten rechtsbündig, Prozentspalten zusätzlich mit Balken.
+   */
+  protected static function zahlenspalten(\DOMElement $table): void {
+    $zahl = '/^\d{1,3}(\.\d{3})*(,\d+)?(\s*%)?$/u';
+    $spalten = [];
+    foreach ($table->getElementsByTagName('tbody') as $tbody) {
+      foreach ($tbody->getElementsByTagName('tr') as $tr) {
+        $i = 0;
+        foreach ($tr->childNodes as $zelle) {
+          if ($zelle instanceof \DOMElement && in_array($zelle->nodeName, ['td', 'th'], TRUE)) {
+            $spalten[$i][] = $zelle;
+            $i++;
+          }
+        }
+      }
+    }
+    $koepfe = [];
+    foreach ($table->getElementsByTagName('thead') as $thead) {
+      foreach ($thead->getElementsByTagName('th') as $i => $th) {
+        $koepfe[$i] = $th;
+      }
+    }
+    foreach ($spalten as $i => $zellen) {
+      $texte = array_map(fn($z) => trim(str_replace(["\u{00A0}", "\u{202F}"], ' ', $z->textContent)), $zellen);
+      if (in_array('', $texte, TRUE) || $zellen[0]->nodeName !== 'td' || preg_grep($zahl, $texte, PREG_GREP_INVERT)) {
+        continue;
+      }
+      $prozent = !preg_grep('/%$/', $texte, PREG_GREP_INVERT);
+      foreach ($zellen as $n => $zelle) {
+        self::klasse($zelle, 'tabelle__zahl');
+        if ($prozent) {
+          $wert = (float) str_replace(',', '.', preg_replace('/[^\d,]/', '', $texte[$n]));
+          $balken = $zelle->ownerDocument->createElement('span');
+          $balken->setAttribute('class', 'tabelle__balken');
+          $balken->setAttribute('aria-hidden', 'true');
+          $balken->setAttribute('style', '--anteil: ' . min(100, $wert) . '%');
+          $zelle->appendChild($balken);
+        }
+      }
+      if (isset($koepfe[$i])) {
+        self::klasse($koepfe[$i], 'tabelle__zahl');
+      }
+    }
+  }
+
+  /**
+   * Hängt eine Klasse an.
+   */
+  protected static function klasse(\DOMElement $element, string $klasse): void {
+    $element->setAttribute('class', trim($element->getAttribute('class') . ' ' . $klasse));
   }
 
   /**

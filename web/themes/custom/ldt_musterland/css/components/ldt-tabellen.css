@@ -94,3 +94,33 @@
     font-weight: 700;
   }
 }
+
+/* Zahlenspalten rechtsbündig; Prozentwerte mit Balken (nur Darstellung,
+   aria-hidden). Balkenfarbe Pink auf Weiß: 6,8:1 (mind. 3:1). */
+.tabelle .tabelle__zahl {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tabelle__balken {
+  display: block;
+  height: 0.5rem;
+  margin-block-start: var(--space-1);
+  /* Spur über die ganze Zelle (= 100 %), gefüllt bis zum Anteil. */
+  background: linear-gradient(to right, var(--c-accent) var(--anteil, 0%), var(--c-surface) var(--anteil, 0%));
+}
+.tabelle td:has(> .tabelle__balken) {
+  min-width: 8rem;
+}
+@media (width < 40rem) {
+  .tabelle .tabelle__zahl {
+    text-align: start;
+  }
+}
+@media (forced-colors: active) {
+  .tabelle__balken {
+    forced-color-adjust: none;
+    border: 1px solid CanvasText;
+    background: linear-gradient(to right, CanvasText var(--anteil, 0%), Canvas var(--anteil, 0%));
+  }
+}

@@ -97,6 +97,8 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   `css/components/ldt-tabellen.css`). Unter 40 rem wird jede Zeile zur Karte (Spaltenköpfe als
   sichtbare Beschriftung aus `data-label`, nur bei mehr als einer Datenzelle je Zeile;
   Tabellenrollen ausdrücklich per `role` gesetzt).
+  Spalten nur mit Zahlen (deutsches Format, z. B. `4.820`, `2,4`, `26&nbsp;%`) werden automatisch
+  rechtsbündig; reine Prozentspalten bekommen zusätzlich einen Balken (`aria-hidden`).
 - Links auf Seiten ohne Inhaltstyp (z. B. `/styleguide`) dürfen als `<a href="/styleguide">` im Text
   stehen: Das Theme stellt beim Ausgeben den Basis-Pfad voran (`src/InterneLinks.php`), auf
   Strato also `/drupal/styleguide`. Links auf Inhalte immer per Linkit.

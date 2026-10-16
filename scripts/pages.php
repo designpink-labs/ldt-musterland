@@ -531,6 +531,96 @@ return [
   <li><strong>Downloads:</strong> Welche Dokumente werden wirklich gebraucht?</li>
 </ul>
 <p>Reine Seitenaufrufe sagen wenig. Fragen Sie immer: Konnte die Person ihr Anliegen erledigen?</p>
+<h2>Beispiel: Monatsbericht September 2026</h2>
+<div class="hinweis hinweis--info">
+<p><strong>Hinweis:</strong> Dies ist ein Musterbericht mit erfundenen Zahlen. Er zeigt, wie ein Monatsbericht für eine Behördenwebsite aussehen kann. Auf dieser Website ist Matomo nicht aktiv.</p>
+</div>
+<p><strong>Erhebung:</strong> Matomo, selbst betrieben, ohne Cookies, IP-Adressen um 2&nbsp;Bytes gekürzt, Zugriffe von Bots herausgefiltert. Zeitraum: 1. bis 30. September 2026.</p>
+<h3>Das Wichtigste in Kürze</h3>
+<ul>
+  <li>Die meisten Menschen kommen über Suchmaschinen direkt auf die Seite „Barrierefreie Dokumente“, nicht über die Startseite.</li>
+  <li>Die Word-Vorlage ist der meistgenutzte Download.</li>
+  <li>36 Suchanfragen auf der Website blieben ohne Ergebnis. Sie zeigen, welche Inhalte fehlen.</li>
+</ul>
+<h3>Kennzahlen</h3>
+<table>
+  <caption>Kennzahlen September 2026 im Vergleich zum Vormonat</caption>
+  <thead>
+    <tr><th scope="col">Kennzahl</th><th scope="col">September 2026</th><th scope="col">August 2026</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Besuche</th><td>4.820</td><td>4.150</td></tr>
+    <tr><th scope="row">Seitenansichten</th><td>11.350</td><td>9.960</td></tr>
+    <tr><th scope="row">Seiten pro Besuch</th><td>2,4</td><td>2,4</td></tr>
+    <tr><th scope="row">Downloads</th><td>612</td><td>488</td></tr>
+    <tr><th scope="row">Anteil Smartphone</th><td>34&nbsp;%</td><td>31&nbsp;%</td></tr>
+  </tbody>
+</table>
+<h3>Die häufigsten Einstiegsseiten</h3>
+<table>
+  <caption>Einstiegsseiten im September 2026</caption>
+  <thead>
+    <tr><th scope="col">Seite</th><th scope="col">Besuche</th><th scope="col">Anteil</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">{{link:dokumente|Barrierefreie Dokumente}}</th><td>1.240</td><td>26&nbsp;%</td></tr>
+    <tr><th scope="row">{{link:start|Startseite}}</th><td>980</td><td>20&nbsp;%</td></tr>
+    <tr><th scope="row">{{link:leichte-sprache|Leichte Sprache}}</th><td>610</td><td>13&nbsp;%</td></tr>
+    <tr><th scope="row">Meldung „{{link:meldung/en-301-549|Europäische Norm setzt jetzt auf WCAG 2.2}}“</th><td>540</td><td>11&nbsp;%</td></tr>
+    <tr><th scope="row">{{link:arbeitshilfe|Arbeitshilfe Redaktion}}</th><td>390</td><td>8&nbsp;%</td></tr>
+    <tr><th scope="row">Alle anderen Seiten</th><td>1.060</td><td>22&nbsp;%</td></tr>
+  </tbody>
+</table>
+<h3>Woher die Besuche kommen</h3>
+<table>
+  <caption>Herkunft der Besuche im September 2026</caption>
+  <thead>
+    <tr><th scope="col">Herkunft</th><th scope="col">Anteil</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Suchmaschinen</th><td>41&nbsp;%</td></tr>
+    <tr><th scope="row">Direkter Aufruf oder Lesezeichen</th><td>27&nbsp;%</td></tr>
+    <tr><th scope="row">Verweise von anderen Websites</th><td>22&nbsp;%</td></tr>
+    <tr><th scope="row">Social Media</th><td>7&nbsp;%</td></tr>
+    <tr><th scope="row">KI-Assistenten (z. B. chatgpt.com, perplexity.ai)</th><td>3&nbsp;%</td></tr>
+  </tbody>
+</table>
+<h3>Suche auf der Website</h3>
+<table>
+  <caption>Häufige Suchbegriffe im September 2026</caption>
+  <thead>
+    <tr><th scope="col">Suchbegriff</th><th scope="col">Suchen</th><th scope="col">Ergebnisse</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">pdf barrierefrei</th><td>84</td><td>ja</td></tr>
+    <tr><th scope="row">word vorlage</th><td>61</td><td>ja</td></tr>
+    <tr><th scope="row">schulung anmeldung</th><td>47</td><td>ja</td></tr>
+    <tr><th scope="row">barrierefreiheit prüfen lassen</th><td>22</td><td>keine</td></tr>
+    <tr><th scope="row">dolmetscher gebärdensprache</th><td>14</td><td>keine</td></tr>
+  </tbody>
+</table>
+<h3>Downloads</h3>
+<table>
+  <caption>Downloads im September 2026</caption>
+  <thead>
+    <tr><th scope="col">Datei</th><th scope="col">Downloads</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Word-Vorlage LDT Musterland (Seite {{link:arbeitshilfe|Arbeitshilfe Redaktion}})</th><td>248</td></tr>
+    <tr><th scope="row">Checkliste vor der Veröffentlichung (Seite {{link:arbeitshilfe|Arbeitshilfe Redaktion}})</th><td>197</td></tr>
+    <tr><th scope="row">Merkblatt Barrierefreie Dokumente, barrierefrei (Seite {{link:dokumente|Barrierefreie Dokumente}})</th><td>121</td></tr>
+    <tr><th scope="row">Merkblatt, nicht barrierefreies Beispiel (Seite {{link:dokumente|Barrierefreie Dokumente}})</th><td>46</td></tr>
+  </tbody>
+</table>
+<h3>Was wir daraus ableiten</h3>
+<ol>
+  <li><strong>Fehlende Inhalte ergänzen:</strong> 22 Menschen suchten nach „barrierefreiheit prüfen lassen“ und fanden nichts. Wir ergänzen eine Seite, wie Dienststellen eine Prüfung beim LDT anfragen.</li>
+  <li><strong>Anmeldung zu Schulungen klarer machen:</strong> 47 Suchen nach „schulung anmeldung“ zeigen, dass die Information auf der Seite {{link:schulungen|Schulungen}} nicht schnell genug gefunden wird. Der Abschnitt „Anmeldung“ rückt nach oben.</li>
+  <li><strong>Unterseiten wie Startseiten behandeln:</strong> Ein Viertel der Besuche beginnt auf „Barrierefreie Dokumente“. Diese Seite braucht deshalb einen klaren Einstieg und Links zu verwandten Themen.</li>
+  <li><strong>Mobile Nutzung im Blick behalten:</strong> Der Anteil der Smartphones steigt. Neue Inhalte testen wir zuerst in der Handy-Ansicht.</li>
+  <li><strong>KI-Assistenten beobachten:</strong> 3&nbsp;Prozent der Besuche kommen über KI-Assistenten. Wir prüfen, ob dort unsere Inhalte richtig wiedergegeben werden. Mehr dazu auf der Seite {{link:seo-geo|SEO und GEO}}.</li>
+</ol>
+<p><strong>Was wir nicht auswerten:</strong> Wir betrachten keine einzelnen Besuche oder Personen. Der Bericht zeigt nur zusammengefasste Zahlen.</p>
 <h2>Auf dieser Website</h2>
 <p>Matomo ist auf dieser Website vorbereitet, aber nicht aktiv. Es werden keine Nutzungsdaten erhoben. Sollte sich das ändern, steht es in der {{link:datenschutz|Datenschutzerklärung}}.</p>',
   ],
