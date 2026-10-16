@@ -23,7 +23,7 @@ return [
 <h2>Was neu ist</h2>
 <p>WCAG 2.2 bringt sechs neue Anforderungen auf den Stufen A und AA:</p>
 <ul>
-  <li><strong>Fokus nicht verdeckt:</strong> Das gerade ausgewählte Element darf nicht von Bannern oder fixierten Leisten verdeckt sein.</li>
+  <li><strong>Fokus nicht vollständig verdeckt:</strong> Das gerade ausgewählte Element darf nicht ganz von Bannern oder fixierten Leisten verdeckt sein.</li>
   <li><strong>Ziehbewegungen:</strong> Was sich nur durch Ziehen bedienen lässt, braucht eine Alternative, etwa einen Knopf.</li>
   <li><strong>Zielgröße:</strong> Klickflächen müssen mindestens 24&nbsp;×&nbsp;24&nbsp;Pixel groß sein oder genug Abstand haben.</li>
   <li><strong>Konsistente Hilfe:</strong> Hilfeangebote stehen auf allen Seiten an derselben Stelle.</li>
@@ -46,7 +46,7 @@ return [
     'body' => '
 <p>Das Barrierefreiheitsstärkungsgesetz (BFSG) setzt den <span lang="en">European Accessibility Act</span> der EU in deutsches Recht um. Es gilt seit dem 28. Juni 2025 vor allem für Unternehmen, zum Beispiel für Online-Shops, Banken und Anbieter von E-Books. Maßstab ist wie bei Behörden die Norm EN 301 549 mit WCAG 2.1 in der Stufe AA.</p>
 <h2>Wer kontrolliert</h2>
-<p>Die Einhaltung überwacht die Marktüberwachungsstelle der Länder für die Barrierefreiheit von Produkten und Dienstleistungen (MLBF) in Magdeburg. Sie ist eine gemeinsame Einrichtung aller Länder und hat im September 2025 ihre Arbeit aufgenommen. Sie geht Beschwerden nach und prüft auch selbst. Bei Verstößen drohen Bußgelder bis zu 100.000 Euro.</p>
+<p>Die Einhaltung überwacht die Marktüberwachungsstelle der Länder für die Barrierefreiheit von Produkten und Dienstleistungen (MLBF) in Magdeburg. Sie ist eine gemeinsame Einrichtung aller Länder und hat im September 2025 ihre Arbeit aufgenommen. Sie ist als Anstalt des öffentlichen Rechts organisiert. Sie geht Beschwerden nach und prüft auch selbst. Bis Juni 2026 gingen bei ihr knapp 700 Meldungen ein. Bei Verstößen drohen Bußgelder bis zu 100.000 Euro.</p>
 <h2>Was das für die Landesverwaltung heißt</h2>
 <p>Für Behörden gilt weiterhin das Landesrecht zur barrierefreien Informationstechnik. Das BFSG wirkt aber indirekt:</p>
 <ul>
@@ -56,6 +56,7 @@ return [
 </ul>
 <p>Arbeitshilfen dazu finden Sie unter {{link:dokumente|Barrierefreie Dokumente}} und {{link:arbeitshilfe|Arbeitshilfe Redaktion}}.</p>',
     'quellen' => [
+      ['https://presse.sachsen-anhalt.de/wp-content/uploads/pdf/ministerium-fur-arbeit-soziales-gesundheit-und-gleichstellung_01_06_2026_Pressemitteilung_zugang-zu-modernen-produkten-und-dienstleistungen-fuer-alle-neue-marktueberwachungsbehoerde-in-magdeburg-formiert-sich.pdf', 'Ministerium für Arbeit, Soziales, Gesundheit und Gleichstellung Sachsen-Anhalt: Neue Marktüberwachungsbehörde in Magdeburg formiert sich (Pressemitteilung, 1. Juni 2026, PDF)', 'de'],
       ['https://www.axes4.com/de/blog/post/2026/bfsg-in-der-praxis-was-sich-seit-dem-stichtag-getan-hat', 'axes4: BFSG in der Praxis – Was sich seit dem Stichtag getan hat (Juni 2026)', 'de'],
     ],
   ],
