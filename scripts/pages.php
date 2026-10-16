@@ -621,7 +621,7 @@ return [
     <tr><th scope="row">Dokumente und Vorlagen</th><td>LibreOffice Writer</td></tr>
   </tbody>
 </table>
-<h2>Was wir dabei gelernt haben</h2>
+<h2>Worauf wir besonders geachtet haben</h2>
 <ul>
   <li><strong>Automatische Tests finden nicht alles.</strong> Ein Formularfeld verlangte eine vollständige Internetadresse, obwohl der Hilfetext ein kürzeres Beispiel nannte. Kein Test hat das gemeldet, aufgefallen ist es erst beim Ausprobieren.</li>
   <li><strong>Tabellen brauchen auf dem Handy eine eigene Lösung.</strong> Technisch war eine waagerecht scrollende Tabelle zulässig. Aber die wichtigste Spalte war abgeschnitten, und nichts wies darauf hin. Jetzt erscheinen Tabellenzeilen auf schmalen Bildschirmen als Karten.</li>
