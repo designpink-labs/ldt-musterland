@@ -70,6 +70,17 @@ ddev drush php:script scripts/create-content.php                 # fehlende Seit
 ddev drush php:script scripts/create-content.php -- --overwrite  # ACHTUNG: überschreibt Texte
 ```
 
+## Metadaten und strukturierte Daten
+
+- **Meta-Beschreibung:** im Seiten-Formular rechts unter *Metadaten → Beschreibung*
+  (max. 160 Zeichen). Leer = automatische Kurzfassung des Seitentextes.
+- **schema.org (JSON-LD)** im `<head>` jeder Seite:
+  - `GovernmentOrganization` (LDT Musterland, als fiktiv beschrieben) – globale Metatag-Standards
+  - `WebPage` mit Beschreibung, Sprache und Herausgeber (`@id` → Organisation) – Standards „Inhalt“ und „Startseite“
+  - `BreadcrumbList` aus der Pfadnavigation (ohne die aktuelle Seite)
+- Prüfen: Seitenquelltext nach `application/ld+json` durchsuchen, oder live mit dem
+  Schema Markup Validator (validator.schema.org).
+
 ## Lokale Umgebung
 
 Voraussetzung: Docker Desktop läuft.

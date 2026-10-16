@@ -1,0 +1,21 @@
+uuid: 26677c92-6474-492b-a76e-f4d09d16201f
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.page
+  module:
+    - metatag
+id: node.page.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: page
+label: Metadaten
+description: 'Meta-Beschreibung für Suchmaschinen (max. 160 Zeichen). Leer lassen: Es wird automatisch eine Kurzfassung des Seitentextes verwendet.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

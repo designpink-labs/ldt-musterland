@@ -9,12 +9,14 @@
  * - Texte in eckigen Klammern sind Hinweise, was dort hingehört.
  * - {{link:SCHLÜSSEL|Linktext}} wird beim Anlegen in einen Linkit-Link
  *   umgewandelt (data-entity-uuid), der unabhängig vom Pfad funktioniert.
+ * - 'description' wird als Meta-Beschreibung (Feld Metadaten) gesetzt.
  * - Keine festen internen Pfade wie "/impressum" in Texte schreiben.
  */
 
 return [
   'start' => [
     'title' => 'Start',
+    'description' => 'Musterseite des fiktiven Landesamts für Digitale Teilhabe Musterland: Barrierefreiheit, Online-Redaktion, Web-Optimierung und Schulungen.',
     'body' => '
 <p>[Hier: Begrüßung in 2–3 Sätzen – wofür das Landesamt für Digitale Teilhabe Musterland (LDT Musterland) zuständig ist.]</p>
 <h2>Unsere Themen</h2>
@@ -31,6 +33,7 @@ return [
   // Hauptmenü: Barrierefreiheit.
   'barrierefreiheit' => [
     'title' => 'Barrierefreiheit',
+    'description' => 'Digitale Barrierefreiheit in der Landesverwaltung Musterland: rechtlicher Rahmen, Dokumente, Leichte Sprache, Video und Gebärdensprache (Musterseite).',
     'menu' => 'main', 'weight' => 1,
     'body' => '
 <p>[Hier: Einleitung – welche Aufgaben das LDT Musterland bei der digitalen Barrierefreiheit der Landesverwaltung übernimmt.]</p>
@@ -48,6 +51,7 @@ return [
   ],
   'dokumente' => [
     'title' => 'Barrierefreie Dokumente',
+    'description' => 'Barrierefreie PDF-Dokumente: Beispiel vorher/nachher, Prüfbericht und Arbeitshilfen des LDT Musterland (Musterseite).',
     'menu' => 'main', 'parent' => 'barrierefreiheit', 'weight' => 1,
     'body' => '
 <p>[Hier: warum Dokumente auf Websites der Landesverwaltung barrierefrei sein müssen.]</p>
@@ -66,6 +70,7 @@ return [
   ],
   'leichte-sprache-fach' => [
     'title' => 'Leichte Sprache',
+    'description' => 'Leichte Sprache in der Verwaltung: was sie ausmacht, ein Beispieltext und die Prüfung durch die Zielgruppe (Musterseite).',
     'menu' => 'main', 'parent' => 'barrierefreiheit', 'weight' => 2,
     'body' => '
 <p>[Hier: was Leichte Sprache ist, wie sie sich von Einfacher Sprache unterscheidet und warum Behörden sie anbieten.]</p>
@@ -82,6 +87,7 @@ return [
   ],
   'video' => [
     'title' => 'Video & Untertitel',
+    'description' => 'Videos barrierefrei veröffentlichen: Untertitel im WebVTT-Format, Transkript und Audiodeskription – mit Beispielvideo (Musterseite).',
     'menu' => 'main', 'parent' => 'barrierefreiheit', 'weight' => 3,
     'body' => '
 <p>[Hier: warum Videos der Landesverwaltung Untertitel, Transkript und gegebenenfalls Audiodeskription brauchen.]</p>
@@ -96,6 +102,7 @@ return [
   ],
   'gebaerdensprache-fach' => [
     'title' => 'Gebärdensprache',
+    'description' => 'Deutsche Gebärdensprache auf Behörden-Websites: Anforderungen der BITV 2.0 und Beauftragung von Videos (Musterseite).',
     'menu' => 'main', 'parent' => 'barrierefreiheit', 'weight' => 4,
     'body' => '
 <p><strong>Hinweis: Diese Seite ist ein Muster.</strong> Es sind noch keine Videos in Deutscher Gebärdensprache eingebunden.</p>
@@ -110,6 +117,7 @@ return [
   // Hauptmenü: Online-Redaktion.
   'online-redaktion' => [
     'title' => 'Online-Redaktion',
+    'description' => 'Online-Redaktion in der Landesverwaltung: Texte fürs Web, Arbeitshilfen und Social Media (Musterseite).',
     'menu' => 'main', 'weight' => 2,
     'body' => '
 <p>[Hier: Einleitung – wie das LDT Musterland die Redaktionen der Landesverwaltung unterstützt.]</p>
@@ -124,6 +132,7 @@ return [
   ],
   'texte' => [
     'title' => 'Texte fürs Web',
+    'description' => 'Verständliche Webtexte für die Verwaltung: Beispiel vorher/nachher und Empfehlungen für Redaktionen (Musterseite).',
     'menu' => 'main', 'parent' => 'online-redaktion', 'weight' => 1,
     'body' => '
 <p>[Hier: wie Menschen im Web lesen und was daraus für Verwaltungstexte folgt.]</p>
@@ -139,6 +148,7 @@ return [
   ],
   'arbeitshilfe' => [
     'title' => 'Arbeitshilfe Redaktion',
+    'description' => 'Checkliste für Redaktionen: Überschriften, Alternativtexte, Linktexte, Tabellen und Dokumente vor der Veröffentlichung prüfen (Musterseite).',
     'menu' => 'main', 'parent' => 'online-redaktion', 'weight' => 2,
     'body' => '
 <p>[Hier: wofür diese Arbeitshilfe für Redaktionen der Landesverwaltung gedacht ist.]</p>
@@ -149,6 +159,7 @@ return [
   ],
   'social-media' => [
     'title' => 'Social Media',
+    'description' => 'Barrierefreie Social-Media-Beiträge: Alternativtexte, Hashtags, Emojis und Untertitel (Musterseite).',
     'menu' => 'main', 'parent' => 'online-redaktion', 'weight' => 3,
     'body' => '
 <p>[Hier: Social Media in der Kommunikation der Landesverwaltung.]</p>
@@ -163,6 +174,7 @@ return [
   // Hauptmenü: Web & Optimierung.
   'web-optimierung' => [
     'title' => 'Web & Optimierung',
+    'description' => 'Struktur, Auffindbarkeit und Messbarkeit von Behörden-Websites: Informationsarchitektur, SEO & GEO, Webanalyse (Musterseite).',
     'menu' => 'main', 'weight' => 3,
     'body' => '
 <p>[Hier: Einleitung – wie Struktur, Auffindbarkeit und Messbarkeit von Behörden-Websites zusammenhängen.]</p>
@@ -175,6 +187,7 @@ return [
   ],
   'ia' => [
     'title' => 'Informationsarchitektur',
+    'description' => 'Informationsarchitektur für Behörden-Websites: Methoden wie Card Sorting und Tree Testing am Beispiel dieser Website (Musterseite).',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 1,
     'body' => '
 <p>[Hier: was Informationsarchitektur ist und warum sie für Behörden-Websites wichtig ist.]</p>
@@ -187,6 +200,7 @@ return [
   ],
   'seo-geo' => [
     'title' => 'SEO & GEO',
+    'description' => 'SEO und Generative Engine Optimization für Behörden: Metadaten, strukturierte Daten und verständliche Inhalte (Musterseite).',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 2,
     'body' => '
 <p>[Hier: was Suchmaschinenoptimierung (SEO) und Generative Engine Optimization (GEO) für Behörden bedeuten.]</p>
@@ -197,6 +211,7 @@ return [
   ],
   'matomo' => [
     'title' => 'Webanalyse mit Matomo',
+    'description' => 'Datenschutzkonforme Webanalyse mit Matomo: Einrichtung ohne Cookies und Kennzahlen für Redaktionen (Musterseite).',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 3,
     'body' => '
 <p>[Hier: warum Matomo in der öffentlichen Verwaltung häufig eingesetzt wird.]</p>
@@ -211,6 +226,7 @@ return [
   // Hauptmenü: Einzelseiten.
   'schulungen' => [
     'title' => 'Schulungen',
+    'description' => 'Schulungen zu Barrierefreiheit und Online-Redaktion für Beschäftigte der Landesverwaltung Musterland (Musterseite).',
     'menu' => 'main', 'weight' => 4,
     'body' => '
 <p>[Hier: Schulungsangebot des LDT Musterland für Beschäftigte der Landesverwaltung.]</p>
@@ -223,6 +239,7 @@ return [
   ],
   'ueber-uns' => [
     'title' => 'Über uns / Kontakt',
+    'description' => 'Aufgaben und Kontakt des fiktiven Landesamts für Digitale Teilhabe Musterland – Musterseite, keine echte Behörde.',
     'menu' => 'main', 'weight' => 5,
     'body' => '
 <h2>Aufgaben</h2>
@@ -239,6 +256,7 @@ return [
   // Footer-Menü.
   'erklaerung' => [
     'title' => 'Erklärung zur Barrierefreiheit',
+    'description' => 'Muster einer Erklärung zur Barrierefreiheit nach BITV 2.0: Stand der Vereinbarkeit, bekannte Mängel und Feedback.',
     'menu' => 'footer', 'weight' => 1,
     'body' => '
 <p><strong>Hinweis: Diese Erklärung ist ein Muster.</strong> Das Landesamt für Digitale Teilhabe Musterland ist eine fiktive Behörde.</p>
@@ -256,6 +274,7 @@ return [
   ],
   'leichte-sprache' => [
     'title' => 'Leichte Sprache',
+    'description' => 'Informationen über diese Internet-Seite in Leichter Sprache.',
     'menu' => 'footer', 'weight' => 3,
     'body' => '
 <p>[Hier: alle Texte dieser Seite in Leichter Sprache.]</p>
@@ -270,6 +289,7 @@ return [
   ],
   'gebaerdensprache' => [
     'title' => 'Gebärdensprache',
+    'description' => 'Informationen über diese Website in Deutscher Gebärdensprache (Muster, noch ohne Videos).',
     'menu' => 'footer', 'weight' => 4,
     'body' => '
 <p><strong>Hinweis: Diese Seite ist ein Muster.</strong> Hier stehen später Videos in Deutscher Gebärdensprache. Zurzeit gibt es noch keine Videos.</p>
@@ -284,6 +304,7 @@ return [
   ],
   'impressum' => [
     'title' => 'Impressum',
+    'description' => 'Impressum: Angaben zum tatsächlichen Betreiber dieser Musterseite.',
     'menu' => 'footer', 'weight' => 5,
     'body' => '
 <p>[Hier echte Angaben des tatsächlichen Betreibers]</p>
@@ -296,6 +317,7 @@ return [
   ],
   'datenschutz' => [
     'title' => 'Datenschutz',
+    'description' => 'Datenschutzerklärung: Verarbeitung personenbezogener Daten auf dieser Musterseite.',
     'menu' => 'footer', 'weight' => 6,
     'body' => '
 <p>[Hier echte Angaben des tatsächlichen Betreibers]</p>

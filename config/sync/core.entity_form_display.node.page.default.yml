@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_metatag
     - field.field.node.page.field_untertitel
     - field.field.node.page.field_video
     - node.type.page
   module:
     - file
+    - metatag
     - path
     - text
 id: node.page.default
@@ -31,6 +33,14 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_metatag:
+    type: metatag_firehose
+    weight: 30
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
     third_party_settings: {  }
   field_untertitel:
     type: file_generic

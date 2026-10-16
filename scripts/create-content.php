@@ -36,6 +36,9 @@ foreach ($pages as $key => $page) {
   $node ??= Node::create(['type' => 'page', 'langcode' => 'de', 'uid' => 1, 'status' => 1]);
   $node->setTitle($page['title']);
   $node->set('body', ['value' => trim($page['body']), 'format' => 'basic_html']);
+  if (!empty($page['description']) && $node->hasField('field_metatag')) {
+    $node->set('field_metatag', json_encode(['description' => $page['description']]));
+  }
   $node->save();
   $nodes[$key] = $node;
   $changed[$key] = TRUE;

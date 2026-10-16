@@ -9,3 +9,9 @@ label: Global
 tags:
   canonical_url: '[current-page:url]'
   title: '[current-page:title] | [site:name]'
+  schema_organization_type: GovernmentOrganization
+  schema_organization_id: '[site:url]#organisation'
+  schema_organization_name: '[site:name]'
+  schema_organization_alternate_name: 'LDT Musterland'
+  schema_organization_url: '[site:url]'
+  schema_organization_description: 'Fiktive Behörde: Musterseite und Arbeitsprobe für Online-Redaktion und digitale Barrierefreiheit. Keine echte Behörde.'
