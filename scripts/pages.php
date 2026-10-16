@@ -25,7 +25,7 @@ return [
 <p>Willkommen beim Landesamt für Digitale Teilhabe Musterland (LDT). Wir sorgen dafür, dass alle Menschen die digitalen Angebote der Landesverwaltung nutzen können – unabhängig davon, ob sie gut sehen, hören oder lesen können.</p>
 <p>Dafür beraten wir die Dienststellen des Landes, prüfen ihre Websites und Dokumente und schulen ihre Beschäftigten.</p>
 <h2>Barrierefreiheit dieser Website</h2>
-<p>Auch diese Website soll für alle zugänglich sein. Sie richtet sich nach den Web Content Accessibility Guidelines (WCAG) 2.1 in der Stufe AA. Was schon erfüllt ist und was noch fehlt, steht in unserer {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</p>
+<p>Auch diese Website soll für alle zugänglich sein. Sie richtet sich nach den <span lang="en">Web Content Accessibility Guidelines</span> (WCAG) 2.1 in der Stufe AA. Was schon erfüllt ist und was noch fehlt, steht in unserer {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</p>
 <p>Wenn Sie auf ein Hindernis stoßen, melden Sie es uns bitte über das Formular {{form:barriere_melden|Barriere melden}}.</p>',
   ],
 
@@ -40,7 +40,7 @@ return [
 <p>Das Landesamt für Digitale Teilhabe Musterland (LDT) berät die Dienststellen der Landesverwaltung, prüft ihre digitalen Angebote und schult ihre Beschäftigten.</p>
 <h2>Warum Barrierefreiheit für Behörden Pflicht ist</h2>
 <p>Öffentliche Stellen müssen ihre Websites, mobilen Anwendungen und elektronischen Dokumente barrierefrei gestalten. Grundlage ist die EU-Richtlinie 2016/2102. Im Bund setzen das Behindertengleichstellungsgesetz (BGG) und die Barrierefreie-Informationstechnik-Verordnung (BITV 2.0) diese Richtlinie um, im Musterland das Landesrecht zur barrierefreien Informationstechnik.</p>
-<p>Was „barrierefrei“ technisch heißt, legt die europäische Norm EN 301 549 fest. Für Webinhalte verweist sie auf die Web Content Accessibility Guidelines (WCAG) – die internationalen Richtlinien des World Wide Web Consortium (W3C). Maßgeblich ist die Version WCAG 2.1 in der Konformitätsstufe AA. Die neuere WCAG 2.2 empfehlen wir schon heute als Orientierung.</p>
+<p>Was „barrierefrei“ technisch heißt, legt die europäische Norm EN 301 549 fest. Für Webinhalte verweist sie auf die <span lang="en">Web Content Accessibility Guidelines</span> (WCAG) – die internationalen Richtlinien des <span lang="en">World Wide Web Consortium</span> (W3C). Maßgeblich ist die Version WCAG 2.1 in der Konformitätsstufe AA. Die neuere WCAG 2.2 empfehlen wir schon heute als Orientierung.</p>
 <p>Zur Pflicht gehören außerdem:</p>
 <ul>
   <li>eine Erklärung zur Barrierefreiheit mit einer Möglichkeit, Barrieren zu melden,</li>
@@ -71,7 +71,7 @@ return [
     'body' => '
 <p>Anträge, Merkblätter und Berichte veröffentlicht die Verwaltung oft als PDF. Ein barrierefreies PDF können alle Menschen lesen – auch wenn sie einen Screenreader nutzen oder die Schrift stark vergrößern.</p>
 <h2>Was ein barrierefreies PDF ausmacht</h2>
-<p>Der internationale Standard für barrierefreie PDF-Dateien heißt PDF/UA (ISO 14289, „Universal Accessibility“). Ein PDF nach PDF/UA hat unter anderem:</p>
+<p>Der internationale Standard für barrierefreie PDF-Dateien heißt PDF/UA (ISO 14289, „<span lang="en">Universal Accessibility</span>“). Ein PDF nach PDF/UA hat unter anderem:</p>
 <ul>
   <li><strong>Tags:</strong> unsichtbare Strukturinformationen, die Überschriften, Absätze, Listen und Tabellen kennzeichnen,</li>
   <li>eine <strong>logische Lesereihenfolge</strong>,</li>
@@ -82,7 +82,7 @@ return [
   <li><strong>beschriftete Formularfelder</strong>, wenn man das PDF ausfüllen kann.</li>
 </ul>
 <h2>Prüfen mit PAC</h2>
-<p>Mit dem kostenlosen PDF Accessibility Checker (PAC) prüfen Sie, ob ein PDF die technischen Anforderungen von PDF/UA erfüllt. PAC findet aber nicht alles: Ob ein Alternativtext sinnvoll ist oder die Lesereihenfolge stimmt, muss ein Mensch beurteilen. Wir prüfen deshalb zusätzlich mit einem Screenreader.</p>
+<p>Mit dem kostenlosen <span lang="en">PDF Accessibility Checker</span> (PAC) prüfen Sie, ob ein PDF die technischen Anforderungen von PDF/UA erfüllt. PAC findet aber nicht alles: Ob ein Alternativtext sinnvoll ist oder die Lesereihenfolge stimmt, muss ein Mensch beurteilen. Wir prüfen deshalb zusätzlich mit einem Screenreader.</p>
 <h2>Barrierefreiheit beginnt im Ausgangsdokument</h2>
 <p>Ein PDF wird am einfachsten barrierefrei, wenn schon die Word-Datei sauber aufgebaut ist:</p>
 <ul>
@@ -154,7 +154,7 @@ return [
 <p>Live-Videos brauchen Live-Untertitel (Kriterium 1.2.4). Startet ein Video automatisch mit Ton, muss man den Ton anhalten können (Kriterium 1.4.2). Am besten startet es gar nicht von selbst.</p>
 <h2>Untertitel richtig erstellen</h2>
 <p>Gute Untertitel geben nicht nur wieder, was gesprochen wird. Sie kennzeichnen auch, wer spricht, und beschreiben wichtige Geräusche, zum Beispiel „[Telefon klingelt]“. Zeigen Sie höchstens zwei Zeilen gleichzeitig, und lassen Sie jede Einblendung lange genug stehen.</p>
-<p>Auf Websites ist das Format WebVTT üblich (Web Video Text Tracks, Dateiendung .vtt). Der Browser zeigt die Untertitel dann im Videoplayer an, und man kann sie ein- und ausschalten. Automatisch erzeugte Untertitel sind nur ein Entwurf: Prüfen und korrigieren Sie sie immer.</p>
+<p>Auf Websites ist das Format WebVTT üblich (<span lang="en">Web Video Text Tracks</span>, Dateiendung .vtt). Der Browser zeigt die Untertitel dann im Videoplayer an, und man kann sie ein- und ausschalten. Automatisch erzeugte Untertitel sind nur ein Entwurf: Prüfen und korrigieren Sie sie immer.</p>
 <h2>Transkript</h2>
 <p>Ein Transkript ist die vollständige Textfassung eines Videos, mit Geräuschen und Bildbeschreibungen. Es hilft Menschen, die taubblind sind oder lieber lesen. Suchmaschinen können es außerdem finden.</p>
 <h2>Audiodeskription einplanen</h2>
@@ -391,9 +391,9 @@ return [
     'body' => '
 <p>Viele Menschen suchen Verwaltungsleistungen zuerst über eine Suchmaschine – und immer mehr fragen dafür einen KI-Assistenten. In beiden Fällen sollen Behörden-Websites als verlässliche Quelle erscheinen.</p>
 <h2>Was SEO bedeutet</h2>
-<p>Suchmaschinenoptimierung (englisch: Search Engine Optimization, SEO) heißt: Inhalte und Technik so gestalten, dass Suchmaschinen eine Seite finden, verstehen und passend anzeigen. Für Behörden geht es dabei nicht um Werbung, sondern darum, dass Menschen die richtige, offizielle Information finden.</p>
+<p>Suchmaschinenoptimierung (englisch: <span lang="en">Search Engine Optimization</span>, SEO) heißt: Inhalte und Technik so gestalten, dass Suchmaschinen eine Seite finden, verstehen und passend anzeigen. Für Behörden geht es dabei nicht um Werbung, sondern darum, dass Menschen die richtige, offizielle Information finden.</p>
 <h2>Was GEO bedeutet</h2>
-<p>Generative Engine Optimization (GEO) heißt: Inhalte so aufbereiten, dass KI-gestützte Such- und Antwortsysteme sie richtig erfassen, korrekt zusammenfassen und als Quelle nennen. Der Begriff ist noch jung, die Methoden entwickeln sich weiter. Vieles davon deckt sich mit guter Redaktionsarbeit und mit Barrierefreiheit.</p>
+<p><span lang="en">Generative Engine Optimization</span> (GEO) heißt: Inhalte so aufbereiten, dass KI-gestützte Such- und Antwortsysteme sie richtig erfassen, korrekt zusammenfassen und als Quelle nennen. Der Begriff ist noch jung, die Methoden entwickeln sich weiter. Vieles davon deckt sich mit guter Redaktionsarbeit und mit Barrierefreiheit.</p>
 <h2>Was beiden hilft</h2>
 <ul>
   <li>Überschriften, die sagen, worum es geht – gern als Frage, wie Menschen sie stellen</li>

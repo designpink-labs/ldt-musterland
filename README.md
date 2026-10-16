@@ -75,6 +75,9 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   `summary` + „– Musterseite einer fiktiven Behörde“.
 - Hinweisbox im Text: `<div class="hinweis hinweis--info"><p><strong>Hinweis:</strong> …</p></div>`
   (im Editor über „Quelltext“; andere Klassen lässt das Textformat nicht zu).
+- Vollständige englische Namen und Ausdrücke mit `<span lang="en">…</span>` auszeichnen
+  (z. B. Web Content Accessibility Guidelines), eingedeutschte Fachbegriffe wie
+  Screenreader oder Hashtag nicht. Das Textformat erlaubt dafür nur `<span lang>`.
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ## Metadaten und strukturierte Daten
