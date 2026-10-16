@@ -91,17 +91,34 @@ console.log('\n[Desktop] Formular „Barriere melden“');
 ctx = await browser.newContext({ ...CONTEXT, viewport: VIEWPORTS.desktop });
 page = await ctx.newPage();
 await page.goto(BASE + '/barriere-melden', { waitUntil: 'networkidle' });
-await page.locator('#edit-seite').focus();
+await page.locator('#edit-problem-inhalt').focus();
 const felder = [(await fokus(page)).id];
-for (let i = 0; i < 4; i++) { const t = await tab(page); felder.push(t.id || t.name); }
+for (let i = 0; i < 12; i++) { const t = await tab(page); felder.push(t.id || t.name); }
 console.log('  Reihenfolge: ' + felder.join(' → '));
-ok(felder.join(',') === 'edit-seite,edit-beschreibung,edit-email,Datenschutzerklärung,edit-actions-submit', 'Felder in logischer Reihenfolge (mit Link zur Datenschutzerklärung), Honeypot-Feld nicht erreichbar');
+const erwartet = ['edit-problem-inhalt', 'edit-seite', 'edit-beschreibung',
+  'edit-hilfsmittel-screenreader', 'edit-hilfsmittel-vergroesserung', 'edit-hilfsmittel-tastatur',
+  'edit-hilfsmittel-sprachsteuerung', 'edit-hilfsmittel-keine-angabe', 'edit-geraet', 'edit-email',
+  'Datenschutzerklärung', 'edit-actions-submit', 'Erklärung zur Barrierefreiheit'];
+ok(felder.join(',') === erwartet.join(','), 'Felder in logischer Reihenfolge: Radio-Gruppe = ein Tab-Stopp, Checkboxen einzeln, Honeypot nicht erreichbar, danach „So geht es weiter“');
+await tab(page, 1, true); // zurück zum Absende-Knopf
 await page.waitForTimeout(5500);
 await page.keyboard.press('Enter');
 await page.waitForLoadState('networkidle');
+const zuGruppe = page.locator('[role="alert"] a[href="#edit-problem"]');
+await zuGruppe.first().waitFor({ timeout: 10000 }).catch(() => {});
+ok(await zuGruppe.count() === 1, 'Fehlerliste (role=alert) verlinkt auf die Radio-Gruppe');
+await zuGruppe.focus();
+await page.keyboard.press('Enter');
+f = await fokus(page);
+ok(f.id === 'edit-problem-inhalt', `Link zur Radio-Gruppe setzt den Fokus auf den ersten Radio-Knopf (${f.id})`);
+const gruppe = await page.locator('#edit-problem--wrapper').evaluate((e) => ({ desc: e.getAttribute('aria-describedby') || '', fehler: document.getElementById('edit-problem--error')?.textContent.trim() }));
+ok(gruppe.desc.includes('edit-problem--error') && !!gruppe.fehler, `Radio-Gruppe (fieldset) ist mit der Fehlermeldung verknüpft (aria-describedby="${gruppe.desc}": „${gruppe.fehler}“)`);
+ok(await page.locator('#edit-problem-inhalt').getAttribute('required') !== null, 'Radio-Knöpfe sind als Pflicht gekennzeichnet (required)');
+await page.keyboard.press('ArrowDown');
+f = await fokus(page);
+ok(f.id === 'edit-problem-bedienung' && await page.locator('#edit-problem-bedienung').isChecked(), 'Pfeiltaste wählt die nächste Option aus');
 const zusammenfassung = page.locator('[role="alert"] a[href="#edit-seite"]');
-await zusammenfassung.first().waitFor({ timeout: 10000 }).catch(() => {});
-ok(await zusammenfassung.count() === 1, 'Fehlerliste (role=alert) verlinkt auf das Feld');
+ok(await zusammenfassung.count() === 1, 'Fehlerliste verlinkt auf das Feld „Seite“');
 await zusammenfassung.focus();
 await page.keyboard.press('Enter');
 f = await fokus(page);

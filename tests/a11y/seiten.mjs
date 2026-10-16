@@ -7,7 +7,7 @@ export const SEITEN = [
   '/online-redaktion/texte-fuers-web', '/online-redaktion/arbeitshilfe-redaktion',
   '/online-redaktion/social-media', '/web-optimierung',
   '/web-optimierung/informationsarchitektur', '/web-optimierung/seo-geo',
-  '/web-optimierung/webanalyse-mit-matomo', '/schulungen', '/aktuelles', '/aktuelles/europaeische-norm-setzt-jetzt-auf-wcag-2-2', '/ueber-uns-kontakt',
+  '/web-optimierung/webanalyse-mit-matomo', '/web-optimierung/fehlermeldungen-bearbeiten', '/schulungen', '/aktuelles', '/aktuelles/europaeische-norm-setzt-jetzt-auf-wcag-2-2', '/ueber-uns-kontakt',
   '/erklaerung-zur-barrierefreiheit', '/barriere-melden', '/leichte-sprache',
   '/gebaerdensprache', '/impressum', '/datenschutz', '/styleguide', '/gibt-es-nicht',
 ];

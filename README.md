@@ -95,7 +95,8 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   Quelltext `<th scope="col">` bzw. `<th scope="row">`. Das Theme legt beim Ausgeben einen
   scrollbaren, per Tastatur erreichbaren Rahmen um jede Tabelle (`src/TabellenRahmen.php`,
   `css/components/ldt-tabellen.css`). Unter 40 rem wird jede Zeile zur Karte (Spaltenköpfe als
-  sichtbare Beschriftung aus `data-label`, Tabellenrollen ausdrücklich per `role` gesetzt).
+  sichtbare Beschriftung aus `data-label`, nur bei mehr als einer Datenzelle je Zeile;
+  Tabellenrollen ausdrücklich per `role` gesetzt).
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)
@@ -140,6 +141,20 @@ PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.
   Fremdsprachige Quellen (`'en'`) bekommen `lang`/`hreflang` und den Zusatz „(englisch)“ –
   im Backend-Formular lässt sich die Sprache einer Quelle nicht setzen.
 - Marken (`{{link:…}}` usw.) für beide Skripte stehen in `scripts/marken.php`.
+
+## Formular „Barriere melden“ (Vorqualifizierung)
+
+- Felder: **Was ist das Problem?** (Pflicht, Radio-Gruppe; Werte `inhalt`, `bedienung`,
+  `dokument_video`, `darstellung`, `technik`, `sonstiges`), Seite, Beschreibung,
+  **Hilfsmittel** (freiwillig, Checkboxen), **Gerät und Browser** (freiwillig), E-Mail.
+- Unsichtbares berechnetes Feld **Kategorie** (Kurzname, z. B. „Bedienung“): Betreff der
+  Benachrichtigung „Barriere melden – Bedienung“ und Spalte in der Übersicht der Einsendungen.
+- „So geht es weiter“ steht als Element nach dem Absende-Knopf (Link zur Erklärung per Linkit).
+- Modul `ldt_formulare`: Fehlermeldungen von Feldgruppen per `aria-describedby` am `<fieldset>`;
+  `js/fehlerliste.js` setzt beim Klick in der Fehlerliste den Fokus in die Radio-Gruppe.
+- Datenschutz: Die Hilfsmittel-Angabe kann Rückschlüsse auf eine Behinderung zulassen
+  (Gesundheitsdaten, Art. 9 DSGVO). Deshalb freiwillig und mit Zweck; bei einem echten Betrieb
+  mit der Datenschutzerklärung abstimmen. Live speichert das Formular ohnehin nichts (Demo-Modus).
 
 ## Metadaten und strukturierte Daten
 

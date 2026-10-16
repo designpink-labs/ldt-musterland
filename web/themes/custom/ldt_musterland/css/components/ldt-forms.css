@@ -109,3 +109,41 @@ select.error,
 }
 
 /* Honeypot-Feld: bleibt unsichtbar (inline display:none). */
+
+/* Feldgruppen (Radio-Knöpfe, Checkboxen): Legende wie eine Feldbeschriftung. */
+.webform-submission-form fieldset {
+  min-width: 0;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  border: 0;
+}
+.webform-submission-form legend {
+  margin-bottom: var(--space-2);
+  padding: 0;
+  font-weight: 700;
+}
+.webform-submission-form .fieldset-wrapper > .form-item--error-message {
+  margin-bottom: var(--space-2);
+}
+
+/* Einzelne Optionen: Knopf links, Beschriftung daneben in normaler Schrift. */
+.form-type-radio,
+.form-type-checkbox {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  margin: 0 0 var(--space-2);
+}
+.form-type-radio input,
+.form-type-checkbox input {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.2em 0 0;
+  accent-color: var(--c-accent);
+}
+.form-item label.option {
+  display: inline;
+  margin: 0;
+  font-weight: 400;
+}

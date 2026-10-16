@@ -22,6 +22,20 @@ elements: |-
   einleitung:
     '#type': webform_markup
     '#markup': '<p>Sie sind auf dieser Website auf eine Barriere gestoßen? Bitte beschreiben Sie das Problem. Ihre Meldung hilft, die Website zu verbessern.</p><p>Felder mit Sternchen (*) sind Pflichtfelder.</p>'
+  problem:
+    '#type': radios
+    '#title': 'Was ist das Problem?'
+    '#options':
+      inhalt: 'Ein Inhalt ist schwer zu verstehen oder fehlt'
+      bedienung: 'Etwas lässt sich nicht bedienen (z. B. mit Tastatur oder Screenreader)'
+      dokument_video: 'Ein Dokument oder Video ist nicht barrierefrei'
+      darstellung: 'Die Darstellung ist schlecht (z. B. Kontrast, Vergrößerung, Handy)'
+      technik: 'Technischer Fehler oder Störung (z. B. Seite lädt nicht, Link funktioniert nicht)'
+      sonstiges: 'Etwas anderes'
+    '#required': true
+    '#required_error': 'Bitte wählen Sie aus, um welche Art von Problem es geht.'
+    '#attributes':
+      required: required
   seite:
     '#type': url
     '#title': 'Betroffene Seite (Adresse)'
@@ -31,13 +45,30 @@ elements: |-
     '#required_error': 'Bitte geben Sie die Adresse der Seite an, auf der die Barriere auftritt.'
     '#autocomplete': 'off'
   beschreibung:
+    '#description': 'Was wollten Sie tun? Was ist passiert?'
     '#type': textarea
     '#title': 'Beschreibung der Barriere'
-    '#description': 'Was hat nicht funktioniert? Wenn Sie möchten: Welche Hilfsmittel nutzen Sie, zum Beispiel Screenreader oder Vergrößerung? Diese Angabe ist freiwillig.'
     '#description_display': before
     '#required': true
     '#required_error': 'Bitte beschreiben Sie die Barriere.'
     '#rows': 6
+  hilfsmittel:
+    '#type': checkboxes
+    '#title': 'Welche Hilfsmittel nutzen Sie?'
+    '#description': 'Freiwillig. Die Angabe hilft uns, das Problem nachzustellen.'
+    '#description_display': before
+    '#options':
+      screenreader: Screenreader
+      vergroesserung: Vergrößerung
+      tastatur: 'nur Tastatur'
+      sprachsteuerung: Sprachsteuerung
+      keine_angabe: 'keine Angabe'
+  geraet:
+    '#type': textfield
+    '#title': 'Gerät und Browser'
+    '#description': 'Zum Beispiel: iPhone, Safari'
+    '#description_display': before
+    '#autocomplete': 'off'
   email:
     '#type': email
     '#title': 'E-Mail-Adresse (optional)'
@@ -48,9 +79,21 @@ elements: |-
     '#type': processed_text
     '#format': basic_html
     '#text': '<p>Auf dieser Musterseite werden Ihre Angaben weder gespeichert noch versendet. Mehr dazu in der <a href="/node/21" data-entity-type="node" data-entity-uuid="c2e52956-06fe-49cb-833f-58b123afffdf" data-entity-substitution="canonical">Datenschutzerklärung</a>.</p>'
+  kategorie:
+    '#type': webform_computed_twig
+    '#title': Kategorie
+    '#display_on': none
+    '#mode': text
+    '#store': true
+    '#whitespace': trim
+    '#template': "{{ {'inhalt': 'Inhalt', 'bedienung': 'Bedienung', 'dokument_video': 'Dokument oder Video', 'darstellung': 'Darstellung', 'technik': 'Technik', 'sonstiges': 'Sonstiges'}[data.problem]|default('') }}"
   actions:
     '#type': webform_actions
     '#submit__label': 'Meldung absenden'
+  so_geht_es_weiter:
+    '#type': processed_text
+    '#format': basic_html
+    '#text': '<h2>So geht es weiter</h2><ol><li>Wir prüfen Ihre Meldung innerhalb von 2 Werktagen.</li><li>Wir geben sie an die zuständige Stelle weiter, zum Beispiel an die Redaktion oder die Technik.</li><li>Wenn Sie Ihre E-Mail-Adresse angegeben haben, informieren wir Sie über das Ergebnis.</li><li>Sind Sie mit unserer Antwort nicht zufrieden, können Sie sich an die Schlichtungsstelle wenden. Mehr dazu in unserer <a href="/node/17" data-entity-type="node" data-entity-uuid="d39ea8a3-1a4d-4ce0-aed6-7e33f40f6bc3" data-entity-substitution="canonical">Erklärung zur Barrierefreiheit</a>.</li></ol>'
 css: ''
 javascript: ''
 settings:
@@ -260,7 +303,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: 'Barriere gemeldet: [webform_submission:values:seite]'
+      subject: 'Barriere melden – [webform_submission:values:kategorie]'
       body: _default
       excluded_elements: {  }
       ignore_access: false

@@ -1,0 +1,7 @@
+fehlerliste:
+  version: VERSION
+  js:
+    js/fehlerliste.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

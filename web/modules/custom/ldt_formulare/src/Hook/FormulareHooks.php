@@ -35,6 +35,42 @@ class FormulareHooks {
   }
 
   /**
+   * Implements hook_preprocess_HOOK() for fieldset.
+   *
+   * Feldgruppen (Radio-Knöpfe, Checkboxen): Die Fehlermeldung bekommt eine
+   * ID und wird an aria-describedby des <fieldset> gehängt. Screenreader
+   * lesen sie beim Betreten der Gruppe zusammen mit der Legende vor.
+   */
+  #[Hook('preprocess_fieldset')]
+  public function preprocessFieldset(array &$variables): void {
+    $id = $variables['element']['#id'] ?? NULL;
+    if (!$id || empty($variables['errors'])) {
+      return;
+    }
+    $errors = $variables['errors'];
+    $variables['errors'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'span',
+      '#attributes' => ['id' => $id . '--error'],
+      'message' => is_array($errors) ? $errors : ['#markup' => $errors],
+    ];
+    $described = (string) ($variables['attributes']['aria-describedby'] ?? '');
+    $ids = array_filter(array_merge([$id . '--error'], explode(' ', $described)));
+    $variables['attributes']['aria-describedby'] = implode(' ', array_unique($ids));
+  }
+
+  /**
+   * Implements hook_form_alter().
+   *
+   * Links in der Fehlerliste setzen den Fokus auch bei Feldgruppen ins
+   * erste Eingabefeld (js/fehlerliste.js).
+   */
+  #[Hook('form_alter')]
+  public function formAlter(array &$form): void {
+    $form['#attached']['library'][] = 'ldt_formulare/fehlerliste';
+  }
+
+  /**
    * Implements hook_preprocess_HOOK() for input.
    */
   #[Hook('preprocess_input')]

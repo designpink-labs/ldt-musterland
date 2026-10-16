@@ -86,6 +86,9 @@ class TabellenRahmen implements TrustedCallbackInterface {
     foreach ($table->getElementsByTagName('tr') as $tr) {
       $tr->setAttribute('role', 'row');
       $im_kopf = $tr->parentNode->nodeName === 'thead';
+      // Nur eine Datenzelle in der Zeile (z. B. "Feld | Inhalt"): keine
+      // Beschriftung, der Zeilenkopf sagt schon alles.
+      $beschriften = $tr->getElementsByTagName('td')->length > 1;
       $spalte = 0;
       foreach ($tr->childNodes as $zelle) {
         if (!$zelle instanceof \DOMElement) {
@@ -96,7 +99,7 @@ class TabellenRahmen implements TrustedCallbackInterface {
         }
         else {
           $zelle->setAttribute('role', 'cell');
-          if (isset($koepfe[$spalte])) {
+          if ($beschriften && isset($koepfe[$spalte])) {
             $zelle->setAttribute('data-label', $koepfe[$spalte]);
           }
         }

@@ -436,6 +436,7 @@ return [
   <li>{{link:ia|Informationsarchitektur}}: Inhalte so ordnen, dass Menschen sie finden</li>
   <li>{{link:seo-geo|SEO und GEO}}: in Suchmaschinen und KI-Assistenten auffindbar sein</li>
   <li>{{link:matomo|Webanalyse mit Matomo}}: datenschutzfreundlich messen, was gebraucht wird</li>
+  <li>{{link:fehlermeldungen|Fehlermeldungen bearbeiten}}: Meldungen zu Barrieren und Störungen prüfen und weitergeben</li>
 </ul>
 <h2>Erst die Struktur, dann die Optimierung</h2>
 <p>Viele Probleme, die nach schlechter Auffindbarkeit aussehen, sind in Wahrheit Strukturprobleme: Seiten heißen wie Abteilungen statt wie Anliegen, oder dasselbe Thema steht an drei Stellen. Wir beginnen deshalb immer mit der Struktur. Webanalyse zeigt danach, ob die Änderungen wirken.</p>
@@ -531,6 +532,61 @@ return [
 <p>Reine Seitenaufrufe sagen wenig. Fragen Sie immer: Konnte die Person ihr Anliegen erledigen?</p>
 <h2>Auf dieser Website</h2>
 <p>Matomo ist auf dieser Website vorbereitet, aber nicht aktiv. Es werden keine Nutzungsdaten erhoben. Sollte sich das ändern, steht es in der {{link:datenschutz|Datenschutzerklärung}}.</p>',
+  ],
+
+  'fehlermeldungen' => [
+    'title' => 'Fehlermeldungen bearbeiten',
+    'summary' => 'So prüft, ordnet und gibt das LDT Meldungen zu Barrieren und Störungen weiter, damit sie schnell bei der richtigen Stelle ankommen.',
+    'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 4,
+    'body' => '
+<p>Meldungen über Barrieren oder Störungen kommen oft knapp und ohne technische Details. Bevor wir sie weitergeben, qualifizieren wir sie vor: Wir stellen das Problem nach, ordnen es ein und ergänzen, was die zuständige Stelle zum Beheben braucht. So muss niemand nachfragen, und die Meldenden bekommen schneller eine Antwort.</p>
+<h2>Der Ablauf</h2>
+<ol>
+  <li><strong>Eingang:</strong> Die Meldung kommt über das {{form:barriere_melden|Formular „Barriere melden“}}, per E-Mail oder über Social Media.</li>
+  <li><strong>Nachstellen:</strong> Wir rufen die Seite auf und versuchen, das Problem nachzustellen, wenn möglich mit dem genannten Hilfsmittel.</li>
+  <li><strong>Einordnen:</strong> Wir legen Kategorie und Priorität fest, prüfen, ob das Problem schon gemeldet wurde, und benennen das betroffene WCAG-Kriterium.</li>
+  <li><strong>Weitergeben:</strong> Die Meldung geht vollständig beschrieben an die zuständige Stelle: Redaktion, IT-Dienstleister oder die Verantwortlichen für das Dokument.</li>
+  <li><strong>Rückmelden und abschließen:</strong> Wir informieren die meldende Person. Bleibt eine Barriere länger bestehen, nehmen wir sie in die {{link:erklaerung|Erklärung zur Barrierefreiheit}} auf.</li>
+</ol>
+<h2>Prioritäten</h2>
+<table>
+  <caption>Prioritäten und Fristen für die Weitergabe</caption>
+  <thead>
+    <tr><th scope="col">Priorität</th><th scope="col">Wann</th><th scope="col">Beispiel</th><th scope="col">Weitergabe</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Hoch</th><td>Eine wichtige Funktion ist für eine Gruppe von Menschen nicht nutzbar</td><td>Formular lässt sich nicht absenden, Menü nicht bedienbar, Seite nicht erreichbar</td><td>am selben Werktag</td></tr>
+    <tr><th scope="row">Mittel</th><td>Nutzung ist erschwert, es gibt aber einen Umweg</td><td>Grafik ohne Alternativtext, zu schwacher Kontrast</td><td>innerhalb von 2 Werktagen</td></tr>
+    <tr><th scope="row">Niedrig</th><td>Kleiner Mangel ohne echte Barriere</td><td>Tippfehler, unklare Formulierung</td><td>mit der nächsten Überarbeitung</td></tr>
+  </tbody>
+</table>
+<h2>Beispiel: aus einer Nachricht wird eine Meldung</h2>
+<p>So kam die Nachricht an:</p>
+<blockquote>
+<p>Hallo, auf eurer Seite kann ich das Menü auf dem Handy nicht aufmachen. Da passiert einfach nichts. Bitte reparieren.</p>
+</blockquote>
+<p>So geben wir sie weiter:</p>
+<table>
+  <caption>Meldung 2026-0142 nach der Vorqualifizierung</caption>
+  <thead>
+    <tr><th scope="col">Feld</th><th scope="col">Inhalt</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Meldung</th><td>2026-0142</td></tr>
+    <tr><th scope="row">Kategorie</th><td>Bedienung</td></tr>
+    <tr><th scope="row">Priorität</th><td>Hoch: Die Navigation ist für Betroffene nicht nutzbar</td></tr>
+    <tr><th scope="row">Betroffene Seite</th><td>alle Seiten, Hauptnavigation</td></tr>
+    <tr><th scope="row">Gerät und Hilfsmittel</th><td>iPhone, Safari, VoiceOver (laut Rückfrage)</td></tr>
+    <tr><th scope="row">Schritte zum Nachstellen</th><td><ol><li>Seite auf dem iPhone öffnen.</li><li>VoiceOver einschalten.</li><li>Zum Knopf „Menü“ wischen und doppeltippen.</li></ol></td></tr>
+    <tr><th scope="row">Erwartet</th><td>Das Menü öffnet sich, VoiceOver sagt „erweitert“.</td></tr>
+    <tr><th scope="row">Tatsächlich</th><td>Nichts passiert, VoiceOver sagt weiterhin „reduziert“.</td></tr>
+    <tr><th scope="row">WCAG-Kriterium</th><td>2.1.1 Tastatur, 4.1.2 Name, Rolle, Wert</td></tr>
+    <tr><th scope="row">Zuständig</th><td>IT-Dienstleister Webportal</td></tr>
+    <tr><th scope="row">Rückmeldung an Meldende</th><td>Eingang bestätigt, Weitergabe mitgeteilt</td></tr>
+  </tbody>
+</table>
+<p>Das Beispiel ist erfunden. Auf dieser Website funktioniert das Menü.</p>
+<p>Gute Meldungen erkennen Sie daran, dass jemand anderes das Problem allein mit den Angaben nachstellen kann.</p>',
   ],
 
   // Hauptmenü: Einzelseiten.
