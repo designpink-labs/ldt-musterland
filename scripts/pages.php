@@ -23,10 +23,10 @@ return [
     'summary' => 'Das Landesamt für Digitale Teilhabe Musterland: Barrierefreiheit, Online-Redaktion, Web-Optimierung und Schulungen.',
     'body' => '
 <p>Willkommen beim Landesamt für Digitale Teilhabe Musterland (LDT). Wir sorgen dafür, dass alle Menschen die digitalen Angebote der Landesverwaltung nutzen können – unabhängig davon, ob sie gut sehen, hören oder lesen können.</p>
-<p>Dafür beraten wir die Dienststellen des Landes, prüfen ihre Websites und Dokumente und schulen ihre Beschäftigten. Unsere Themen finden Sie unten im Überblick.</p>
+<p>Dafür beraten wir die Dienststellen des Landes, prüfen ihre Websites und Dokumente und schulen ihre Beschäftigten.</p>
 <h2>Barrierefreiheit dieser Website</h2>
 <p>Auch diese Website soll für alle zugänglich sein. Sie richtet sich nach den Web Content Accessibility Guidelines (WCAG) 2.1 in der Stufe AA. Was schon erfüllt ist und was noch fehlt, steht in unserer {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</p>
-<p>Wenn Sie auf ein Hindernis stoßen, melden Sie es uns bitte über das Formular „Barriere melden“ im Seitenfuß.</p>',
+<p>Wenn Sie auf ein Hindernis stoßen, melden Sie es uns bitte über das Formular {{form:barriere_melden|Barriere melden}}.</p>',
   ],
 
   // Hauptmenü: Barrierefreiheit.
@@ -62,7 +62,7 @@ return [
   <li><strong>Arbeitshilfen:</strong> Checklisten und Vorlagen finden Sie in der {{link:arbeitshilfe|Arbeitshilfe für Redaktionen}}.</li>
 </ul>
 <h2>Barriere gefunden?</h2>
-<p>Wenn Sie auf dieser Website auf ein Hindernis stoßen, melden Sie es uns über das Formular „Barriere melden“ im Seitenfuß. Wie barrierefrei diese Website ist, steht in unserer {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</p>',
+<p>Wenn Sie auf dieser Website auf ein Hindernis stoßen, melden Sie es uns über das Formular {{form:barriere_melden|Barriere melden}}. Wie barrierefrei diese Website ist, steht in unserer {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</p>',
   ],
   'dokumente' => [
     'title' => 'Barrierefreie Dokumente',
@@ -501,7 +501,7 @@ return [
 <p><strong>Beispieladresse – fiktive Angaben, keine echte Behörde.</strong></p>
 <p>Landesamt für Digitale Teilhabe Musterland<br>Musterstraße 1<br>12345 Musterstadt</p>
 <p>Telefon: 0000 000000 (Beispielnummer)<br>E-Mail: poststelle@ldt-musterland.example (Beispieladresse)</p>
-<p>Barrieren auf dieser Website können Sie über das Formular „Barriere melden“ im Seitenfuß melden.</p>',
+<p>Barrieren auf dieser Website können Sie über das Formular {{form:barriere_melden|Barriere melden}} melden.</p>',
   ],
 
   // Footer-Menü.
@@ -510,7 +510,7 @@ return [
     'summary' => 'Erklärung zur Barrierefreiheit dieser Website: Stand der Vereinbarkeit, bekannte Mängel und Feedback.',
     'menu' => 'footer', 'weight' => 1,
     'body' => '
-<p><strong>Hinweis: Diese Erklärung ist ein Muster.</strong> Das Landesamt für Digitale Teilhabe Musterland ist eine fiktive Behörde. Die Prüfergebnisse unten stammen aber aus echten Tests dieser Website.</p>
+<p><strong>Hinweis: Diese Erklärung ist ein Muster.</strong> Das Landesamt für Digitale Teilhabe Musterland ist eine fiktive Behörde. Die Prüfergebnisse in dieser Erklärung stammen aber aus echten Tests dieser Website.</p>
 <p>Das Landesamt für Digitale Teilhabe Musterland ist bemüht, seine Website im Einklang mit dem Landesrecht zur barrierefreien Informationstechnik barrierefrei zugänglich zu machen. Diese Erklärung gilt für diese Website.</p>
 <p>Die wichtigsten Inhalte dieser Erklärung finden Sie auch {{link:leichte-sprache|in Leichter Sprache}}.</p>
 <h2>Stand der Vereinbarkeit mit den Anforderungen</h2>
@@ -519,7 +519,7 @@ return [
 <ul>
   <li><strong>Gebärdensprache:</strong> Es gibt noch keine Videos in Deutscher Gebärdensprache. Die Seite {{link:gebaerdensprache|Informationen in Gebärdensprache}} beschreibt, welche Inhalte die Videos haben werden.</li>
   <li><strong>Leichte Sprache:</strong> Der Text in Leichter Sprache wurde nicht von einer Prüfgruppe geprüft.</li>
-  <li><strong>Screenreader:</strong> Die Website wurde noch nicht mit den Screenreadern NVDA, JAWS und VoiceOver getestet. Barrieren bei der Sprachausgabe können wir deshalb nicht ausschließen.</li>
+  <li><strong>Screenreader:</strong> Die Website wurde bisher in einer Grundprüfung mit VoiceOver unter macOS getestet. Tests mit den Screenreadern NVDA und JAWS unter Windows stehen noch aus. Barrieren bei der Sprachausgabe in diesen Screenreadern können wir deshalb nicht ausschließen.</li>
   <li><strong>Weitere Prüfungen:</strong> Noch nicht geprüft sind die reine Textvergrößerung ohne Zoom, der Kontrastmodus von Windows und die Bedienung mit Sprachsteuerung.</li>
   <li><strong>Videoplayer:</strong> Videos nutzen den Player des Browsers. Wie gut er sich mit der Tastatur und mit Screenreadern bedienen lässt, hängt vom Browser ab.</li>
 </ul>
@@ -529,11 +529,12 @@ return [
 <ul>
   <li><strong>Automatische Prüfung</strong> mit axe-core 4.14 nach WCAG 2.0 und 2.1, Stufen A und AA: 24 Seiten, jeweils in der Desktop-Ansicht und 375 Pixel breit, dazu geöffnetes Menü und Formular mit Fehlermeldungen. Ergebnis: keine Verstöße.</li>
   <li><strong>Tastaturbedienung:</strong> Link „Direkt zum Inhalt“, Reihenfolge und Sichtbarkeit des Fokus, Hauptmenü mit Untermenüs, mobiles Menü und Formular „Barriere melden“. Ergebnis: bestanden.</li>
+  <li><strong>Screenreader:</strong> Grundprüfung mit VoiceOver in Safari unter macOS: Orientierungspunkte (Landmarks), Überschriften, Hauptmenü mit Untermenüs und Formular „Barriere melden“.</li>
   <li><strong>Umbruch bei Vergrößerung:</strong> Alle Seiten bei 320 Pixel Breite, das entspricht 400 Prozent Zoom. Ergebnis: kein waagerechtes Scrollen.</li>
   <li><strong>Kontraste:</strong> Alle verwendeten Farbkombinationen. Ergebnis: mindestens 4,5:1 für Text und 3:1 für Bedienelemente.</li>
 </ul>
 <h2>Barrieren melden: Kontakt</h2>
-<p>Sind Ihnen Mängel beim barrierefreien Zugang zu Inhalten dieser Website aufgefallen? Dann melden Sie sich bitte über das Formular „Barriere melden“ im Seitenfuß oder per E-Mail an poststelle@ldt-musterland.example (Beispieladresse).</p>
+<p>Sind Ihnen Mängel beim barrierefreien Zugang zu Inhalten dieser Website aufgefallen? Dann melden Sie sich bitte über das Formular {{form:barriere_melden|Barriere melden}} oder per E-Mail an poststelle@ldt-musterland.example (Beispieladresse).</p>
 <p>Auf der veröffentlichten Musterseite läuft das Formular im Demo-Modus: Meldungen werden dort weder gespeichert noch versendet.</p>
 <h2>Schlichtungsverfahren</h2>
 <p>Wenn Sie auch nach Ihrer Meldung keine zufriedenstellende Lösung erhalten, können Sie sich an die Schlichtungsstelle wenden, die nach dem Landesrecht zur barrierefreien Informationstechnik zuständig ist. Im Musterland ist das die – ebenfalls fiktive – Schlichtungsstelle bei der oder dem Landesbeauftragten für die Belange von Menschen mit Behinderungen. Das Verfahren ist kostenlos, und Sie brauchen keinen Rechtsbeistand.</p>',

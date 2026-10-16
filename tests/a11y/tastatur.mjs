@@ -93,9 +93,9 @@ page = await ctx.newPage();
 await page.goto(BASE + '/barriere-melden', { waitUntil: 'networkidle' });
 await page.locator('#edit-seite').focus();
 const felder = [(await fokus(page)).id];
-for (let i = 0; i < 3; i++) felder.push((await tab(page)).id || (await fokus(page)).name);
+for (let i = 0; i < 4; i++) { const t = await tab(page); felder.push(t.id || t.name); }
 console.log('  Reihenfolge: ' + felder.join(' → '));
-ok(felder.join(',') === 'edit-seite,edit-beschreibung,edit-email,edit-actions-submit', 'Felder in logischer Reihenfolge, Honeypot-Feld nicht erreichbar');
+ok(felder.join(',') === 'edit-seite,edit-beschreibung,edit-email,Datenschutzerklärung,edit-actions-submit', 'Felder in logischer Reihenfolge (mit Link zur Datenschutzerklärung), Honeypot-Feld nicht erreichbar');
 await page.waitForTimeout(5500);
 await page.keyboard.press('Enter');
 await page.waitForLoadState('networkidle');

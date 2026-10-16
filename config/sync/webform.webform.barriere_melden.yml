@@ -25,7 +25,7 @@ elements: |-
   seite:
     '#type': url
     '#title': 'Betroffene Seite (Adresse)'
-    '#description': 'Die Adresse der Seite aus der Adresszeile Ihres Browsers, zum Beispiel https://designpink.de/drupal/impressum'
+    '#description': 'Die Adresse aus der Adresszeile Ihres Browsers, etwa …/impressum'
     '#description_display': before
     '#required': true
     '#required_error': 'Bitte geben Sie die Adresse der Seite an, auf der die Barriere auftritt.'
@@ -45,8 +45,9 @@ elements: |-
     '#description_display': before
     '#autocomplete': email
   datenschutz_hinweis:
-    '#type': webform_markup
-    '#markup': '<p>[Hier: kurzer Hinweis zur Datenverarbeitung mit Verweis auf die Datenschutzerklärung.]</p>'
+    '#type': processed_text
+    '#format': basic_html
+    '#text': '<p>Auf dieser Musterseite werden Ihre Angaben weder gespeichert noch versendet. Mehr dazu in der <a href="/node/21" data-entity-type="node" data-entity-uuid="c2e52956-06fe-49cb-833f-58b123afffdf" data-entity-substitution="canonical">Datenschutzerklärung</a>.</p>'
   actions:
     '#type': webform_actions
     '#submit__label': 'Meldung absenden'

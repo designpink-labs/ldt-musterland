@@ -17,6 +17,9 @@
  * Zusammenfassung (Kartentext) = 'summary'; Meta-Beschreibung = 'summary'
  * plus " – Musterseite einer fiktiven Behörde" (oder 'description', falls gesetzt).
  *
+ * Marken in Texten: {{link:SCHLÜSSEL|Text}} (Seite), {{form:WEBFORM_ID|Text}}
+ * (Webformular) – beide werden zu Linkit-Links (pfadunabhängig).
+ *
  * Welche Seite zu welchem Schlüssel gehört, merkt sich das Skript im
  * State-Eintrag "ldt.page_nids".
  */
@@ -107,6 +110,14 @@ foreach (array_keys($changed) as $key) {
       $target->id(), $target->uuid(), $m[2]
     );
   }, $node->get('body')->value);
+  // {{form:WEBFORM_ID|Text}}: Link auf ein Webformular, ebenfalls im Linkit-Format.
+  $body = preg_replace_callback('/\{\{form:([a-z0-9_]+)\|([^}]+)\}\}/', function ($m) {
+    $webform = \Drupal\webform\Entity\Webform::load($m[1]);
+    return sprintf(
+      '<a href="/form/%s" data-entity-type="webform" data-entity-uuid="%s" data-entity-substitution="canonical">%s</a>',
+      str_replace('_', '-', $webform->id()), $webform->uuid(), $m[2]
+    );
+  }, $body);
   $node->set('body', ['value' => $body, 'summary' => $node->get('body')->summary, 'format' => 'basic_html']);
   $node->path->pathauto = 1;
   $node->save();
