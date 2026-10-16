@@ -23,6 +23,27 @@ web/            Öffentlicher Ordner – nur dieser darf vom Webserver ausgelief
 composer.json   Liste der Abhängigkeiten (Drupal-Kern, Module, Drush)
 ```
 
+## Was liegt wo?
+
+| Was | Wo gespeichert | Wie kommt es auf Strato? |
+|---|---|---|
+| Einstellungen (Inhaltstypen, Felder, Menüs, Formulare, Module) | `config/sync/` (Git) | `drush cim` oder mit der Datenbank |
+| Seiten, Menüpunkte, eigene Übersetzungen, Formular-Einsendungen | Datenbank | Datenbank-Export/-Import |
+| Hochgeladene Dateien (Bilder, PDFs, Videos) | `web/sites/default/files/` | per SFTP hochladen |
+| Eigener Code | `web/modules/custom/` (Git) | mit dem Projekt hochladen |
+
+Nach Änderungen im Backend immer `ddev drush cex` ausführen und `config/sync` committen.
+
+## Video mit Untertiteln
+
+Auf jeder Basisseite gibt es die optionalen Felder **Video** (MP4/WebM) und
+**Untertitel (WebVTT)**. Das Modul `web/modules/custom/designpink_video` gibt das Video als
+`<video>` mit `<track kind="captions">` aus. Das Template `designpink-video.html.twig`
+kann im späteren Theme überschrieben werden (gleichnamige Datei im Theme-Ordner `templates/`).
+
+Damit Browser die Untertitel annehmen, muss `.vtt` als `text/vtt` ausgeliefert werden:
+lokal über `.ddev/nginx/vtt.conf`, auf Strato über `AddType text/vtt .vtt` in `web/.htaccess`.
+
 ## Lokale Umgebung
 
 Voraussetzung: Docker Desktop läuft.
