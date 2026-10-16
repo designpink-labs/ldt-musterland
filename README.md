@@ -208,6 +208,7 @@ npm install          # einmalig
 npm run axe          # axe-core: alle Seiten, Desktop + 375 px, Menü offen, Formularfehler
 npm run tastatur     # Skip-Link, Tab-Reihenfolge, Fokus sichtbar, Menüs, Formular
 npm run reflow       # 320 px Breite (= 400 % Zoom) ohne waagerechtes Scrollen
+npm run meta         # Meta-Beschreibung: höchstens 160 Zeichen, endet auf den Musterseiten-Zusatz
 npm run englisch     # Suche nach englischen Resten
 npm run screenshots  # Screenshots nach tests/a11y/ergebnisse/
 ```

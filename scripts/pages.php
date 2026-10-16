@@ -9,11 +9,12 @@
  * - {{link:SCHLÜSSEL|Linktext}} wird beim Anlegen in einen Linkit-Link
  *   umgewandelt (data-entity-uuid), der unabhängig vom Pfad funktioniert.
  * - 'summary': Zusammenfassung (Kartentext auf der Startseite). Die
- *   Meta-Beschreibung ist 'summary' plus " – Musterseite einer fiktiven
- *   Behörde", außer 'description' ist ausdrücklich gesetzt.
+ *   Meta-Beschreibung ist 'meta' (falls gesetzt) oder 'summary', jeweils plus
+ *   " – Musterseite einer fiktiven Behörde" – zusammen höchstens 160 Zeichen
+ *   (Test: tests/a11y/meta.mjs). 'description' ersetzt sie ganz.
  * - 'promote' => TRUE: Seite erscheint als Karte auf der Startseite.
- * - Hinweisboxen: <div class="hinweis hinweis--info">…</div> (einzige
- *   erlaubte Klasse im Textformat).
+ * - Hinweisboxen: <div class="hinweis hinweis--info">…</div>; Sprachvergleich:
+ *   <div class="sprachvergleich"> (die einzigen erlaubten Klassen im Textformat).
  * - Keine festen internen Pfade wie "/impressum" in Texte schreiben.
  */
 
@@ -628,6 +629,7 @@ return [
   'fehlermeldungen' => [
     'title' => 'Fehlermeldungen bearbeiten',
     'summary' => 'So prüft, ordnet und gibt das LDT Meldungen zu Barrieren und Störungen weiter, damit sie schnell bei der richtigen Stelle ankommen.',
+    'meta' => 'So prüft, ordnet und gibt das LDT Meldungen zu Barrieren und Störungen an die zuständige Stelle weiter.',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 4,
     'body' => '
 <p>Meldungen über Barrieren oder Störungen kommen oft knapp und ohne technische Details. Bevor wir sie weitergeben, qualifizieren wir sie vor: Wir stellen das Problem nach, ordnen es ein und ergänzen, was die zuständige Stelle zum Beheben braucht. So muss niemand nachfragen, und die Meldenden bekommen schneller eine Antwort.</p>
@@ -683,6 +685,7 @@ return [
   'entstehung' => [
     'title' => 'So ist diese Website entstanden',
     'summary' => 'Von den Anforderungen bis zur Veröffentlichung: wie diese Musterseite geplant, gebaut und geprüft wurde – und worauf wir dabei besonders geachtet haben.',
+    'meta' => 'Wie diese Website geplant, gebaut und geprüft wurde und worauf wir dabei besonders geachtet haben.',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 5,
     'body' => '
 <p>Diese Website ist ein Beispiel dafür, wie ein neues Internetangebot einer Behörde entstehen kann. Barrierefreiheit war dabei von Anfang an eine Anforderung und keine Nacharbeit.</p>

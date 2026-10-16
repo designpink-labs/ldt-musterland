@@ -49,7 +49,8 @@ foreach ($meldungen as $key => $m) {
     'title' => $q[1],
     'options' => $q[2] !== 'de' ? ['attributes' => ['lang' => $q[2], 'hreflang' => $q[2]]] : [],
   ], $m['quellen']));
-  $node->set('field_metatag', json_encode(['description' => $m['teaser'] . ' – Musterseite einer fiktiven Behörde']));
+  // Meta-Beschreibung: 'meta' (kurz, höchstens 160 Zeichen mit Zusatz) oder der Teaser.
+  $node->set('field_metatag', json_encode(['description' => ($m['meta'] ?? $m['teaser']) . ' – Musterseite einer fiktiven Behörde']));
   $node->path->pathauto = 1;
   $node->save();
   $map[$key] = (int) $node->id();

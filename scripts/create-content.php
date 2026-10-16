@@ -14,8 +14,10 @@
  * Nur bestimmte Seiten überschreiben (Schlüssel aus pages.php):
  *   ddev drush php:script scripts/create-content.php -- --overwrite --only=video,schulungen
  *
- * Zusammenfassung (Kartentext) = 'summary'; Meta-Beschreibung = 'summary'
- * plus " – Musterseite einer fiktiven Behörde" (oder 'description', falls gesetzt).
+ * Zusammenfassung (Kartentext) = 'summary'; Meta-Beschreibung = 'meta' (kurze
+ * Fassung, falls der Teaser zu lang ist) oder 'summary', jeweils plus
+ * " – Musterseite einer fiktiven Behörde"; 'description' ersetzt das ganz.
+ * Höchstens 160 Zeichen inklusive Zusatz (Test: tests/a11y/meta.mjs).
  *
  * Marken in Texten: {{link:SCHLÜSSEL|Text}} (Seite), {{form:WEBFORM_ID|Text}}
  * (Webformular) – beide werden zu Linkit-Links (pfadunabhängig).
@@ -62,7 +64,8 @@ foreach ($pages as $key => $page) {
     'format' => 'basic_html',
   ]);
   $node->set('promote', !empty($page['promote']));
-  $description = $page['description'] ?? (isset($page['summary']) ? $page['summary'] . LDT_META_SUFFIX : '');
+  $kurz = $page['meta'] ?? $page['summary'] ?? NULL;
+  $description = $page['description'] ?? ($kurz ? $kurz . LDT_META_SUFFIX : '');
   if ($description && $node->hasField('field_metatag')) {
     $node->set('field_metatag', json_encode(['description' => $description]));
   }

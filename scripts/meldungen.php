@@ -6,8 +6,9 @@
  *
  * Wird von scripts/create-meldungen.php gelesen.
  * - datum: Veröffentlichungsdatum des (fiktiven) LDT, nicht das Ereignisdatum.
- * - teaser: Zusammenfassung; Meta-Beschreibung = teaser + " – Musterseite einer
- *   fiktiven Behörde".
+ * - teaser: Zusammenfassung (Übersicht "Aktuelles").
+ * - meta: kurze Meta-Beschreibung; Ausgabe = meta + " – Musterseite einer
+ *   fiktiven Behörde", höchstens 160 Zeichen. Ohne meta wird der Teaser genommen.
  * - body: Marken wie in pages.php ({{link:SCHLÜSSEL|Text}} usw.).
  * - quellen: [Adresse, Linktext, Sprache der Quelle]. Bei 'en' bekommt der
  *   Link lang="en" und hreflang="en", das Template ergänzt "(englisch)".
@@ -17,6 +18,7 @@ return [
   'en-301-549' => [
     'title' => 'Europäische Norm setzt jetzt auf WCAG 2.2',
     'datum' => '2026-10-09',
+    'meta' => 'Die Norm EN 301 549 setzt jetzt auf WCAG 2.2. Was neu ist, was rechtlich gilt und was das LDT empfiehlt.',
     'teaser' => 'Die überarbeitete Norm EN 301 549 V4.1.1 macht WCAG 2.2 zum Maßstab für barrierefreie Websites und Dokumente. Rechtlich verbindlich ist sie noch nicht. Das LDT empfiehlt trotzdem, schon jetzt danach zu planen.',
     'body' => '
 <p>Im September 2026 ist die neue Fassung der europäischen Norm EN 301 549 erschienen. Sie legt fest, was „barrierefrei“ für Websites, Software und digitale Dokumente technisch bedeutet. Die wichtigste Änderung: Statt WCAG 2.1 gilt jetzt WCAG 2.2 als Grundlage.</p>
@@ -42,6 +44,7 @@ return [
   'bfsg' => [
     'title' => 'Ein Jahr Barrierefreiheitsstärkungsgesetz',
     'datum' => '2026-06-30',
+    'meta' => 'Seit Juni 2025 gilt das Barrierefreiheitsstärkungsgesetz. Was es für die Landesverwaltung bedeutet.',
     'teaser' => 'Seit dem 28. Juni 2025 müssen auch Unternehmen viele digitale Angebote barrierefrei gestalten. Was das für die Landesverwaltung bedeutet, obwohl das Gesetz sie nicht direkt betrifft.',
     'body' => '
 <p>Das Barrierefreiheitsstärkungsgesetz (BFSG) setzt den <span lang="en">European Accessibility Act</span> der EU in deutsches Recht um. Es gilt seit dem 28. Juni 2025 vor allem für Unternehmen, zum Beispiel für Online-Shops, Banken und Anbieter von E-Books. Maßstab ist wie bei Behörden die Norm EN 301 549 mit WCAG 2.1 in der Stufe AA.</p>
@@ -63,6 +66,7 @@ return [
   'ki-suche' => [
     'title' => 'KI-Suche: Was der KI-Modus von Google für Behördenseiten bedeutet',
     'datum' => '2026-10-14',
+    'meta' => 'Google antwortet per KI direkt auf Fragen. So schreiben Behörden, damit ihre Inhalte richtig wiedergegeben werden.',
     'teaser' => 'Seit einem Jahr antwortet Google in Deutschland auf Wunsch direkt per KI, ohne klassische Trefferliste. Behördenseiten müssen deshalb so geschrieben sein, dass KI-Systeme sie richtig wiedergeben.',
     'body' => '
 <p>Seit Oktober 2025 gibt es den KI-Modus der Google-Suche auch auf Deutsch. Statt einer Liste mit Links formuliert eine KI direkt eine Antwort und nennt dazu Quellen. Ähnlich arbeiten Assistenten wie ChatGPT oder Perplexity. Viele Menschen klicken dadurch seltener auf die Websites selbst.</p>
