@@ -592,7 +592,7 @@ return [
 
   'entstehung' => [
     'title' => 'So ist diese Website entstanden',
-    'summary' => 'Von den Anforderungen bis zur Veröffentlichung: wie diese Musterseite geplant, gebaut und geprüft wurde, und was wir dabei gelernt haben.',
+    'summary' => 'Von den Anforderungen bis zur Veröffentlichung: wie diese Musterseite geplant, gebaut und geprüft wurde – und worauf wir dabei besonders geachtet haben.',
     'menu' => 'main', 'parent' => 'web-optimierung', 'weight' => 5,
     'body' => '
 <p>Diese Website ist ein Beispiel dafür, wie ein neues Internetangebot einer Behörde entstehen kann. Barrierefreiheit war dabei von Anfang an eine Anforderung und keine Nacharbeit.</p>
@@ -623,11 +623,11 @@ return [
 </table>
 <h2>Worauf wir besonders geachtet haben</h2>
 <ul>
-  <li><strong>Automatische Tests finden nicht alles.</strong> Ein Formularfeld verlangte eine vollständige Internetadresse, obwohl der Hilfetext ein kürzeres Beispiel nannte. Kein Test hat das gemeldet, aufgefallen ist es erst beim Ausprobieren.</li>
-  <li><strong>Tabellen brauchen auf dem Handy eine eigene Lösung.</strong> Technisch war eine waagerecht scrollende Tabelle zulässig. Aber die wichtigste Spalte war abgeschnitten, und nichts wies darauf hin. Jetzt erscheinen Tabellenzeilen auf schmalen Bildschirmen als Karten.</li>
-  <li><strong>Überschriften im PDF folgen der Formatvorlage.</strong> Unsere erste Vorlage erzeugte fünf Hauptüberschriften statt einer. Seitdem ist „Überschrift 1“ dem Dokumenttitel vorbehalten.</li>
-  <li><strong>Updates können Einstellungen überschreiben.</strong> Eine Serverregel für Untertiteldateien ging bei einem Update verloren. Solche Regeln stehen jetzt in einer eigenen Datei, die automatisch wieder eingefügt wird.</li>
-  <li><strong>Feste Adressen vermeiden.</strong> Weil die Website in einem Unterordner läuft, sind alle internen Links so gespeichert, dass sie an jedem Ort funktionieren.</li>
+  <li><strong>Automatische Tests ergänzen, nicht ersetzen.</strong> Werkzeuge wie axe-core finden nur einen Teil der Barrieren. Ob ein Hilfetext zum Feld passt oder ein Formular verständlich ist, prüft deshalb immer ein Mensch – zum Beispiel beim Ausfüllen mit Tastatur und Screenreader.</li>
+  <li><strong>Tabellen für kleine Bildschirme gestalten.</strong> Eine waagerecht scrollende Tabelle ist zulässig, versteckt aber oft die wichtigste Spalte. Auf schmalen Bildschirmen erscheinen unsere Tabellenzeilen deshalb als Karten. Die Tabellenstruktur bleibt für Screenreader erhalten.</li>
+  <li><strong>Überschriften im PDF über die Vorlage steuern.</strong> Die Struktur im PDF ergibt sich aus den Formatvorlagen. In unserer Vorlage ist „Überschrift 1“ deshalb dem Dokumenttitel vorbehalten. So hat jedes Dokument genau eine Hauptüberschrift, wie eine gute Webseite.</li>
+  <li><strong>Servereinstellungen updatesicher ablegen.</strong> Updates und die Installation von Erweiterungen können Konfigurationsdateien neu erzeugen. Eigene Regeln, etwa für Untertiteldateien, liegen deshalb in einer separaten Datei, die automatisch wieder eingefügt wird.</li>
+  <li><strong>Keine festen Adressen.</strong> Interne Links sind so gespeichert, dass sie unabhängig vom Speicherort funktionieren. Die Website lässt sich so ohne Nacharbeit umziehen, etwa in einen Unterordner.</li>
 </ul>',
   ],
 
