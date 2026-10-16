@@ -341,7 +341,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: false
           absolute: false
       pager:
@@ -363,7 +363,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       exposed_form:
         type: basic
@@ -582,7 +582,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: 'Displaying @start - @end of @total'
+          content: '@start - @end von @total wird angezeigt'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -2087,7 +2087,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: false
           absolute: false
         edit_webform_submission:
@@ -2140,7 +2140,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: edit
+          text: Bearbeiten
           output_url_as_text: false
           absolute: false
       access:
@@ -2915,7 +2915,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: false
           absolute: false
       access:

@@ -210,7 +210,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
       exposed_form:
         type: basic
         options:
@@ -388,7 +388,7 @@ display:
       tags: {  }
   attachment_1:
     id: attachment_1
-    display_title: Attachment
+    display_title: Anhang
     display_plugin: attachment
     position: 2
     display_options:

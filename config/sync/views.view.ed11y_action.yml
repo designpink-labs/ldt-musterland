@@ -78,7 +78,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -131,7 +131,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -184,7 +184,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         name_1:
@@ -259,7 +259,7 @@ display:
           field: title
           relationship: editoria11y_node_to_page
           group_type: group
-          admin_label: Node‑Titel
+          admin_label: Beitragstitel
           entity_type: node
           entity_field: title
           plugin_id: field
@@ -587,7 +587,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: date
-          label: Am
+          label: An
           exclude: false
           alter:
             alter_text: false
@@ -879,7 +879,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       exposed_form:
         type: basic
@@ -1234,7 +1234,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -1287,7 +1287,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -1340,7 +1340,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -1547,7 +1547,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: date
-          label: Am
+          label: An
           exclude: false
           alter:
             alter_text: false
@@ -1785,7 +1785,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       filters:
         page_title:
@@ -2244,7 +2244,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -2297,7 +2297,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -2350,7 +2350,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -2508,7 +2508,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: date
-          label: Am
+          label: An
           exclude: false
           alter:
             alter_text: false
@@ -2795,7 +2795,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       empty:
         area_text_custom:

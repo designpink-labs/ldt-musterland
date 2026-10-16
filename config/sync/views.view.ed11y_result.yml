@@ -142,7 +142,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: editoria11y_pages_by_issue_link
-          label: Meldung
+          label: Alarm
           exclude: false
           alter:
             alter_text: false
@@ -233,7 +233,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -286,7 +286,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -339,7 +339,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -564,7 +564,7 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: field
-          label: Bearbeiter
+          label: Herausgeber
           exclude: false
           alter:
             alter_text: false
@@ -918,7 +918,7 @@ display:
           exposed: true
           expose:
             operator_id: revision_uid_op
-            label: Bearbeiter
+            label: Herausgeber
             description: ''
             use_operator: false
             operator: revision_uid_op
@@ -1639,7 +1639,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -1692,7 +1692,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -1745,7 +1745,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -2086,7 +2086,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -2139,7 +2139,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -2192,7 +2192,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -2350,7 +2350,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: editoria11y_pages_by_issue_link
-          label: Meldung
+          label: Alarm
           exclude: false
           alter:
             alter_text: false
@@ -2737,7 +2737,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: editoria11y_pages_by_issue_link
-          label: Meldung
+          label: Alarm
           exclude: false
           alter:
             alter_text: false
@@ -3001,7 +3001,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: editoria11y_pages_by_issue_link
-          label: Meldung
+          label: Alarm
           exclude: false
           alter:
             alter_text: false
@@ -3062,7 +3062,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       sorts: {  }
       filters:
@@ -3436,7 +3436,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: editoria11y_pages_by_issue_link
-          label: Meldung
+          label: Alarm
           exclude: false
           alter:
             alter_text: false
@@ -3527,7 +3527,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -3580,7 +3580,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -3633,7 +3633,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -4012,7 +4012,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       sorts: {  }
       arguments:
@@ -4539,7 +4539,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -4592,7 +4592,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -4645,7 +4645,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -5073,7 +5073,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       sorts:
         content_count:
@@ -5236,7 +5236,7 @@ display:
           exposed: true
           expose:
             operator_id: page_path_op
-            label: Seitenpfad
+            label: 'Pfad zur Seite'
             description: ''
             use_operator: false
             operator: page_path_op
@@ -5841,7 +5841,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_taxonomy_term:
@@ -5894,7 +5894,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         view_user:
@@ -5947,7 +5947,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ansehen
+          text: Ansicht
           output_url_as_text: true
           absolute: false
         page_path:
@@ -6373,7 +6373,7 @@ display:
           entity_type: node
           entity_field: revision_uid
           plugin_id: field
-          label: Bearbeiter
+          label: Herausgeber
           exclude: false
           alter:
             alter_text: false
@@ -6565,7 +6565,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       sorts:
         content_results:
@@ -6606,7 +6606,7 @@ display:
           plugin_id: date
           order: ASC
           expose:
-            label: 'Erstellt am'
+            label: 'Geschrieben am'
             field_identifier: created
           exposed: true
           granularity: second
@@ -6649,7 +6649,7 @@ display:
           plugin_id: standard
           order: ASC
           expose:
-            label: Seitenpfad
+            label: 'Pfad zur Seite'
             field_identifier: page_path
           exposed: true
       filters:
@@ -6745,7 +6745,7 @@ display:
           exposed: true
           expose:
             operator_id: page_path_op
-            label: Seitenpfad
+            label: 'Pfad zur Seite'
             description: ''
             use_operator: false
             operator: page_path_op
@@ -6827,7 +6827,7 @@ display:
           exposed: true
           expose:
             operator_id: revision_uid_op
-            label: Bearbeiter
+            label: Herausgeber
             description: ''
             use_operator: false
             operator: revision_uid_op
@@ -7174,7 +7174,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       style:
         type: table

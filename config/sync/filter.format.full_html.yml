@@ -7,7 +7,7 @@ dependencies:
     - linkit
 _core:
   default_config_hash: vpZysv3RHJjhYzq7O_q5q8mVlHdrSzKELmXyiX6RtV0
-name: 'Full HTML'
+name: 'Vollständiges HTML'
 format: full_html
 weight: 2
 filters:

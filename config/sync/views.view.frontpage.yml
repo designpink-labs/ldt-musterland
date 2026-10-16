@@ -11,7 +11,7 @@ dependencies:
 _core:
   default_config_hash: OEEnRQIjfIaCFRsz8U3VqDrE82ltQKlo8wNbQJRZXu0
 id: frontpage
-label: Frontpage
+label: Startseite
 module: node
 description: 'All content promoted to the front page.'
 tag: default
@@ -46,7 +46,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       exposed_form:
         type: basic
@@ -262,7 +262,7 @@ display:
       tags: {  }
   feed_1:
     id: feed_1
-    display_title: Feed
+    display_title: Newsfeed
     display_plugin: feed
     position: 2
     display_options:

@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: hZxrM4LiKjRy1g-zZSX1RExTVK8SKQAtMrsRER1420I
 id: user_admin_people
-label: People
+label: Benutzer
 module: user
 description: 'Find and manage people interacting with your site.'
 tag: default
@@ -20,7 +20,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: People
+      title: Benutzer
       fields:
         user_bulk_form:
           id: user_bulk_form
@@ -31,7 +31,7 @@ display:
           admin_label: ''
           entity_type: user
           plugin_id: user_bulk_form
-          label: 'Bulk update'
+          label: Massenaktualisierung
           exclude: false
           alter:
             alter_text: false
@@ -178,7 +178,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Blocked
+            format_custom_false: Gesperrt
             format_custom_true: Aktiv
         roles_target_id:
           id: roles_target_id
@@ -241,7 +241,7 @@ display:
           entity_type: user
           entity_field: created
           plugin_id: field
-          label: 'Member for'
+          label: 'Mitglied seit'
           exclude: false
           alter:
             alter_text: false
@@ -297,7 +297,7 @@ display:
           entity_type: user
           entity_field: access
           plugin_id: field
-          label: 'Last access'
+          label: 'Letzter Zugriff'
           exclude: false
           alter:
             alter_text: false
@@ -478,7 +478,7 @@ display:
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           quantity: 9
       exposed_form:
         type: basic
@@ -506,7 +506,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No people available.'
+          content: 'Keine Personen verfügbar.'
           tokenize: false
       sorts:
         created:
@@ -612,7 +612,7 @@ display:
                 operator: '='
                 value: '1'
               2:
-                title: Blocked
+                title: Gesperrt
                 operator: '='
                 value: '0'
         roles_target_id:
@@ -669,7 +669,7 @@ display:
           exposed: true
           expose:
             operator_id: permission_op
-            label: Permission
+            label: Berechtigung
             description: ''
             use_operator: false
             operator: permission_op
@@ -871,7 +871,7 @@ display:
       show_admin_links: true
       use_more: false
       use_more_always: false
-      use_more_text: more
+      use_more_text: mehr
       link_display: page_1
       link_url: ''
       display_comment: ''
@@ -899,15 +899,15 @@ display:
       path: admin/people/list
       menu:
         type: 'default tab'
-        title: List
+        title: Liste
         description: 'Find and manage people interacting with your site.'
         weight: -10
         menu_name: admin
         context: ''
       tab_options:
         type: normal
-        title: People
-        description: 'Manage user accounts, roles, and permissions.'
+        title: Benutzer
+        description: 'Verwalten von Benutzerkonten, Rollen und Zugriffsrechten.'
         weight: 0
         menu_name: admin
     cache_metadata:

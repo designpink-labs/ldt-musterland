@@ -10,7 +10,7 @@ _core:
 id: content
 label: Inhalt
 module: node
-description: 'Find and manage content.'
+description: 'Inhalte finden und verwalten.'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -163,7 +163,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Unpublished
+            format_custom_false: 'Nicht veröffentlicht'
             format_custom_true: Veröffentlicht
         changed:
           id: changed
@@ -475,7 +475,7 @@ display:
                 operator: '='
                 value: '1'
               2:
-                title: Unpublished
+                title: 'Nicht veröffentlicht'
                 operator: '='
                 value: '0'
         langcode:

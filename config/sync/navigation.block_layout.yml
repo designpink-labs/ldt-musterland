@@ -12,7 +12,7 @@ sections:
         region: content
         configuration:
           id: navigation_shortcuts
-          label: Shortcuts
+          label: Verknüpfungen
           label_display: '0'
           provider: navigation
         weight: 0
@@ -34,7 +34,7 @@ sections:
         region: content
         configuration:
           id: 'navigation_menu:admin'
-          label: Administration
+          label: Verwaltung
           label_display: '0'
           provider: navigation
           level: 2
@@ -56,11 +56,11 @@ sections:
         region: footer
         configuration:
           id: navigation_link
-          label: Help
+          label: Hilfe
           label_display: '0'
           provider: navigation
           context_mapping: {  }
-          title: Help
+          title: Hilfe
           uri: 'internal:/admin/help'
           icon_class: help
         weight: -2

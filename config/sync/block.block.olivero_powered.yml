@@ -1,6 +1,6 @@
 uuid: ce129b71-be65-41f3-9f34-22a219e4044c
 langcode: de
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -16,7 +16,7 @@ provider: null
 plugin: system_powered_by_block
 settings:
   id: system_powered_by_block
-  label: 'Powered by Drupal'
+  label: 'Angetrieben durch Drupal'
   label_display: '0'
   provider: system
 visibility: {  }
