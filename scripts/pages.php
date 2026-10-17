@@ -12,6 +12,8 @@
  *   Meta-Beschreibung ist 'meta' (falls gesetzt) oder 'summary', jeweils plus
  *   " – Musterseite einer fiktiven Behörde" – zusammen höchstens 160 Zeichen
  *   (Test: tests/a11y/meta.mjs). 'description' ersetzt sie ganz.
+ * - 'menu_title' (optional): kürzerer Menüeintrag als der Seitentitel.
+ * - 'pfad' (optional): fester Pfad statt Pathauto (z. B. nach Umbenennen).
  * - 'promote' => TRUE: Seite erscheint als Karte auf der Startseite.
  * - Hinweisboxen: <div class="hinweis hinweis--info">…</div>; Sprachvergleich:
  *   <div class="sprachvergleich"> (die einzigen erlaubten Klassen im Textformat).
@@ -51,9 +53,9 @@ return [
 <h2>Unsere Themen</h2>
 <ul>
   <li>{{link:dokumente|Barrierefreie Dokumente}}: PDF- und Office-Dateien, die alle lesen können</li>
-  <li>{{link:leichte-sprache-fach|Leichte Sprache}}: Texte für Menschen mit Lernschwierigkeiten</li>
+  <li>{{link:leichte-sprache-fach|Leichte Sprache in der Verwaltung}}: Texte für Menschen mit Lernschwierigkeiten</li>
   <li>{{link:video|Video und Untertitel}}: Videos für Menschen, die nicht hören oder nicht sehen</li>
-  <li>{{link:gebaerdensprache-fach|Gebärdensprache}}: Informationen in Deutscher Gebärdensprache</li>
+  <li>{{link:gebaerdensprache-fach|Gebärdensprache auf Behörden-Websites}}: Informationen in Deutscher Gebärdensprache</li>
   <li>{{link:pruefung|Barrierefreiheit prüfen lassen}}: Websites, Apps und Dokumente vom LDT prüfen lassen</li>
 </ul>
 <h2>So unterstützen wir Dienststellen</h2>
@@ -113,7 +115,9 @@ return [
 <p>Eine barrierefreie Word-Vorlage finden Sie in der {{link:arbeitshilfe|Arbeitshilfe für Redaktionen}}.</p>',
   ],
   'leichte-sprache-fach' => [
-    'title' => 'Leichte Sprache',
+    'title' => 'Leichte Sprache in der Verwaltung',
+    'menu_title' => 'Leichte Sprache',
+    'pfad' => '/barrierefreiheit/leichte-sprache',
     'summary' => 'Leichte Sprache in der Verwaltung: Unterschied zur Einfachen Sprache, wichtigste Regeln und Prüfung durch die Zielgruppe.',
     'menu' => 'main', 'parent' => 'barrierefreiheit', 'weight' => 2,
     'body' => '
@@ -211,7 +215,9 @@ return [
 </ul>',
   ],
   'gebaerdensprache-fach' => [
-    'title' => 'Gebärdensprache',
+    'title' => 'Gebärdensprache auf Behörden-Websites',
+    'menu_title' => 'Gebärdensprache',
+    'pfad' => '/barrierefreiheit/gebaerdensprache',
     'summary' => 'Deutsche Gebärdensprache auf Behörden-Websites: rechtliche Anforderungen und Tipps für gute Gebärdensprach-Videos.',
     'menu' => 'main', 'parent' => 'barrierefreiheit', 'weight' => 4,
     'body' => '

@@ -5,3 +5,7 @@ links:
     path: /
     priority: '1.0'
     changefreq: daily
+  -
+    path: /aktuelles
+    priority: '0.8'
+    changefreq: weekly

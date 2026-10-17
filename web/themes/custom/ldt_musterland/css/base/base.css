@@ -78,24 +78,31 @@ code {
   font-size: 0.95em;
 }
 
-/* Skip-Link "Direkt zum Inhalt": unsichtbar, beim Fokus sichtbar. */
+/* Skip-Link "Direkt zum Inhalt": unsichtbar, beim Fokus sichtbar.
+   Beim Fokus im normalen Fluss (nicht darübergelegt): Er erscheint als
+   dunkle Leiste ganz oben und schiebt den gelben Musterbalken nach unten,
+   statt ihn zu verdecken. Weiß auf Dunkel 15,07:1; Fokusrahmen Rosa auf
+   Dunkel 7,16:1, nach innen versetzt, damit er am oberen Fensterrand nicht
+   abgeschnitten wird. */
 .skip-link.visually-hidden.focusable:focus,
 .skip-link.visually-hidden.focusable:active {
-  position: absolute !important;
-  z-index: 1000;
-  top: var(--space-2);
-  left: var(--space-2);
+  position: static !important;
+  display: block;
   width: auto;
   height: auto;
+  margin: 0;
   padding: var(--space-3) var(--space-4);
   clip: auto;
+  clip-path: none;
   overflow: visible;
+  white-space: normal;
   background: var(--c-dark);
   color: #fff;
   font-weight: 700;
   text-decoration: underline;
   outline: 3px solid var(--c-accent-on-dark);
-  outline-offset: 0;
+  outline-offset: -6px;
+  transition: none; /* sofort mit vollem Kontrast, ohne Farbüberblendung */
 }
 
 .icon {

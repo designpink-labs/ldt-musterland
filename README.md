@@ -135,6 +135,12 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
 - Datumsangaben im Text als `<time datetime="2026-11-12">12. November 2026</time>` (das Textformat
   erlaubt dafür genau `<time datetime>`).
 - Impressum und Datenschutz enthalten Platzhalter für die echten Betreiberangaben.
+- Fachseiten mit eindeutigem Titel: „Leichte Sprache in der Verwaltung“ und „Gebärdensprache auf
+  Behörden-Websites“ (unter Barrierefreiheit) – im Menü kurz (`'menu_title'`), Pfade fest
+  (`'pfad'`, sonst würde Pathauto sie aus dem neuen Titel neu bilden). Die Footer-Seiten heißen
+  weiter „Leichte Sprache“ und „Gebärdensprache“.
+- Sitemap: Seiten und Meldungen automatisch, dazu die Startseite und `/aktuelles` als eigene Links
+  (simple_sitemap, „Benutzerdefinierte Links“).
 
 ### Dokumente und Grafiken (`web/sites/default/files/dokumente/`)
 
@@ -252,7 +258,7 @@ npm install          # einmalig
 npm run axe          # axe-core: alle Seiten, Desktop + 375 px, Menü offen, Formularfehler
 npm run tastatur     # Skip-Link, Tab-Reihenfolge, Fokus sichtbar, Menüs, Formular
 npm run reflow       # 320 px Breite (= 400 % Zoom) ohne waagerechtes Scrollen
-npm run meta         # Meta-Beschreibung: höchstens 160 Zeichen, endet auf den Musterseiten-Zusatz
+npm run meta         # Meta-Beschreibung: höchstens 160 Zeichen, endet auf den Musterseiten-Zusatz; keine doppelten <title>
 npm run quelltext    # kein „designpink“ in HTML/CSS/JS (außer Hostname; ohne Impressum/Datenschutz)
 npm run englisch     # Suche nach englischen Resten
 npm run screenshots  # Screenshots nach tests/a11y/ergebnisse/

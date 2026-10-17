@@ -97,7 +97,7 @@ foreach ($pages as $key => $page) {
     $links[$key] = $link;
     continue;
   }
-  $link->set('title', $page['title']);
+  $link->set('title', $page['menu_title'] ?? $page['title']);
   $link->set('link', ['uri' => 'entity:node/' . $nodes[$key]->id()]);
   $link->set('menu_name', $page['menu']);
   $link->set('parent', !empty($page['parent']) ? $links[$page['parent']]->getPluginId() : '');
@@ -130,7 +130,14 @@ foreach (array_keys($changed) as $key) {
   if (!$node->get('field_text_unter_video')->isEmpty()) {
     $node->set('field_text_unter_video', ['value' => ldt_marken($node->get('field_text_unter_video')->value, $ziele), 'format' => 'basic_html']);
   }
-  $node->path->pathauto = 1;
+  // Fester Pfad ('pfad'), sonst Pathauto aus dem Titel.
+  if (!empty($pages[$key]['pfad'])) {
+    $node->path->pathauto = 0;
+    $node->path->alias = $pages[$key]['pfad'];
+  }
+  else {
+    $node->path->pathauto = 1;
+  }
   $node->save();
 }
 
