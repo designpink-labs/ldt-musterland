@@ -3,11 +3,15 @@
  * @file
  * Basisseite als Teaser-Karte (Startseite).
  *
+ * Linien-Symbol (aria-hidden) je Übersichtsseite, siehe preprocessSeite().
  * Nur der Titel ist ein Link; per CSS deckt seine Klickfläche die ganze
  * Karte ab. Überschriftenebene h3 unter dem Blocktitel "Unsere Themen" (h2).
  */
 #}
 <article{{ attributes.addClass('card') }}>
+  {% if symbol %}
+    {{ include('@ldt_musterland/icons/icon-' ~ symbol ~ '.html.twig', { class: 'card__icon' }) }}
+  {% endif %}
   <h3 class="card__title">
     <a href="{{ url }}" class="card__link" rel="bookmark">{{ label }}</a>
   </h3>

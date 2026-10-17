@@ -4,12 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_kopfbild
+    - field.field.node.page.field_leitsatz
     - field.field.node.page.field_metatag
     - field.field.node.page.field_text_unter_video
     - field.field.node.page.field_untertitel
     - field.field.node.page.field_video
+    - image.style.bild_1920
     - node.type.page
   module:
+    - image
     - ldt_video
     - text
     - user
@@ -24,6 +28,17 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  field_kopfbild:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: bild_1920
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 90
     region: content
   field_text_unter_video:
     type: text_default
@@ -45,6 +60,7 @@ content:
     weight: 101
     region: content
 hidden:
+  field_leitsatz: true
   field_metatag: true
   field_untertitel: true
   langcode: true

@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_kopfbild
+    - field.field.node.page.field_leitsatz
     - field.field.node.page.field_metatag
     - field.field.node.page.field_text_unter_video
     - field.field.node.page.field_untertitel
@@ -27,6 +29,8 @@ content:
     weight: 0
     region: content
 hidden:
+  field_kopfbild: true
+  field_leitsatz: true
   field_metatag: true
   field_text_unter_video: true
   field_untertitel: true

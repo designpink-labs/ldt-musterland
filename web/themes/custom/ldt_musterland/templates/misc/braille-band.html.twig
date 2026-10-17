@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Braille-Band: das Wort TEILHABE in deutscher Brailleschrift
+ * (Basisschrift, 6-Punkt-Zellen), als Muster wiederholt.
+ *
+ * Basisschrift schreibt jeden Buchstaben einzeln (keine Zeichen für "ei"
+ * o. Ä., die gibt es erst in Voll- und Kurzschrift); Großbuchstaben werden
+ * nicht gekennzeichnet. Punkte je Zelle (1–3 linke Spalte von oben,
+ * 4–6 rechte Spalte):
+ *   t 2345 · e 15 · i 24 · l 123 · h 125 · a 1 · b 12 · e 15
+ * Erhabene Punkte in Pink, die übrigen Punktstellen in hellem Rosa, nach
+ * dem Wort eine Leerzelle.
+ *
+ * Rein dekorativ: aria-hidden, focusable="false", kein Text.
+ *
+ * Variablen: groesse – "gross" (Startseite) oder "klein" (Seitenfuß).
+ */
+#}
+{% set zellen = [[2,3,4,5], [1,5], [2,4], [1,2,3], [1,2,5], [1], [1,2], [1,5]] %}
+{% set id = 'braille-' ~ (groesse ?: 'klein') %}
+{# Punktgröße: Muster skaliert (gross 1,5-fach, klein 0,8-fach). #}
+{% set faktor = groesse == 'gross' ? 1.5 : 0.8 %}
+<div class="braille-band braille-band--{{ groesse ?: 'klein' }}" aria-hidden="true">
+  <svg class="braille-band__svg" xmlns="http://www.w3.org/2000/svg" focusable="false" width="100%" height="100%">
+    <defs>
+      <pattern id="{{ id }}" class="braille-band__muster" width="225" height="30" patternUnits="userSpaceOnUse" patternTransform="scale({{ faktor }})">
+        {% for zelle in zellen %}
+          {% set x = loop.index0 * 25 + 5 %}
+          {% for punkt in 1..6 %}
+            <circle cx="{{ punkt > 3 ? x + 10 : x }}" cy="{{ ((punkt - 1) % 3) * 10 + 5 }}" r="{{ punkt in zelle ? 3.4 : 1.6 }}" class="{{ punkt in zelle ? 'braille-band__punkt' : 'braille-band__stelle' }}"/>
+          {% endfor %}
+        {% endfor %}
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#{{ id }})"/>
+  </svg>
+</div>

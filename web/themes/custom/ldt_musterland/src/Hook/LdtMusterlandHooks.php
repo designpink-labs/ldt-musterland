@@ -4,6 +4,8 @@ namespace Drupal\ldt_musterland\Hook;
 
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\ldt_musterland\BildVarianten;
 use Drupal\ldt_musterland\InterneLinks;
 use Drupal\ldt_musterland\TabellenRahmen;
 
@@ -86,12 +88,74 @@ class LdtMusterlandHooks {
    */
   #[Hook('preprocess_field')]
   public function preprocessField(array &$variables): void {
+    if (($variables['field_name'] ?? '') === 'field_kopfbild') {
+      $this->kopfbild($variables);
+      return;
+    }
     if (!in_array($variables['field_type'] ?? '', ['text_with_summary', 'text_long', 'text'], TRUE)) {
       return;
     }
     foreach ($variables['items'] as &$item) {
       $item['content']['#post_render'][] = [TabellenRahmen::class, 'postRender'];
       $item['content']['#post_render'][] = [InterneLinks::class, 'postRender'];
+      $item['content']['#post_render'][] = [BildVarianten::class, 'postRender'];
+    }
+  }
+
+  /**
+   * Kopfbild als WebP in drei Größen (srcset/sizes), Ausschnitt per CSS.
+   *
+   * Kopfbilder stehen ganz oben (größtes Element beim Laden): sofort laden,
+   * hohe Priorität. Lazy bleiben nur Bilder im Fließtext.
+   * Alternativtext aus dem Feld; leer = Stimmungsbild (alt="").
+   */
+  protected function kopfbild(array &$variables): void {
+    $start = \Drupal::service('path.matcher')->isFrontPage();
+    foreach ($variables['items'] as &$item) {
+      $feld = $item['content']['#item'] ?? NULL;
+      $datei = $feld?->entity;
+      if (!$datei) {
+        continue;
+      }
+      $sizes = $start ? '(min-width: 64em) 36rem, calc(100vw - 2rem)' : '(min-width: 75rem) 72rem, calc(100vw - 2rem)';
+      $attr = BildVarianten::attribute($datei->getFileUri(), $sizes) + [
+        'alt' => (string) $feld->alt,
+        'class' => ['kopfbild__img'],
+      ];
+      $attr += ['loading' => 'eager', 'fetchpriority' => 'high', 'decoding' => 'async'];
+      $item['content'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'img',
+        '#attributes' => $attr,
+        '#cache' => ['tags' => $datei->getCacheTags(), 'contexts' => ['url.path.is_front']],
+      ];
+    }
+  }
+
+  /**
+   * Implements hook_preprocess_page().
+   *
+   * Startseite mit Leitsatz: Die H1 steht im Einstieg (node--page--full),
+   * der Block "Seitentitel" entfällt dort. Der <title> bleibt "Start".
+   */
+  #[Hook('preprocess_page')]
+  public function preprocessPage(array &$variables): void {
+    $node = $variables['node'] ?? NULL;
+    if ($node instanceof NodeInterface && $node->hasField('field_leitsatz') && !$node->get('field_leitsatz')->isEmpty()) {
+      unset($variables['page']['content_above']['ldt_musterland_seitentitel']);
+    }
+  }
+
+  /**
+   * Implements hook_preprocess_block().
+   *
+   * Startseite: "Unsere Themen" als hellgrauer Abschnitt (Seitenrhythmus).
+   */
+  #[Hook('preprocess_block')]
+  public function preprocessBlock(array &$variables): void {
+    if (($variables['elements']['#id'] ?? '') === 'ldt_musterland_startseite_themen') {
+      $variables['attributes']['class'][] = 'abschnitt';
+      $variables['attributes']['class'][] = 'abschnitt--grau';
     }
   }
 
@@ -104,6 +168,10 @@ class LdtMusterlandHooks {
   #[Hook('preprocess_node')]
   public function preprocessNode(array &$variables): void {
     $node = $variables['node'];
+    if ($node->bundle() === 'page') {
+      $this->preprocessSeite($variables);
+      return;
+    }
     if ($node->bundle() !== 'meldung') {
       return;
     }
@@ -121,6 +189,29 @@ class LdtMusterlandHooks {
         'title' => $item->title,
         'lang' => $item->options['attributes']['lang'] ?? NULL,
       ];
+    }
+  }
+
+  /**
+   * Basisseiten: Leitsatz/Einleitung (Einstieg), Kopfbild, Kartensymbol.
+   */
+  protected function preprocessSeite(array &$variables): void {
+    $node = $variables['node'];
+    if ($node->hasField('field_leitsatz') && !$node->get('field_leitsatz')->isEmpty()) {
+      $variables['leitsatz'] = $node->get('field_leitsatz')->value;
+      $variables['einleitung'] = $node->get('body')->summary;
+    }
+    $variables['hat_kopfbild'] = $node->hasField('field_kopfbild') && !$node->get('field_kopfbild')->isEmpty();
+    // Themenkarten (Teaser): Linien-Symbol je Übersichtsseite.
+    if ($variables['view_mode'] === 'teaser') {
+      $symbole = [
+        '/barrierefreiheit' => 'barrierefreiheit',
+        '/online-redaktion' => 'redaktion',
+        '/web-optimierung' => 'web',
+        '/schulungen' => 'schulung',
+      ];
+      $pfad = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $node->id());
+      $variables['symbol'] = $symbole[$pfad] ?? NULL;
     }
   }
 

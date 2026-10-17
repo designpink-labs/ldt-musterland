@@ -14,6 +14,9 @@
  *   (Test: tests/a11y/meta.mjs). 'description' ersetzt sie ganz.
  * - 'menu_title' (optional): kürzerer Menüeintrag als der Seitentitel.
  * - 'pfad' (optional): fester Pfad statt Pathauto (z. B. nach Umbenennen).
+ * - 'kopfbild' (optional): ['datei' => 'bilder/NAME.jpg', 'alt' => …] – breites
+ *   Bild oben (Startseite: im Einstieg). Stimmungsbild: 'alt' => ''.
+ * - 'leitsatz' (optional, Startseite): sichtbare H1 statt des Titels.
  * - 'promote' => TRUE: Seite erscheint als Karte auf der Startseite.
  * - Hinweisboxen: <div class="hinweis hinweis--info">…</div>; Sprachvergleich:
  *   <div class="sprachvergleich"> (die einzigen erlaubten Klassen im Textformat).
@@ -23,10 +26,13 @@
 return [
   'start' => [
     'title' => 'Start',
-    'summary' => 'Das Landesamt für Digitale Teilhabe Musterland: Barrierefreiheit, Online-Redaktion, Web-Optimierung und Schulungen.',
+    // Einstieg: Leitsatz als H1, Zusammenfassung als Einleitungssatz, Bild.
+    'leitsatz' => 'Digitale Angebote für alle Menschen im Musterland',
+    'summary' => 'Wir sorgen dafür, dass alle die digitalen Angebote der Landesverwaltung nutzen können – unabhängig davon, ob sie gut sehen, hören oder lesen können.',
+    'meta' => 'Das Landesamt für Digitale Teilhabe Musterland: Barrierefreiheit, Online-Redaktion, Web-Optimierung und Schulungen.',
+    'kopfbild' => ['datei' => 'bilder/start.jpg', 'alt' => ''],
     'body' => '
-<p>Willkommen beim Landesamt für Digitale Teilhabe Musterland (LDT). Wir sorgen dafür, dass alle Menschen die digitalen Angebote der Landesverwaltung nutzen können – unabhängig davon, ob sie gut sehen, hören oder lesen können.</p>
-<p>Dafür beraten wir die Dienststellen des Landes, prüfen ihre Websites und Dokumente und schulen ihre Beschäftigten.</p>
+<p>Willkommen beim Landesamt für Digitale Teilhabe Musterland (LDT). Wir beraten die Dienststellen des Landes, prüfen ihre Websites und Dokumente und schulen ihre Beschäftigten.</p>
 <h2>Barrierefreiheit dieser Website</h2>
 <p>Auch diese Website soll für alle zugänglich sein. Sie richtet sich nach den <span lang="en">Web Content Accessibility Guidelines</span> (WCAG) 2.1 in der Stufe AA. Was schon erfüllt ist und was noch fehlt, steht in unserer {{link:erklaerung|Erklärung zur Barrierefreiheit}}.</p>
 <p>Wenn Sie auf ein Hindernis stoßen, melden Sie es uns bitte über das Formular {{form:barriere_melden|Barriere melden}}.</p>',
@@ -35,6 +41,7 @@ return [
   // Hauptmenü: Barrierefreiheit.
   'barrierefreiheit' => [
     'title' => 'Barrierefreiheit',
+    'kopfbild' => ['datei' => 'bilder/barrierefreiheit.jpg', 'alt' => 'Hände lesen auf einer Braillezeile, die vor einer Computertastatur liegt.'],
     'promote' => TRUE,
     'summary' => 'Digitale Barrierefreiheit in der Landesverwaltung: Rechtsrahmen, Dokumente, Leichte Sprache, Video und Gebärdensprache.',
     'menu' => 'main', 'weight' => 1,
@@ -318,6 +325,7 @@ return [
   // Hauptmenü: Online-Redaktion.
   'online-redaktion' => [
     'title' => 'Online-Redaktion',
+    'kopfbild' => ['datei' => 'bilder/online-redaktion.jpg', 'alt' => ''],
     'promote' => TRUE,
     'summary' => 'Gute Texte, klare Seiten, barrierefreie Beiträge: So unterstützt das LDT die Online-Redaktionen der Landesverwaltung.',
     'menu' => 'main', 'weight' => 2,
@@ -505,6 +513,7 @@ return [
   // Hauptmenü: Web & Optimierung.
   'web-optimierung' => [
     'title' => 'Web & Optimierung',
+    'kopfbild' => ['datei' => 'bilder/web-optimierung.jpg', 'alt' => ''],
     'promote' => TRUE,
     'summary' => 'Struktur, Auffindbarkeit und Messbarkeit von Behörden-Websites: Informationsarchitektur, SEO und GEO, Webanalyse.',
     'menu' => 'main', 'weight' => 3,
@@ -538,7 +547,8 @@ return [
 <h2>Methoden</h2>
 <ul>
   <li><strong>Daten auswerten:</strong> Suchbegriffe der Website-Suche, häufige Fragen am Telefon und die Webanalyse zeigen, was Menschen suchen und nicht finden.</li>
-  <li><strong>Card Sorting:</strong> Teilnehmende sortieren Karten mit Themen in Gruppen und benennen diese Gruppen. So sehen Sie, wie Ihre Zielgruppe Inhalte ordnet.</li>
+  <li><strong>Card Sorting:</strong> Teilnehmende sortieren Karten mit Themen in Gruppen und benennen diese Gruppen. So sehen Sie, wie Ihre Zielgruppe Inhalte ordnet.
+    {{img:bilder/card-sorting.jpg|Beim Card Sorting klebt eine Person Haftnotizen mit Themen an eine Wand.|720}}</li>
   <li><strong>Tree Testing:</strong> Teilnehmende lösen Aufgaben wie „Wo finden Sie die Erklärung zur Barrierefreiheit?“ in einer reinen Textfassung der Navigation, ganz ohne Gestaltung. So prüfen Sie eine Struktur, bevor sie umgesetzt wird.</li>
 </ul>
 <h2>Beispiel: diese Website</h2>
@@ -806,6 +816,7 @@ return [
   // Hauptmenü: Einzelseiten.
   'schulungen' => [
     'title' => 'Schulungen',
+    'kopfbild' => ['datei' => 'bilder/schulungen.jpg', 'alt' => ''],
     'promote' => TRUE,
     'summary' => 'Kostenfreie Schulungen zu Barrierefreiheit, Dokumenten und Webtexten für Beschäftigte der Landesverwaltung.',
     'menu' => 'main', 'weight' => 4,
@@ -975,7 +986,17 @@ return [
 <h2>Kontakt</h2>
 <p>[Hier echte Angaben des tatsächlichen Betreibers]</p>
 <h2>Verantwortlich für den Inhalt</h2>
-<p>[Hier echte Angaben des tatsächlichen Betreibers]</p>',
+<p>[Hier echte Angaben des tatsächlichen Betreibers]</p>
+<h2>Bildnachweis</h2>
+<p>Die Fotos stammen von Unsplash und dürfen nach der <a href="https://unsplash.com/license" hreflang="en">Unsplash-Lizenz (englisch)</a> kostenlos genutzt werden. Sie liegen auf diesem Server: Beim Aufruf der Seiten werden keine Daten an Unsplash übertragen.</p>
+<ul>
+  <li><a href="/">Startseite</a>: <a href="https://unsplash.com/photos/women-working-together-in-office-workspace-0kyNvW-Oa7o" hreflang="en">Foto „Frauen arbeiten gemeinsam am Laptop“ von Centre for Ageing Better</a> über Unsplash (englisch)</li>
+  <li>{{link:barrierefreiheit|Barrierefreiheit}}: <a href="https://unsplash.com/photos/person-using-braille-writer-4MoIpDcSlr4" hreflang="en">Foto „Hände auf einer Braillezeile“ von Compagnons</a> über Unsplash (englisch)</li>
+  <li>{{link:online-redaktion|Online-Redaktion}}: <a href="https://unsplash.com/photos/three-men-talking-in-office-workspace-FfsyVKKlLnU" hreflang="en">Foto „Drei Kollegen im Gespräch am Laptop“ von Centre for Ageing Better</a> über Unsplash (englisch)</li>
+  <li>{{link:web-optimierung|Web & Optimierung}}: <a href="https://unsplash.com/photos/two-people-brainstorming-with-sticky-notes-on-wall-ynkz9cpyvzI" hreflang="en">Foto „Zwei Personen ordnen Haftnotizen an einer Wand“ von Vitaly Gariev</a> über Unsplash (englisch)</li>
+  <li>{{link:ia|Informationsarchitektur}} (Card Sorting): <a href="https://unsplash.com/photos/hand-placing-a-sticky-note-on-a-wall-eF_7yVmkZWQ" hreflang="en">Foto „Hand klebt eine Haftnotiz an eine Wand“ von Compagnons</a> über Unsplash (englisch)</li>
+  <li>{{link:schulungen|Schulungen}}: <a href="https://unsplash.com/photos/XH8chLuj02g" hreflang="en">Foto „Workshop am Flipchart“ von Centre for Ageing Better</a> über Unsplash (englisch)</li>
+</ul>',
   ],
   'datenschutz' => [
     'title' => 'Datenschutz',

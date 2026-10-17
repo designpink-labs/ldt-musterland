@@ -139,6 +139,17 @@ ddev drush php:script scripts/create-content.php -- --overwrite --only=video,sch
   Behörden-Websites“ (unter Barrierefreiheit) – im Menü kurz (`'menu_title'`), Pfade fest
   (`'pfad'`, sonst würde Pathauto sie aus dem neuen Titel neu bilden). Die Footer-Seiten heißen
   weiter „Leichte Sprache“ und „Gebärdensprache“.
+- **Kopfbild und Leitsatz** (Felder `field_kopfbild`, `field_leitsatz` an der Basisseite;
+  in `pages.php` Schlüssel `kopfbild` und `leitsatz`): Kopfbild im Breitformat oben auf den
+  Übersichtsseiten, auf der Startseite im Einstieg neben dem Leitsatz (H1; der `<title>`
+  bleibt „Start“, die Zusammenfassung ist der Einleitungssatz). Ausgabe als WebP in drei
+  Größen mit `srcset`/`sizes` über die Bildstile `bild_640`, `bild_1280`, `bild_1920`
+  (Theme: `BildVarianten`, Ausschnitt je Bild in `BildVarianten::AUSSCHNITT`). Kopfbilder
+  laden sofort, Fotos im Fließtext lazy. Stimmungsbilder `alt=""`, Bilder mit Inhalt
+  beschreibender Alternativtext (Regel in den Gestaltungsrichtlinien).
+- Fotos ersetzen: Datei unter gleichem Namen hochladen, dann `drush image:flush --all` und
+  `drush cr` – sonst liefert der Server die alten WebP-Varianten aus. Die Versionskennung
+  (`?v=…`) der Varianten richtet sich nach der Originaldatei.
 - Sitemap: Seiten und Meldungen automatisch, dazu die Startseite und `/aktuelles` als eigene Links
   (simple_sitemap, „Benutzerdefinierte Links“).
 
@@ -154,6 +165,13 @@ Original-Ablage: `~/Documents/Claude/Drupal-Dokumente/` (ohne Unterordner `quell
 | `sharepic-wcag22.png` (Instagram-Infografik) | Social Media |
 | `Schulung-Grundlagen-Folien.pdf`, `Uebungsblatt-Tastaturpruefung.pdf` | Schulungen |
 | `Leistungsbeschreibung-DGS-Videos.pdf` | Gebärdensprache (Fachseite unter Barrierefreiheit) |
+
+**Fotos (`web/sites/default/files/bilder/`, ebenfalls nicht im Git):** `start.jpg`,
+`barrierefreiheit.jpg`, `online-redaktion.jpg`, `web-optimierung.jpg`, `card-sorting.jpg`,
+`schulungen.jpg` (Unsplash, je 2400 px breit; Original-Ablage
+`~/Documents/Claude/Drupal-Dokumente/bilder/` mit `bildnachweis.txt`). Bildnachweis im
+Impressum. Die WebP-Varianten (`files/styles/bild_640|1280|1920/`) erzeugt Drupal selbst –
+nicht hochladen.
 | `Transkript-Was-macht-das-LDT.txt` sowie `../videos/was-macht-das-ldt.mp4` und `../untertitel/was-macht-das-ldt.vtt` (erzeugt von `scripts/video/erstellen.mjs`) | Video & Untertitel |
 
 In `pages.php` eingebunden mit `{{file:NAME|Linktext}}` (Format und Größe werden
@@ -362,8 +380,9 @@ Checkliste für den ersten Upload auf den Strato-Webspace:
    setzen per SSH: `find files -type f ! -perm 644` bzw.
    `find files -type f -exec chmod 644 {} +` und `find files -type d -exec chmod 755 {} +`;
    ohne SSH im SFTP-Programm (Dateiattribute/Rechte). Lokal vorher prüfen:
-   `find web/sites/default/files/{dokumente,videos,untertitel} -type f ! -perm 644`.
-   Nicht hochladen: `css/`, `js/`, `php/`, `styles/` – die erzeugt Drupal auf dem Server neu.
+   `find web/sites/default/files/{dokumente,videos,untertitel,bilder} -type f ! -perm 644`.
+   Hochladen auch: `bilder/` (Fotos). Nicht hochladen: `css/`, `js/`, `php/`, `styles/` – die
+   erzeugt Drupal auf dem Server neu.
 
 5. **settings.php / settings.local.php.**
    `settings.php` ist im Repository und enthält keine Zugangsdaten. Sie bindet automatisch

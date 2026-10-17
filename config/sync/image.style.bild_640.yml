@@ -1,0 +1,21 @@
+uuid: b11a6481-d847-4454-a385-4f988d39c06e
+langcode: de
+status: true
+dependencies: {  }
+name: bild_640
+label: 'Bild 640 px (WebP)'
+effects:
+  ebbf23c4-f20d-418c-bb37-87b3b783c573:
+    uuid: ebbf23c4-f20d-418c-bb37-87b3b783c573
+    id: image_scale
+    weight: 1
+    data:
+      width: 640
+      height: null
+      upscale: false
+  8024d183-3d77-4dc4-a442-8557ccce7418:
+    uuid: 8024d183-3d77-4dc4-a442-8557ccce7418
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

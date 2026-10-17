@@ -1,0 +1,21 @@
+uuid: fd741b60-0dea-4bef-b108-94a979db16a5
+langcode: de
+status: true
+dependencies: {  }
+name: bild_1280
+label: 'Bild 1280 px (WebP)'
+effects:
+  38046c28-5830-40a1-b116-790c93d548b0:
+    uuid: 38046c28-5830-40a1-b116-790c93d548b0
+    id: image_scale
+    weight: 1
+    data:
+      width: 1280
+      height: null
+      upscale: false
+  d1f82071-799d-463b-80a2-b63dc69ef058:
+    uuid: d1f82071-799d-463b-80a2-b63dc69ef058
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

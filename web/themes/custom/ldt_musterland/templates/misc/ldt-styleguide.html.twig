@@ -24,6 +24,8 @@
       <li><a href="#sg-formulare">Formularfelder</a></li>
       <li><a href="#sg-karten">Karten</a></li>
       <li><a href="#sg-hinweise">Hinweisboxen</a></li>
+      <li><a href="#sg-erkennung">Braille-Band und Lead</a></li>
+      <li><a href="#sg-bilder">Dekorative und informative Bilder</a></li>
     </ul>
   </nav>
 
@@ -178,6 +180,35 @@
       <div class="hinweis ldt-demo-hinweis">
         <div class="hinweis__body"><p><strong>Demo-Modus:</strong> So erscheint der Hinweis über dem Formular „Barriere melden“, wenn es live nichts speichert und nichts versendet.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sg-erkennung">
+    <h2 id="sg-erkennung">Braille-Band und Lead</h2>
+    <div class="styleguide__prose">
+      <h3>Braille-Band</h3>
+      <p>Das Erkennungszeichen: das Wort TEILHABE in deutscher Brailleschrift (Basisschrift, 6-Punkt-Zellen), als Band wiederholt. Erhabene Punkte in Pink, die übrigen Punktstellen in hellem Rosa. Die Schrift Atkinson Hyperlegible stammt vom Braille Institute – daher das Motiv.</p>
+      {{ include('@ldt_musterland/misc/braille-band.html.twig', { groesse: 'gross' }) }}
+      <ul>
+        <li>Groß nur unter dem Einstieg der Startseite, klein im Seitenfuß (Rosa auf Dunkel). Nicht als Füllmuster an weiteren Stellen.</li>
+        <li>Rein dekorativ: <code>aria-hidden="true"</code>, kein Text, nicht fokussierbar. Die hellen Punktstellen (1,67:1 auf Weiß) tragen keine Information und müssen deshalb keinen Mindestkontrast erreichen.</li>
+        <li>Punkte je Zelle (1–3 linke Spalte von oben, 4–6 rechte): t 2345 · e 15 · i 24 · l 123 · h 125 · a 1 · b 12 · e 15. Basisschrift schreibt jeden Buchstaben einzeln, ohne Zeichen für „ei“.</li>
+      </ul>
+      <h3>Lead</h3>
+      <p class="lead">Der Lead ist der erste Absatz einer Übersichtsseite und der Einleitungssatz im Einstieg der Startseite: etwas größer (20 bis 22 Pixel), höchstens zwei, drei Sätze.</p>
+      <p>Der Lead fasst zusammen, worum es auf der Seite geht. Er ersetzt keine Überschrift und wird nicht für Hervorhebungen mitten im Text verwendet. Auf Fachseiten ohne Kopfbild gibt es keinen Lead.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="sg-bilder">
+    <h2 id="sg-bilder">Dekorative und informative Bilder</h2>
+    <div class="styleguide__prose">
+      <p>Jedes Bild bekommt einen bewusst gewählten Alternativtext. Entscheidend ist, ob das Bild etwas mitteilt.</p>
+      <ul>
+        <li><strong>Dekorativ (Stimmungsbild):</strong> Das Bild schafft Atmosphäre und erklärt nichts, was nicht auch im Text steht. Alternativtext leer: <code>alt=""</code>. Screenreader überspringen es. Beispiele: die Kopfbilder der Startseite und der Übersichtsseiten Online-Redaktion, Web &amp; Optimierung und Schulungen.</li>
+        <li><strong>Informativ:</strong> Das Bild zeigt etwas, worum es im Text geht. Der Alternativtext beschreibt, was zu sehen ist, und nur das, was man wirklich erkennt. Beispiele: „Hände lesen auf einer Braillezeile, die vor einer Computertastatur liegt.“ (Barrierefreiheit) und „Beim Card Sorting klebt eine Person Haftnotizen mit Themen an eine Wand.“ (Informationsarchitektur).</li>
+        <li>Fotos werden selbst gehostet (keine Einbindung von Bilddiensten), als WebP in mehreren Größen ausgeliefert und im Impressum unter „Bildnachweis“ genannt.</li>
+      </ul>
     </div>
   </section>
 </div>
