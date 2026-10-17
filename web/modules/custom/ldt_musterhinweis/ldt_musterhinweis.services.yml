@@ -4,3 +4,7 @@ services:
     arguments: ['@config.factory']
     tags:
       - { name: event_subscriber }
+  ldt_musterhinweis.versionierte_datei_urls:
+    class: Drupal\ldt_musterhinweis\VersionierteDateiUrls
+    decorates: file_url_generator
+    arguments: ['@.inner']

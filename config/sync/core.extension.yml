@@ -12,7 +12,6 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
-  designpink_video: 0
   dynamic_page_cache: 0
   editor: 0
   editoria11y: 0
@@ -30,6 +29,7 @@ module:
   ldt_formulare: 0
   ldt_musterhinweis: 0
   ldt_styleguide: 0
+  ldt_video: 0
   link: 0
   linkit: 0
   locale: 0

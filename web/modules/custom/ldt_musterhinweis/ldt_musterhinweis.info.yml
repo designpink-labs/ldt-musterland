@@ -1,7 +1,7 @@
 name: 'LDT Musterseiten-Hinweis'
 type: module
 description: 'Zeigt auf jeder Seite ganz oben den Hinweis, dass es sich um eine Musterseite handelt.'
-package: designpink
+package: LDT Musterland
 core_version_requirement: ^11
 dependencies:
   - drupal:block

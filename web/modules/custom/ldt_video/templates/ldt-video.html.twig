@@ -21,7 +21,7 @@
  */
 #}
 {% set tag = caption ? 'figure' : 'div' %}
-<{{ tag }} class="designpink-video">
+<{{ tag }} class="ldt-video">
   <video controls preload="metadata" playsinline{% if caption %} aria-labelledby="{{ caption_id }}"{% endif %}>
     <source src="{{ video_url }}" type="{{ video_mime }}">
     {% if track_url %}
@@ -30,6 +30,6 @@
     <p>Ihr Browser kann dieses Video nicht abspielen. <a href="{{ video_url }}">Video herunterladen ({{ video_mime }}, {{ video_size }})</a></p>
   </video>
   {% if caption %}
-    <figcaption id="{{ caption_id }}" class="designpink-video__caption">{{ caption }}</figcaption>
+    <figcaption id="{{ caption_id }}" class="ldt-video__caption">{{ caption }}</figcaption>
   {% endif %}
 </{{ tag }}>

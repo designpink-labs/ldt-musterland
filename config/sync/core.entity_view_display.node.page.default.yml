@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.page.field_video
     - node.type.page
   module:
-    - designpink_video
+    - ldt_video
     - text
     - user
 id: node.page.default
@@ -33,7 +33,7 @@ content:
     weight: 120
     region: content
   field_video:
-    type: designpink_video_track
+    type: ldt_video_track
     label: hidden
     settings:
       track_field: field_untertitel

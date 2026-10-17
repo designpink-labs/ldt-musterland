@@ -10,18 +10,18 @@
   margin-top: 0;
 }
 
-/* Video mit Untertiteln (Modul designpink_video) */
-.designpink-video {
+/* Video mit Untertiteln (Modul ldt_video) */
+.ldt-video {
   max-width: 48rem;
   margin: var(--space-5) 0;
 }
-.designpink-video video {
+.ldt-video video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000;
 }
-.designpink-video__caption {
+.ldt-video__caption {
   margin-top: var(--space-2);
   font-weight: 700;
 }

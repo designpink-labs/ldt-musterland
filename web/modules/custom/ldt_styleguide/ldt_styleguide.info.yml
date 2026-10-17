@@ -1,5 +1,5 @@
 name: 'LDT Styleguide'
 type: module
 description: 'Nicht verlinkte Seite /styleguide mit allen Gestaltungsbausteinen und live berechneten Kontrastwerten.'
-package: designpink
+package: LDT Musterland
 core_version_requirement: ^11

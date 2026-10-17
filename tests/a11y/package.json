@@ -10,7 +10,8 @@
     "englisch": "node englisch.mjs",
     "screenshots": "node screenshots.mjs",
     "meta": "node meta.mjs",
-    "alle": "node axe.mjs && node tastatur.mjs && node reflow.mjs && node meta.mjs"
+    "alle": "node axe.mjs && node tastatur.mjs && node reflow.mjs && node meta.mjs && node quelltext.mjs",
+    "quelltext": "node quelltext.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",

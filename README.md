@@ -43,8 +43,10 @@ Nach Änderungen im Backend immer `ddev drush cex` ausführen und `config/sync` 
 ## Video mit Untertiteln
 
 Auf jeder Basisseite gibt es die optionalen Felder **Video** (MP4/WebM) und
-**Untertitel (WebVTT)**. Das Modul `web/modules/custom/designpink_video` gibt das Video als
-`<video>` mit `<track kind="captions">` aus. Das Template `designpink-video.html.twig`
+**Untertitel (WebVTT)**. Das Modul `web/modules/custom/ldt_video` gibt das Video als
+`<video>` mit `<track kind="captions">` aus. Ist am Video eine Dateibeschreibung eingetragen,
+steht es in `<figure>` mit `<figcaption>`; `<video aria-labelledby>` verweist darauf
+(zugänglicher Name). Das Template `ldt-video.html.twig`
 kann im späteren Theme überschrieben werden (gleichnamige Datei im Theme-Ordner `templates/`).
 
 Zusätzlich gibt es das Feld **Text unter dem Video** (`field_text_unter_video`, Basic HTML):
@@ -85,8 +87,8 @@ Lokal (nginx) erledigen das `.ddev/nginx/vtt.conf` und `.ddev/nginx/vorlagen.con
 
 | Modul | Aufgabe |
 |---|---|
-| `designpink_video` | Video mit WebVTT-Untertiteln als `<track>` |
-| `ldt_musterhinweis` | Hinweis-Balken „Musterseite“ (`role="note"`) ganz oben auf jeder Seite; Demo-Hinweis über Formularen, die nichts speichern/versenden |
+| `ldt_video` | Video mit WebVTT-Untertiteln als `<track>`, Bildunterschrift als zugänglicher Name (früher `designpink_video`) |
+| `ldt_musterhinweis` | Hinweis-Balken „Musterseite“ (`role="note"`) ganz oben auf jeder Seite; Demo-Hinweis über Formularen, die nichts speichern/versenden; Versionskennung an Dateiadressen (siehe „Dateien ersetzen“) |
 | `ldt_formulare` | Verknüpft Fehlermeldungen am Feld per `aria-describedby` mit dem Feld |
 
 ## Seiten und Texte
@@ -153,6 +155,16 @@ automatisch angehängt, z. B. „(PDF, 61 KB)“) und `{{img:NAME|Alternativtext
 `{{link:meldung/SCHLÜSSEL|Text}}` (Meldungen vorher mit `create-meldungen.php` anlegen).
 Beide werden pfadunabhängig über die Datei-UUID gespeichert. Wird eine Datei ersetzt,
 die Seite mit `--overwrite --only=…` neu schreiben, damit die Größe stimmt.
+
+**Dateien ersetzen und Browser-Zwischenspeicher.** Der Server erlaubt Browsern, Dateien
+sehr lange zwischenzuspeichern (bis zu 10 Jahre). Damit eine unter gleichem Namen ersetzte
+Datei trotzdem sofort ankommt, hängt Drupal an jede Adresse einer öffentlichen Datei eine
+Versionskennung aus Änderungszeit und Größe an, z. B. `was-macht-das-ldt.mp4?v=14e1d7be`
+(`ldt_musterhinweis`, Dienst `VersionierteDateiUrls`, ersetzt den `file_url_generator`).
+Das gilt automatisch für Video, Untertitel, Transkript, PDFs, Bilder und Backend-Uploads;
+Dateinamen bleiben gleich, alte Dateien entstehen nicht. Ändert sich die Datei, ändert sich
+die Kennung. Wichtig: Nach dem Ersetzen per SFTP (ohne Backend) `drush cr` ausführen,
+sonst liefern zwischengespeicherte Seiten noch die alte Kennung aus.
 
 PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.pdf`
 → Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS,
@@ -240,6 +252,7 @@ npm run axe          # axe-core: alle Seiten, Desktop + 375 px, Menü offen, For
 npm run tastatur     # Skip-Link, Tab-Reihenfolge, Fokus sichtbar, Menüs, Formular
 npm run reflow       # 320 px Breite (= 400 % Zoom) ohne waagerechtes Scrollen
 npm run meta         # Meta-Beschreibung: höchstens 160 Zeichen, endet auf den Musterseiten-Zusatz
+npm run quelltext    # kein „designpink“ in HTML/CSS/JS (außer Hostname; ohne Impressum/Datenschutz)
 npm run englisch     # Suche nach englischen Resten
 npm run screenshots  # Screenshots nach tests/a11y/ergebnisse/
 ```

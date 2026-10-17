@@ -1,7 +1,7 @@
 name: 'LDT Barrierefreie Formulare'
 type: module
 description: 'Verknüpft Inline-Fehlermeldungen per aria-describedby mit dem Formularfeld.'
-package: designpink
+package: LDT Musterland
 core_version_requirement: ^11
 dependencies:
   - drupal:inline_form_errors

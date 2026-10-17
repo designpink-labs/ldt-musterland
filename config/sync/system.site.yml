@@ -3,7 +3,7 @@ _core:
 langcode: de
 uuid: 2e628cc9-afc7-4089-b3be-0258eac6d974
 name: 'Landesamt für Digitale Teilhabe Musterland'
-mail: hello@designpink.studio
+mail: poststelle@ldt-musterland.example
 slogan: ''
 page:
   403: ''

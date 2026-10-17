@@ -83,8 +83,8 @@ const ABSCHNITTE = [
     // Keine Webadresse im Video: Sie gilt nur, solange die Seite dort liegt.
     text: 'Sie finden eine Barriere auf einer Website des Landes? Melden Sie sie uns über das Formular „Barriere melden“. Mehr erfahren Sie auf der Website des LDT Musterland.',
     cues: [['Sie finden eine Barriere\nauf einer Website des Landes?', 1], ['Melden Sie sie uns über das Formular\n„Barriere melden“.', 1], ['Mehr erfahren Sie auf der Website\ndes LDT Musterland.', 1]],
-    bild: 'Folie „Kontakt“: der Text „Website des LDT Musterland“ und darunter eine Schaltfläche „Barriere melden“.',
-    folie: `<h2>Kontakt</h2>
+    bild: 'Folie „Barriere melden“: der Text „Website des LDT Musterland“ und darunter eine Schaltfläche „Barriere melden“.',
+    folie: `<h2>Barriere melden</h2>
       <p class="adresse">Website des LDT Musterland</p>
       <p><span class="knopf">Barriere melden</span></p>`,
   },

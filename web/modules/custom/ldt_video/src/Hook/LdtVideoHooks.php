@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Drupal\designpink_video\Hook;
+namespace Drupal\ldt_video\Hook;
 
 use Drupal\Core\Hook\Attribute\Hook;
 
 /**
- * Hook-Implementierungen für designpink_video.
+ * Hook-Implementierungen für ldt_video.
  */
-class DesignpinkVideoHooks {
+class LdtVideoHooks {
 
   /**
    * Implements hook_theme().
    *
    * Das Template kann im Theme durch eine Datei
-   * "designpink-video.html.twig" überschrieben werden.
+   * "ldt-video.html.twig" überschrieben werden.
    */
   #[Hook('theme')]
   public function theme(): array {
     return [
-      'designpink_video' => [
+      'ldt_video' => [
         'variables' => [
           'video_url' => NULL,
           'video_mime' => NULL,

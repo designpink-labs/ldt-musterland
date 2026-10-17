@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\designpink_video\Plugin\Field\FieldFormatter;
+namespace Drupal\ldt_video\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Cache\CacheableMetadata;
@@ -24,7 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Bildunterschrift und zum zugänglichen Namen des Videos.
  */
 #[FieldFormatter(
-  id: 'designpink_video_track',
+  id: 'ldt_video_track',
   label: new TranslatableMarkup('Video mit Untertiteln'),
   field_types: ['file'],
 )]
@@ -104,8 +104,8 @@ class VideoTrackFormatter extends FileFormatterBase {
       $caption = trim((string) ($file->_referringItem->description ?? ''));
       $elements[$delta] = [
         '#caption' => $caption,
-        '#caption_id' => $caption !== '' ? Html::getUniqueId('designpink-video-titel') : NULL,
-        '#theme' => 'designpink_video',
+        '#caption_id' => $caption !== '' ? Html::getUniqueId('ldt-video-titel') : NULL,
+        '#theme' => 'ldt_video',
         '#video_url' => $this->fileUrlGenerator->generateString($file->getFileUri()),
         '#video_mime' => $file->getMimeType(),
         '#video_size' => ByteSizeMarkup::create((int) $file->getSize()),
