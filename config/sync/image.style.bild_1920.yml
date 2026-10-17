@@ -1,0 +1,21 @@
+uuid: a3ba404e-39df-41ce-bc3f-005b910a53f3
+langcode: de
+status: true
+dependencies: {  }
+name: bild_1920
+label: 'Bild 1920 px (WebP)'
+effects:
+  2199aa3c-da0a-441e-8ab2-e6999a99e2d5:
+    uuid: 2199aa3c-da0a-441e-8ab2-e6999a99e2d5
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: null
+      upscale: false
+  12a94318-11ea-43ca-b899-6da7c3bdb35c:
+    uuid: 12a94318-11ea-43ca-b899-6da7c3bdb35c
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

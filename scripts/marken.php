@@ -18,6 +18,10 @@
 /**
  * Ersetzt alle Marken in $body.
  *
+ * Datei- und Bildadressen werden ohne Versionskennung (?v=…) gespeichert:
+ * Die hängt Drupal beim Ausgeben an (VersionierteDateiUrls); im gespeicherten
+ * Text würde sie den Sicherheitsfilter für Bilder stören.
+ *
  * @param string $body
  *   HTML mit Marken.
  * @param \Drupal\node\NodeInterface[] $nodes
@@ -45,13 +49,13 @@ function ldt_marken(string $body, array $nodes): string {
     $kb = max(1, (int) round($file->getSize() / 1024));
     return sprintf(
       '<a href="%s" data-entity-type="file" data-entity-uuid="%s" data-entity-substitution="file">%s (%s, %d KB)</a>',
-      $file->createFileUrl(), $file->uuid(), $m[2],
+      strtok($file->createFileUrl(), "?"), $file->uuid(), $m[2],
       strtoupper(pathinfo($m[1], PATHINFO_EXTENSION)), $kb
     );
   }, $body);
   // {{img:DATEINAME|Alternativtext}}: Bild; die Adresse setzt der Filter
   // editor_file_reference beim Ausgeben anhand der UUID.
-  $body = preg_replace_callback('/\{\{img:([A-Za-z0-9._-]+)\|([^}|]+)(?:\|(\d+))?\}\}/', function ($m) {
+  $body = preg_replace_callback('/\{\{img:([A-Za-z0-9._\/-]+)\|([^}|]+)(?:\|(\d+))?\}\}/', function ($m) {
     $file = ldt_dokument($m[1]);
     [$width, $height] = getimagesize($file->getFileUri());
     // Optionale Anzeigebreite: Höhe im Seitenverhältnis mitrechnen.
@@ -61,7 +65,7 @@ function ldt_marken(string $body, array $nodes): string {
     }
     return sprintf(
       '<img src="%s" data-entity-type="file" data-entity-uuid="%s" alt="%s" width="%d" height="%d">',
-      $file->createFileUrl(), $file->uuid(), htmlspecialchars($m[2]), $width, $height
+      strtok($file->createFileUrl(), "?"), $file->uuid(), htmlspecialchars($m[2]), $width, $height
     );
   }, $body);
   return $body;

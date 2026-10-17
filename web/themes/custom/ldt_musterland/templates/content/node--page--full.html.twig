@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Basisseite, volle Ansicht.
+ *
+ * - Startseite (Feld "Leitsatz" gesetzt): Einstieg mit Leitsatz als H1,
+ *   Einleitungssatz (Zusammenfassung) und Bild, darunter das Braille-Band.
+ *   Der Block "Seitentitel" entfällt dort (LdtMusterlandHooks::preprocessPage).
+ * - Übersichtsseiten mit Kopfbild: Bild im Breitformat über dem Text, der
+ *   erste Absatz erscheint größer (Lead).
+ */
+#}
+{{ attach_library('ldt_musterland/node') }}
+<article{{ attributes.addClass('node', 'node--type-page', 'node--view-mode-full', hat_kopfbild ? 'node--kopfbild', leitsatz ? 'node--einstieg') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {% if leitsatz %}
+    <div class="einstieg">
+      <div class="einstieg__text">
+        <h1 class="einstieg__titel">{{ leitsatz }}</h1>
+        {% if einleitung %}
+          <p class="lead">{{ einleitung }}</p>
+        {% endif %}
+      </div>
+      {% if hat_kopfbild %}
+        <div class="einstieg__bild kopfbild">{{ content.field_kopfbild }}</div>
+      {% endif %}
+    </div>
+    {{ include('@ldt_musterland/misc/braille-band.html.twig', { groesse: 'gross' }) }}
+  {% elseif hat_kopfbild %}
+    <div class="kopfbild kopfbild--breit">{{ content.field_kopfbild }}</div>
+  {% endif %}
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content|without('field_kopfbild') }}
+  </div>
+</article>

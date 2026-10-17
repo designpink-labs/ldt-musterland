@@ -54,7 +54,16 @@
 
   <footer class="site-footer">
     <div class="container">
-      {{ page.footer }}
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <p class="site-footer__wordmark">LDT Musterland</p>
+          <p class="site-footer__address">Landesamt für Digitale Teilhabe Musterland<br>Musterstraße 1<br>12345 Musterstadt<br><span class="site-footer__hinweis">Fiktive Beispieladresse</span></p>
+        </div>
+        <div class="site-footer__nav">
+          {{ page.footer }}
+        </div>
+      </div>
+      {{ include('@ldt_musterland/misc/braille-band.html.twig', { groesse: 'klein' }) }}
       <p class="site-footer__note">Diese Website ist eine Arbeitsprobe. Das Landesamt für Digitale Teilhabe Musterland ist eine fiktive Behörde.</p>
     </div>
   </footer>

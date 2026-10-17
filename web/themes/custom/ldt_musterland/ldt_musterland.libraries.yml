@@ -132,6 +132,7 @@ global:
       css/components/ldt-meldungen.css: {}
       css/components/ldt-forms.css: {}
       css/components/ldt-footer.css: {}
+      css/components/ldt-gestaltung.css: {}
       css/components/ldt-styleguide.css: {}
     theme:
       css/print.css: { media: print }

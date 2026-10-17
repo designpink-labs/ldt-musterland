@@ -1,0 +1,19 @@
+uuid: c424ebd9-813b-4b3b-aca9-de9d29244228
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_leitsatz
+    - node.type.page
+id: node.page.field_leitsatz
+field_name: field_leitsatz
+entity_type: node
+bundle: page
+label: Leitsatz
+description: 'Optional, nur Startseite: ersetzt die sichtbare Hauptüberschrift (H1). Der Seitentitel bleibt für Browser-Tab und Menü.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

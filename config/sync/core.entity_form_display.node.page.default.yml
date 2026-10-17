@@ -4,13 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_kopfbild
+    - field.field.node.page.field_leitsatz
     - field.field.node.page.field_metatag
     - field.field.node.page.field_text_unter_video
     - field.field.node.page.field_untertitel
     - field.field.node.page.field_video
+    - image.style.thumbnail
     - node.type.page
   module:
     - file
+    - image
     - metatag
     - path
     - text
@@ -34,6 +38,22 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_kopfbild:
+    type: image_image
+    weight: 19
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_leitsatz:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_metatag:
     type: metatag_firehose

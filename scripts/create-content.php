@@ -32,6 +32,9 @@
  * 'untertitel/NAME.vtt' (Dateien unter sites/default/files/, nicht im Git),
  * 'video_beschriftung' => Bildunterschrift = zugänglicher Name des Videos,
  * 'unter_video' => HTML für das Feld "Text unter dem Video" (mit Marken).
+ *
+ * Kopfbild (optional): 'kopfbild' => ['datei' => 'bilder/NAME.jpg', 'alt' => …],
+ * Leitsatz (optional, Startseite): 'leitsatz' => 'Text' (sichtbare H1).
  */
 
 use Drupal\menu_link_content\Entity\MenuLinkContent;
@@ -71,6 +74,11 @@ foreach ($pages as $key => $page) {
   $node->set('promote', !empty($page['promote']));
   foreach (['video' => 'field_video', 'untertitel' => 'field_untertitel'] as $schluessel => $feld) {
     $node->set($feld, !empty($page[$schluessel]) ? ['target_id' => ldt_dokument($page[$schluessel])->id(), 'display' => 1, 'description' => $feld === 'field_video' ? ($page['video_beschriftung'] ?? '') : ''] : NULL);
+  }
+  if ($node->hasField('field_kopfbild')) {
+    $bild = $page['kopfbild'] ?? NULL;
+    $node->set('field_kopfbild', $bild ? ['target_id' => ldt_dokument($bild['datei'])->id(), 'alt' => $bild['alt']] : NULL);
+    $node->set('field_leitsatz', $page['leitsatz'] ?? NULL);
   }
   $node->set('field_text_unter_video', !empty($page['unter_video']) ? ['value' => trim($page['unter_video']), 'format' => 'basic_html'] : NULL);
   $kurz = $page['meta'] ?? $page['summary'] ?? NULL;
