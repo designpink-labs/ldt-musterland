@@ -147,6 +147,7 @@ Original-Ablage: `~/Documents/Claude/Drupal-Dokumente/` (ohne Unterordner `quell
 | `Checkliste-Redaktion.pdf`, `LDT-Vorlage.dotx`, `LDT-Vorlage.ott` | Arbeitshilfe Redaktion |
 | `sharepic-wcag22.png` (Instagram-Infografik) | Social Media |
 | `Schulung-Grundlagen-Folien.pdf`, `Uebungsblatt-Tastaturpruefung.pdf` | Schulungen |
+| `Leistungsbeschreibung-DGS-Videos.pdf` | Gebärdensprache (Fachseite unter Barrierefreiheit) |
 | `Transkript-Was-macht-das-LDT.txt` sowie `../videos/was-macht-das-ldt.mp4` und `../untertitel/was-macht-das-ldt.vtt` (erzeugt von `scripts/video/erstellen.mjs`) | Video & Untertitel |
 
 In `pages.php` eingebunden mit `{{file:NAME|Linktext}}` (Format und Größe werden
@@ -168,7 +169,7 @@ sonst liefern zwischengespeicherte Seiten noch die alte Kennung aus.
 
 PDF-Prüfung (Stand Oktober 2026, veraPDF 1.30.3): `verapdf --flavour ua1 DATEI.pdf`
 → Merkblatt-vorher FAIL (gewollt), Merkblatt-nachher PASS, Checkliste PASS,
-Schulungsfolien PASS, Übungsblatt PASS
+Schulungsfolien PASS, Übungsblatt PASS, Leistungsbeschreibung DGS-Videos PASS
 (beide barrierefreien PDFs mit 1× H1 und darunter H2).
 
 ## Aktuelles (Inhaltstyp „Meldung“)

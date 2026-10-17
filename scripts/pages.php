@@ -240,11 +240,31 @@ return [
   <li>Lassen Sie die Videos von gehörlosen Menschen abnehmen.</li>
   <li>Klären Sie die Bildrechte der Personen, die im Video zu sehen sind.</li>
 </ol>
-<h2>Beispiel</h2>
-<div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Das Beispiel wird hier ergänzt.</p>
-<p>Gezeigt wird ein kurzes DGS-Video, in dem eine gehörlose Person die Aufgaben des LDT erklärt. Darunter steht der Inhalt als Text.</p>
-</div>
+<h2>Beispiel: So planen wir unsere DGS-Videos</h2>
+<p>Für diese Website braucht das LDT vier Videos in DGS. Sie entstehen in fünf Schritten.</p>
+<ol>
+  <li><strong>Textvorlage schreiben:</strong> Wir fassen die Inhalte in klarer Standardsprache zusammen. Kurze Sätze und eindeutige Begriffe erleichtern die Übersetzung.</li>
+  <li><strong>Leistung beschreiben und vergeben:</strong> Die Leistungsbeschreibung legt fest, wer übersetzt, wie die Videos aussehen und wie sie geprüft werden.</li>
+  <li><strong>Übersetzen und drehen:</strong> Gehörlose Fachleute übersetzen und gebärden. Unklare Begriffe klären sie mit uns vor dem Dreh.</li>
+  <li><strong>Abnehmen:</strong> Gehörlose Prüfende, die nicht an der Übersetzung beteiligt waren, prüfen, ob die Videos verständlich und richtig sind.</li>
+  <li><strong>Einbinden:</strong> Die Videos stehen auf der Seite {{link:gebaerdensprache|Gebärdensprache}}, die von jeder Seite aus erreichbar ist. Jedes Video hat einen eindeutigen Titel, lässt sich mit der Tastatur bedienen und hat eine deutsche Textfassung darunter.</li>
+</ol>
+<p>Download: {{file:Leistungsbeschreibung-DGS-Videos.pdf|Leistungsbeschreibung „Videos in Deutscher Gebärdensprache“, barrierefrei}}</p>
+<h2>Textvorlage für Video 1: „Das LDT und diese Website“</h2>
+<blockquote>
+<p>Willkommen beim Landesamt für Digitale Teilhabe Musterland. Die Abkürzung ist LDT.</p>
+<p>Wichtig: Diese Website ist ein Beispiel. Das LDT gibt es nicht wirklich.</p>
+<p>Das LDT sorgt dafür, dass alle Menschen die Websites und Apps der Ämter im Musterland nutzen können. Auch gehörlose Menschen.</p>
+<p>Dafür macht das LDT drei Dinge: Es berät die Ämter. Es prüft ihre Websites. Und es bietet Schulungen an.</p>
+<p>Auf dieser Website finden Sie Informationen zu Barrierefreiheit, zu guten Texten für das Internet, zur Verbesserung von Websites und zu unseren Schulungen.</p>
+<p>In den nächsten Videos erklären wir, wie Sie sich auf der Website zurechtfinden, was in der Erklärung zur Barrierefreiheit steht und wo es mehr in Gebärdensprache gibt.</p>
+</blockquote>
+<h3>Hinweise für das Übersetzungsteam</h3>
+<ul>
+  <li>„LDT Musterland“: Bitte eine Gebärde vorschlagen oder fingern, die Entscheidung trifft das LDT.</li>
+  <li>„Das LDT gibt es nicht wirklich“ muss eindeutig verstanden werden. Bitte nicht als Ironie gebärden.</li>
+  <li>Die vier Themen lassen sich mit Einblendungen der Menüpunkte unterstützen.</li>
+</ul>
 <p>Unsere Informationen in Gebärdensprache finden Sie auf der Seite {{link:gebaerdensprache|Informationen in Gebärdensprache}}.</p>',
   ],
 
@@ -872,7 +892,7 @@ return [
   <li><strong>Screenreader:</strong> Grundprüfung mit VoiceOver in Safari unter macOS: Orientierungspunkte (Landmarks), Überschriften, Hauptmenü mit Untermenüs und Formular „Barriere melden“.</li>
   <li><strong>Umbruch bei Vergrößerung:</strong> Alle Seiten bei 320 Pixel Breite, das entspricht 400 Prozent Zoom. Ergebnis: kein waagerechtes Scrollen.</li>
   <li><strong>Kontraste:</strong> Alle verwendeten Farbkombinationen. Ergebnis: mindestens 4,5:1 für Text und 3:1 für Bedienelemente.</li>
-  <li><strong>PDF-Dokumente:</strong> Prüfung nach PDF/UA-1 mit veraPDF 1.30. Geprüft sind die barrierefreien PDF-Downloads: das {{link:dokumente|Merkblatt „Barrierefreie Dokumente erstellen“}}, die {{link:arbeitshilfe|Checkliste vor der Veröffentlichung}} sowie Folien und Übungsblatt aus den {{link:schulungen|Schulungen}}. Ergebnis: alle bestanden. Das absichtlich fehlerhafte Beispiel-PDF („vorher“) ist als solches gekennzeichnet und von der Bewertung ausgenommen.</li>
+  <li><strong>PDF-Dokumente:</strong> Prüfung nach PDF/UA-1 mit veraPDF 1.30. Geprüft sind die barrierefreien PDF-Downloads: das {{link:dokumente|Merkblatt „Barrierefreie Dokumente erstellen“}}, die {{link:arbeitshilfe|Checkliste vor der Veröffentlichung}}, Folien und Übungsblatt aus den {{link:schulungen|Schulungen}} sowie die Leistungsbeschreibung für {{link:gebaerdensprache-fach|Videos in Gebärdensprache}}. Ergebnis: alle bestanden. Das absichtlich fehlerhafte Beispiel-PDF („vorher“) ist als solches gekennzeichnet und von der Bewertung ausgenommen.</li>
 </ul>
 <h2>Barrieren melden: Kontakt</h2>
 <p>Sind Ihnen Mängel beim barrierefreien Zugang zu Inhalten dieser Website aufgefallen? Dann melden Sie sich bitte über das Formular {{form:barriere_melden|Barriere melden}} oder per E-Mail an poststelle@ldt-musterland.example (Beispieladresse).</p>
