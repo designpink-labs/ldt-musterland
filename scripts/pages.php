@@ -797,7 +797,6 @@ return [
 <ul>
   <li>Sie üben an eigenen Dokumenten und Texten. Bringen Sie gern Beispiele aus Ihrer Arbeit mit.</li>
   <li>Alle Unterlagen sind barrierefrei und stehen nach der Schulung zum Download bereit.</li>
-  <li>Für Online-Schulungen bieten wir auf Wunsch Live-Untertitel an.</li>
 </ul>
 <h2>Beispielmaterial</h2>
 <p>Aus der Schulung „Grundlagen der digitalen Barrierefreiheit“:</p>
