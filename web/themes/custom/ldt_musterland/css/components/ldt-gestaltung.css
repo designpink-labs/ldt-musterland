@@ -69,8 +69,10 @@
   border-radius: var(--radius);
   background: var(--c-surface);
 }
+/* 2:1 und unten verankert: Der Bildschirm mit Text im Hintergrund des
+   Startbilds wird oben weggeschnitten. */
 .einstieg__bild img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 1;
 }
 .kopfbild--breit {
   margin: 0 0 var(--space-6);

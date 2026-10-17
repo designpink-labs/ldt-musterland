@@ -41,7 +41,7 @@ return [
   // Hauptmenü: Barrierefreiheit.
   'barrierefreiheit' => [
     'title' => 'Barrierefreiheit',
-    'kopfbild' => ['datei' => 'bilder/barrierefreiheit.jpg', 'alt' => 'Ein blinder Mann liest mit den Fingern auf einer Braillezeile, die an einen Computer angeschlossen ist.'],
+    'kopfbild' => ['datei' => 'bilder/barrierefreiheit.jpg', 'alt' => 'Hände lesen auf einer Braillezeile, die vor einer Computertastatur liegt.'],
     'promote' => TRUE,
     'summary' => 'Digitale Barrierefreiheit in der Landesverwaltung: Rechtsrahmen, Dokumente, Leichte Sprache, Video und Gebärdensprache.',
     'menu' => 'main', 'weight' => 1,
@@ -547,10 +547,10 @@ return [
 <h2>Methoden</h2>
 <ul>
   <li><strong>Daten auswerten:</strong> Suchbegriffe der Website-Suche, häufige Fragen am Telefon und die Webanalyse zeigen, was Menschen suchen und nicht finden.</li>
-  <li><strong>Card Sorting:</strong> Teilnehmende sortieren Karten mit Themen in Gruppen und benennen diese Gruppen. So sehen Sie, wie Ihre Zielgruppe Inhalte ordnet.</li>
+  <li><strong>Card Sorting:</strong> Teilnehmende sortieren Karten mit Themen in Gruppen und benennen diese Gruppen. So sehen Sie, wie Ihre Zielgruppe Inhalte ordnet.
+    {{img:bilder/card-sorting.jpg|Beim Card Sorting klebt eine Person Haftnotizen mit Themen an eine Wand.|720}}</li>
   <li><strong>Tree Testing:</strong> Teilnehmende lösen Aufgaben wie „Wo finden Sie die Erklärung zur Barrierefreiheit?“ in einer reinen Textfassung der Navigation, ganz ohne Gestaltung. So prüfen Sie eine Struktur, bevor sie umgesetzt wird.</li>
 </ul>
-<p>{{img:bilder/card-sorting.jpg|Beim Card Sorting ordnet eine Person Haftnotizen mit Themen zu Gruppen an einer Wand.|720}}</p>
 <h2>Beispiel: diese Website</h2>
 <p>Diese Website ordnet ihre Inhalte so:</p>
 <ul>
@@ -986,7 +986,17 @@ return [
 <h2>Kontakt</h2>
 <p>[Hier echte Angaben des tatsächlichen Betreibers]</p>
 <h2>Verantwortlich für den Inhalt</h2>
-<p>[Hier echte Angaben des tatsächlichen Betreibers]</p>',
+<p>[Hier echte Angaben des tatsächlichen Betreibers]</p>
+<h2>Bildnachweis</h2>
+<p>Die Fotos stammen von Unsplash und dürfen nach der <a href="https://unsplash.com/license" hreflang="en">Unsplash-Lizenz (englisch)</a> kostenlos genutzt werden. Sie liegen auf diesem Server: Beim Aufruf der Seiten werden keine Daten an Unsplash übertragen.</p>
+<ul>
+  <li><a href="/">Startseite</a>: Foto von Centre for Ageing Better über Unsplash. [Link zur Bildseite eintragen]</li>
+  <li>{{link:barrierefreiheit|Barrierefreiheit}}: Foto von Compagnons über Unsplash. [Link zur Bildseite eintragen]</li>
+  <li>{{link:online-redaktion|Online-Redaktion}}: Foto von Centre for Ageing Better über Unsplash. [Link zur Bildseite eintragen]</li>
+  <li>{{link:web-optimierung|Web & Optimierung}}: Foto von Vitaly Gariev über Unsplash. [Link zur Bildseite eintragen]</li>
+  <li>{{link:ia|Informationsarchitektur}} (Card Sorting): Foto von Compagnons über Unsplash. [Link zur Bildseite eintragen]</li>
+  <li>{{link:schulungen|Schulungen}}: Foto von Centre for Ageing Better über Unsplash. [Link zur Bildseite eintragen]</li>
+</ul>',
   ],
   'datenschutz' => [
     'title' => 'Datenschutz',

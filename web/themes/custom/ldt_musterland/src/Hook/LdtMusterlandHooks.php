@@ -105,7 +105,8 @@ class LdtMusterlandHooks {
   /**
    * Kopfbild als WebP in drei Größen (srcset/sizes), Ausschnitt per CSS.
    *
-   * Startseite (Einstieg): sofort laden, hohe Priorität. Sonst lazy.
+   * Kopfbilder stehen ganz oben (größtes Element beim Laden): sofort laden,
+   * hohe Priorität. Lazy bleiben nur Bilder im Fließtext.
    * Alternativtext aus dem Feld; leer = Stimmungsbild (alt="").
    */
   protected function kopfbild(array &$variables): void {
@@ -121,7 +122,7 @@ class LdtMusterlandHooks {
         'alt' => (string) $feld->alt,
         'class' => ['kopfbild__img'],
       ];
-      $attr += $start ? ['fetchpriority' => 'high', 'decoding' => 'async'] : ['loading' => 'lazy', 'decoding' => 'async'];
+      $attr += ['loading' => 'eager', 'fetchpriority' => 'high', 'decoding' => 'async'];
       $item['content'] = [
         '#type' => 'html_tag',
         '#tag' => 'img',

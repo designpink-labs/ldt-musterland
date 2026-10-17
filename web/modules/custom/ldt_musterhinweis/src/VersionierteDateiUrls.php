@@ -23,7 +23,8 @@ use Drupal\Core\Url;
  *
  * Wichtig: Nach dem Ersetzen einer Datei per SFTP den Cache leeren
  * (drush cr), sonst enthalten zwischengespeicherte Seiten noch die alte
- * Kennung.
+ * Kennung. Bei Fotos zusätzlich die Bildvarianten neu erzeugen lassen
+ * (drush image:flush --all), sonst liefert der Server die alten aus.
  */
 class VersionierteDateiUrls implements FileUrlGeneratorInterface {
 
@@ -75,7 +76,19 @@ class VersionierteDateiUrls implements FileUrlGeneratorInterface {
    * Kennung aus Änderungszeit und Größe, nur für vorhandene öffentliche Dateien.
    */
   protected function version(string $uri): ?string {
-    if (!str_starts_with($uri, 'public://') || preg_match('#^public://(css|js|php)/#', $uri) || !is_file($uri)) {
+    if (!str_starts_with($uri, 'public://') || preg_match('#^public://(css|js|php)/#', $uri)) {
+      return NULL;
+    }
+    // Bildstil-Varianten (public://styles/STIL/public/PFAD[.webp]): Kennung
+    // der Originaldatei – so steht sie schon in der Adresse, bevor die
+    // Variante erzeugt ist, und ändert sich mit dem Original.
+    if (preg_match('#^public://styles/[^/]+/public/(.+?)(\.webp)?$#', $uri, $m)) {
+      $original = 'public://' . $m[1];
+      if (is_file($original)) {
+        $uri = $original;
+      }
+    }
+    if (!is_file($uri)) {
       return NULL;
     }
     return substr(md5(filemtime($uri) . '-' . filesize($uri)), 0, 8);
