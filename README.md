@@ -350,6 +350,14 @@ Checkliste für den ersten Upload auf den Strato-Webspace:
    **Wichtig:** dazu gehört der Ordner `web/sites/default/files/dokumente/` mit den
    Beispiel-PDFs, Grafiken und Vorlagen – er ist nicht im Git-Repository. Die Einträge
    dazu stehen in der Datenbank; ohne die Dateien führen die Downloads ins Leere.
+   **Dateirechte:** alle Dateien in `files/` auf `644` setzen (Ordner `755`), damit der
+   Webserver sie lesen kann. Aus macOS kopierte Dateien haben teils `600` (nur für den
+   Eigentümer lesbar) – dann liefert der Server einen Fehler statt der Datei. Prüfen und
+   setzen per SSH: `find files -type f ! -perm 644` bzw.
+   `find files -type f -exec chmod 644 {} +` und `find files -type d -exec chmod 755 {} +`;
+   ohne SSH im SFTP-Programm (Dateiattribute/Rechte). Lokal vorher prüfen:
+   `find web/sites/default/files/{dokumente,videos,untertitel} -type f ! -perm 644`.
+   Nicht hochladen: `css/`, `js/`, `php/`, `styles/` – die erzeugt Drupal auf dem Server neu.
 
 5. **settings.php / settings.local.php.**
    `settings.php` ist im Repository und enthält keine Zugangsdaten. Sie bindet automatisch
