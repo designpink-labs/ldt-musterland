@@ -21,6 +21,10 @@
   aspect-ratio: 16 / 9;
   background: #000;
 }
+.designpink-video__caption {
+  margin-top: var(--space-2);
+  font-weight: 700;
+}
 .field--name-field-text-unter-video {
   max-width: var(--measure);
 }

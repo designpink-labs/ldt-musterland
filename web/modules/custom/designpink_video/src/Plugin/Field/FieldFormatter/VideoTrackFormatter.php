@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\designpink_video\Plugin\Field\FieldFormatter;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Field\Attribute\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
@@ -19,6 +20,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Gibt eine Videodatei als <video> mit Untertitel-<track> aus.
  *
  * Die WebVTT-Datei wird aus einem zweiten Dateifeld derselben Entität gelesen.
+ * Die Beschreibung der Videodatei (falls im Feld aktiviert) wird zur
+ * Bildunterschrift und zum zugänglichen Namen des Videos.
  */
 #[FieldFormatter(
   id: 'designpink_video_track',
@@ -98,7 +101,10 @@ class VideoTrackFormatter extends FileFormatterBase {
 
     $elements = [];
     foreach ($this->getEntitiesToView($items, $langcode) as $delta => $file) {
+      $caption = trim((string) ($file->_referringItem->description ?? ''));
       $elements[$delta] = [
+        '#caption' => $caption,
+        '#caption_id' => $caption !== '' ? Html::getUniqueId('designpink-video-titel') : NULL,
         '#theme' => 'designpink_video',
         '#video_url' => $this->fileUrlGenerator->generateString($file->getFileUri()),
         '#video_mime' => $file->getMimeType(),

@@ -54,8 +54,8 @@ const ABSCHNITTE = [
       <div class="reihe">${symbol('person')}<p class="gross">Alle Menschen sollen die digitalen Angebote der Landesverwaltung nutzen können.</p></div>`,
   },
   {
-    text: 'Wir beraten die Dienststellen des Landes, wenn sie neue Websites oder Apps planen. So wird Barrierefreiheit von Anfang an mitgedacht.',
-    cues: [['Wir beraten die Dienststellen des Landes,\nwenn sie neue Websites oder Apps planen.', 2], ['So wird Barrierefreiheit\nvon Anfang an mitgedacht.', 1]],
+    text: 'Wir beraten die Dienststellen des Landes, wenn sie neue Websites oder Apps planen oder ausschreiben. So wird Barrierefreiheit von Anfang an mitgedacht.',
+    cues: [['Wir beraten die Dienststellen des Landes,', 1], ['wenn sie neue Websites oder Apps planen\noder ausschreiben.', 1], ['So wird Barrierefreiheit\nvon Anfang an mitgedacht.', 1]],
     bild: 'Folie „Beraten“: Liste mit drei Punkten: Websites, Apps, Ausschreibungen.',
     folie: `<h2>Beraten</h2>
       <ul class="liste"><li>Websites</li><li>Apps</li><li>Ausschreibungen</li></ul>`,
@@ -72,25 +72,20 @@ const ABSCHNITTE = [
       </ul>`,
   },
   {
-    text: 'Wir schulen die Beschäftigten der Landesverwaltung. Zum Beispiel darin, barrierefreie Dokumente zu erstellen und verständliche Texte zu schreiben.',
-    cues: [['Wir schulen die Beschäftigten\nder Landesverwaltung.', 1], ['Zum Beispiel darin,', 1], ['barrierefreie Dokumente zu erstellen\nund verständliche Texte zu schreiben.', 1]],
-    bild: 'Folie „Schulen“: Ausschnitt aus der Terminliste „Nächste Termine“: 12. November 2026, Grundlagen der digitalen Barrierefreiheit; 19. November 2026, Barrierefreie Dokumente mit Word und PDF; 26. November 2026, Texte fürs Web und Einfache Sprache.',
+    // Keine Termine im Video: Daten veralten. Die Termine stehen auf der Website.
+    text: 'Wir schulen die Beschäftigten der Landesverwaltung. Zum Beispiel darin, barrierefreie Dokumente zu erstellen und verständliche Texte zu schreiben. Die nächsten Termine finden Sie auf unserer Website.',
+    cues: [['Wir schulen die Beschäftigten\nder Landesverwaltung.', 1], ['Zum Beispiel darin,', 1], ['barrierefreie Dokumente zu erstellen\nund verständliche Texte zu schreiben.', 1], ['Die nächsten Termine finden Sie\nauf unserer Website.', 1]],
+    bild: 'Folie „Schulen“: Liste mit zwei Punkten: Barrierefreie Dokumente, Verständliche Texte.',
     folie: `<h2>Schulen</h2>
-      <div class="termine">
-        <p class="termine__titel">Nächste Termine</p>
-        <dl>
-          <div><dt>12. November 2026</dt><dd>Grundlagen der digitalen Barrierefreiheit</dd></div>
-          <div><dt>19. November 2026</dt><dd>Barrierefreie Dokumente mit Word und PDF</dd></div>
-          <div><dt>26. November 2026</dt><dd>Texte fürs Web und Einfache Sprache</dd></div>
-        </dl>
-      </div>`,
+      <ul class="liste"><li>Barrierefreie Dokumente</li><li>Verständliche Texte</li></ul>`,
   },
   {
-    text: 'Sie finden eine Barriere auf einer Website des Landes? Melden Sie sie uns über das Formular „Barriere melden“. Mehr erfahren Sie auf unserer Website.',
-    cues: [['Sie finden eine Barriere\nauf einer Website des Landes?', 1], ['Melden Sie sie uns über das Formular\n„Barriere melden“.', 1], ['Mehr erfahren Sie auf unserer Website.', 1]],
-    bild: 'Folie „Kontakt“: die Adresse der Website „designpink.de/drupal“ und darunter eine Schaltfläche „Barriere melden“.',
+    // Keine Webadresse im Video: Sie gilt nur, solange die Seite dort liegt.
+    text: 'Sie finden eine Barriere auf einer Website des Landes? Melden Sie sie uns über das Formular „Barriere melden“. Mehr erfahren Sie auf der Website des LDT Musterland.',
+    cues: [['Sie finden eine Barriere\nauf einer Website des Landes?', 1], ['Melden Sie sie uns über das Formular\n„Barriere melden“.', 1], ['Mehr erfahren Sie auf der Website\ndes LDT Musterland.', 1]],
+    bild: 'Folie „Kontakt“: der Text „Website des LDT Musterland“ und darunter eine Schaltfläche „Barriere melden“.',
     folie: `<h2>Kontakt</h2>
-      <p class="adresse">designpink.de/drupal</p>
+      <p class="adresse">Website des LDT Musterland</p>
       <p><span class="knopf">Barriere melden</span></p>`,
   },
 ];

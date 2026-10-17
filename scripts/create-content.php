@@ -30,6 +30,7 @@
  *
  * Video (optional): 'video' => 'videos/NAME.mp4', 'untertitel' =>
  * 'untertitel/NAME.vtt' (Dateien unter sites/default/files/, nicht im Git),
+ * 'video_beschriftung' => Bildunterschrift = zugänglicher Name des Videos,
  * 'unter_video' => HTML für das Feld "Text unter dem Video" (mit Marken).
  */
 
@@ -69,7 +70,7 @@ foreach ($pages as $key => $page) {
   ]);
   $node->set('promote', !empty($page['promote']));
   foreach (['video' => 'field_video', 'untertitel' => 'field_untertitel'] as $schluessel => $feld) {
-    $node->set($feld, !empty($page[$schluessel]) ? ['target_id' => ldt_dokument($page[$schluessel])->id(), 'display' => 1] : NULL);
+    $node->set($feld, !empty($page[$schluessel]) ? ['target_id' => ldt_dokument($page[$schluessel])->id(), 'display' => 1, 'description' => $feld === 'field_video' ? ($page['video_beschriftung'] ?? '') : ''] : NULL);
   }
   $node->set('field_text_unter_video', !empty($page['unter_video']) ? ['value' => trim($page['unter_video']), 'format' => 'basic_html'] : NULL);
   $kurz = $page['meta'] ?? $page['summary'] ?? NULL;

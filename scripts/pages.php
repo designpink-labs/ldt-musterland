@@ -195,10 +195,11 @@ return [
 <h2>Audiodeskription einplanen</h2>
 <p>Am einfachsten planen Sie ein Video so, dass alles Wichtige auch gesagt wird. Ein Beispiel: Die Sprecherin nennt die Adresse, statt sie nur einzublenden. Dann braucht das Video oft keine zusätzliche Audiodeskription.</p>
 <h2>Beispielvideo</h2>
-<p>Das Erklärvideo „Was macht das LDT?“ ist knapp eine Minute lang. Es startet nicht von selbst. Die Untertitel im WebVTT-Format lassen sich im Videoplayer ein- und ausschalten. Unter dem Video steht das vollständige Transkript mit Beschreibungen der Bilder.</p>',
+<p>Das Erklärvideo „Was macht das LDT?“ ist gut eine Minute lang. Es startet nicht von selbst. Die Untertitel im WebVTT-Format lassen sich im Videoplayer ein- und ausschalten. Unter dem Video steht das vollständige Transkript mit Beschreibungen der Bilder.</p>',
     // Video, Untertitel und Transkript erzeugt scripts/video/erstellen.mjs.
     'video' => 'videos/was-macht-das-ldt.mp4',
     'untertitel' => 'untertitel/was-macht-das-ldt.vtt',
+    'video_beschriftung' => 'Erklärvideo: Was macht das LDT? (gut eine Minute)',
     'unter_video' => '
 <p>Die Sprecherstimme im Video ist synthetisch. Sie wurde mit der Sprachausgabe von macOS erzeugt.</p>
 <details>

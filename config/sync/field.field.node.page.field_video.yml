@@ -12,7 +12,7 @@ field_name: field_video
 entity_type: node
 bundle: page
 label: Video
-description: 'Optional. Videodatei im Format MP4 oder WebM. Bitte immer auch eine Untertiteldatei hochladen.'
+description: 'Optional. Videodatei im Format MP4 oder WebM. Bitte immer auch eine Untertiteldatei hochladen. Die Beschreibung der Datei erscheint als Bildunterschrift unter dem Video und ist sein Name für Screenreader, zum Beispiel „Erklärvideo: Was macht das LDT?“.'
 required: false
 translatable: true
 default_value: {  }
@@ -23,5 +23,5 @@ settings:
   file_directory: videos
   file_extensions: 'mp4 webm'
   max_filesize: ''
-  description_field: false
+  description_field: true
 field_type: file

@@ -175,6 +175,11 @@ let z = await vz();
 ok(!z.autoplay && z.paused, 'Kein Autoplay: Video steht nach dem Laden');
 ok(z.spur?.kind === 'captions' && z.spur.lang === 'de' && z.spur.label === 'Deutsch' && z.spur.mode === 'showing' && z.spur.cues > 0,
   `Untertitel-Spur geladen und eingeschaltet (${z.spur?.kind}, ${z.spur?.lang}, „${z.spur?.label}“, ${z.spur?.cues} Einblendungen)`);
+// Zugänglicher Name aus dem Barrierefreiheitsbaum von Chrome (figcaption über aria-labelledby).
+const cdp = await ctx.newCDPSession(page);
+const { nodes } = await cdp.send('Accessibility.getFullAXTree');
+const namen = (rolle) => nodes.filter((n) => n.role?.value === rolle && !n.ignored).map((n) => n.name?.value ?? '');
+ok(namen('Video').some((n) => n.startsWith('Erklärvideo:')), `Video hat einen zugänglichen Namen („${namen('Video').join(' | ')}“)`);
 // Fokus auf das letzte bedienbare Element vor dem Video setzen.
 await video.evaluate((v) => [...document.querySelectorAll('a[href], button, input, select, textarea, summary, [tabindex="0"]')]
   .filter((e) => e.compareDocumentPosition(v) & Node.DOCUMENT_POSITION_FOLLOWING).pop().focus());

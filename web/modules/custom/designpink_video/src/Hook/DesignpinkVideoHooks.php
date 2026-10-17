@@ -28,6 +28,8 @@ class DesignpinkVideoHooks {
           'track_url' => NULL,
           'track_srclang' => 'de',
           'track_label' => 'Deutsch',
+          'caption' => NULL,
+          'caption_id' => NULL,
         ],
       ],
     ];

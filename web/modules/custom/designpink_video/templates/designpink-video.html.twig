@@ -10,16 +10,26 @@
  * - track_url: Adresse der WebVTT-Datei oder leer.
  * - track_srclang: Sprachcode der Untertitel (Sprache der Seite).
  * - track_label: Bezeichnung der Untertitel im Player.
+ * - caption: Bildunterschrift (Beschreibung der Videodatei) oder leer.
+ * - caption_id: ID der Bildunterschrift.
+ *
+ * Mit Bildunterschrift: <figure> mit <figcaption>; das <video> verweist per
+ * aria-labelledby darauf. So haben Abbildung und Video einen zugänglichen
+ * Namen (sonst sagen Screenreader nur "Video" an).
  *
  * Kein Autoplay: Nutzer*innen starten das Video selbst (WCAG 1.4.2, 2.2.2).
  */
 #}
-<div class="designpink-video">
-  <video controls preload="metadata" playsinline>
+{% set tag = caption ? 'figure' : 'div' %}
+<{{ tag }} class="designpink-video">
+  <video controls preload="metadata" playsinline{% if caption %} aria-labelledby="{{ caption_id }}"{% endif %}>
     <source src="{{ video_url }}" type="{{ video_mime }}">
     {% if track_url %}
       <track kind="captions" src="{{ track_url }}" srclang="{{ track_srclang }}" label="{{ track_label }}" default>
     {% endif %}
     <p>Ihr Browser kann dieses Video nicht abspielen. <a href="{{ video_url }}">Video herunterladen ({{ video_mime }}, {{ video_size }})</a></p>
   </video>
-</div>
+  {% if caption %}
+    <figcaption id="{{ caption_id }}" class="designpink-video__caption">{{ caption }}</figcaption>
+  {% endif %}
+</{{ tag }}>
