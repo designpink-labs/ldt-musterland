@@ -990,12 +990,12 @@ return [
 <h2>Bildnachweis</h2>
 <p>Die Fotos stammen von Unsplash und dürfen nach der <a href="https://unsplash.com/license" hreflang="en">Unsplash-Lizenz (englisch)</a> kostenlos genutzt werden. Sie liegen auf diesem Server: Beim Aufruf der Seiten werden keine Daten an Unsplash übertragen.</p>
 <ul>
-  <li><a href="/">Startseite</a>: Foto von Centre for Ageing Better über Unsplash. [Link zur Bildseite eintragen]</li>
-  <li>{{link:barrierefreiheit|Barrierefreiheit}}: Foto von Compagnons über Unsplash. [Link zur Bildseite eintragen]</li>
-  <li>{{link:online-redaktion|Online-Redaktion}}: Foto von Centre for Ageing Better über Unsplash. [Link zur Bildseite eintragen]</li>
-  <li>{{link:web-optimierung|Web & Optimierung}}: Foto von Vitaly Gariev über Unsplash. [Link zur Bildseite eintragen]</li>
-  <li>{{link:ia|Informationsarchitektur}} (Card Sorting): Foto von Compagnons über Unsplash. [Link zur Bildseite eintragen]</li>
-  <li>{{link:schulungen|Schulungen}}: Foto von Centre for Ageing Better über Unsplash. [Link zur Bildseite eintragen]</li>
+  <li><a href="/">Startseite</a>: <a href="https://unsplash.com/photos/women-working-together-in-office-workspace-0kyNvW-Oa7o" hreflang="en">Foto „Frauen arbeiten gemeinsam am Laptop“ von Centre for Ageing Better</a> über Unsplash (englisch)</li>
+  <li>{{link:barrierefreiheit|Barrierefreiheit}}: <a href="https://unsplash.com/photos/person-using-braille-writer-4MoIpDcSlr4" hreflang="en">Foto „Hände auf einer Braillezeile“ von Compagnons</a> über Unsplash (englisch)</li>
+  <li>{{link:online-redaktion|Online-Redaktion}}: <a href="https://unsplash.com/photos/three-men-talking-in-office-workspace-FfsyVKKlLnU" hreflang="en">Foto „Drei Kollegen im Gespräch am Laptop“ von Centre for Ageing Better</a> über Unsplash (englisch)</li>
+  <li>{{link:web-optimierung|Web & Optimierung}}: <a href="https://unsplash.com/photos/two-people-brainstorming-with-sticky-notes-on-wall-ynkz9cpyvzI" hreflang="en">Foto „Zwei Personen ordnen Haftnotizen an einer Wand“ von Vitaly Gariev</a> über Unsplash (englisch)</li>
+  <li>{{link:ia|Informationsarchitektur}} (Card Sorting): <a href="https://unsplash.com/photos/hand-placing-a-sticky-note-on-a-wall-eF_7yVmkZWQ" hreflang="en">Foto „Hand klebt eine Haftnotiz an eine Wand“ von Compagnons</a> über Unsplash (englisch)</li>
+  <li>{{link:schulungen|Schulungen}}: <a href="https://unsplash.com/photos/XH8chLuj02g" hreflang="en">Foto „Workshop am Flipchart“ von Centre for Ageing Better</a> über Unsplash (englisch)</li>
 </ul>',
   ],
   'datenschutz' => [

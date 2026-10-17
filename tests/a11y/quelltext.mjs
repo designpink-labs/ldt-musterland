@@ -26,6 +26,13 @@ for (const p of pfade) {
   pruefen(p, text);
   for (const m of text.matchAll(/(?:href|src)="([^"]*\/files\/(?:css|js)\/[^"]+)"/g)) assets.add(m[1].replace(/&amp;/g, '&'));
 }
+// Bildnachweis im Impressum: keine offenen Platzhalter (die Platzhalter für
+// die Betreiberangaben „[Hier echte Angaben …]“ bleiben erlaubt).
+const impressum = await (await ctx.get(BASE + '/impressum')).text();
+if (/\[[^\]]*(Bildseite|eintragen)[^\]]*\]/i.test(impressum.replace(/<[^>]+>/g, ''))) {
+  fehler++;
+  console.log('FEHLER /impressum: offener Platzhalter im Bildnachweis');
+}
 for (const a of assets) pruefen(a.split('?')[0], await (await ctx.get(new URL(a, BASE).href)).text());
 await ctx.dispose();
 console.log(`${pfade.length} Seiten und ${assets.size} CSS/JS-Dateien geprüft.`);
