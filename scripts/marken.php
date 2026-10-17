@@ -11,6 +11,8 @@
  * - {{file:DATEINAME|Text}}   Download mit "(FORMAT, N KB)"
  * - {{img:DATEINAME|Alt}}     Bild; {{img:DATEINAME|Alt|400}} mit Anzeigebreite in px
  * Dateien liegen in sites/default/files/dokumente/ (nicht im Git-Repository).
+ * Mit Unterordner (z. B. {{file:untertitel/NAME.vtt|Text}}) relativ zu
+ * sites/default/files/.
  */
 
 /**
@@ -38,7 +40,7 @@ function ldt_marken(string $body, array $nodes): string {
     );
   }, $body);
   // {{file:DATEINAME|Text}}: Download-Link; Format und Größe werden angehängt.
-  $body = preg_replace_callback('/\{\{file:([A-Za-z0-9._-]+)\|([^}]+)\}\}/', function ($m) {
+  $body = preg_replace_callback('/\{\{file:([A-Za-z0-9._\/-]+)\|([^}]+)\}\}/', function ($m) {
     $file = ldt_dokument($m[1]);
     $kb = max(1, (int) round($file->getSize() / 1024));
     return sprintf(
@@ -69,18 +71,21 @@ function ldt_marken(string $body, array $nodes): string {
  * Datei-Eintrag für public://dokumente/NAME laden oder anlegen.
  *
  * Die Datei selbst muss schon im Ordner sites/default/files/dokumente liegen
- * (sie ist nicht im Git-Repository, siehe README).
+ * (sie ist nicht im Git-Repository, siehe README). Namen mit Unterordner
+ * (videos/NAME.mp4, untertitel/NAME.vtt) gelten relativ zu
+ * sites/default/files/.
  */
 function ldt_dokument(string $name): \Drupal\file\FileInterface {
-  $uri = 'public://dokumente/' . $name;
+  $pfad = str_contains($name, '/') ? $name : 'dokumente/' . $name;
+  $uri = 'public://' . $pfad;
   if (!file_exists($uri)) {
-    throw new \RuntimeException("Datei fehlt: sites/default/files/dokumente/$name");
+    throw new \RuntimeException("Datei fehlt: sites/default/files/$pfad");
   }
   $storage = \Drupal::entityTypeManager()->getStorage('file');
   $files = $storage->loadByProperties(['uri' => $uri]);
   $file = $files ? reset($files) : $storage->create(['uri' => $uri, 'uid' => 1]);
   $file->setPermanent();
-  $file->setFilename($name);
+  $file->setFilename(basename($name));
   $file->save();
   return $file;
 }

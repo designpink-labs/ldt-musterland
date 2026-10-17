@@ -1,0 +1,19 @@
+uuid: 2d9059c3-7d5f-4858-b830-08a26bedde49
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_text_unter_video
+field_name: field_text_unter_video
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

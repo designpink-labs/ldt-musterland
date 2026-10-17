@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
     - field.field.node.page.field_metatag
+    - field.field.node.page.field_text_unter_video
     - field.field.node.page.field_untertitel
     - field.field.node.page.field_video
     - node.type.page
@@ -27,6 +28,7 @@ content:
     region: content
 hidden:
   field_metatag: true
+  field_text_unter_video: true
   field_untertitel: true
   field_video: true
   langcode: true

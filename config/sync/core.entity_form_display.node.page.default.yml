@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_metatag
+    - field.field.node.page.field_text_unter_video
     - field.field.node.page.field_untertitel
     - field.field.node.page.field_video
     - node.type.page
@@ -41,6 +42,14 @@ content:
     settings:
       sidebar: true
       use_details: true
+    third_party_settings: {  }
+  field_text_unter_video:
+    type: text_textarea
+    weight: 22
+    region: content
+    settings:
+      rows: 9
+      placeholder: ''
     third_party_settings: {  }
   field_untertitel:
     type: file_generic

@@ -195,10 +195,19 @@ return [
 <h2>Audiodeskription einplanen</h2>
 <p>Am einfachsten planen Sie ein Video so, dass alles Wichtige auch gesagt wird. Ein Beispiel: Die Sprecherin nennt die Adresse, statt sie nur einzublenden. Dann braucht das Video oft keine zusätzliche Audiodeskription.</p>
 <h2>Beispielvideo</h2>
-<div class="hinweis hinweis--info">
-<p><strong>Hinweis:</strong> Das Beispiel wird hier ergänzt.</p>
-<p>Gezeigt wird ein kurzes Erklärvideo von ein bis zwei Minuten: „Was macht das LDT?“. Es hat Untertitel im WebVTT-Format mit Sprecher- und Geräuschangaben, darunter steht das vollständige Transkript. Das Video startet nicht von selbst und lässt sich mit der Tastatur bedienen.</p>
-</div>',
+<p>Das Erklärvideo „Was macht das LDT?“ ist knapp eine Minute lang. Es startet nicht von selbst. Die Untertitel im WebVTT-Format lassen sich im Videoplayer ein- und ausschalten. Unter dem Video steht das vollständige Transkript mit Beschreibungen der Bilder.</p>',
+    // Video, Untertitel und Transkript erzeugt scripts/video/erstellen.mjs.
+    'video' => 'videos/was-macht-das-ldt.mp4',
+    'untertitel' => 'untertitel/was-macht-das-ldt.vtt',
+    'unter_video' => '
+<p>Die Sprecherstimme im Video ist synthetisch. Sie wurde mit der Sprachausgabe von macOS erzeugt.</p>
+<details>
+<summary>Transkript „Was macht das LDT?“</summary>
+' . file_get_contents(__DIR__ . '/video/transkript.html') . '</details>
+<ul>
+  <li>{{file:untertitel/was-macht-das-ldt.vtt|Untertitel „Was macht das LDT?“ als WebVTT-Datei}}</li>
+  <li>{{file:Transkript-Was-macht-das-LDT.txt|Transkript „Was macht das LDT?“ als Textdatei}}</li>
+</ul>',
   ],
   'gebaerdensprache-fach' => [
     'title' => 'Gebärdensprache',
@@ -851,14 +860,14 @@ return [
   <li><strong>Leichte Sprache:</strong> Der Text in Leichter Sprache wurde nicht von einer Prüfgruppe geprüft.</li>
   <li><strong>Screenreader:</strong> Die Website wurde bisher in einer Grundprüfung mit VoiceOver unter macOS getestet. Tests mit den Screenreadern NVDA und JAWS unter Windows stehen noch aus. Barrieren bei der Sprachausgabe in diesen Screenreadern können wir deshalb nicht ausschließen.</li>
   <li><strong>Weitere Prüfungen:</strong> Noch nicht geprüft sind die reine Textvergrößerung ohne Zoom, der Kontrastmodus von Windows und die Bedienung mit Sprachsteuerung.</li>
-  <li><strong>Videoplayer:</strong> Videos nutzen den Player des Browsers. Wie gut er sich mit der Tastatur und mit Screenreadern bedienen lässt, hängt vom Browser ab.</li>
+  <li><strong>Videoplayer:</strong> Das Video auf der Seite {{link:video|Video und Untertitel}} nutzt den Player des Browsers. In Google Chrome ist er mit der Tastatur geprüft. In anderen Browsern und mit Screenreadern ist der Player noch nicht geprüft. Wie gut er sich dort bedienen lässt, hängt vom Browser ab.</li>
 </ul>
 <h2>Erstellung dieser Erklärung zur Barrierefreiheit</h2>
-<p>Diese Erklärung wurde am 16. Oktober 2026 erstellt und zuletzt am 16. Oktober 2026 überprüft.</p>
+<p>Diese Erklärung wurde am 16. Oktober 2026 erstellt und zuletzt am 17. Oktober 2026 überprüft.</p>
 <p>Grundlage ist eine Selbstbewertung mit diesen Prüfungen:</p>
 <ul>
-  <li><strong>Automatische Prüfung</strong> mit axe-core 4.14 nach WCAG 2.0 und 2.1, Stufen A und AA: alle Seiten der Website (Stand: 16. Oktober 2026), jeweils in der Desktop-Ansicht und 375 Pixel breit, dazu geöffnetes Menü und Formular mit Fehlermeldungen. Ergebnis: keine Verstöße.</li>
-  <li><strong>Tastaturbedienung:</strong> Link „Direkt zum Inhalt“, Reihenfolge und Sichtbarkeit des Fokus, Hauptmenü mit Untermenüs, mobiles Menü und Formular „Barriere melden“. Ergebnis: bestanden.</li>
+  <li><strong>Automatische Prüfung</strong> mit axe-core 4.14 nach WCAG 2.0 und 2.1, Stufen A und AA: alle Seiten der Website (Stand: 17. Oktober 2026), jeweils in der Desktop-Ansicht und 375 Pixel breit, dazu geöffnetes Menü und Formular mit Fehlermeldungen. Ergebnis: keine Verstöße.</li>
+  <li><strong>Tastaturbedienung:</strong> Link „Direkt zum Inhalt“, Reihenfolge und Sichtbarkeit des Fokus, Hauptmenü mit Untermenüs, mobiles Menü, Formular „Barriere melden“ und Videoplayer in Google Chrome (mit Tab hinein, Abspielen und Anhalten mit der Leertaste, mit Tab wieder hinaus). Ergebnis: bestanden.</li>
   <li><strong>Screenreader:</strong> Grundprüfung mit VoiceOver in Safari unter macOS: Orientierungspunkte (Landmarks), Überschriften, Hauptmenü mit Untermenüs und Formular „Barriere melden“.</li>
   <li><strong>Umbruch bei Vergrößerung:</strong> Alle Seiten bei 320 Pixel Breite, das entspricht 400 Prozent Zoom. Ergebnis: kein waagerechtes Scrollen.</li>
   <li><strong>Kontraste:</strong> Alle verwendeten Farbkombinationen. Ergebnis: mindestens 4,5:1 für Text und 3:1 für Bedienelemente.</li>

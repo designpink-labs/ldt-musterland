@@ -62,6 +62,8 @@ settings:
         - '<span lang>'
         - '<th scope>'
         - '<time datetime>'
+        - '<details>'
+        - '<summary>'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default

@@ -18,7 +18,36 @@
 .designpink-video video {
   display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
   background: #000;
+}
+.field--name-field-text-unter-video {
+  max-width: var(--measure);
+}
+
+/* Aufklappbarer Bereich im Fließtext, z. B. Transkript unter einem Video
+   (<details>/<summary>, Feld "Text unter dem Video"). */
+.text-formatted details {
+  margin: 0 0 var(--space-5);
+  padding: 0 var(--space-4);
+  border: 2px solid var(--c-line-strong);
+  border-radius: var(--radius);
+}
+.text-formatted summary {
+  padding: var(--space-3) 0; /* mit Zeilenhöhe über 44 px Klickfläche */
+  font-weight: 700;
+  cursor: pointer;
+}
+.text-formatted details[open] > summary {
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--c-line);
+}
+.text-formatted details > :last-child {
+  margin-bottom: var(--space-4);
+}
+.text-formatted details h3 {
+  margin-top: var(--space-5);
+  font-size: var(--fs-h4);
 }
 
 /* Buttons */

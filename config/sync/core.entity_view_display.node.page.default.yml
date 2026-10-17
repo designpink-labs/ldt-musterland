@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_metatag
+    - field.field.node.page.field_text_unter_video
     - field.field.node.page.field_untertitel
     - field.field.node.page.field_video
     - node.type.page
@@ -23,6 +24,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  field_text_unter_video:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 120
     region: content
   field_video:
     type: designpink_video_track

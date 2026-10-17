@@ -1,0 +1,24 @@
+uuid: ef58b940-7f59-4d98-8fe9-3006f87a2400
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text_unter_video
+    - filter.format.basic_html
+    - node.type.page
+  module:
+    - text
+id: node.page.field_text_unter_video
+field_name: field_text_unter_video
+entity_type: node
+bundle: page
+label: 'Text unter dem Video'
+description: 'Steht direkt unter dem Video: zum Beispiel Hinweise, Transkript (aufklappbar) und Downloads.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

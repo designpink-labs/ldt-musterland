@@ -27,6 +27,10 @@
  *
  * Welche Seite zu welchem Schlüssel gehört, merkt sich das Skript im
  * State-Eintrag "ldt.page_nids".
+ *
+ * Video (optional): 'video' => 'videos/NAME.mp4', 'untertitel' =>
+ * 'untertitel/NAME.vtt' (Dateien unter sites/default/files/, nicht im Git),
+ * 'unter_video' => HTML für das Feld "Text unter dem Video" (mit Marken).
  */
 
 use Drupal\menu_link_content\Entity\MenuLinkContent;
@@ -64,6 +68,10 @@ foreach ($pages as $key => $page) {
     'format' => 'basic_html',
   ]);
   $node->set('promote', !empty($page['promote']));
+  foreach (['video' => 'field_video', 'untertitel' => 'field_untertitel'] as $schluessel => $feld) {
+    $node->set($feld, !empty($page[$schluessel]) ? ['target_id' => ldt_dokument($page[$schluessel])->id(), 'display' => 1] : NULL);
+  }
+  $node->set('field_text_unter_video', !empty($page['unter_video']) ? ['value' => trim($page['unter_video']), 'format' => 'basic_html'] : NULL);
   $kurz = $page['meta'] ?? $page['summary'] ?? NULL;
   $description = $page['description'] ?? ($kurz ? $kurz . LDT_META_SUFFIX : '');
   if ($description && $node->hasField('field_metatag')) {
@@ -118,6 +126,9 @@ foreach (array_keys($changed) as $key) {
   $node = $nodes[$key];
   $body = ldt_marken($node->get('body')->value, $ziele);
   $node->set('body', ['value' => $body, 'summary' => $node->get('body')->summary, 'format' => 'basic_html']);
+  if (!$node->get('field_text_unter_video')->isEmpty()) {
+    $node->set('field_text_unter_video', ['value' => ldt_marken($node->get('field_text_unter_video')->value, $ziele), 'format' => 'basic_html']);
+  }
   $node->path->pathauto = 1;
   $node->save();
 }

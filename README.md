@@ -47,6 +47,29 @@ Auf jeder Basisseite gibt es die optionalen Felder **Video** (MP4/WebM) und
 `<video>` mit `<track kind="captions">` aus. Das Template `designpink-video.html.twig`
 kann im späteren Theme überschrieben werden (gleichnamige Datei im Theme-Ordner `templates/`).
 
+Zusätzlich gibt es das Feld **Text unter dem Video** (`field_text_unter_video`, Basic HTML):
+Es steht direkt unter dem Player, etwa für den Hinweis auf die synthetische Stimme, das
+Transkript als aufklappbaren Bereich (`<details>`/`<summary>`, im Textformat erlaubt) und
+die Downloads. In `pages.php`: Schlüssel `video`, `untertitel` (Pfade relativ zu
+`sites/default/files/`) und `unter_video`. Download-Links auf Dateien außerhalb von
+`dokumente/` mit Unterordner: `{{file:untertitel/NAME.vtt|Linktext}}`.
+
+**Erklärvideo „Was macht das LDT?“** – komplett lokal erzeugt, ohne Aufnahme:
+
+```bash
+node scripts/video/erstellen.mjs        # braucht say (macOS), ffmpeg, Chrome, tests/a11y/node_modules
+ddev drush php:script scripts/create-content.php -- --overwrite --only=video
+```
+
+Das Skript spricht jeden Abschnitt mit `say` (Stimme Anna, Tempo 165), misst Dauer und
+Sprechpausen (`ffmpeg silencedetect`), rendert die Folien (1920×1080) im Theme-Design,
+setzt das MP4 (H.264/AAC) zusammen und schreibt Untertitel (WebVTT) und Transkript aus den
+gemessenen Zeiten. Es bricht ab, wenn eine Untertitel-Einblendung kürzer als 1 s oder
+länger als 6 s ist, mehr als zwei Zeilen hat oder ein Folieninhalt ins untere Drittel
+reicht (dort liegen Untertitel und Steuerleiste). Texte, Untertitel-Aufteilung und
+Bildbeschreibungen stehen oben im Skript. Ausgabe: Dateien unter `web/sites/default/files/`
+(nicht im Git) und `scripts/video/transkript.html` (im Git, wird in `pages.php` eingebunden).
+
 Damit Browser die Untertitel annehmen, muss `.vtt` als `text/vtt` ausgeliefert werden:
 lokal über `.ddev/nginx/vtt.conf`, auf Strato über `AddType text/vtt .vtt` in `web/.htaccess`.
 
@@ -122,6 +145,7 @@ Original-Ablage: `~/Documents/Claude/Drupal-Dokumente/` (ohne Unterordner `quell
 | `Checkliste-Redaktion.pdf`, `LDT-Vorlage.dotx`, `LDT-Vorlage.ott` | Arbeitshilfe Redaktion |
 | `sharepic-wcag22.png` (Instagram-Infografik) | Social Media |
 | `Schulung-Grundlagen-Folien.pdf`, `Uebungsblatt-Tastaturpruefung.pdf` | Schulungen |
+| `Transkript-Was-macht-das-LDT.txt` sowie `../videos/was-macht-das-ldt.mp4` und `../untertitel/was-macht-das-ldt.vtt` (erzeugt von `scripts/video/erstellen.mjs`) | Video & Untertitel |
 
 In `pages.php` eingebunden mit `{{file:NAME|Linktext}}` (Format und Größe werden
 automatisch angehängt, z. B. „(PDF, 61 KB)“) und `{{img:NAME|Alternativtext}}`
@@ -308,7 +332,7 @@ Checkliste für den ersten Upload auf den Strato-Webspace:
    Im Strato-Kundenbereich eine MySQL/MariaDB-Datenbank anlegen.
    Lokal exportieren (`ddev export-db --file=backups/live.sql.gz`) und über
    phpMyAdmin bei Strato (oder per SSH mit `mysql`) importieren.
-   Dateien aus `web/sites/default/files/` (Bilder, Uploads) separat per SFTP hochladen.
+   Dateien aus `web/sites/default/files/` (Ordner `dokumente/`, `videos/`, `untertitel/` und weitere Uploads) separat per SFTP hochladen.
    **Wichtig:** dazu gehört der Ordner `web/sites/default/files/dokumente/` mit den
    Beispiel-PDFs, Grafiken und Vorlagen – er ist nicht im Git-Repository. Die Einträge
    dazu stehen in der Datenbank; ohne die Dateien führen die Downloads ins Leere.

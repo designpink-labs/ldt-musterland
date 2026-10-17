@@ -1,5 +1,6 @@
 // Tastatur-Durchgang: Skip-Link, Tab-Reihenfolge mit sichtbarem Fokus,
-// Untermenü (Disclosure), mobiles Menü, Formular "Barriere melden".
+// Untermenü (Disclosure), mobiles Menü, Formular "Barriere melden",
+// Videoplayer (rein und wieder raus, Abspielen per Tastatur, Untertitel).
 // Aufruf: npm run tastatur
 import { chromium } from 'playwright';
 import { BASE, VIEWPORTS, LAUNCH, CONTEXT } from './seiten.mjs';
@@ -158,6 +159,39 @@ const bereinigt = await page.locator('#edit-seite').inputValue();
 ok(bereinigt === '/impressum', `Parameter wird bereinigt (HTML und Steuerzeichen entfernt: „${bereinigt}“)`);
 await page.goto(BASE + '/barriere-melden', { waitUntil: 'networkidle' });
 ok(await page.locator('#edit-seite').inputValue() === '', 'Ohne Parameter bleibt das Feld leer');
+await ctx.close();
+
+// 6. Videoplayer: mit Tab hinein, per Tastatur abspielen, mit Tab wieder hinaus
+console.log('\n[Desktop] Videoplayer auf /barrierefreiheit/video-untertitel');
+ctx = await browser.newContext({ ...CONTEXT, viewport: VIEWPORTS.desktop });
+page = await ctx.newPage();
+await page.goto(BASE + '/barrierefreiheit/video-untertitel', { waitUntil: 'networkidle' });
+const video = page.locator('video');
+const vz = () => video.evaluate((v) => ({
+  fokus: document.activeElement === v, paused: v.paused, autoplay: v.autoplay,
+  spur: v.textTracks[0] && { kind: v.textTracks[0].kind, lang: v.textTracks[0].language, label: v.textTracks[0].label, mode: v.textTracks[0].mode, cues: v.textTracks[0].cues?.length },
+}));
+let z = await vz();
+ok(!z.autoplay && z.paused, 'Kein Autoplay: Video steht nach dem Laden');
+ok(z.spur?.kind === 'captions' && z.spur.lang === 'de' && z.spur.label === 'Deutsch' && z.spur.mode === 'showing' && z.spur.cues > 0,
+  `Untertitel-Spur geladen und eingeschaltet (${z.spur?.kind}, ${z.spur?.lang}, „${z.spur?.label}“, ${z.spur?.cues} Einblendungen)`);
+// Fokus auf das letzte bedienbare Element vor dem Video setzen.
+await video.evaluate((v) => [...document.querySelectorAll('a[href], button, input, select, textarea, summary, [tabindex="0"]')]
+  .filter((e) => e.compareDocumentPosition(v) & Node.DOCUMENT_POSITION_FOLLOWING).pop().focus());
+await tab(page);
+ok((await vz()).fokus, 'Tab führt in den Videoplayer');
+await page.keyboard.press('Space');
+await page.waitForTimeout(600);
+z = await vz();
+ok(!z.paused, 'Leertaste startet das Video');
+await page.keyboard.press('Space');
+ok((await vz()).paused, 'Leertaste hält das Video wieder an');
+let stopps = 1;
+while ((await vz()).fokus && stopps < 20) { await tab(page); stopps++; }
+f = await fokus(page);
+ok(stopps < 20 && f.tag === 'summary', `Tab führt wieder hinaus (nach ${stopps - 1} Bedienelementen im Player) zu „${f.name}“ – keine Tastaturfalle`);
+await tab(page, 1, true);
+ok((await vz()).fokus, 'Umschalt+Tab führt zurück in den Player');
 await ctx.close();
 
 await browser.close();
