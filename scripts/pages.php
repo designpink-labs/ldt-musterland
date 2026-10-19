@@ -421,6 +421,18 @@ return [
   <li>Sehen Sie sich die Hinweise der automatischen Prüfung im Redaktionssystem an. Auf dieser Website prüft das Werkzeug Editoria11y die Seite schon beim Schreiben.</li>
   <li>Gehen Sie die Seite einmal nur mit der Tabulatortaste durch.</li>
 </ul>
+<h2>Prüfhilfe im Redaktionssystem</h2>
+<p>Wer im Redaktionssystem angemeldet ist, sieht auf jeder Seite die Prüfhilfe Editoria11y. Sie zeigt zwei Arten von Meldungen:</p>
+<ul>
+  <li><strong>Fehler (rot):</strong> Hier fehlt sicher etwas, zum Beispiel ein Alternativtext oder ein Linktext. Beheben Sie Fehler vor der Veröffentlichung.</li>
+  <li><strong>Hinweise zur manuellen Prüfung (gelb):</strong> Das Werkzeug kann nicht selbst entscheiden, ob alles stimmt. Ein Mensch muss es sich ansehen.</li>
+</ul>
+<p>Prüfen Sie jeden gelben Hinweis. Ist alles in Ordnung, wählen Sie „Als OK markieren“. Damit ist die Prüfung dokumentiert, und der Hinweis verschwindet für alle Bearbeitenden. „Ignorieren“ blendet den Hinweis nur für Sie selbst aus. Nutzen Sie es nur für eigene Zwischenstände, die Sie noch fertig bearbeiten.</p>
+<p>Zwei typische gelbe Hinweise:</p>
+<ul>
+  <li><strong>Bild mit leerem Alternativtext (<code>alt=""</code>):</strong> Ist das Bild wirklich nur Schmuck? Dann ist der leere Alternativtext richtig. Sagt das Bild etwas aus, braucht es einen Alternativtext.</li>
+  <li><strong>Link auf ein PDF:</strong> Editoria11y kann PDF-Dateien nicht prüfen. Stellen Sie sicher, dass das PDF barrierefrei ist und der Link Format und Größe nennt.</li>
+</ul>
 <h2>Downloads</h2>
 <p>Die Checkliste gibt es auch als barrierefreies PDF auf einer DIN-A4-Seite, zum Ausdrucken oder Weitergeben. Die Dokumentvorlagen enthalten fertige Formatvorlagen für Überschriften, Listen, Tabellen und Hinweise. Die Dokumentsprache ist auf Deutsch eingestellt.</p>
 <ul>
