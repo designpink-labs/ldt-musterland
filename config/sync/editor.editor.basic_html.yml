@@ -27,9 +27,15 @@ settings:
       - '|'
       - heading
       - code
+      - codeBlock
       - '|'
       - sourceEditing
   plugins:
+    ckeditor5_codeBlock:
+      languages:
+        -
+          label: Klartext
+          language: plaintext
     ckeditor5_heading:
       enabled_headings:
         - heading2
@@ -64,6 +70,8 @@ settings:
         - '<time datetime>'
         - '<details>'
         - '<summary>'
+        - '<figure class="struktur struktur--vorher struktur--nachher">'
+        - '<figcaption>'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default

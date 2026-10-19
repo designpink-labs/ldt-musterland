@@ -103,15 +103,39 @@ return [
   <li>Exportieren Sie das PDF mit Strukturinformationen: Unter Windows aktivieren Sie in den PDF-Optionen „Dokumentstrukturtags für Barrierefreiheit“. Auf dem Mac wählen Sie beim Speichern als PDF „Am besten für elektronische Verteilung und Barrierefreiheit“.</li>
 </ul>
 <h2>Beispiel: vorher und nachher</h2>
-<p>Das Merkblatt „Barrierefreie Dokumente erstellen“ gibt es hier in zwei Fassungen. Der Inhalt ist gleich, nur der technische Aufbau unterscheidet sich. Die Grafiken zeigen, welche Struktur ein Screenreader jeweils vorfindet.</p>
+<p>Das Merkblatt „Barrierefreie Dokumente erstellen“ gibt es hier in zwei Fassungen. Der Inhalt ist gleich, nur der technische Aufbau unterscheidet sich. Die Kästen zeigen, welche Struktur ein Screenreader jeweils vorfindet.</p>
 <h3>Vorher: einfacher Export ohne Tags</h3>
 <p><strong>Achtung:</strong> Diese Fassung ist absichtlich nicht barrierefrei. Sie dient nur als Beispiel für typische Fehler.</p>
-{{img:Struktur-vorher.png|Vorher: Das PDF hat keine Tags, keine Lesezeichen, keinen Titel und die falsche Sprache Englisch. Screenreader erkennen darin keine Überschriften, Listen oder Tabellen.}}
+<figure class="struktur struktur--vorher">
+<figcaption><strong>Vorher: PDF ohne Tags</strong><br>Struktur-Baum leer</figcaption>
+<pre><code class="language-plaintext">(keine Strukturinformationen vorhanden)
+
+Screenreader erkennen keine Überschriften, Listen,
+Tabellen oder Bilder. Das Bild hat keinen Alternativtext.
+Dokumentsprache: Englisch (falsch) · kein Titel · keine Lesezeichen</code></pre>
+</figure>
 <ul>
   <li>{{file:Merkblatt-vorher.pdf|Merkblatt Barrierefreie Dokumente, nicht barrierefreies Beispiel}}</li>
 </ul>
 <h3>Nachher: überarbeitet nach PDF/UA</h3>
-{{img:Struktur-nachher.png|Nachher: Das PDF ist vollständig getaggt – mit einer Hauptüberschrift H1 und vier Zwischenüberschriften H2, einer Liste, einer Abbildung mit Alternativtext, einer Tabelle mit Kopfzeile und einem Link. Die Sprache ist Deutsch, Titel und Lesezeichen sind vorhanden.}}
+<figure class="struktur struktur--nachher">
+<figcaption><strong>Nachher: getaggtes PDF nach PDF/UA</strong><br>Sprache Deutsch · Titel wird angezeigt · Lesezeichen vorhanden</figcaption>
+<pre><code class="language-plaintext">&lt;Document&gt;
+  &lt;H1&gt;  Barrierefreie Dokumente erstellen
+  &lt;P&gt;   Untertitel, Hinweis
+  &lt;H2&gt;  Warum barrierefreie Dokumente?
+  &lt;H2&gt;  In sechs Schritten …
+  &lt;L&gt;   Liste
+    &lt;LI&gt; &lt;Lbl&gt; &lt;LBody&gt;   (6 Listenpunkte)
+  &lt;Figure&gt;  Alt: „Überschriften bauen aufeinander auf …“
+  &lt;Caption&gt; Abbildung 1
+  &lt;H2&gt;  Als PDF speichern
+  &lt;Table&gt;
+    &lt;TR&gt; &lt;TH&gt; &lt;TH&gt; &lt;TH&gt;   (Kopfzeile)
+    &lt;TR&gt; &lt;TD&gt; &lt;TD&gt; &lt;TD&gt;   (3 Datenzeilen)
+  &lt;H2&gt;  Fragen?
+  &lt;Link&gt; poststelle@ldt-musterland.example</code></pre>
+</figure>
 <ul>
   <li>{{file:Merkblatt-nachher.pdf|Merkblatt Barrierefreie Dokumente, barrierefrei}}</li>
 </ul>

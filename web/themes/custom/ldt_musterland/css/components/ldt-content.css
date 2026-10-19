@@ -127,3 +127,40 @@
 .profile__angaben dd {
   margin: 0 0 var(--space-3);
 }
+
+/* Strukturbaum vorher/nachher (Barrierefreie Dokumente): <figure> mit Kopf
+   (figcaption) und <pre>. Umbrechen statt seitlich scrollen (320 px).
+   Kontraste: Text auf Rosa 14,54:1, auf Grün 15,06:1; Rahmen auf Weiß 5,38:1. */
+.struktur {
+  max-width: 48rem;
+  margin: var(--space-4) 0 var(--space-5);
+  border: 2px solid var(--c-line-strong);
+}
+.struktur figcaption {
+  padding: var(--space-3) var(--space-4);
+  line-height: 1.4;
+}
+.struktur figcaption strong {
+  display: block;
+  font-size: var(--fs-h4); /* kleiner als die Überschrift darüber */
+}
+.struktur figcaption br {
+  display: none; /* <strong> bricht schon um; <br> nur für die Ansicht ohne CSS */
+}
+.struktur--vorher figcaption {
+  background: var(--c-accent-soft);
+}
+.struktur--nachher figcaption {
+  background: var(--c-success-bg);
+}
+.struktur pre {
+  margin: 0;
+  padding: var(--space-4);
+  background: var(--c-bg);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.struktur code {
+  font-size: 0.9375rem;
+}
