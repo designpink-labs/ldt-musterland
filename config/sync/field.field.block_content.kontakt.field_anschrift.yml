@@ -1,0 +1,19 @@
+uuid: 47069169-0175-440d-a415-21f74059fb70
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.kontakt
+    - field.storage.block_content.field_anschrift
+id: block_content.kontakt.field_anschrift
+field_name: field_anschrift
+entity_type: block_content
+bundle: kontakt
+label: Anschrift
+description: 'Straße und Ort, je Zeile eine Angabe.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,23 @@
+uuid: 6419e21e-9f84-452d-928e-73dac4a72550
+langcode: de
+status: true
+dependencies:
+  content:
+    - 'block_content:kontakt:8bd964f7-1ce5-4012-ab3e-854d040280e1'
+  module:
+    - block_content
+  theme:
+    - ldt_musterland
+id: ldt_musterland_kontakt
+theme: ldt_musterland
+region: footer_kontakt
+weight: 0
+provider: null
+plugin: 'block_content:8bd964f7-1ce5-4012-ab3e-854d040280e1'
+settings:
+  id: 'block_content:8bd964f7-1ce5-4012-ab3e-854d040280e1'
+  label: 'Kontakt im Seitenfuß'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

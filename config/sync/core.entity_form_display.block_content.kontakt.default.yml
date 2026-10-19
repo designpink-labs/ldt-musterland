@@ -1,0 +1,62 @@
+uuid: 97669f26-0e9c-408e-afe0-45c5cc2808f7
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.kontakt
+    - field.field.block_content.kontakt.field_anschrift
+    - field.field.block_content.kontakt.field_email
+    - field.field.block_content.kontakt.field_hinweis
+    - field.field.block_content.kontakt.field_name
+    - field.field.block_content.kontakt.field_telefon
+id: block_content.kontakt.default
+targetEntityType: block_content
+bundle: kontakt
+mode: default
+content:
+  field_anschrift:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    type: email_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_hinweis:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_telefon:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

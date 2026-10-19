@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Inhaltsblock "Kontakt" im Seitenfuß.
+ *
+ * Felder einzeln als <address>; Telefon und E-Mail als Links. Der Rest von
+ * "content" wird mit ausgegeben, damit die Cache-Angaben erhalten bleiben.
+ */
+#}
+{% set b = content['#block_content'] %}
+{% set telefon = b.field_telefon.value %}
+{% set email = b.field_email.value %}
+<div{{ attributes.addClass('site-footer__kontakt') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  <address class="site-footer__address">
+    {{- b.field_name.value -}}
+    {%- if b.field_anschrift.value %}<br>{{ b.field_anschrift.value|trim|nl2br }}{% endif %}
+    {%- if telefon %}<br>Telefon: <a href="tel:{{ telefon|replace({' ': '', '/': '', '-': ''}) }}">{{ telefon }}</a>{% endif %}
+    {%- if email %}<br>E-Mail: <a href="mailto:{{ email }}">{{ email }}</a>{% endif %}
+    {%- if b.field_hinweis.value %}<br><span class="site-footer__hinweis">{{ b.field_hinweis.value }}</span>{% endif -%}
+  </address>
+  {{ content|without('field_name', 'field_anschrift', 'field_telefon', 'field_email', 'field_hinweis') }}
+</div>

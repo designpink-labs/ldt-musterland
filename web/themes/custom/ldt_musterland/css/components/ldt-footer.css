@@ -72,6 +72,7 @@
 }
 .site-footer__address {
   margin: 0;
+  font-style: normal;
   line-height: 1.6;
 }
 .site-footer__hinweis {

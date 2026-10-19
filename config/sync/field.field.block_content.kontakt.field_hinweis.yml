@@ -1,0 +1,19 @@
+uuid: 924ca2d3-ac5c-4586-839a-0d3366186fa4
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.kontakt
+    - field.storage.block_content.field_hinweis
+id: block_content.kontakt.field_hinweis
+field_name: field_hinweis
+entity_type: block_content
+bundle: kontakt
+label: Hinweis
+description: 'Kleiner Zusatz unter den Angaben, z. B. „Fiktive Beispieldaten“.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

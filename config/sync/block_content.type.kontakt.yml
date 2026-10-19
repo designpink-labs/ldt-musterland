@@ -1,0 +1,8 @@
+uuid: 6cd76025-a17d-494c-8dd6-c5eafe92c0d6
+langcode: de
+status: true
+dependencies: {  }
+id: kontakt
+label: Kontakt
+revision: false
+description: 'Kontaktangaben für den Seitenfuß (Name, Anschrift, Telefon, E-Mail, Hinweis).'

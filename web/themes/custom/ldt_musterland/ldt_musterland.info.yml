@@ -34,6 +34,7 @@ regions:
   content_above: 'Über dem Inhalt'
   content: 'Inhalt'
   content_below: 'Unter dem Inhalt'
+  footer_kontakt: 'Fußbereich: Kontakt'
   footer: 'Fußbereich'
   page_top: 'Seitenanfang (versteckt)'
   page_bottom: 'Seitenende (versteckt)'

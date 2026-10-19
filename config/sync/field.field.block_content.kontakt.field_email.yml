@@ -1,0 +1,19 @@
+uuid: 7e6aadf9-6d67-46ee-8106-8cfc9bf78f0b
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.kontakt
+    - field.storage.block_content.field_email
+id: block_content.kontakt.field_email
+field_name: field_email
+entity_type: block_content
+bundle: kontakt
+label: E-Mail
+description: 'Wird als mailto:-Link ausgegeben.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

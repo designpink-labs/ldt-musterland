@@ -1,0 +1,19 @@
+uuid: 92590b3e-1147-47ce-9719-955c2c955231
+langcode: de
+status: true
+dependencies:
+  config:
+    - block_content.type.kontakt
+    - field.storage.block_content.field_telefon
+id: block_content.kontakt.field_telefon
+field_name: field_telefon
+entity_type: block_content
+bundle: kontakt
+label: Telefon
+description: 'Wie angezeigt, z. B. 0000 000000. Der Link (tel:) wird daraus erzeugt.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

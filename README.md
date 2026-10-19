@@ -293,6 +293,19 @@ Schulungsfolien PASS, Übungsblatt PASS, Leistungsbeschreibung DGS-Videos PASS
   im Backend-Formular lässt sich die Sprache einer Quelle nicht setzen.
 - Marken (`{{link:…}}` usw.) für beide Skripte stehen in `scripts/marken.php`.
 
+## Kontakt im Seitenfuß (Inhaltsblock „Kontakt“)
+
+- Blocktyp `kontakt` mit den Feldern Name, Anschrift (je Zeile eine Angabe), Telefon,
+  E-Mail und Hinweis. Bearbeiten unter *Inhalt → Blöcke*.
+- Platziert in der Region **„Fußbereich: Kontakt“** (`footer_kontakt`, linke Spalte des
+  Seitenfußes), Block-ID `ldt_musterland_kontakt`.
+- Ausgabe: `block--block-content--type--kontakt.html.twig` als `<address>`; Telefon als
+  `tel:`-Link (Leerzeichen, „/“ und „-“ werden entfernt), E-Mail als `mailto:`-Link.
+- Daten in `scripts/bloecke.php` (feste UUID, auf die die Blockplatzierung in
+  `config/sync` verweist), anlegen mit
+  `ddev drush php:script scripts/create-bloecke.php` (`-- --overwrite` überschreibt).
+  Auf einer frischen Installation fehlt der Block, bis das Skript gelaufen ist.
+
 ## Formular „Barriere melden“ (Vorqualifizierung)
 
 - Felder: **Was ist das Problem?** (Pflicht, Radio-Gruppe; Werte `inhalt`, `bedienung`,
