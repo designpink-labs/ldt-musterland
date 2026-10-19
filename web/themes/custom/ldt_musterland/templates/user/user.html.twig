@@ -16,8 +16,18 @@
  * @see \Drupal\user\UserThemeHooks::preprocessUser()
  */
 #}
+{#
+  "Mitglied seit" gibt der Kern als <h4> aus (Sprung H1 → H4). Hier stattdessen
+  als Beschreibungsliste; den Wert setzt LdtMusterlandHooks::preprocessUser().
+#}
 <article{{ attributes.addClass('profile') }}>
   {% if content %}
-    {{- content -}}
+    {{- content|without('member_for') -}}
+  {% endif %}
+  {% if mitglied_seit %}
+    <dl class="profile__angaben">
+      <dt>{{ 'Member for'|t }}</dt>
+      <dd>{{ mitglied_seit }}</dd>
+    </dl>
   {% endif %}
 </article>

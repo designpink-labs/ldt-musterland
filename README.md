@@ -29,7 +29,7 @@ Barrierefreiheit. Ein Hinweis-Balken auf jeder Seite macht klar, dass es keine e
 
 <img src="docs/styleguide.webp" width="640" alt="Seite „Gestaltungsrichtlinien“ (/styleguide): Inhaltsverzeichnis mit Farben und Kontrasten, Typografie, Links und Buttons, Formularfeldern, Karten, Hinweisboxen, Braille-Band und Bildregeln, darunter die Farbwerte des Themes als Farbfelder mit Namen und Hex-Code.">
 
-<img src="docs/axe-ergebnis.webp" width="560" alt="Ausschnitt der Testausgabe von „npm run axe“: Jede Seite steht mit „OK“ für Desktop und mobil, dazu die Zustände „Menü offen“ und „Formular mit Fehlern“. Ergebnis: 66 Prüfungen, 0 mit Verstößen.">
+<img src="docs/axe-ergebnis.webp" width="560" alt="Ausschnitt der Testausgabe von „npm run axe“: Jede Seite steht mit „OK“ für Desktop und mobil, dazu die Zustände „Menü offen“ und „Formular mit Fehlern“ sowie das Benutzerprofil im angemeldeten Zustand. Ergebnis: 70 Prüfungen, 0 mit Verstößen.">
 
 ## Was man sich ansehen sollte
 
@@ -349,7 +349,7 @@ Voraussetzung: Node.js, Google Chrome, laufende DDEV-Umgebung.
 ```bash
 cd tests/a11y
 npm install          # einmalig
-npm run axe          # axe-core: alle Seiten, Desktop + 375 px, Menü offen, Formularfehler
+npm run axe          # axe-core: alle Seiten, Desktop + 375 px, Menü offen, Formularfehler, angemeldet /user/1
 npm run tastatur     # Skip-Link, Tab-Reihenfolge, Fokus sichtbar, Menüs, Formular
 npm run reflow       # 320 px Breite (= 400 % Zoom) ohne waagerechtes Scrollen
 npm run meta         # Meta-Beschreibung: höchstens 160 Zeichen, endet auf den Musterseiten-Zusatz; keine doppelten <title>

@@ -30,6 +30,19 @@ class LdtMusterlandHooks {
   }
 
   /**
+   * Implements hook_preprocess_user().
+   *
+   * "Mitglied seit" ohne Überschrift (Kern: <h4>), siehe user.html.twig.
+   */
+  #[Hook('preprocess_user')]
+  public function preprocessUser(array &$variables): void {
+    if (isset($variables['elements']['member_for'])) {
+      $variables['mitglied_seit'] = \Drupal::service('date.formatter')
+        ->formatTimeDiffSince($variables['elements']['#user']->getCreatedTime());
+    }
+  }
+
+  /**
    * Implements hook_preprocess_menu().
    *
    * Aktuelle Adresse für aria-current="page" in den Menü-Templates.

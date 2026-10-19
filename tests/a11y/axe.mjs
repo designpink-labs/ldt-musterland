@@ -3,6 +3,7 @@
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { BASE, SEITEN, VIEWPORTS, LAUNCH, CONTEXT } from './seiten.mjs';
 
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'];
@@ -39,6 +40,25 @@ for (const [vp, viewport] of Object.entries(VIEWPORTS)) {
   await page.waitForLoadState('networkidle');
   await pruefe(page, `${vp.padEnd(7)} Zustand: Formular mit Fehlern`);
   await ctx.close();
+
+  // Angemeldet (Einmal-Login über drush uli): Benutzerprofil im Frontend-Theme.
+  // Bearbeiten-Seiten für Inhalte laufen im Admin-Theme Claro und fehlen hier.
+  let uli;
+  try {
+    uli = execFileSync('ddev', ['drush', 'uli', '--no-browser', '--uri=' + BASE], { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+  }
+  catch {
+    console.log(`HINWEIS ${vp.padEnd(7)} angemeldete Seiten übersprungen (ddev drush uli nicht verfügbar)`);
+    continue;
+  }
+  const angemeldet = await browser.newContext({ ...CONTEXT, viewport });
+  const seite = await angemeldet.newPage();
+  await seite.goto(uli, { waitUntil: 'networkidle' });
+  for (const pfad of ['/user/1', '/user/1/edit']) {
+    await seite.goto(BASE + pfad, { waitUntil: 'networkidle' });
+    await pruefe(seite, `${vp.padEnd(7)} angemeldet ${pfad}`);
+  }
+  await angemeldet.close();
 }
 await browser.close();
 
