@@ -57,10 +57,10 @@ d['extra']['installer-paths'] = {
 open(p, 'w').write(json.dumps(d, indent=4, ensure_ascii=False) + '\n')
 PY
 
-echo "3/6 composer install --no-dev --optimize-autoloader ($IMAGE)"
+echo "3/6 composer install --no-dev --optimize-autoloader (PHP 8.3, $IMAGE)"
 docker run --rm -u "$(id -u):$(id -g)" -e COMPOSER_HOME=/tmp/composer \
-  -v "$ZIEL":/build -w /build/drupal-projekt --entrypoint composer "$IMAGE" \
-  install --no-dev --optimize-autoloader --no-interaction --no-progress
+  -v "$ZIEL":/build -w /build/drupal-projekt --entrypoint php8.3 "$IMAGE" \
+  /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction --no-progress
 rm -rf "$BASIS/assets"
 
 echo "4/6 .htaccess für Strato (RewriteBase /drupal, Passwortschutz, noindex)"
@@ -96,17 +96,18 @@ HTML
 
 cp "$PROJEKT/assets/STRATO-UPLOAD.md" "$ZIEL/"
 
-# Rechte: Ordner 755, Dateien 644 (settings*.php setzt man auf dem Server auf 444).
-find "$ZIEL" -type d -exec chmod 755 {} +
-find "$ZIEL" -type f -exec chmod 644 {} +
-find "$BASIS/vendor/bin" -type f -exec chmod 755 {} +
+# Rechte: Ordner 755, Dateien 644; ausführbare Dateien (z. B. Drush) behalten
+# ihr x (755). settings*.php setzt man auf dem Server auf 444.
+chmod -R u+rwX,go+rX,go-w "$ZIEL"
 
 echo "6/6 Datenbank-Export (Caches vorher leeren)"
 (cd "$PROJEKT" && ddev drush cr && ddev export-db --gzip=false --file="$ZIEL/ldt.sql")
 chmod 644 "$ZIEL/ldt.sql"
 
 # Kontrolle: nichts Lokales oder Geheimes im Upload.
-FUNDE="$(find "$ZIEL" \( -name settings.local.php -o -name settings.ddev.php -o -name '.env' -o -name '.env.*' \
+# Fremder Code (vendor/, core/) bringt eigene Beispiel- und Testdateien mit
+# (z. B. core/.env.example) – die sind hier nicht gemeint.
+FUNDE="$(find "$ZIEL" \( -path "$BASIS/vendor" -o -path "$WEB/core" \) -prune -o \( -name settings.local.php -o -name settings.ddev.php -o -name '.env' -o -name '.env.*' \
   -o -name node_modules -o -name .git -o -name .ddev -o -name .htpasswd -o -path '*/tests/a11y' \) -print)"
 if [ -n "$FUNDE" ]; then
   echo "FEHLER – gehört nicht in den Upload:" >&2
