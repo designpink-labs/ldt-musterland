@@ -70,7 +70,7 @@ settings:
         - '<time datetime>'
         - '<details>'
         - '<summary>'
-        - '<figure class="struktur struktur--vorher struktur--nachher">'
+        - '<figure class="struktur struktur--vorher struktur--nachher beispiel">'
         - '<figcaption>'
     linkit_extension:
       linkit_enabled: true

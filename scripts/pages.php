@@ -500,7 +500,9 @@ Dokumentsprache: Englisch (falsch) · kein Titel · keine Lesezeichen</code></pr
 <h2>Beispiel: eine Meldung, drei Kanäle</h2>
 <p>Dieselbe Information braucht in jedem Kanal eine andere Form. Als Beispiel dient unsere Meldung „{{link:meldung/en-301-549|Europäische Norm setzt jetzt auf WCAG 2.2}}“. Die Beiträge sind Muster und wurden nicht veröffentlicht.</p>
 <h3>Instagram</h3>
-{{img:sharepic-wcag22.png|Infografik: WCAG 2.2 – 6 neue Anforderungen. 1. Fokus nicht vollständig verdeckt. 2. Ziehbewegungen brauchen eine Alternative. 3. Klickflächen mindestens 24 × 24 Pixel. 4. Hilfe immer an derselben Stelle. 5. Eingaben nicht doppelt verlangen. 6. Anmeldung ohne Rätsel und Merkaufgaben.|432}}
+<figure class="beispiel">
+<figcaption>So sieht der Beitrag aus</figcaption>
+{{img:sharepic-wcag22.png|Sharepic: WCAG 2.2 – 6 neue Anforderungen. Die sechs Punkte stehen im Beitragstext.|432}}
 <blockquote>
 <p>Barrierefreiheit hat einen neuen Maßstab: WCAG 2.2.</p>
 <p>Die europäische Norm EN 301 549 setzt jetzt auf die neue Version. Das sind die 6 neuen Anforderungen:</p>
@@ -508,7 +510,12 @@ Dokumentsprache: Englisch (falsch) · kein Titel · keine Lesezeichen</code></pr
 <p>Rechtlich gilt vorerst noch WCAG 2.1. Planen Sie neue Projekte trotzdem schon nach 2.2.<br>Mehr dazu: Link in der Bio</p>
 <p>#DigitaleBarrierefreiheit #WCAG #Barrierefreiheit</p>
 </blockquote>
-<p><strong>Was ihn barrierefrei macht:</strong> Die Infografik hat einen Alternativtext mit allen sechs Punkten, und der Beitragstext wiederholt ihre Aussage vollständig. Die Hashtags stehen am Ende und in Binnenmajuskeln, es gibt keine Emojis als Aufzählungszeichen.</p>
+<p><strong>Alternativtext auf Instagram:</strong></p>
+<blockquote>
+<p>Infografik: WCAG 2.2 – 6 neue Anforderungen. 1. Fokus nicht vollständig verdeckt. 2. Ziehbewegungen brauchen eine Alternative. 3. Klickflächen mindestens 24 × 24 Pixel. 4. Hilfe immer an derselben Stelle. 5. Eingaben nicht doppelt verlangen. 6. Anmeldung ohne Rätsel und Merkaufgaben.</p>
+</blockquote>
+</figure>
+<p><strong>Was ihn barrierefrei macht:</strong> Auf Instagram hat die Infografik einen Alternativtext mit allen sechs Punkten (siehe oben), und der Beitragstext wiederholt ihre Aussage vollständig. Die Hashtags stehen am Ende und in Binnenmajuskeln, es gibt keine Emojis als Aufzählungszeichen.</p>
 <h3>Facebook</h3>
 <blockquote>
 <p><strong>Neue Fassung der europäischen Norm für Barrierefreiheit</strong></p>

@@ -164,3 +164,29 @@
 .struktur code {
   font-size: 0.9375rem;
 }
+
+/* Beispiel-Beitrag (Social Media): Bild, Beitragstext und Alternativtext als
+   ein <figure>; Überschrift des Beispiels in der <figcaption>. */
+.beispiel {
+  max-width: var(--measure);
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--radius);
+}
+.beispiel > figcaption {
+  margin-bottom: var(--space-3);
+  font-weight: 700;
+}
+.beispiel img {
+  display: block;
+  margin-bottom: var(--space-4);
+}
+.beispiel > :last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 30em) {
+  .beispiel {
+    padding: var(--space-3);
+  }
+}
