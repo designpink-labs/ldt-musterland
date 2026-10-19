@@ -23,6 +23,11 @@ $databases['default']['default'] = [
   'driver' => 'mysql',
   'prefix' => '',
   'collation' => 'utf8mb4_general_ci',
+  // Von Drupal empfohlen (Statusbericht „Transaktions-Isolationsebene“):
+  // weniger Sperren und Deadlocks als REPEATABLE READ.
+  'init_commands' => [
+    'isolation_level' => 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+  ],
 ];
 
 // Geheimer Schlüssel: einmalig eine lange Zufallszeichenkette erzeugen,

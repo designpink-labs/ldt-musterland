@@ -48,6 +48,8 @@ vorher sichern, falls dort schon etwas liegt.
 2. Eintragen:
    - **Datenbank:** `DATENBANKNAME`, `DATENBANKBENUTZER`, `DATENBANKPASSWORT`,
      `DATENBANKHOST` aus dem Kundenbereich.
+     Die Zeilen `init_commands` (Isolationsebene `READ COMMITTED`) stehen schon im Block –
+     nicht entfernen; sonst warnt der Statusbericht „Transaktions-Isolationsebene“.
    - **hash_salt:** `HIER_EINE_LANGE_ZUFALLSZEICHENKETTE` durch eine **neue** Zeichenkette
      ersetzen, z. B. lokal erzeugt mit `openssl rand -base64 55`.
    - **trusted_host_patterns:** steht schon auf `designpink.de` und `www.designpink.de`.
@@ -106,3 +108,40 @@ Falls die Seite danach fehlerhaft aussieht oder eine Fehlermeldung zeigt:
 - `/drupal/barriere-melden` zeigt den gelben Demo-Hinweis über dem Formular.
 - Downloads, Fotos, Video und Untertitel laden (sonst Dateirechte prüfen).
 - *Berichte → Statusbericht:* Dateisystem, privates Verzeichnis, Cron, „Vertrauenswürdige Hostnamen“.
+
+## 9. Spätere Änderungen ohne Drush
+
+Auf Strato läuft kein Drush. Änderungen kommen per SFTP oder über die Oberfläche.
+
+### Geänderte settings.php hochladen
+
+Drupal schützt `sites/default` und `settings.php` gegen Überschreiben. Deshalb kurz öffnen:
+
+1. Im SFTP-Programm die Rechte setzen: Ordner `/designpink/drupal/sites/default` auf **755**,
+   Datei `settings.php` darin auf **644**.
+2. Neue `settings.php` hochladen (aus dem Repository: `web/sites/default/settings.php`).
+3. Wieder schließen: `settings.php` auf **444**, Ordner `sites/default` auf **555**.
+4. Gilt genauso für `settings.local.php` (z. B. um `init_commands` nachzutragen):
+   die eigene, ausgefüllte Kopie bearbeiten – nie die Vorlage mit Platzhaltern hochladen.
+5. Cache leeren: *Konfiguration → Entwicklung → Leistung → „Alle Caches leeren“*
+   (`/drupal/admin/config/development/performance`).
+
+### Webform: keine Dateien von fremden Servern
+
+Webform lädt Zusatzbibliotheken (Auswahllisten, Tooltips, Zeichenzähler …) von einem CDN,
+wenn sie nicht ausgeschlossen sind. Die Musterseite braucht keine davon.
+
+1. `/drupal/admin/structure/webform/config/libraries` öffnen
+   (*Struktur → Webforms → Konfiguration → Libraries*).
+2. Abschnitt **„External optional libraries“** aufklappen.
+3. **Alle 14 Haken entfernen** (ohne Haken = ausgeschlossen): Choices, Code Mirror,
+   jQuery: Chosen, Input Mask, International Telephone Input, RateIt, Select2,
+   Text Counter, Timepicker, Popper.js, Progress Tracker, Signature Pad, Tabby, Tippy.js.
+4. **„Konfiguration speichern“**.
+5. Prüfen: *Berichte → Statusbericht*, Eintrag zu den Webform-Bibliotheken zeigt
+   „14 libraries (0 installed; 14 excluded; 0 CDN)“.
+
+Alternative für Konfiguration aus dem Repository: die geänderte YAML-Datei nach
+`/drupal-projekt/config/sync/` hochladen und unter *Konfiguration → Entwicklung →
+Konfigurationssynchronisierung* (`/drupal/admin/config/development/configuration`)
+die Unterschiede prüfen und importieren.

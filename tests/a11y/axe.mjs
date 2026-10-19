@@ -39,6 +39,11 @@ for (const [vp, viewport] of Object.entries(VIEWPORTS)) {
   await page.getByRole('button', { name: 'Meldung absenden' }).click();
   await page.waitForLoadState('networkidle');
   await pruefe(page, `${vp.padEnd(7)} Zustand: Formular mit Fehlern`);
+
+  await page.goto(BASE + '/user/login', { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Anmelden' }).click();
+  await page.waitForLoadState('networkidle');
+  await pruefe(page, `${vp.padEnd(7)} Zustand: Anmeldung mit Fehlern`);
   await ctx.close();
 
   // Angemeldet (Einmal-Login über drush uli): Benutzerprofil im Frontend-Theme.

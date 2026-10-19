@@ -726,6 +726,10 @@ $settings['update_free_access'] = FALSE;
  * @see https://www.drupal.org/node/3537128
  */
 # $settings['enable_html5_validation'] = TRUE;
+// LDT: Drupal-12-Verhalten schon jetzt – keine Browser-Prüfung (novalidate),
+// Fehler zeigt Drupal serverseitig zugänglich an (Inline Form Errors,
+// Fehlerliste, aria-describedby). Test: tests/a11y/tastatur.mjs.
+$settings['enable_html5_validation'] = FALSE;
 
 /**
  * Load services definition file.

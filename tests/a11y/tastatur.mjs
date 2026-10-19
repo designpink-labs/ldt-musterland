@@ -139,6 +139,33 @@ const desc = await page.locator('#edit-seite').getAttribute('aria-describedby');
 ok(desc.includes('edit-seite--error'), `Feld ist mit der Fehlermeldung verknüpft (aria-describedby="${desc}")`);
 await ctx.close();
 
+// 4b. Anmeldeformular: keine Browser-Prüfung (enable_html5_validation = FALSE),
+// Drupal zeigt die Pflichtfeld-Fehler serverseitig und zugänglich an.
+console.log('\n[Desktop] Anmeldeformular – Pflichtfelder leer');
+ctx = await browser.newContext({ ...CONTEXT, viewport: VIEWPORTS.desktop });
+page = await ctx.newPage();
+await page.goto(BASE + '/user/login', { waitUntil: 'networkidle' });
+ok(await page.locator('form#user-login-form').getAttribute('novalidate') !== null, 'Formular hat novalidate (keine Browser-Fehlerblasen)');
+await page.getByRole('button', { name: 'Anmelden' }).click();
+await page.waitForLoadState('networkidle');
+await page.waitForTimeout(300);
+const login = await page.evaluate(() => ({
+  fokusAufListe: document.activeElement.matches('.messages--error[tabindex="-1"]'),
+  links: [...document.querySelectorAll('[role="alert"] a')].map((a) => a.getAttribute('href')),
+  name: document.getElementById('edit-name').getAttribute('aria-describedby') || '',
+  pass: document.getElementById('edit-pass').getAttribute('aria-describedby') || '',
+  nameFehler: document.getElementById('edit-name--error')?.textContent.trim(),
+}));
+ok(login.fokusAufListe, 'Nach dem Absenden steht der Fokus auf der Fehlerliste');
+ok(login.links.includes('#edit-name') && login.links.includes('#edit-pass'), `Fehlerliste verlinkt auf beide Felder (${login.links.join(', ')})`);
+ok(login.name.includes('edit-name--error') && !!login.nameFehler, `Benutzername ist mit der Fehlermeldung verknüpft („${login.nameFehler}“)`);
+ok(login.pass.includes('edit-pass--error'), `Passwort ist mit der Fehlermeldung verknüpft (aria-describedby="${login.pass}")`);
+await page.locator('[role="alert"] a[href="#edit-name"]').focus();
+await page.keyboard.press('Enter');
+f = await fokus(page);
+ok(f.id === 'edit-name', 'Link in der Fehlerliste setzt den Fokus ins Feld „Benutzername“');
+await ctx.close();
+
 // 5. Formular aus dem Seitenfuß: Feld "Betroffene Seite" ist vorausgefüllt
 console.log('\n[Desktop] „Barriere melden“ aus dem Seitenfuß');
 ctx = await browser.newContext({ ...CONTEXT, viewport: VIEWPORTS.desktop });
