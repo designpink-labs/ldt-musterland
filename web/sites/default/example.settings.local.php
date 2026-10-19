@@ -29,6 +29,13 @@ $databases['default']['default'] = [
 // z. B. lokal mit: ddev drush php:eval "echo \Drupal\Component\Utility\Crypt::randomBytesBase64(55);"
 $settings['hash_salt'] = 'HIER_EINE_LANGE_ZUFALLSZEICHENKETTE';
 
+// Ordner außerhalb der Domain (Aufteilung auf dem Webspace, siehe STRATO-UPLOAD.md):
+//   /designpink/drupal/   = Inhalt von web/ (DRUPAL_ROOT)
+//   /drupal-projekt/      = vendor/, config/sync/, private/
+// Relative Pfade gelten ab DRUPAL_ROOT.
+$settings['config_sync_directory'] = '../../drupal-projekt/config/sync';
+$settings['file_private_path'] = '../../drupal-projekt/private';
+
 // Nur diese Hostnamen dürfen die Seite ausliefern (Schutz vor Host-Header-Angriffen).
 $settings['trusted_host_patterns'] = [
   '^designpink\.de$',

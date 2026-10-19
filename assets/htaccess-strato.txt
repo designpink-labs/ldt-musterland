@@ -1,0 +1,14 @@
+# --- LDT: nur auf dem Strato-Server (eingefügt von scripts/strato-build.sh) ---
+# Passwortschutz: AuthUserFile auf den ABSOLUTEN Serverpfad der .htpasswd im
+# Ordner drupal-projekt setzen (Platzhalter ersetzen, sonst Fehler 500).
+AuthType Basic
+AuthName "Musterseite - Zugang nur mit Passwort"
+AuthUserFile /ABSOLUTER/PFAD/AUF/DEM/SERVER/drupal-projekt/.htpasswd
+Require valid-user
+
+# Suchmaschinen: nichts indexieren (auch PDFs, Bilder, Videos).
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+# -----------------------------------------------------------------------------
+
