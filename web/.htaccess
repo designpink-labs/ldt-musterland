@@ -205,7 +205,7 @@ AddType image/webp .webp
 </IfModule>
 
 
-# designpink: zusätzliche Dateitypen (angehängt per composer.json,
+# LDT: zusätzliche Dateitypen (angehängt per composer.json,
 # extra.drupal-scaffold.file-mapping – übersteht Core-Updates).
 <IfModule mod_mime.c>
   # WebVTT-Untertitel für <track>.

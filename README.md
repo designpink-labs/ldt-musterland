@@ -21,6 +21,16 @@ Barrierefreiheit. Ein Hinweis-Balken auf jeder Seite macht klar, dass es keine e
 - **Automatisierte Tests** mit axe-core und Playwright
 - Lokale Entwicklung mit **DDEV**, Konfiguration in `config/sync/`
 
+## Ansicht
+
+<img src="docs/startseite-desktop.webp" width="640" alt="Startseite am Desktop: gelber Balken „Musterseite – keine echte Behörde“, Kopf mit Logo „LDT Musterland“ und Hauptnavigation, links die Überschrift „Digitale Angebote für alle Menschen im Musterland“ mit Einleitung, rechts ein Foto von zwei Frauen am Laptop, darunter ein Punkteband in Brailleschrift, vier Themenkarten auf grauer Fläche, drei Meldungen und ein dunkler Seitenfuß.">
+
+<img src="docs/startseite-mobil.webp" width="280" alt="Startseite bei 375 Pixel Breite: Menü-Button statt Navigation, Servicelinks „Leichte Sprache“ und „Gebärdensprache“ untereinander, Überschrift, Einleitung und Foto in einer Spalte, Text ohne waagerechtes Scrollen.">
+
+<img src="docs/styleguide.webp" width="640" alt="Seite „Gestaltungsrichtlinien“ (/styleguide): Inhaltsverzeichnis mit Farben und Kontrasten, Typografie, Links und Buttons, Formularfeldern, Karten, Hinweisboxen, Braille-Band und Bildregeln, darunter die Farbwerte des Themes als Farbfelder mit Namen und Hex-Code.">
+
+<img src="docs/axe-ergebnis.webp" width="560" alt="Ausschnitt der Testausgabe von „npm run axe“: Jede Seite steht mit „OK“ für Desktop und mobil, dazu die Zustände „Menü offen“ und „Formular mit Fehlern“. Ergebnis: 66 Prüfungen, 0 mit Verstößen.">
+
 ## Was man sich ansehen sollte
 
 | Wo | Was |
@@ -58,10 +68,14 @@ npm run alle    # axe, Tastatur, Reflow, Meta-Daten, Quelltext
 
 ## Lizenz
 
-Für den eigenen Code ist noch keine Lizenz festgelegt. Drupal-Kern und Contrib-Module
-stehen unter GPL-2.0-or-later, die Schrift Atkinson Hyperlegible unter der SIL Open Font
-License (`web/themes/custom/ldt_musterland/fonts/OFL.txt`), die Fotos unter der
-Unsplash-Lizenz (Bildnachweis im Impressum).
+- **Eigener Code** (Theme, Module, Skripte, Tests, Konfiguration): GPL-2.0-or-later wie
+  Drupal, siehe `LICENSE.txt`. Das gilt auch für Drupal-Kern und Contrib-Module.
+- **Schrift** Atkinson Hyperlegible: SIL Open Font License 1.1
+  (`web/themes/custom/ldt_musterland/fonts/OFL.txt`).
+- **Fotos:** Unsplash-Lizenz. Sie liegen nicht im Repository, der Bildnachweis steht im Impressum.
+- **Texte der Seiten** (`scripts/pages.php`, `scripts/meldungen.php`): © 2026 Rafael Fernandez.
+  Es sind Mustertexte für eine fiktive Behörde. Sie gelten nicht als amtliche Auskunft und
+  fallen nicht unter die GPL.
 
 ---
 
