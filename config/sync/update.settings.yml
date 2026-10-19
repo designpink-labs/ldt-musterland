@@ -9,5 +9,5 @@ fetch:
   timeout: 30
 notification:
   emails:
-    - hello@designpink.studio
+    - updates@ldt-musterland.example
   threshold: all

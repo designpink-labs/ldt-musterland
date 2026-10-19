@@ -58,3 +58,9 @@
 # Test-Werkzeuge
 node_modules/
 tests/a11y/ergebnisse/
+
+# Passwortschutz (Basic Auth): Dateien nie ins Repository
+.htpasswd
+.htdigest
+.htgroup
+*.htpasswd

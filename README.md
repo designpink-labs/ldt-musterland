@@ -1,13 +1,75 @@
-# designpink – Drupal 11
+# LDT Musterland – barrierefreie Musterseite mit Drupal 11
 
-Drupal-11-Website (Composer-Projekt `drupal/recommended-project`), lokal entwickelt mit DDEV.
-Spätere Live-Adresse: **https://designpink.de/drupal** (Strato Shared Hosting).
+> **Musterseite einer fiktiven Behörde (Landesamt für Digitale Teilhabe Musterland).
+> Keine echte Behörde.**
 
-**Konzept:** Musterseite einer fiktiven Behörde, des *Landesamts für Digitale Teilhabe
-Musterland* (LDT Musterland), als Arbeitsprobe für Online-Redaktion und digitale
-Barrierefreiheit (Ziel: WCAG 2.1 AA). Ein Hinweis-Balken auf jeder Seite macht klar, dass es
-keine echte Behörde ist. Impressum und Datenschutz enthalten die echten Angaben des
-tatsächlichen Betreibers.
+## Ziel
+
+Die Website zeigt am Beispiel einer erfundenen Landesbehörde, wie sich ein Webauftritt der
+öffentlichen Verwaltung barrierefrei aufbauen, schreiben und prüfen lässt:
+Ziel ist **WCAG 2.1 AA** (BITV 2.0), bei der Gestaltung zusätzlich WCAG 2.2 AA.
+Dazu gehören klare Texte, Leichte Sprache, Gebärdensprache, ein Video mit Untertiteln und
+Transkript, barrierefreie PDFs, ein Formular „Barriere melden“ und eine Erklärung zur
+Barrierefreiheit. Ein Hinweis-Balken auf jeder Seite macht klar, dass es keine echte Behörde ist.
+
+## Technik
+
+- **Drupal 11** (Composer-Projekt `drupal/recommended-project`), PHP 8.3, Sprache Deutsch
+- **Eigenes Theme** `ldt_musterland`: reines CSS mit Custom Properties, kein Build-Schritt,
+  selbst gehostete Schrift Atkinson Hyperlegible, Fotos als WebP mit `srcset`
+- **Eigene Module** `ldt_*` (siehe unten)
+- **Automatisierte Tests** mit axe-core und Playwright
+- Lokale Entwicklung mit **DDEV**, Konfiguration in `config/sync/`
+
+## Was man sich ansehen sollte
+
+| Wo | Was |
+|---|---|
+| `web/themes/custom/ldt_musterland/` | Theme: Farb-Tokens mit Kontrastwerten (`css/base/tokens.css`), Navigation nach dem Disclosure-Muster (`js/navigation.js`), Templates, Bildvarianten (`src/BildVarianten.php`) |
+| `web/modules/custom/ldt_video/` | HTML5-Video mit WebVTT-Untertiteln, Bildunterschrift als zugänglicher Name |
+| `web/modules/custom/ldt_formulare/` | Fehlermeldungen in Formularen per `aria-describedby` mit dem Feld verknüpft |
+| `web/modules/custom/ldt_musterhinweis/` | Musterseiten-Hinweis auf jeder Seite, Versionskennung für Datei-Adressen |
+| `web/modules/custom/ldt_styleguide/` | Seite `/styleguide` mit allen Bausteinen und live berechneten Kontrasten |
+| `tests/a11y/` | axe-core auf allen Seiten (Desktop und 375 px), Tastatur-Durchgang, Reflow bei 320 px, Meta-Daten, Quelltext |
+| `scripts/pages.php` | Alle Seitentexte als Daten, angelegt mit `scripts/create-content.php` |
+
+## Lokal starten und testen
+
+Voraussetzungen: Docker Desktop, [DDEV](https://ddev.com), Node.js und Google Chrome für die Tests.
+
+```bash
+ddev start
+ddev composer install
+ddev drush site:install --existing-config -y   # Drupal aus config/sync/ aufsetzen
+ddev drush uli                                 # Login-Link für das Backend
+```
+
+**Hinweis:** Seiteninhalte und hochgeladene Dateien (Fotos, PDFs, Video) liegen nicht im
+Repository. `scripts/create-content.php` legt die Seiten an, erwartet die Dateien aber unter
+`web/sites/default/files/` (siehe „Seiten und Texte“).
+
+Tests (bei laufender DDEV-Umgebung):
+
+```bash
+cd tests/a11y
+npm install
+npm run alle    # axe, Tastatur, Reflow, Meta-Daten, Quelltext
+```
+
+## Lizenz
+
+Für den eigenen Code ist noch keine Lizenz festgelegt. Drupal-Kern und Contrib-Module
+stehen unter GPL-2.0-or-later, die Schrift Atkinson Hyperlegible unter der SIL Open Font
+License (`web/themes/custom/ldt_musterland/fonts/OFL.txt`), die Fotos unter der
+Unsplash-Lizenz (Bildnachweis im Impressum).
+
+---
+
+## Projektdetails
+
+Lokal entwickelt mit DDEV, spätere Live-Adresse: **https://designpink.de/drupal**
+(Strato Shared Hosting). Impressum und Datenschutz enthalten auf der Live-Seite die
+Angaben des tatsächlichen Betreibers; im Repository stehen dort nur Platzhalter.
 
 | | |
 |---|---|

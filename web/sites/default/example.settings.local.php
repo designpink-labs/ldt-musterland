@@ -38,6 +38,10 @@ $settings['trusted_host_patterns'] = [
 // Auf dem Live-Server keine Fehlermeldungen anzeigen.
 $config['system.logging']['error_level'] = 'hide';
 
+// E-Mail-Hinweise auf Sicherheits-Updates: echte Adresse nur hier eintragen
+// (im Repository steht der Platzhalter updates@ldt-musterland.example).
+$config['update.settings']['notification']['emails'] = ['IHRE-ADRESSE@example.org'];
+
 // Matomo-Webanalyse nur live aktivieren (lokal bleibt sie leer und inaktiv).
 // Werte aus der eigenen Matomo-Installation eintragen.
 // $config['matomo.settings']['site_id'] = 'SITE_ID';
