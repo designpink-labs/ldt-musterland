@@ -74,4 +74,5 @@ $config['webform.webform.barriere_melden']['settings']['results_disabled_ignore'
 $config['webform.webform.barriere_melden']['handlers']['benachrichtigung']['status'] = FALSE;
 $config['webform.webform.barriere_melden']['settings']['confirmation_message'] = '<p><strong>Demo-Modus:</strong> Vielen Dank! Dies ist eine Musterseite. Ihre Meldung wurde nicht gespeichert und nicht versendet.</p>';
 
-// 3. Passwortschutz: siehe README, Abschnitt "Passwortschutz (optional)".
+// 3. Passwortschutz: in designpink/drupal/.htaccess (AuthUserFile) und
+//    drupal-projekt/.htpasswd – siehe STRATO-UPLOAD.md, Schritt 5.

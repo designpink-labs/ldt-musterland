@@ -100,8 +100,16 @@ cp "$PROJEKT/assets/STRATO-UPLOAD.md" "$ZIEL/"
 # ihr x (755). settings*.php setzt man auf dem Server auf 444.
 chmod -R u+rwX,go+rX,go-w "$ZIEL"
 
-echo "6/6 Datenbank-Export (Caches vorher leeren)"
-(cd "$PROJEKT" && ddev drush cr && ddev export-db --gzip=false --file="$ZIEL/ldt.sql")
+echo "6/6 Datenbank-Export (Cache-Tabellen vorher geleert)"
+# Leeren per SQL statt nur "drush cr": Drush füllt danach sofort wieder den
+# Container-Cache – mit lokalen Pfaden (/var/www/html/web). Leere Caches baut
+# Drupal auf dem Server beim ersten Aufruf mit den richtigen Pfaden neu auf.
+(
+  cd "$PROJEKT"
+  TABELLEN="$(ddev mysql -N -e "SHOW TABLES LIKE 'cache%'" | tr -d '\r')"
+  ddev mysql -e "$(for t in $TABELLEN; do printf 'TRUNCATE TABLE `%s`; ' "$t"; done)"
+  ddev export-db --gzip=false --file="$ZIEL/ldt.sql"
+)
 chmod 644 "$ZIEL/ldt.sql"
 
 # Kontrolle: nichts Lokales oder Geheimes im Upload.

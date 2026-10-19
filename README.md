@@ -427,102 +427,41 @@ ddev snapshot restore --latest
 
 `backups/` und `*.sql*` sind in `.gitignore` – Datenbank-Dumps kommen nie ins Repository.
 
-## Später: Deployment zu Strato
+## Deployment zu Strato
 
-Checkliste für den ersten Upload auf den Strato-Webspace:
+Aufteilung auf dem Webspace (Domain `designpink.de` zeigt per „Intern“ auf `/designpink`):
 
-1. **`web` als öffentliches Verzeichnis.**
-   Nur der Inhalt von `web/` darf über die URL erreichbar sein; `vendor/`, `config/`,
-   `composer.json` usw. gehören außerhalb des öffentlich erreichbaren Bereichs.
-   Empfohlene Struktur auf dem Webspace:
-   ```
-   /drupal-projekt/            ← komplettes Projekt (vendor, config, web, …)
-   /<Domain-Ordner>/drupal  →  Verweis (Symlink) auf /drupal-projekt/web
-   ```
-   Der Symlink lässt sich per SSH anlegen (`ln -s`). Prüfen, ob das Strato-Paket SSH
-   enthält. Ohne SSH: mit dem Strato-Support klären, wie `web/` als Ordner
-   `/drupal` eingebunden werden kann.
-
-2. **Unterordner `/drupal`.**
-   In `web/.htaccess` die Zeile `# RewriteBase /drupal` aktivieren (das `#` entfernen),
-   falls saubere URLs (`/drupal/user/login`) nicht funktionieren.
-   Achtung: `composer update` des Drupal-Kerns kann `web/.htaccess` überschreiben –
-   danach mit `git diff web/.htaccess` prüfen und die Änderung wiederherstellen.
-   Drupal erkennt den Unterordner ansonsten selbst; im Code nie absolute Pfade wie
-   `/sites/...` fest eintragen, sondern Drupals URL-Funktionen verwenden.
-
-3. **PHP-Abhängigkeiten.**
-   Auf Strato `composer install --no-dev` ausführen (per SSH) oder lokal ausführen
-   und den Ordner `vendor/` mit hochladen. PHP-Version im Strato-Kundenbereich auf 8.3 stellen.
-
-4. **Datenbank-Import.**
-   Im Strato-Kundenbereich eine MySQL/MariaDB-Datenbank anlegen.
-   Lokal exportieren (`ddev export-db --file=backups/live.sql.gz`) und über
-   phpMyAdmin bei Strato (oder per SSH mit `mysql`) importieren.
-   Dateien aus `web/sites/default/files/` (Ordner `dokumente/`, `videos/`, `untertitel/` und weitere Uploads) separat per SFTP hochladen.
-   **Wichtig:** dazu gehört der Ordner `web/sites/default/files/dokumente/` mit den
-   Beispiel-PDFs, Grafiken und Vorlagen – er ist nicht im Git-Repository. Die Einträge
-   dazu stehen in der Datenbank; ohne die Dateien führen die Downloads ins Leere.
-   **Dateirechte:** alle Dateien in `files/` auf `644` setzen (Ordner `755`), damit der
-   Webserver sie lesen kann. Aus macOS kopierte Dateien haben teils `600` (nur für den
-   Eigentümer lesbar) – dann liefert der Server einen Fehler statt der Datei. Prüfen und
-   setzen per SSH: `find files -type f ! -perm 644` bzw.
-   `find files -type f -exec chmod 644 {} +` und `find files -type d -exec chmod 755 {} +`;
-   ohne SSH im SFTP-Programm (Dateiattribute/Rechte). Lokal vorher prüfen:
-   `find web/sites/default/files/{dokumente,videos,untertitel,bilder} -type f ! -perm 644`.
-   Hochladen auch: `bilder/` (Fotos). Nicht hochladen: `css/`, `js/`, `php/`, `styles/` – die
-   erzeugt Drupal auf dem Server neu.
-
-5. **settings.php / settings.local.php.**
-   `settings.php` ist im Repository und enthält keine Zugangsdaten. Sie bindet automatisch
-   `settings.local.php` ein, falls vorhanden. Auf dem Server:
-   `web/sites/default/example.settings.local.php` nach `settings.local.php` kopieren
-   und Datenbank-Zugangsdaten sowie einen neuen `hash_salt` eintragen.
-   Strato-Zugangsdaten niemals ins Git-Repository!
-   Danach `settings.php` und `settings.local.php` schreibschützen (Rechte 444).
-
-6. **trusted_host_patterns.**
-   Schon in der Vorlage enthalten: nur `designpink.de` und `www.designpink.de` erlauben.
-   Fehlt die Einstellung, zeigt der Statusbericht eine Warnung; ist sie falsch,
-   erscheint „The provided host name is not valid for this server“.
-
-7. **Nach dem Upload.**
-   `drush cr` (per SSH) bzw. `/drupal/update.php` aufrufen, dann den Statusbericht unter
-   *Berichte → Statusbericht* prüfen (Dateirechte für `sites/default/files`, Cron usw.).
-
-8. **Musterseiten-Schutz prüfen (vor dem Hochladen!).**
-   In `example.settings.local.php` steht der Block „MUSTERSEITEN-SCHUTZ (live)“. Er wird mit
-   in die `settings.local.php` auf dem Server übernommen und schaltet live ein:
-   - `noindex, nofollow` auf allen Seiten (Metatag),
-   - Demo-Modus für „Barriere melden“: nichts speichern, nichts versenden, nur Bestätigung;
-     über dem Formular erscheint automatisch ein Demo-Hinweis.
-
-   Nach dem Upload prüfen:
-   - Seitenquelltext enthält `<meta name="robots" content="noindex, nofollow" />`
-   - `/drupal/barriere-melden` zeigt den gelben Demo-Hinweis über dem Formular
-   - per SSH: `drush cget metatag.metatag_defaults.global tags --include-overridden`
-
-## Passwortschutz (optional)
-
-Solange die Seite nicht öffentlich sein soll, kann sie per HTTP-Basic-Auth geschützt
-werden. Vorlage (auskommentiert) – an den **Anfang** von `web/.htaccess` auf dem Server:
-
-```apache
-# --- Passwortschutz Musterseite ---------------------------------------------
-# AuthType Basic
-# AuthName "Musterseite - Zugang nur mit Passwort"
-# AuthUserFile /ABSOLUTER/PFAD/AUF/DEM/SERVER/drupal-projekt/.htpasswd
-# Require valid-user
-# ----------------------------------------------------------------------------
+```
+/designpink/index.html     Platzhalterseite für designpink.de
+/designpink/drupal/        Inhalt von web/  → https://designpink.de/drupal
+/drupal-projekt/           vendor/, config/sync/, composer.json/.lock, private/, .htpasswd
+                           (außerhalb der Domain, nicht über das Web erreichbar)
 ```
 
-- `AuthUserFile` braucht den **absoluten Serverpfad**. Er lässt sich bei Strato im
-  Kundenbereich bzw. per SSH mit `pwd` im Projektordner ermitteln. Diesen Pfad nur auf dem
-  Server eintragen, nicht ins Repository.
-- `.htpasswd` **außerhalb von `web/`** ablegen (z. B. im Projektordner), nie ins Repository.
-- Datei erzeugen (fragt das Passwort ab, es landet nicht im Shell-Verlauf):
-  `htpasswd -c -B /PFAD/.htpasswd BENUTZERNAME`
-  (ohne SSH: lokal mit `htpasswd -n -B BENUTZERNAME` erzeugen und die Ausgabezeile per SFTP
-  in die Datei `.htpasswd` schreiben).
-- Nur über HTTPS nutzen – Basic-Auth überträgt das Passwort sonst lesbar.
-- Achtung: `composer update` kann `web/.htaccess` überschreiben (siehe Punkt 2).
+**Upload-Ordner bauen** (aus dem letzten Commit, DDEV muss laufen):
+
+```bash
+scripts/strato-build.sh            # → ~/Documents/Claude/strato-upload/
+```
+
+Das Skript
+- kopiert `web/` nach `designpink/drupal/` und `config/sync/` usw. nach `drupal-projekt/`
+  (nur versionierte Dateien: keine `settings.local.php`, Tests, `.git`, `.ddev`),
+- führt `composer install --no-dev --optimize-autoloader` mit PHP 8.3 in einem eigenen
+  Container aus – mit Web-Root `../designpink/drupal/`, damit `autoload.php` und
+  `vendor/composer/` auf die getrennten Ordner zeigen (kein Symlink nötig),
+- ergänzt `designpink/drupal/.htaccess`: `RewriteBase /drupal`, Passwortschutz mit
+  Platzhalter für `AuthUserFile`, `X-Robots-Tag: noindex, nofollow`
+  (`assets/htaccess-strato.txt`),
+- kopiert `sites/default/files/` ohne die erzeugten Ordner `css`, `js`, `php`, `styles`,
+- setzt die Rechte (Ordner 755, Dateien 644),
+- leert die Cache-Tabellen und exportiert die Datenbank nach `ldt.sql`,
+- legt die Schritt-für-Schritt-Anleitung `STRATO-UPLOAD.md` dazu (Quelle:
+  `assets/STRATO-UPLOAD.md`): SFTP-Ziele, phpMyAdmin-Import, `settings.local.php`,
+  `.htpasswd`, Dateirechte, Cache, Prüfliste.
+
+`settings.local.php` entsteht erst auf dem Server aus der Vorlage
+`web/sites/default/example.settings.local.php`; sie enthält schon
+`config_sync_directory` und `file_private_path` (`../../drupal-projekt/…`),
+`trusted_host_patterns` und den Block **MUSTERSEITEN-SCHUTZ** (noindex, Demo-Modus
+des Formulars „Barriere melden“). Zugangsdaten nie ins Repository.
